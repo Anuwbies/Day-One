@@ -11,7 +11,6 @@ public class HotbarUI : MonoBehaviour
     {
         playerInventory.OnInventoryChanged += Refresh;
 
-        // Assign hotbarUI and slotIndex to each slot
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].hotbarUI = this;
@@ -78,10 +77,9 @@ public class HotbarUI : MonoBehaviour
         {
             var image = slots[i].GetComponent<UnityEngine.UI.Image>();
 
-            if (i == selectedIndex)
-                image.color = new Color(1, 1, 1, 1);     // Selected
-            else
-                image.color = new Color(1, 1, 1, 0.5f);  // Not selected
+            image.color = (i == selectedIndex)
+                ? new Color(1, 1, 1, 1)
+                : new Color(1, 1, 1, 0.5f);
         }
     }
 

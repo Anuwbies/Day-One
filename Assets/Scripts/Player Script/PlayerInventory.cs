@@ -37,55 +37,49 @@ public class PlayerInventory : MonoBehaviour
         return items.Count >= maxSlots;
     }
 
+    private void Awake()
+    {
+        // Ensure inventory has maxSlots entries (null = empty slot)
+        while (items.Count < maxSlots)
+            items.Add(null);
+    }
+
     public bool AddItem(ItemData data, int amount)
     {
-        // First check if adding a new stack is allowed
-        if (IsFullForNewItem(data))
-        {
-            Debug.Log("Inventory full — cannot pick up new item type.");
-            return false;
-        }
-
+        // stackable? Try adding to existing stacks first
         if (data.stackable)
         {
-            // Try adding to an existing stack
-            foreach (var slot in items)
+            for (int i = 0; i < items.Count; i++)
             {
-                if (slot.item == data)
+                if (items[i] != null && items[i].item == data && items[i].amount < data.maxStack)
                 {
-                    int spaceLeft = data.maxStack - slot.amount;
+                    int spaceLeft = data.maxStack - items[i].amount;
+                    int amountToAdd = Mathf.Min(spaceLeft, amount);
 
-                    if (spaceLeft >= amount)
+                    items[i].amount += amountToAdd;
+                    amount -= amountToAdd;
+
+                    if (amount <= 0)
                     {
-                        slot.amount += amount;
                         OnInventoryChanged?.Invoke();
                         return true;
-                    }
-                    else
-                    {
-                        slot.amount = data.maxStack;
-                        amount -= spaceLeft;
                     }
                 }
             }
         }
 
-        // Add new stacks if needed (and if there's free slot space)
-        while (amount > 0)
+        // Fill empty slots
+        for (int i = 0; i < items.Count && amount > 0; i++)
         {
-            if (items.Count >= maxSlots)
+            if (items[i] == null)
             {
-                Debug.Log("Inventory full — cannot add more stacks.");
-                OnInventoryChanged?.Invoke();
-                return false;
+                int addAmount = Mathf.Min(amount, data.maxStack);
+                items[i] = new InventorySlot(data, addAmount);
+                amount -= addAmount;
             }
-
-            int addAmount = Mathf.Min(amount, data.maxStack);
-            items.Add(new InventorySlot(data, addAmount));
-            amount -= addAmount;
         }
 
         OnInventoryChanged?.Invoke();
-        return true;
+        return amount <= 0;
     }
 }
