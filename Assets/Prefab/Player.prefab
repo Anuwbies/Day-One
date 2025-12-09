@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5170028944625674284}
   - component: {fileID: 746832510419213260}
   - component: {fileID: 2326806003556418134}
+  - component: {fileID: 3424390607189394427}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -280,3 +281,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ab816cccb9fb54291977e00601842a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3424390607189394427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011020497828979164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9753fc6a1c7a96428817db20565ccf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  Hunger: 100
+  Thirst: 100
+  Energy: 100
+  hungerDecay: 1
+  thirstDecay: 1.5
+  energyDecay: 0.5

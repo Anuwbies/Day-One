@@ -18,6 +18,9 @@ public class PlayerInventory : MonoBehaviour
 {
     public List<InventorySlot> items = new List<InventorySlot>();
 
+    // Event fired when inventory updates (HotbarUI listens to this)
+    public System.Action OnInventoryChanged;
+
     public void AddItem(ItemData data, int amount)
     {
         if (data.stackable)
@@ -31,13 +34,16 @@ public class PlayerInventory : MonoBehaviour
 
                     if (spaceLeft >= amount)
                     {
-                        // All items fit
+                        // All items fit into this stack
                         slot.amount += amount;
+
+                        // Notify UI
+                        OnInventoryChanged?.Invoke();
                         return;
                     }
                     else
                     {
-                        // Stack fills to max, leftover continues
+                        // Fill this stack, continue with leftovers
                         slot.amount = data.maxStack;
                         amount -= spaceLeft;
                     }
@@ -52,5 +58,8 @@ public class PlayerInventory : MonoBehaviour
             items.Add(new InventorySlot(data, addAmount));
             amount -= addAmount;
         }
+
+        // Notify UI after adding new stacks
+        OnInventoryChanged?.Invoke();
     }
 }

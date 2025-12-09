@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2941811780405055632}
   - component: {fileID: 3132078708204609632}
   - component: {fileID: 4415587987134702645}
+  - component: {fileID: 4293489049899249076}
+  - component: {fileID: -1089496253136696980}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Untagged
@@ -177,3 +179,54 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6116829, y: 0.25055528}
   m_EdgeRadius: 0
+--- !u!70 &4293489049899249076
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784919489850511420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 1.3, y: 0.7}
+  m_Direction: 1
+--- !u!114 &-1089496253136696980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784919489850511420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a595761779a6f5542aa0b1ecde877c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 617f2312bc6b3dd4cb53f8000b4bb588, type: 2}
+  amount: 1
