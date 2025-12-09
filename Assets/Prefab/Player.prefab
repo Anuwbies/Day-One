@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: -0.33
+  sortYOffset: -0.45
   offset: 0
 --- !u!70 &5170028944625674284
 CapsuleCollider2D:
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3421a3ea046c0e24eb5c15e400a869e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSlots: 36
   items: []
 --- !u!114 &2326806003556418134
 MonoBehaviour:

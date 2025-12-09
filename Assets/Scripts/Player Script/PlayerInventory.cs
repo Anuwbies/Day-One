@@ -16,16 +16,39 @@ public class InventorySlot
 
 public class PlayerInventory : MonoBehaviour
 {
+    public int maxSlots = 20; // Maximum DIFFERENT item stacks allowed
     public List<InventorySlot> items = new List<InventorySlot>();
 
-    // Event fired when inventory updates (HotbarUI listens to this)
     public System.Action OnInventoryChanged;
 
-    public void AddItem(ItemData data, int amount)
+    public bool IsFullForNewItem(ItemData data)
     {
+        // If the item is stackable and already exists, it's NOT blocked
         if (data.stackable)
         {
-            // Try to add to an existing stack
+            foreach (var slot in items)
+            {
+                if (slot.item == data && slot.amount < data.maxStack)
+                    return false; // Can fit in an existing stack
+            }
+        }
+
+        // Otherwise picking this item requires a new slot
+        return items.Count >= maxSlots;
+    }
+
+    public bool AddItem(ItemData data, int amount)
+    {
+        // First check if adding a new stack is allowed
+        if (IsFullForNewItem(data))
+        {
+            Debug.Log("Inventory full — cannot pick up new item type.");
+            return false;
+        }
+
+        if (data.stackable)
+        {
+            // Try adding to an existing stack
             foreach (var slot in items)
             {
                 if (slot.item == data)
@@ -34,16 +57,12 @@ public class PlayerInventory : MonoBehaviour
 
                     if (spaceLeft >= amount)
                     {
-                        // All items fit into this stack
                         slot.amount += amount;
-
-                        // Notify UI
                         OnInventoryChanged?.Invoke();
-                        return;
+                        return true;
                     }
                     else
                     {
-                        // Fill this stack, continue with leftovers
                         slot.amount = data.maxStack;
                         amount -= spaceLeft;
                     }
@@ -51,15 +70,22 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
-        // If still have leftover items or no stack exists
+        // Add new stacks if needed (and if there's free slot space)
         while (amount > 0)
         {
+            if (items.Count >= maxSlots)
+            {
+                Debug.Log("Inventory full — cannot add more stacks.");
+                OnInventoryChanged?.Invoke();
+                return false;
+            }
+
             int addAmount = Mathf.Min(amount, data.maxStack);
             items.Add(new InventorySlot(data, addAmount));
             amount -= addAmount;
         }
 
-        // Notify UI after adding new stacks
         OnInventoryChanged?.Invoke();
+        return true;
     }
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7360742406790881534}
   - component: {fileID: 3974199435939908381}
   - component: {fileID: 9174964670795981189}
+  - component: {fileID: 5012775109565650860}
+  - component: {fileID: 8777117247265660890}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Untagged
@@ -128,5 +130,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: 0.12
+  sortYOffset: -0.13
   offset: 0
+--- !u!114 &5012775109565650860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870480849767334857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a595761779a6f5542aa0b1ecde877c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 6d014bff305050d45ac569e4c8992f62, type: 2}
+  amount: 1
+--- !u!70 &8777117247265660890
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870480849767334857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.05}
+  m_Size: {x: 1, y: 0.5}
+  m_Direction: 1

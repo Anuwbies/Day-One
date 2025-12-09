@@ -20,7 +20,13 @@ public class PlayerPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            inventory.AddItem(targetItem.data, targetItem.amount);
+            bool pickedUp = inventory.AddItem(targetItem.data, targetItem.amount);
+
+            if (!pickedUp)
+            {
+                Debug.Log("Cannot pick up item — inventory is full.");
+                return;
+            }
 
             itemsInRange.Remove(targetItem);
             Destroy(targetItem.gameObject);

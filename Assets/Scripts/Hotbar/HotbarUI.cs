@@ -10,6 +10,14 @@ public class HotbarUI : MonoBehaviour
     private void Start()
     {
         playerInventory.OnInventoryChanged += Refresh;
+
+        // Assign hotbarUI and slotIndex to each slot
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].hotbarUI = this;
+            slots[i].slotIndex = i;
+        }
+
         Refresh();
         HighlightSelectedSlot();
     }
@@ -36,10 +44,7 @@ public class HotbarUI : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             if (Input.GetKeyDown((i + 1).ToString()))
-            {
-                selectedIndex = i;
-                HighlightSelectedSlot();
-            }
+                SelectSlot(i);
         }
     }
 
@@ -49,20 +54,22 @@ public class HotbarUI : MonoBehaviour
 
         if (scroll > 0f)
         {
-            // Scroll up → go to previous slot
             selectedIndex--;
             if (selectedIndex < 0) selectedIndex = 7;
-
             HighlightSelectedSlot();
         }
         else if (scroll < 0f)
         {
-            // Scroll down → go to next slot
             selectedIndex++;
             if (selectedIndex > 7) selectedIndex = 0;
-
             HighlightSelectedSlot();
         }
+    }
+
+    public void SelectSlot(int index)
+    {
+        selectedIndex = index;
+        HighlightSelectedSlot();
     }
 
     private void HighlightSelectedSlot()
@@ -72,9 +79,9 @@ public class HotbarUI : MonoBehaviour
             var image = slots[i].GetComponent<UnityEngine.UI.Image>();
 
             if (i == selectedIndex)
-                image.color = new Color(1, 1, 1, 1);
+                image.color = new Color(1, 1, 1, 1);     // Selected
             else
-                image.color = new Color(1, 1, 1, 0.5f);
+                image.color = new Color(1, 1, 1, 0.5f);  // Not selected
         }
     }
 
