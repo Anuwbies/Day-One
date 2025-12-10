@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4616383661534720345}
   - component: {fileID: 5200767421324259334}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 5
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4650449006353790748}
   - component: {fileID: 3400258576314449441}
   - component: {fileID: 7242898444503108505}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Thirst UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3400258576314449441
 CanvasRenderer:
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2898380801122779660}
   - component: {fileID: 7894966207365081124}
   - component: {fileID: 5693516315281062178}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7894966207365081124
 CanvasRenderer:
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4784991431492255089}
   - component: {fileID: 6435371652263600251}
   - component: {fileID: 968519232364474998}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Hunger Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 30}
+  m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6435371652263600251
 CanvasRenderer:
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522842517827021243}
   - component: {fileID: 714399195377095535}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Hunger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 5
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 7958212172791096779}
   - component: {fileID: 3979444636187588003}
   - component: {fileID: 6927580536916778361}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 30}
+  m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3979444636187588003
 CanvasRenderer:
@@ -562,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9038433883320886883}
   - component: {fileID: 5136668057526629869}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 5
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -626,7 +626,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1057814958289827443}
   - component: {fileID: 3740110066986869286}
-  m_Layer: 5
+  - component: {fileID: 4419795238936870123}
+  - component: {fileID: 6404517701926375118}
+  m_Layer: 6
   m_Name: Spacing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,10 +653,10 @@ RectTransform:
   - {fileID: 4616383661534720345}
   m_Father: {fileID: 8055276841790305157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -70}
-  m_SizeDelta: {x: 280, y: 85}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 160, y: 70}
+  m_SizeDelta: {x: 280, y: 95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3740110066986869286
 MonoBehaviour:
@@ -682,6 +684,44 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!222 &4419795238936870123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322143100676013196}
+  m_CullTransparentMesh: 1
+--- !u!114 &6404517701926375118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322143100676013196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6564049044431467234
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +733,7 @@ GameObject:
   - component: {fileID: 8375304342330590599}
   - component: {fileID: 5195481267428619820}
   - component: {fileID: 4226424182936303176}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Energy Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +757,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 30}
+  m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5195481267428619820
 CanvasRenderer:
@@ -829,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5220081977313041372}
   - component: {fileID: 267357850161869906}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Thirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +915,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 5
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -894,7 +934,7 @@ GameObject:
   - component: {fileID: 7613398931465055698}
   - component: {fileID: 8946539374735981638}
   - component: {fileID: 3522177127535729692}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Thirst Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +958,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 30}
+  m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8946539374735981638
 CanvasRenderer:
@@ -1031,7 +1071,7 @@ GameObject:
   - component: {fileID: 1288398418326153587}
   - component: {fileID: 7146778771277683902}
   - component: {fileID: 4992677765918338770}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Energy UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,7 +1095,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7146778771277683902
 CanvasRenderer:
@@ -1106,7 +1146,7 @@ GameObject:
   - component: {fileID: 4435130860611281265}
   - component: {fileID: 9163668095699429288}
   - component: {fileID: 2948121880517929342}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Hunger UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1170,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9163668095699429288
 CanvasRenderer:
@@ -1183,7 +1223,7 @@ GameObject:
   - component: {fileID: 7845417568506616052}
   - component: {fileID: 5680120784691154177}
   - component: {fileID: 4355472427017418202}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
