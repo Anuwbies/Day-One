@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2110710651703960166}
   - component: {fileID: 2671237668993532550}
   - component: {fileID: 7914747211269681357}
+  - component: {fileID: 8556252939481272085}
   m_Layer: 0
   m_Name: Anim Tree 1
   m_TagString: Untagged
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &1358232889204740880
 Animator:
   serializedVersion: 7
@@ -185,3 +186,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.40428853, y: 0.12245822}
   m_EdgeRadius: 0
+--- !u!114 &8556252939481272085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552830814739667540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7509ee5313a8b154aafc1fdf2a299c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 30

@@ -16,8 +16,15 @@ public class ForestAreaGenerator : MonoBehaviour
     private List<Vector3> forestPositions = new List<Vector3>();
     private List<Vector3> placedTrees = new List<Vector3>();
 
+    private Transform treeParent; // single parent container
+
     void Start()
     {
+        // Create TreeParent under THIS object
+        GameObject parentObj = new GameObject("TreeParent");
+        parentObj.transform.SetParent(this.transform);
+        treeParent = parentObj.transform;
+
         CollectForestTiles();
         GenerateTrees();
     }
@@ -43,7 +50,6 @@ public class ForestAreaGenerator : MonoBehaviour
             int spawned = 0;
             int attempts = 0;
 
-            // Choose ONE spacing radius for this tile
             float spacingRadius = Random.Range(minRandomDist, maxRandomDist);
 
             while (spawned < treesPerTile && attempts < 50)
@@ -58,7 +64,9 @@ public class ForestAreaGenerator : MonoBehaviour
 
                 if (!IsPositionValid(pos, spacingRadius)) continue;
 
-                Instantiate(treePrefab, pos, Quaternion.identity);
+                // Instantiate tree and parent under TreeParent
+                GameObject tree = Instantiate(treePrefab, pos, Quaternion.identity, treeParent);
+
                 placedTrees.Add(pos);
                 spawned++;
             }
@@ -67,7 +75,6 @@ public class ForestAreaGenerator : MonoBehaviour
 
     bool IsPositionValid(Vector3 pos, float dist)
     {
-        // check against ALL OTHER TREES
         foreach (var t in placedTrees)
         {
             if (Vector3.Distance(pos, t) < dist)
