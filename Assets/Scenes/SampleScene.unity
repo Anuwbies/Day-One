@@ -45015,6 +45015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1803909231}
+  - component: {fileID: 1803909232}
   m_Layer: 0
   m_Name: Day Night System
   m_TagString: Untagged
@@ -45037,6 +45038,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803909232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803909229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45af1456a8c0e504d8bbb7707c7cc6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayLengthInMinutes: 1
+  timeOfDay: 0
+  globalLight: {fileID: 972584193}
+  lightColorGradient:
+    serializedVersion: 2
+    key0: {r: 0.023529412, g: 0.07058824, b: 0.38431373, a: 1}
+    key1: {r: 0.20784314, g: 0.24313726, b: 0.5254902, a: 1}
+    key2: {r: 0.93333334, g: 0.62352943, b: 0.31764707, a: 0}
+    key3: {r: 0.98039216, g: 0.8980392, b: 0.81960785, a: 0}
+    key4: {r: 0.95686275, g: 0.67058825, b: 0.36862746, a: 0}
+    key5: {r: 0.011764706, g: 0.06666667, b: 0.41568628, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 16384
+    ctime2: 22937
+    ctime3: 32768
+    ctime4: 45875
+    ctime5: 58982
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  nightIntensity: 0.1
+  sunriseIntensity: 0.2
+  dayIntensity: 1
+  sunsetIntensity: 0.2
+  moonLight: {fileID: 0}
+  moonNightIntensity: 0.25
+  moonDayIntensity: 0
+  timeText: {fileID: 206763010}
+  dayText: {fileID: 918778882}
+  sunIcon: {fileID: 587687369}
+  moonIcon: {fileID: 1019454047}
 --- !u!224 &1884636127 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 180872454159968807, guid: cab2fe55ce0d8f345985a4db19dfe814, type: 3}
