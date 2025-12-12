@@ -2,62 +2,94 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("Attack Settings")]
-    public float attackCooldown = 0.3f;
-    public float attackDuration = 0.1f;
-    public float damage = 10f;
+    public float attackDamage = 10f;
+    public float attackDuration = 0.08f;   // hitbox active time
+    public float attackCooldown = 0.3f;    // delay between attacks
+    public float energyCostPerAttack = 1f; // cost of each attack
 
-    private bool isAttacking = false;
-    private float cooldownTimer = 0f;
+    public SpriteRenderer spriteRenderer;
+    public PolygonCollider2D attackCollider;
+    public PlayerStats playerStats;
 
-    private PolygonCollider2D attackCollider;
+    private bool isAttacking = false;  // holding mouse
+    private bool canAttack = true;     // cooldown flag
 
     private void Start()
     {
-        attackCollider = GetComponent<PolygonCollider2D>();
-
-        if (attackCollider == null)
-        {
-            Debug.LogError("PlayerAttack: No PolygonCollider2D found on this GameObject.");
-        }
-
-        attackCollider.enabled = false; // Disable at start
+        attackCollider.enabled = false;
     }
 
     private void Update()
     {
-        cooldownTimer -= Time.deltaTime;
-
-        if (Input.GetMouseButtonDown(0) && cooldownTimer <= 0f)
+        // If player holds left mouse button
+        if (Input.GetMouseButton(0))
         {
-            PerformAttack();
+            isAttacking = true;
+            TryAttack();
         }
+        else
+        {
+            isAttacking = false;
+        }
+    }
+
+    private void TryAttack()
+    {
+        // Reject attacking if:
+        // - still in cooldown
+        // - no energy
+        if (!canAttack || playerStats.Energy <= 0f)
+            return;
+
+        PerformAttack();
     }
 
     private void PerformAttack()
     {
-        isAttacking = true;
-        cooldownTimer = attackCooldown;
+        canAttack = false;
 
+        // Consume energy
+        playerStats.UseEnergy(energyCostPerAttack);
+
+        bool facingLeft = spriteRenderer.flipX;
+
+        // Flip attack cone based on direction
+        attackCollider.transform.localScale = new Vector3(
+            facingLeft ? -1 : 1,
+            1,
+            1
+        );
+
+        // Enable hitbox briefly
         attackCollider.enabled = true;
-        Invoke(nameof(DisableAttack), attackDuration);
+        Invoke(nameof(DisableHitbox), attackDuration);
+
+        // Begin cooldown
+        Invoke(nameof(ResetAttack), attackCooldown);
     }
 
-    private void DisableAttack()
+    private void DisableHitbox()
     {
         attackCollider.enabled = false;
-        isAttacking = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void ResetAttack()
     {
-        if (!isAttacking)
-            return;
+        canAttack = true;
 
-        EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+        // Auto-attack again if player still holding mouse AND has energy
+        if (isAttacking && playerStats.Energy > 0f)
+            TryAttack();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!attackCollider.enabled) return;
+
+        EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(attackDamage);
         }
     }
 }

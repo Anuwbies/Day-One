@@ -5,7 +5,7 @@ public class InventoryUI : MonoBehaviour
     public PlayerInventory inventory;
     public InventorySlotUI[] slots;          // UI slot components (one per visual cell)
     public GameObject inventoryWindow;
-    public HotbarUI hotbar;                  // assign via Inspector (used to refresh hotbar view)
+    public HotbarUI hotbar;
 
     private bool isOpen = false;
 
@@ -17,7 +17,7 @@ public class InventoryUI : MonoBehaviour
         if (inventory != null)
             inventory.OnInventoryChanged += RefreshUI;
 
-        SetupSlotIndices(); // attach drag components (if not already present)
+        SetupSlotIndices();
         RefreshUI();
     }
 
@@ -26,6 +26,7 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             isOpen = !isOpen;
+
             if (inventoryWindow != null)
                 inventoryWindow.SetActive(isOpen);
 
@@ -36,10 +37,14 @@ public class InventoryUI : MonoBehaviour
 
     private void SetupSlotIndices()
     {
+        if (slots == null) return;
+
         for (int i = 0; i < slots.Length; i++)
         {
+            if (slots[i] == null) continue;
+
             var slotGO = slots[i].gameObject;
-            // Attach InventorySlotDragDrop if not present (prevents duplicate component error)
+
             var existing = slotGO.GetComponent<InventorySlotDragDrop>();
             if (existing == null)
             {
@@ -57,16 +62,42 @@ public class InventoryUI : MonoBehaviour
 
     public void RefreshUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (inventory == null)
         {
-            if (inventory.items[i] != null)
+            Debug.LogWarning("InventoryUI: Inventory reference is missing.");
+            return;
+        }
+
+        if (inventory.items == null)
+        {
+            Debug.LogWarning("InventoryUI: Inventory.items list is null.");
+            return;
+        }
+
+        if (slots == null || slots.Length == 0)
+        {
+            Debug.LogWarning("InventoryUI: No UI slots assigned.");
+            return;
+        }
+
+        int count = Mathf.Min(slots.Length, inventory.items.Count);
+
+        for (int i = 0; i < count; i++)
+        {
+            var slotUI = slots[i];
+
+            if (slotUI == null)
+                continue;
+
+            var invItem = inventory.items[i];
+
+            if (invItem != null && invItem.item != null)
             {
-                var slot = inventory.items[i];
-                slots[i].SetSlot(slot.item.icon, slot.amount);
+                slotUI.SetSlot(invItem.item.icon, invItem.amount);
             }
             else
             {
-                slots[i].ClearSlot();
+                slotUI.ClearSlot();
             }
         }
 
@@ -74,19 +105,16 @@ public class InventoryUI : MonoBehaviour
             hotbar.Refresh();
     }
 
-
-    /// <summary>
-    /// Move item at index 'from' to 'to' (insert) when destination empty, or swap if destination occupied.
-    /// This method correctly accounts for index shifting when removing before inserting.
-    /// </summary>
     public void SwapOrMove(int from, int to)
     {
+        if (inventory == null || inventory.items == null)
+            return;
+
         var items = inventory.items;
 
         if (from < 0 || from >= items.Count) return;
         if (to < 0 || to >= items.Count) return;
 
-        // Move into empty slot
         if (items[to] == null)
         {
             items[to] = items[from];
@@ -94,7 +122,6 @@ public class InventoryUI : MonoBehaviour
         }
         else
         {
-            // Swap
             var temp = items[from];
             items[from] = items[to];
             items[to] = temp;
