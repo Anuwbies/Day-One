@@ -27,8 +27,8 @@ public class PlayerStats : MonoBehaviour
         // Energy regeneration if enough time has passed
         HandleEnergyRegen();
 
-        // Health decay from low Hunger/Thirst/Energy
-        if (Hunger <= 0 || Thirst <= 0 || Energy <= 0)
+        // Health decay from low Hunger/Thirst
+        if (Hunger <= 0 || Thirst <= 0)
         {
             Health = Mathf.Max(0, Health - 5f * Time.deltaTime);
         }

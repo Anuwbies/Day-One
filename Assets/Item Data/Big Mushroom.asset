@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Big Mushroom
   icon: {fileID: 8793915729297761979, guid: db93684fe1a3881478a44a8fe02548db, type: 3}
+  worldPrefab: {fileID: 5864640564752000583, guid: 4c236053f8dec6d47871daa0e9a7fa36, type: 3}
   stackable: 1
+  maxStack: 64

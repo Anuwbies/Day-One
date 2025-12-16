@@ -3,9 +3,16 @@
 public class InventoryUI : MonoBehaviour
 {
     public PlayerInventory inventory;
-    public InventorySlotUI[] slots;          // UI slot components (one per visual cell)
+    public InventorySlotUI[] slots;
     public GameObject inventoryWindow;
     public HotbarUI hotbar;
+
+    [Header("World Drop")]
+    public Transform dropOrigin;          // usually the player
+    public float dropRadius = 0.5f;
+
+    [Header("UI")]
+    public RectTransform inventoryGrid;
 
     private bool isOpen = false;
 
@@ -43,61 +50,36 @@ public class InventoryUI : MonoBehaviour
         {
             if (slots[i] == null) continue;
 
-            var slotGO = slots[i].gameObject;
+            var drag = slots[i].GetComponent<InventorySlotDragDrop>();
+            if (drag == null)
+                drag = slots[i].gameObject.AddComponent<InventorySlotDragDrop>();
 
-            var existing = slotGO.GetComponent<InventorySlotDragDrop>();
-            if (existing == null)
-            {
-                var drag = slotGO.AddComponent<InventorySlotDragDrop>();
-                drag.slotIndex = i;
-                drag.inventoryUI = this;
-            }
-            else
-            {
-                existing.slotIndex = i;
-                existing.inventoryUI = this;
-            }
+            drag.slotIndex = i;
+            drag.inventoryUI = this;
         }
     }
 
     public void RefreshUI()
     {
-        if (inventory == null)
-        {
-            Debug.LogWarning("InventoryUI: Inventory reference is missing.");
+        if (inventory == null || inventory.items == null || slots == null)
             return;
-        }
 
-        if (inventory.items == null)
+        for (int i = 0; i < slots.Length; i++)
         {
-            Debug.LogWarning("InventoryUI: Inventory.items list is null.");
-            return;
-        }
+            if (slots[i] == null) continue;
 
-        if (slots == null || slots.Length == 0)
-        {
-            Debug.LogWarning("InventoryUI: No UI slots assigned.");
-            return;
-        }
-
-        int count = Mathf.Min(slots.Length, inventory.items.Count);
-
-        for (int i = 0; i < count; i++)
-        {
-            var slotUI = slots[i];
-
-            if (slotUI == null)
-                continue;
-
-            var invItem = inventory.items[i];
-
-            if (invItem != null && invItem.item != null)
+            if (i < inventory.items.Count &&
+                inventory.items[i] != null &&
+                inventory.items[i].item != null)
             {
-                slotUI.SetSlot(invItem.item.icon, invItem.amount);
+                slots[i].SetSlot(
+                    inventory.items[i].item.icon,
+                    inventory.items[i].amount
+                );
             }
             else
             {
-                slotUI.ClearSlot();
+                slots[i].ClearSlot();
             }
         }
 
@@ -110,23 +92,53 @@ public class InventoryUI : MonoBehaviour
         if (inventory == null || inventory.items == null)
             return;
 
-        var items = inventory.items;
+        if (from < 0 || from >= inventory.items.Count) return;
+        if (to < 0 || to >= inventory.items.Count) return;
 
-        if (from < 0 || from >= items.Count) return;
-        if (to < 0 || to >= items.Count) return;
+        var temp = inventory.items[from];
+        inventory.items[from] = inventory.items[to];
+        inventory.items[to] = temp;
 
-        if (items[to] == null)
+        inventory.OnInventoryChanged?.Invoke();
+    }
+
+    public void DropItemFromSlot(int slotIndex)
+    {
+        if (inventory == null ||
+            inventory.items == null ||
+            slotIndex < 0 ||
+            slotIndex >= inventory.items.Count)
+            return;
+
+        var invSlot = inventory.items[slotIndex];
+        if (invSlot == null || invSlot.item == null)
+            return;
+
+        ItemData data = invSlot.item;
+
+        if (data.worldPrefab == null)
         {
-            items[to] = items[from];
-            items[from] = null;
-        }
-        else
-        {
-            var temp = items[from];
-            items[from] = items[to];
-            items[to] = temp;
+            Debug.LogError($"Item '{data.itemName}' has no worldPrefab assigned.");
+            return;
         }
 
+        Vector3 origin = dropOrigin != null ? dropOrigin.position : Vector3.zero;
+        Vector2 offset = Random.insideUnitCircle * dropRadius;
+
+        GameObject go = Instantiate(
+            data.worldPrefab,
+            origin + new Vector3(offset.x, offset.y, 0f),
+            Quaternion.identity
+        );
+
+        Item worldItem = go.GetComponent<Item>();
+        if (worldItem != null)
+        {
+            worldItem.data = data;
+            worldItem.amount = invSlot.amount;
+        }
+
+        inventory.items[slotIndex] = null;
         inventory.OnInventoryChanged?.Invoke();
     }
 }

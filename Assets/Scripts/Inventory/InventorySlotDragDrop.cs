@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// Handles begin-drag / drag / end-drag / drop for inventory UI slots.
-/// A ghost Image is created during drag, original slot GameObject remains the pointerDrag (so OnDrop uses pointerDrag).
-/// </summary>
 public class InventorySlotDragDrop : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
@@ -14,59 +10,51 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
     private Canvas canvas;
     private CanvasGroup canvasGroup;
-    private RectTransform rectTransform;
-
     private Image draggedIcon;
+    private bool droppedOnSlot;
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
-
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         canvas = GetComponentInParent<Canvas>();
-        if (canvas == null)
-            Debug.LogWarning($"Inventory slot '{gameObject.name}' has no parent Canvas. Drag visuals may fail.");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Reject drag if this slot is empty
-        if (inventoryUI == null || slotIndex >= inventoryUI.inventory.items.Count)
-            return;
+        droppedOnSlot = false;
 
-        // Create a ghost icon (separate GameObject so pointerDrag remains the original slot)
-        draggedIcon = new GameObject("DraggedIcon", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image)).GetComponent<Image>();
-        draggedIcon.transform.SetParent(canvas != null ? canvas.transform : transform.root, false);
-        draggedIcon.raycastTarget = false;
+        if (inventoryUI == null ||
+            inventoryUI.inventory == null ||
+            slotIndex >= inventoryUI.inventory.items.Count)
+            return;
 
         var slot = inventoryUI.inventory.items[slotIndex];
         if (slot == null || slot.item == null)
-        {
-            Destroy(draggedIcon.gameObject);
-            draggedIcon = null;
             return;
-        }
 
+        draggedIcon = new GameObject(
+            "DraggedIcon",
+            typeof(RectTransform),
+            typeof(CanvasRenderer),
+            typeof(Image)
+        ).GetComponent<Image>();
+
+        draggedIcon.transform.SetParent(canvas.transform, false);
+        draggedIcon.raycastTarget = false;
         draggedIcon.sprite = slot.item.icon;
-        // match native size but cap to reasonable pixels so it fits UI
         draggedIcon.SetNativeSize();
-        var rt = draggedIcon.rectTransform;
-        if (rt.sizeDelta.x > 128f) rt.sizeDelta = new Vector2(128f, 128f);
 
-        // make original slot slightly transparent while dragging
         canvasGroup.alpha = 0.4f;
-
-        // set pointer drag so other handlers can see the original slot
         eventData.pointerDrag = gameObject;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (draggedIcon == null) return;
-        draggedIcon.transform.position = eventData.position;
+        if (draggedIcon != null)
+            draggedIcon.transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -75,20 +63,48 @@ public class InventorySlotDragDrop : MonoBehaviour,
             Destroy(draggedIcon.gameObject);
 
         canvasGroup.alpha = 1f;
+
+        // If dropped on another slot, do nothing
+        if (droppedOnSlot)
+            return;
+
+        // If still inside inventory grid, do NOT drop to world
+        if (IsPointerInsideInventoryGrid(eventData))
+            return;
+
+        // Otherwise, drop item to world
+        inventoryUI.DropItemFromSlot(slotIndex);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        // pointerDrag should be the source slot GameObject that started the drag
         var sourceObj = eventData.pointerDrag;
         if (sourceObj == null) return;
 
         var source = sourceObj.GetComponent<InventorySlotDragDrop>();
         if (source == null) return;
-
-        // If same slot, do nothing
         if (source.slotIndex == slotIndex) return;
 
+        droppedOnSlot = true;
+        source.droppedOnSlot = true;
+
         inventoryUI.SwapOrMove(source.slotIndex, slotIndex);
+    }
+
+    private bool IsPointerInsideInventoryGrid(PointerEventData eventData)
+    {
+        if (inventoryUI.inventoryGrid == null)
+        {
+            Debug.LogWarning("InventoryUI.inventoryGrid is not assigned.");
+            return false;
+        }
+
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            inventoryUI.inventoryGrid,
+            eventData.position,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                ? null
+                : canvas.worldCamera
+        );
     }
 }

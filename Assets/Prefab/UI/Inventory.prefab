@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9764706}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -439,6 +439,9 @@ MonoBehaviour:
   - {fileID: 1867493997830019811}
   inventoryWindow: {fileID: 1075033648866221533}
   hotbar: {fileID: 0}
+  dropOrigin: {fileID: 0}
+  dropRadius: 0.5
+  inventoryGrid: {fileID: 2332940395288617791}
 --- !u!1 &6622159661234644837
 GameObject:
   m_ObjectHideFlags: 0

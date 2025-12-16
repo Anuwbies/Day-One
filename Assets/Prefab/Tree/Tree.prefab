@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9079440067381787789}
-  - component: {fileID: 4213690111624247156}
+  - component: {fileID: 8959320495953274769}
+  - component: {fileID: 6482729329246012483}
   m_Layer: 0
-  m_Name: Hit Collider
-  m_TagString: Untagged
+  m_Name: Hit Box
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +27,40 @@ Transform:
   m_GameObject: {fileID: 2091942214286178415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.114, y: -1.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6247754777368688783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &4213690111624247156
+--- !u!50 &8959320495953274769
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091942214286178415}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!70 &6482729329246012483
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,12 +90,12 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06006955, y: -0.1455724}
-  m_Size: {x: 1.2309104, y: 0.34743908}
+  m_Offset: {x: -0.04943234, y: -1.496843}
+  m_Size: {x: 1.227021, y: 0.2814598}
   m_Direction: 1
 --- !u!1 &3790869253395073509
 GameObject:
@@ -239,8 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trunkSprite: {fileID: 6677804268399824828, guid: 48402e9fbce8088418f7bb959a43013a, type: 3}
-  woodDropPrefab: {fileID: 4445929572974854878, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
+  woodDropPrefab: {fileID: 5864640564752000583, guid: 4c236053f8dec6d47871daa0e9a7fa36, type: 3}
   minDrops: 2
   maxDrops: 4
   spriteRenderer: {fileID: 6792209205305107205}
-  hitCollider: {fileID: 7510453573821037298}
+  hitCollider: {fileID: 0}
+  solidCollider: {fileID: 7510453573821037298}

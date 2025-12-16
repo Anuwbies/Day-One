@@ -183,3 +183,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d8468762a0e39924a80e35642afccb92, type: 2}
   amount: 1
+  countText: {fileID: 0}

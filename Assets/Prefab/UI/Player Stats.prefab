@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4616383661534720345}
   - component: {fileID: 5200767421324259334}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4650449006353790748}
   - component: {fileID: 3400258576314449441}
   - component: {fileID: 7242898444503108505}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Thirst UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2898380801122779660}
   - component: {fileID: 7894966207365081124}
   - component: {fileID: 5693516315281062178}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Health UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4784991431492255089}
   - component: {fileID: 6435371652263600251}
   - component: {fileID: 968519232364474998}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Hunger Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522842517827021243}
   - component: {fileID: 714399195377095535}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Hunger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 7958212172791096779}
   - component: {fileID: 3979444636187588003}
   - component: {fileID: 6927580536916778361}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9038433883320886883}
   - component: {fileID: 5136668057526629869}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 3740110066986869286}
   - component: {fileID: 4419795238936870123}
   - component: {fileID: 6404517701926375118}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Spacing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 8375304342330590599}
   - component: {fileID: 5195481267428619820}
   - component: {fileID: 4226424182936303176}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Energy Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5220081977313041372}
   - component: {fileID: 267357850161869906}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Thirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 7613398931465055698}
   - component: {fileID: 8946539374735981638}
   - component: {fileID: 3522177127535729692}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Thirst Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 1288398418326153587}
   - component: {fileID: 7146778771277683902}
   - component: {fileID: 4992677765918338770}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Energy UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 4435130860611281265}
   - component: {fileID: 9163668095699429288}
   - component: {fileID: 2948121880517929342}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Hunger UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 7845417568506616052}
   - component: {fileID: 5680120784691154177}
   - component: {fileID: 4355472427017418202}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Player Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7845417568506616052
 MonoBehaviour:
