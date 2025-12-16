@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2398120151190855860}
   - component: {fileID: 1610846070675018469}
   - component: {fileID: 7574969909941536040}
-  - component: {fileID: 735035558285384043}
   - component: {fileID: 192211003408270928}
+  - component: {fileID: 735035558285384043}
   - component: {fileID: 6285473770462609660}
   m_Layer: 0
   m_Name: Big Mushroom
@@ -118,20 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &735035558285384043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5864640564752000583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortYOffset: -0.16
-  offset: 0
 --- !u!70 &192211003408270928
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +155,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000014167611, y: -0.11884655}
   m_Size: {x: 1.0000001, y: 0.76231074}
   m_Direction: 1
+--- !u!114 &735035558285384043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864640564752000583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortYOffset: -0.16
+  offset: 0
 --- !u!114 &6285473770462609660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,4 +183,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d8468762a0e39924a80e35642afccb92, type: 2}
   amount: 1
-  countText: {fileID: 0}

@@ -28,8 +28,14 @@ public class DropLoot : MonoBehaviour
     [Tooltip("Size of the inner area where loot will NOT spawn")]
     public Vector2 deadZoneSize = new Vector2(0.3f, 0.3f);
 
-    private bool looted = false;
+    [Header("Destroy Object (Optional)")]
+    [Tooltip("Destroy this GameObject after loot is dropped")]
+    public bool destroyOnLoot = false;
 
+    [Tooltip("Delay before destroying the object (seconds)")]
+    public float destroyDelay = 0f;
+
+    private bool looted = false;
     private const int MAX_POSITION_ATTEMPTS = 15;
 
     private void Awake()
@@ -56,6 +62,9 @@ public class DropLoot : MonoBehaviour
             hitbox.enabled = false;
 
         SpawnLoot();
+
+        if (destroyOnLoot)
+            Destroy(gameObject, destroyDelay);
     }
 
     private void SpawnLoot()
@@ -95,7 +104,6 @@ public class DropLoot : MonoBehaviour
                 return offset;
         }
 
-        // Fallback: return last value even if imperfect
         return offset;
     }
 
@@ -109,14 +117,12 @@ public class DropLoot : MonoBehaviour
     {
         Vector3 center = transform.position + new Vector3(xOffset, yOffset, 0f);
 
-        // Outer drop zone
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(
             center,
             new Vector3(randomSpread.x * 2f, randomSpread.y * 2f, 0.01f)
         );
 
-        // Dead zone
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(
             center,
