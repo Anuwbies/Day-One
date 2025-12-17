@@ -27,6 +27,7 @@ public class HotbarSlot : MonoBehaviour, IPointerClickHandler
         // Display icon
         icon.sprite = slot.item.icon;
         icon.color = Color.white;
+        icon.preserveAspect = true;
 
         // Display amount (hide if only 1)
         if (slot.amount > 1)

@@ -1,20 +1,32 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryUI : MonoBehaviour
 {
+    [Header("Inventory")]
     public PlayerInventory inventory;
     public InventorySlotUI[] slots;
     public GameObject inventoryWindow;
     public HotbarUI hotbar;
 
+    [Header("Context Menu")]
+    public InventoryItemContextMenu contextMenu;
+
     [Header("World Drop")]
-    public Transform dropOrigin;          // usually the player
-    public float dropRadius = 0.5f;
+    public Transform dropOrigin;
+    public Vector2 dropOriginOffset;
+    public Vector2 dropRadiusXY = new Vector2(0.5f, 0.25f);
 
     [Header("UI")]
     public RectTransform inventoryGrid;
 
     private bool isOpen = false;
+    private Canvas canvas;
+
+    private void Awake()
+    {
+        canvas = GetComponentInParent<Canvas>();
+    }
 
     private void Start()
     {
@@ -30,32 +42,85 @@ public class InventoryUI : MonoBehaviour
 
     private void Update()
     {
+        HandleToggleKey();
+        HandleClickOutside();
+    }
+
+    private void HandleToggleKey()
+    {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            isOpen = !isOpen;
-
-            if (inventoryWindow != null)
-                inventoryWindow.SetActive(isOpen);
-
-            if (isOpen)
-                RefreshUI();
+            SetOpen(!isOpen);
         }
+    }
+
+    private void HandleClickOutside()
+    {
+        if (!isOpen)
+            return;
+
+        if (!Input.GetMouseButtonDown(0))
+            return;
+
+        if (inventoryGrid == null)
+            return;
+
+        bool inside = RectTransformUtility.RectangleContainsScreenPoint(
+            inventoryGrid,
+            Input.mousePosition,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay
+                ? null
+                : canvas.worldCamera
+        );
+
+        if (!inside)
+        {
+            SetOpen(false);
+
+            if (contextMenu != null)
+                contextMenu.Hide();
+        }
+    }
+
+    private void SetOpen(bool open)
+    {
+        isOpen = open;
+
+        if (inventoryWindow != null)
+            inventoryWindow.SetActive(isOpen);
+
+        if (!isOpen && contextMenu != null)
+            contextMenu.Hide();
+
+        if (isOpen)
+            RefreshUI();
     }
 
     private void SetupSlotIndices()
     {
-        if (slots == null) return;
+        if (slots == null)
+            return;
 
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i] == null) continue;
+            if (slots[i] == null)
+                continue;
 
+            // Drag & Drop
             var drag = slots[i].GetComponent<InventorySlotDragDrop>();
             if (drag == null)
                 drag = slots[i].gameObject.AddComponent<InventorySlotDragDrop>();
 
             drag.slotIndex = i;
             drag.inventoryUI = this;
+
+            // Right-click
+            var rightClick = slots[i].GetComponent<InventorySlotRightClick>();
+            if (rightClick == null)
+                rightClick = slots[i].gameObject.AddComponent<InventorySlotRightClick>();
+
+            rightClick.slotIndex = i;
+            rightClick.inventoryUI = this;
         }
     }
 
@@ -66,7 +131,8 @@ public class InventoryUI : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i] == null) continue;
+            if (slots[i] == null)
+                continue;
 
             if (i < inventory.items.Count &&
                 inventory.items[i] != null &&
@@ -85,6 +151,26 @@ public class InventoryUI : MonoBehaviour
 
         if (hotbar != null)
             hotbar.Refresh();
+    }
+
+    public void OpenContextMenu(int slotIndex, Vector2 screenPosition)
+    {
+        if (contextMenu == null)
+            return;
+
+        if (inventory == null || inventory.items == null)
+            return;
+
+        if (slotIndex < 0 || slotIndex >= slots.Length)
+            return;
+
+        // Only block if slot is visually empty
+        if (slotIndex >= inventory.items.Count ||
+            inventory.items[slotIndex] == null ||
+            inventory.items[slotIndex].item == null)
+            return;
+
+        contextMenu.Show(this, slotIndex, screenPosition);
     }
 
     public void SwapOrMove(int from, int to)
@@ -122,12 +208,19 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        Vector3 origin = dropOrigin != null ? dropOrigin.position : Vector3.zero;
-        Vector2 offset = Random.insideUnitCircle * dropRadius;
+        Vector3 baseOrigin =
+            (dropOrigin != null ? dropOrigin.position : Vector3.zero) +
+            new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
+
+        Vector2 randomUnit = Random.insideUnitCircle;
+        Vector2 randomOffset = new Vector2(
+            randomUnit.x * dropRadiusXY.x,
+            randomUnit.y * dropRadiusXY.y
+        );
 
         GameObject go = Instantiate(
             data.worldPrefab,
-            origin + new Vector3(offset.x, offset.y, 0f),
+            baseOrigin + new Vector3(randomOffset.x, randomOffset.y, 0f),
             Quaternion.identity
         );
 
@@ -140,5 +233,36 @@ public class InventoryUI : MonoBehaviour
 
         inventory.items[slotIndex] = null;
         inventory.OnInventoryChanged?.Invoke();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (dropOrigin == null)
+            return;
+
+        Vector3 center =
+            dropOrigin.position +
+            new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
+
+        Gizmos.color = Color.yellow;
+
+        const int segments = 32;
+        Vector3 prevPoint = center + new Vector3(dropRadiusXY.x, 0f, 0f);
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = (i / (float)segments) * Mathf.PI * 2f;
+            Vector3 nextPoint = center + new Vector3(
+                Mathf.Cos(angle) * dropRadiusXY.x,
+                Mathf.Sin(angle) * dropRadiusXY.y,
+                0f
+            );
+
+            Gizmos.DrawLine(prevPoint, nextPoint);
+            prevPoint = nextPoint;
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(center, 0.05f);
     }
 }
