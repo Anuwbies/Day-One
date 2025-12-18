@@ -1220,9 +1220,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8055276841790305157}
   - component: {fileID: 5298005073424103063}
-  - component: {fileID: 7845417568506616052}
   - component: {fileID: 5680120784691154177}
   - component: {fileID: 4355472427017418202}
+  - component: {fileID: 527823756370848340}
   m_Layer: 5
   m_Name: Player Stats
   m_TagString: Untagged
@@ -1239,7 +1239,7 @@ RectTransform:
   m_GameObject: {fileID: 9154285438855162221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1057814958289827443}
@@ -1273,29 +1273,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!114 &7845417568506616052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9154285438855162221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
 --- !u!114 &5680120784691154177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,3 +1307,26 @@ MonoBehaviour:
   hungerText: {fileID: 968519232364474998}
   thirstText: {fileID: 3522177127535729692}
   energyText: {fileID: 4226424182936303176}
+--- !u!114 &527823756370848340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9154285438855162221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347970cee5dd9df48b0d0336d48e81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  afterLootSprite: {fileID: 0}
+  changeSpriteOnLoot: 0
+  hitbox: {fileID: 0}
+  lootTable: []
+  xOffset: 0
+  yOffset: 0
+  randomSpread: {x: 0.4, y: 0.4}
+  deadZoneSize: {x: 0.3, y: 0.3}
+  destroyOnLoot: 0
+  destroyDelay: 0

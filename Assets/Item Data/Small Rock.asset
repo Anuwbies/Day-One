@@ -17,3 +17,11 @@ MonoBehaviour:
   worldPrefab: {fileID: 7046376547242490892, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
   stackable: 1
   maxStack: 64
+  canEat: 1
+  canDestroy: 1
+  canDrop: 1
+  canSplit: 1
+  healthRestore: 0
+  hungerRestore: 10
+  thirstRestore: 0
+  energyRestore: 0

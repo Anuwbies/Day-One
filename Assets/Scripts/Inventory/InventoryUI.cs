@@ -155,22 +155,17 @@ public class InventoryUI : MonoBehaviour
 
     public void OpenContextMenu(int slotIndex, Vector2 screenPosition)
     {
-        if (contextMenu == null)
+        if (contextMenu == null || inventory == null)
             return;
 
-        if (inventory == null || inventory.items == null)
+        if (slotIndex < 0 || slotIndex >= inventory.items.Count)
             return;
 
-        if (slotIndex < 0 || slotIndex >= slots.Length)
+        InventorySlot slot = inventory.items[slotIndex];
+        if (slot == null || slot.item == null)
             return;
 
-        // Only block if slot is visually empty
-        if (slotIndex >= inventory.items.Count ||
-            inventory.items[slotIndex] == null ||
-            inventory.items[slotIndex].item == null)
-            return;
-
-        contextMenu.Show(this, slotIndex, screenPosition);
+        contextMenu.Show(this, slot, screenPosition);
     }
 
     public void SwapOrMove(int from, int to)
