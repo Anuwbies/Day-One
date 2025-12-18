@@ -63,7 +63,6 @@ public class InventoryItemContextMenu : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
-        // Close ONLY if clicking outside the panel
         if (!RectTransformUtility.RectangleContainsScreenPoint(
                 panel,
                 Input.mousePosition,
@@ -102,7 +101,7 @@ public class InventoryItemContextMenu : MonoBehaviour
     }
 
     // =========================
-    // STEP 4.1 — EAT ACTION
+    // STEP 4.1 — EAT
     // =========================
     public void Eat()
     {
@@ -114,22 +113,49 @@ public class InventoryItemContextMenu : MonoBehaviour
         if (!data.canEat || playerStats == null)
             return;
 
-        // Apply stat effects
         playerStats.AddHealth(data.healthRestore);
         playerStats.AddHunger(data.hungerRestore);
         playerStats.AddThirst(data.thirstRestore);
         playerStats.AddEnergy(data.energyRestore);
 
-        // Consume 1 item
         currentSlot.amount--;
 
-        // Remove slot if empty
         if (currentSlot.amount <= 0)
         {
             inventoryUI.inventory.items.Remove(currentSlot);
         }
 
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
-        Hide(); // close because button was pressed
+        Hide();
+    }
+
+    // =========================
+    // STEP 4.2 — DROP
+    // =========================
+    public void Drop()
+    {
+        if (currentSlot == null || currentSlot.item == null)
+            return;
+
+        if (!currentSlot.item.canDrop)
+            return;
+
+        inventoryUI.DropSlot(currentSlot);
+        Hide();
+    }
+
+    // =========================
+    // STEP 4.3 — DESTROY
+    // =========================
+    public void Destroy()
+    {
+        if (currentSlot == null || currentSlot.item == null)
+            return;
+
+        if (!currentSlot.item.canDestroy)
+            return;
+
+        inventoryUI.DestroySlot(currentSlot);
+        Hide();
     }
 }

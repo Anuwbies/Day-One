@@ -230,6 +230,30 @@ public class InventoryUI : MonoBehaviour
         inventory.OnInventoryChanged?.Invoke();
     }
 
+    public void DropSlot(InventorySlot slot)
+    {
+        if (inventory == null || inventory.items == null || slot == null)
+            return;
+
+        int index = inventory.items.IndexOf(slot);
+        if (index == -1)
+            return;
+
+        DropItemFromSlot(index);
+    }
+
+    public void DestroySlot(InventorySlot slot)
+    {
+        if (inventory == null || inventory.items == null || slot == null)
+            return;
+
+        if (!inventory.items.Contains(slot))
+            return;
+
+        inventory.items.Remove(slot);
+        inventory.OnInventoryChanged?.Invoke();
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (dropOrigin == null)
