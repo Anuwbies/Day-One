@@ -20,6 +20,9 @@ public class InventoryUI : MonoBehaviour
     [Header("UI")]
     public RectTransform inventoryGrid;
 
+    [Header("Split UI")]
+    public InventorySplitUI splitUI;
+
     private bool isOpen = false;
     private Canvas canvas;
 
@@ -230,6 +233,52 @@ public class InventoryUI : MonoBehaviour
         inventory.OnInventoryChanged?.Invoke();
     }
 
+    public void TryMergeOrSwap(int fromIndex, int toIndex)
+    {
+        if (inventory == null || inventory.items == null)
+            return;
+
+        if (fromIndex < 0 || toIndex < 0 ||
+            fromIndex >= inventory.items.Count ||
+            toIndex >= inventory.items.Count)
+            return;
+
+        InventorySlot fromSlot = inventory.items[fromIndex];
+        InventorySlot toSlot = inventory.items[toIndex];
+
+        if (fromSlot == null || toSlot == null)
+        {
+            SwapOrMove(fromIndex, toIndex);
+            return;
+        }
+
+        // Same item & stackable → try merge
+        if (fromSlot.item == toSlot.item &&
+            fromSlot.item.stackable)
+        {
+            int maxStack = fromSlot.item.maxStack;
+            int spaceLeft = maxStack - toSlot.amount;
+
+            if (spaceLeft > 0)
+            {
+                int transferAmount = Mathf.Min(spaceLeft, fromSlot.amount);
+
+                toSlot.amount += transferAmount;
+                fromSlot.amount -= transferAmount;
+
+                // Remove source slot if empty
+                if (fromSlot.amount <= 0)
+                    inventory.items[fromIndex] = null;
+
+                inventory.OnInventoryChanged?.Invoke();
+                return;
+            }
+        }
+
+        // Otherwise fallback to swap
+        SwapOrMove(fromIndex, toIndex);
+    }
+
     public void DropSlot(InventorySlot slot)
     {
         if (inventory == null || inventory.items == null || slot == null)
@@ -240,6 +289,44 @@ public class InventoryUI : MonoBehaviour
             return;
 
         DropItemFromSlot(index);
+    }
+
+    public bool HasEmptySlot()
+    {
+        if (inventory == null || inventory.items == null)
+            return false;
+
+        return inventory.items.Exists(slot => slot == null);
+    }
+
+    public void SplitSlot(InventorySlot sourceSlot, int splitAmount)
+    {
+        if (inventory == null || inventory.items == null || sourceSlot == null)
+            return;
+
+        if (splitAmount <= 0 || splitAmount >= sourceSlot.amount)
+            return;
+
+        // Find first empty slot
+        int emptyIndex = inventory.items.FindIndex(slot => slot == null);
+
+        // No empty slot → cannot split
+        if (emptyIndex == -1)
+        {
+            Debug.Log("Cannot split: inventory is full.");
+            return;
+        }
+
+        // Reduce original stack
+        sourceSlot.amount -= splitAmount;
+
+        // Create new stack
+        InventorySlot newSlot = new InventorySlot(sourceSlot.item, splitAmount);
+
+        // Place in empty slot
+        inventory.items[emptyIndex] = newSlot;
+
+        inventory.OnInventoryChanged?.Invoke();
     }
 
     public void DestroySlot(InventorySlot slot)

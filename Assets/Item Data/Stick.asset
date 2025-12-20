@@ -19,7 +19,7 @@ MonoBehaviour:
   maxStack: 64
   canEat: 0
   canDestroy: 1
-  canDrop: 0
+  canDrop: 1
   canSplit: 1
   healthRestore: 0
   hungerRestore: 0

@@ -24,6 +24,12 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        // Prevent dragging while Split UI is open
+        if (inventoryUI != null &&
+            inventoryUI.splitUI != null &&
+            inventoryUI.splitUI.gameObject.activeSelf)
+            return;
+
         droppedOnSlot = false;
 
         if (inventoryUI == null ||
@@ -88,7 +94,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
         droppedOnSlot = true;
         source.droppedOnSlot = true;
 
-        inventoryUI.SwapOrMove(source.slotIndex, slotIndex);
+        inventoryUI.TryMergeOrSwap(source.slotIndex, slotIndex);
     }
 
     private bool IsPointerInsideInventoryGrid(PointerEventData eventData)

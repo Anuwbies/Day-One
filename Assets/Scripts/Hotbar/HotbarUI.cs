@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HotbarUI : MonoBehaviour
 {
@@ -6,6 +7,13 @@ public class HotbarUI : MonoBehaviour
     public HotbarSlot[] slots = new HotbarSlot[8];
 
     public int selectedIndex = 0;
+
+    [Header("Selection Visuals")]
+    [Tooltip("Color of the currently selected hotbar slot")]
+    public Color selectedColor = Color.white;
+
+    [Tooltip("Color of non-selected hotbar slots")]
+    public Color unselectedColor = new Color(1f, 1f, 1f, 0.5f);
 
     private void Start()
     {
@@ -40,7 +48,7 @@ public class HotbarUI : MonoBehaviour
 
     private void CheckHotbarKeyPress()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             if (Input.GetKeyDown((i + 1).ToString()))
                 SelectSlot(i);
@@ -53,21 +61,19 @@ public class HotbarUI : MonoBehaviour
 
         if (scroll > 0f)
         {
-            selectedIndex--;
-            if (selectedIndex < 0) selectedIndex = 7;
+            selectedIndex = (selectedIndex - 1 + slots.Length) % slots.Length;
             HighlightSelectedSlot();
         }
         else if (scroll < 0f)
         {
-            selectedIndex++;
-            if (selectedIndex > 7) selectedIndex = 0;
+            selectedIndex = (selectedIndex + 1) % slots.Length;
             HighlightSelectedSlot();
         }
     }
 
     public void SelectSlot(int index)
     {
-        selectedIndex = index;
+        selectedIndex = Mathf.Clamp(index, 0, slots.Length - 1);
         HighlightSelectedSlot();
     }
 
@@ -75,11 +81,13 @@ public class HotbarUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            var image = slots[i].GetComponent<UnityEngine.UI.Image>();
+            Image image = slots[i].GetComponent<Image>();
+            if (image == null)
+                continue;
 
             image.color = (i == selectedIndex)
-                ? new Color(1, 1, 1, 1)
-                : new Color(1, 1, 1, 0.5f);
+                ? selectedColor
+                : unselectedColor;
         }
     }
 

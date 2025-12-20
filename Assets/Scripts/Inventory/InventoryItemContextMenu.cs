@@ -85,7 +85,9 @@ public class InventoryItemContextMenu : MonoBehaviour
         bool canSplit =
             data.stackable &&
             data.canSplit &&
-            slot.amount > 1;
+            slot.amount > 1 &&
+            inventoryUI != null &&
+            inventoryUI.HasEmptySlot();
 
         SetButtonState(splitButton, canSplit);
     }
@@ -121,9 +123,7 @@ public class InventoryItemContextMenu : MonoBehaviour
         currentSlot.amount--;
 
         if (currentSlot.amount <= 0)
-        {
             inventoryUI.inventory.items.Remove(currentSlot);
-        }
 
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
         Hide();
@@ -156,6 +156,29 @@ public class InventoryItemContextMenu : MonoBehaviour
             return;
 
         inventoryUI.DestroySlot(currentSlot);
+        Hide();
+    }
+
+    // =========================
+    // STEP 4.4.1 — SPLIT (OPEN UI)
+    // =========================
+    public void Split()
+    {
+        if (currentSlot == null || currentSlot.item == null)
+            return;
+
+        if (!currentSlot.item.stackable || !currentSlot.item.canSplit || currentSlot.amount <= 1)
+            return;
+
+        if (inventoryUI == null || inventoryUI.splitUI == null)
+            return;
+
+        inventoryUI.splitUI.Show(
+            inventoryUI,
+            currentSlot,
+            Input.mousePosition
+        );
+
         Hide();
     }
 }
