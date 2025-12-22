@@ -15,6 +15,9 @@ public class HotbarUI : MonoBehaviour
     [Tooltip("Color of non-selected hotbar slots")]
     public Color unselectedColor = new Color(1f, 1f, 1f, 0.5f);
 
+    [Header("UI")]
+    public RectTransform hotbarRoot;
+
     private void Start()
     {
         playerInventory.OnInventoryChanged += Refresh;

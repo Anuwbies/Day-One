@@ -15,7 +15,5 @@ public class InventorySlotRightClick : MonoBehaviour, IPointerClickHandler
             return;
 
         inventoryUI.OpenContextMenu(slotIndex, eventData.position);
-
-        Debug.Log($"Right click slot {slotIndex}");
     }
 }

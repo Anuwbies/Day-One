@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -9,26 +9,49 @@ public class InventorySlotDragDrop : MonoBehaviour,
     public InventoryUI inventoryUI;
 
     private Canvas canvas;
-    private CanvasGroup canvasGroup;
-    private Image draggedIcon;
+    private CanvasGroup slotCanvasGroup;
+
+    // Drag ghost
+    private RectTransform ghostRect;
+    private Image ghostImage;
+
     private bool droppedOnSlot;
+    private bool dragBlocked;
 
     private void Awake()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        slotCanvasGroup = GetComponent<CanvasGroup>();
+        if (slotCanvasGroup == null)
+            slotCanvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         canvas = GetComponentInParent<Canvas>();
     }
 
+    // =========================
+    // BEGIN DRAG
+    // =========================
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Prevent dragging while Split UI is open
-        if (inventoryUI != null &&
-            inventoryUI.splitUI != null &&
-            inventoryUI.splitUI.gameObject.activeSelf)
+        dragBlocked = false;
+
+        // =========================
+        // HARD BLOCK DRAG CONDITIONS
+        // =========================
+        if (inventoryUI != null)
+        {
+            if (inventoryUI.splitUI != null && inventoryUI.splitUI.IsOpen)
+                dragBlocked = true;
+
+            if (inventoryUI.contextMenu != null && inventoryUI.contextMenu.IsOpen)
+                dragBlocked = true;
+        }
+
+        if (dragBlocked)
+        {
+            // This is CRITICAL — cancels Unity drag internally
+            eventData.pointerDrag = null;
             return;
+        }
 
         droppedOnSlot = false;
 
@@ -37,59 +60,68 @@ public class InventorySlotDragDrop : MonoBehaviour,
             slotIndex >= inventoryUI.inventory.items.Count)
             return;
 
-        var slot = inventoryUI.inventory.items[slotIndex];
+        InventorySlot slot = inventoryUI.inventory.items[slotIndex];
         if (slot == null || slot.item == null)
             return;
 
-        draggedIcon = new GameObject(
-            "DraggedIcon",
-            typeof(RectTransform),
-            typeof(CanvasRenderer),
-            typeof(Image)
-        ).GetComponent<Image>();
+        CreateGhost(slot.item.icon);
 
-        draggedIcon.transform.SetParent(canvas.transform, false);
-        draggedIcon.raycastTarget = false;
-        draggedIcon.sprite = slot.item.icon;
-        draggedIcon.SetNativeSize();
+        slotCanvasGroup.alpha = 0.4f;
+        slotCanvasGroup.blocksRaycasts = false;
 
-        canvasGroup.alpha = 0.4f;
         eventData.pointerDrag = gameObject;
     }
 
+    // =========================
+    // DRAG
+    // =========================
     public void OnDrag(PointerEventData eventData)
     {
-        if (draggedIcon != null)
-            draggedIcon.transform.position = eventData.position;
+        if (dragBlocked)
+            return;
+
+        if (ghostRect != null)
+            ghostRect.position = eventData.position;
     }
 
+    // =========================
+    // END DRAG
+    // =========================
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (draggedIcon != null)
-            Destroy(draggedIcon.gameObject);
+        if (dragBlocked)
+            return;
 
-        canvasGroup.alpha = 1f;
+        DestroyGhost();
 
-        // If dropped on another slot, do nothing
+        slotCanvasGroup.alpha = 1f;
+        slotCanvasGroup.blocksRaycasts = true;
+
         if (droppedOnSlot)
             return;
 
-        // If still inside inventory grid, do NOT drop to world
         if (IsPointerInsideInventoryGrid(eventData))
             return;
 
-        // Otherwise, drop item to world
         inventoryUI.DropItemFromSlot(slotIndex);
     }
 
+    // =========================
+    // DROP ON SLOT
+    // =========================
     public void OnDrop(PointerEventData eventData)
     {
-        var sourceObj = eventData.pointerDrag;
-        if (sourceObj == null) return;
+        if (dragBlocked)
+            return;
 
-        var source = sourceObj.GetComponent<InventorySlotDragDrop>();
-        if (source == null) return;
-        if (source.slotIndex == slotIndex) return;
+        if (eventData.pointerDrag == null)
+            return;
+
+        InventorySlotDragDrop source =
+            eventData.pointerDrag.GetComponent<InventorySlotDragDrop>();
+
+        if (source == null || source == this)
+            return;
 
         droppedOnSlot = true;
         source.droppedOnSlot = true;
@@ -97,13 +129,47 @@ public class InventorySlotDragDrop : MonoBehaviour,
         inventoryUI.TryMergeOrSwap(source.slotIndex, slotIndex);
     }
 
+    // =========================
+    // GHOST CREATION
+    // =========================
+    private void CreateGhost(Sprite icon)
+    {
+        GameObject ghost = new GameObject(
+            "DragGhost",
+            typeof(RectTransform),
+            typeof(CanvasRenderer),
+            typeof(Image)
+        );
+
+        ghost.transform.SetParent(canvas.transform, false);
+
+        ghostRect = ghost.GetComponent<RectTransform>();
+        ghostRect.sizeDelta = new Vector2(48f, 48f);
+
+        ghostImage = ghost.GetComponent<Image>();
+        ghostImage.sprite = icon;
+        ghostImage.raycastTarget = false;
+        ghostImage.color = new Color(1f, 1f, 1f, 0.9f);
+
+        ghost.transform.SetAsLastSibling();
+    }
+
+    private void DestroyGhost()
+    {
+        if (ghostRect != null)
+            Destroy(ghostRect.gameObject);
+
+        ghostRect = null;
+        ghostImage = null;
+    }
+
+    // =========================
+    // HELPERS
+    // =========================
     private bool IsPointerInsideInventoryGrid(PointerEventData eventData)
     {
-        if (inventoryUI.inventoryGrid == null)
-        {
-            Debug.LogWarning("InventoryUI.inventoryGrid is not assigned.");
+        if (inventoryUI == null || inventoryUI.inventoryGrid == null)
             return false;
-        }
 
         return RectTransformUtility.RectangleContainsScreenPoint(
             inventoryUI.inventoryGrid,

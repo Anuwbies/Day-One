@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventoryItemContextMenu : MonoBehaviour
@@ -19,12 +19,17 @@ public class InventoryItemContextMenu : MonoBehaviour
     private InventorySlot currentSlot;
     private InventoryUI inventoryUI;
 
+    public bool IsOpen => panel != null && panel.gameObject.activeSelf;
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
         Hide();
     }
 
+    // =========================
+    // SHOW CONTEXT MENU AT MOUSE
+    // =========================
     public void Show(InventoryUI ui, InventorySlot slot, Vector2 screenPosition)
     {
         inventoryUI = ui;
@@ -37,6 +42,7 @@ public class InventoryItemContextMenu : MonoBehaviour
 
         panel.gameObject.SetActive(true);
 
+        // Convert screen position â†’ canvas local position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
             screenPosition,
@@ -49,12 +55,18 @@ public class InventoryItemContextMenu : MonoBehaviour
         panel.anchoredPosition = localPoint;
     }
 
+    // =========================
+    // HIDE
+    // =========================
     public void Hide()
     {
         currentSlot = null;
         panel.gameObject.SetActive(false);
     }
 
+    // =========================
+    // CLICK OUTSIDE TO CLOSE
+    // =========================
     private void Update()
     {
         if (!panel.gameObject.activeSelf)
@@ -74,6 +86,9 @@ public class InventoryItemContextMenu : MonoBehaviour
         }
     }
 
+    // =========================
+    // BUTTON STATES
+    // =========================
     private void UpdateButtons(InventorySlot slot)
     {
         ItemData data = slot.item;
@@ -103,8 +118,10 @@ public class InventoryItemContextMenu : MonoBehaviour
     }
 
     // =========================
-    // STEP 4.1 — EAT
+    // ACTIONS
     // =========================
+
+    // EAT
     public void Eat()
     {
         if (currentSlot == null || currentSlot.item == null)
@@ -129,9 +146,7 @@ public class InventoryItemContextMenu : MonoBehaviour
         Hide();
     }
 
-    // =========================
-    // STEP 4.2 — DROP
-    // =========================
+    // DROP
     public void Drop()
     {
         if (currentSlot == null || currentSlot.item == null)
@@ -144,9 +159,7 @@ public class InventoryItemContextMenu : MonoBehaviour
         Hide();
     }
 
-    // =========================
-    // STEP 4.3 — DESTROY
-    // =========================
+    // DESTROY
     public void Destroy()
     {
         if (currentSlot == null || currentSlot.item == null)
@@ -159,15 +172,15 @@ public class InventoryItemContextMenu : MonoBehaviour
         Hide();
     }
 
-    // =========================
-    // STEP 4.4.1 — SPLIT (OPEN UI)
-    // =========================
+    // SPLIT (OPEN SPLIT UI AT MOUSE)
     public void Split()
     {
         if (currentSlot == null || currentSlot.item == null)
             return;
 
-        if (!currentSlot.item.stackable || !currentSlot.item.canSplit || currentSlot.amount <= 1)
+        if (!currentSlot.item.stackable ||
+            !currentSlot.item.canSplit ||
+            currentSlot.amount <= 1)
             return;
 
         if (inventoryUI == null || inventoryUI.splitUI == null)

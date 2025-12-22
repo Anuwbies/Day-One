@@ -15,14 +15,19 @@ public class InventorySplitUI : MonoBehaviour
     private InventoryUI inventoryUI;
     private Canvas canvas;
 
+    public bool IsOpen => panel != null && panel.gameObject.activeSelf;
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
-        gameObject.SetActive(false);
+
+        // Start disabled
+        if (panel != null)
+            panel.gameObject.SetActive(false);
     }
 
     // =========================
-    // SHOW SPLIT UI (POSITIONED)
+    // SHOW SPLIT UI
     // =========================
     public void Show(InventoryUI ui, InventorySlot slot, Vector2 screenPosition)
     {
@@ -32,7 +37,7 @@ public class InventorySplitUI : MonoBehaviour
         inventoryUI = ui;
         sourceSlot = slot;
 
-        gameObject.SetActive(true);
+        panel.gameObject.SetActive(true);
 
         itemNameText.text = slot.item.itemName;
 
@@ -45,8 +50,14 @@ public class InventorySplitUI : MonoBehaviour
         PositionPanel(screenPosition);
     }
 
+    // =========================
+    // POSITIONING
+    // =========================
     private void PositionPanel(Vector2 screenPosition)
     {
+        if (panel == null || canvas == null)
+            return;
+
         RectTransform canvasRect = canvas.transform as RectTransform;
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -92,6 +103,9 @@ public class InventorySplitUI : MonoBehaviour
 
     private void UpdateTexts()
     {
+        if (sourceSlot == null)
+            return;
+
         int splitAmount = Mathf.RoundToInt(slider.value);
         int remainingAmount = sourceSlot.amount - splitAmount;
 
@@ -113,9 +127,8 @@ public class InventorySplitUI : MonoBehaviour
         int splitAmount = Mathf.RoundToInt(slider.value);
 
         inventoryUI.SplitSlot(sourceSlot, splitAmount);
-
-        // Optional: only close if split succeeded
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
+
         Hide();
     }
 
@@ -128,18 +141,22 @@ public class InventorySplitUI : MonoBehaviour
     {
         sourceSlot = null;
         inventoryUI = null;
-        gameObject.SetActive(false);
+
+        if (panel != null)
+            panel.gameObject.SetActive(false);
     }
 
+    // =========================
+    // CLICK OUTSIDE TO CLOSE
+    // =========================
     private void Update()
     {
-        if (!gameObject.activeSelf || panel == null)
+        if (panel == null || !panel.gameObject.activeSelf)
             return;
 
         if (!Input.GetMouseButtonDown(0))
             return;
 
-        // Close only if clicking outside the panel
         if (!RectTransformUtility.RectangleContainsScreenPoint(
                 panel,
                 Input.mousePosition,

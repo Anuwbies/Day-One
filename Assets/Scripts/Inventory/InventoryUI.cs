@@ -26,6 +26,9 @@ public class InventoryUI : MonoBehaviour
     private bool isOpen = false;
     private Canvas canvas;
 
+    public bool IsOpen => isOpen;
+    public bool ConsumeClickThisFrame { get; private set; }
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -45,6 +48,8 @@ public class InventoryUI : MonoBehaviour
 
     private void Update()
     {
+        ConsumeClickThisFrame = false;
+
         HandleToggleKey();
         HandleClickOutside();
     }
@@ -65,10 +70,28 @@ public class InventoryUI : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
+        // =========================
+        // SPLIT UI HAS TOP PRIORITY
+        // =========================
+        if (splitUI != null && splitUI.IsOpen)
+        {
+            ConsumeClickThisFrame = true;
+            return;
+        }
+
+        // =========================
+        // CONTEXT MENU HAS PRIORITY
+        // =========================
+        if (contextMenu != null && contextMenu.IsOpen)
+        {
+            ConsumeClickThisFrame = true;
+            return;
+        }
+
         if (inventoryGrid == null)
             return;
 
-        bool inside = RectTransformUtility.RectangleContainsScreenPoint(
+        bool insideInventory = RectTransformUtility.RectangleContainsScreenPoint(
             inventoryGrid,
             Input.mousePosition,
             canvas.renderMode == RenderMode.ScreenSpaceOverlay
@@ -76,12 +99,10 @@ public class InventoryUI : MonoBehaviour
                 : canvas.worldCamera
         );
 
-        if (!inside)
+        if (!insideInventory)
         {
             SetOpen(false);
-
-            if (contextMenu != null)
-                contextMenu.Hide();
+            ConsumeClickThisFrame = true;
         }
     }
 
