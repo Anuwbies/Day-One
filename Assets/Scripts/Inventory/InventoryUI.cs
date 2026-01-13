@@ -23,6 +23,9 @@ public class InventoryUI : MonoBehaviour
     [Header("Split UI")]
     public InventorySplitUI splitUI;
 
+    [Header("Destroy UI")]
+    public InventoryDestroyUI destroyUI;
+
     private bool isOpen = false;
     private Canvas canvas;
 
@@ -80,6 +83,15 @@ public class InventoryUI : MonoBehaviour
         }
 
         // =========================
+        // DESTROY UI HAS TOP PRIORITY
+        // =========================
+        if (destroyUI != null && destroyUI.IsOpen)
+        {
+            ConsumeClickThisFrame = true;
+            return;
+        }
+
+        // =========================
         // CONTEXT MENU HAS PRIORITY
         // =========================
         if (contextMenu != null && contextMenu.IsOpen)
@@ -113,8 +125,17 @@ public class InventoryUI : MonoBehaviour
         if (inventoryWindow != null)
             inventoryWindow.SetActive(isOpen);
 
-        if (!isOpen && contextMenu != null)
-            contextMenu.Hide();
+        if (!isOpen)
+        {
+            if (contextMenu != null)
+                contextMenu.Hide();
+
+            if (splitUI != null && splitUI.IsOpen)
+                splitUI.Cancel();
+
+            if (destroyUI != null && destroyUI.IsOpen)
+                destroyUI.Cancel();
+        }
 
         if (isOpen)
             RefreshUI();
@@ -190,6 +211,17 @@ public class InventoryUI : MonoBehaviour
             return;
 
         contextMenu.Show(this, slot, screenPosition);
+    }
+
+    // =========================
+    // OPEN DESTROY UI
+    // =========================
+    public void OpenDestroyUI(InventorySlot slot, Vector2 screenPosition)
+    {
+        if (destroyUI == null || slot == null || slot.item == null)
+            return;
+
+        destroyUI.Show(this, slot, screenPosition);
     }
 
     public void SwapOrMove(int from, int to)
@@ -273,7 +305,6 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        // Same item & stackable → try merge
         if (fromSlot.item == toSlot.item &&
             fromSlot.item.stackable)
         {
@@ -287,7 +318,6 @@ public class InventoryUI : MonoBehaviour
                 toSlot.amount += transferAmount;
                 fromSlot.amount -= transferAmount;
 
-                // Remove source slot if empty
                 if (fromSlot.amount <= 0)
                     inventory.items[fromIndex] = null;
 
@@ -296,7 +326,6 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        // Otherwise fallback to swap
         SwapOrMove(fromIndex, toIndex);
     }
 
@@ -317,7 +346,7 @@ public class InventoryUI : MonoBehaviour
         if (inventory == null || inventory.items == null)
             return false;
 
-        return inventory.items.Exists(slot => slot == null);
+        return inventory.items.Exists(slot => slot == null || slot.item == null);
     }
 
     public void SplitSlot(InventorySlot sourceSlot, int splitAmount)
@@ -328,37 +357,29 @@ public class InventoryUI : MonoBehaviour
         if (splitAmount <= 0 || splitAmount >= sourceSlot.amount)
             return;
 
-        // Find first empty slot
-        int emptyIndex = inventory.items.FindIndex(slot => slot == null);
-
-        // No empty slot → cannot split
+        int emptyIndex = inventory.items.FindIndex(slot => slot == null || slot.item == null);
         if (emptyIndex == -1)
         {
             Debug.Log("Cannot split: inventory is full.");
             return;
         }
 
-        // Reduce original stack
         sourceSlot.amount -= splitAmount;
-
-        // Create new stack
-        InventorySlot newSlot = new InventorySlot(sourceSlot.item, splitAmount);
-
-        // Place in empty slot
-        inventory.items[emptyIndex] = newSlot;
+        inventory.items[emptyIndex] = new InventorySlot(sourceSlot.item, splitAmount);
 
         inventory.OnInventoryChanged?.Invoke();
     }
 
-    public void DestroySlot(InventorySlot slot)
+    public void DestroyItem(InventorySlot slot)
     {
         if (inventory == null || inventory.items == null || slot == null)
             return;
 
-        if (!inventory.items.Contains(slot))
+        int index = inventory.items.IndexOf(slot);
+        if (index == -1)
             return;
 
-        inventory.items.Remove(slot);
+        inventory.items[index] = null;
         inventory.OnInventoryChanged?.Invoke();
     }
 

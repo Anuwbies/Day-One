@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventorySplitUI : MonoBehaviour
+public class InventoryDestroyUI : MonoBehaviour
 {
     [Header("UI References")]
     public RectTransform panel;
     public TMP_Text itemNameText;
-    public TMP_Text splitAmountText;
+    public TMP_Text destroyAmountText;
     public TMP_Text remainingAmountText;
     public Slider slider;
 
@@ -27,11 +27,11 @@ public class InventorySplitUI : MonoBehaviour
     }
 
     // =========================
-    // SHOW SPLIT UI
+    // SHOW DESTROY UI
     // =========================
     public void Show(InventoryUI ui, InventorySlot slot, Vector2 screenPosition)
     {
-        if (slot == null || slot.item == null || slot.amount <= 1)
+        if (slot == null || slot.item == null || slot.amount <= 0)
             return;
 
         inventoryUI = ui;
@@ -42,7 +42,7 @@ public class InventorySplitUI : MonoBehaviour
         itemNameText.text = slot.item.itemName;
 
         slider.minValue = 1;
-        slider.maxValue = slot.amount - 1;
+        slider.maxValue = slot.amount;
         slider.wholeNumbers = true;
         slider.value = 1;
 
@@ -106,10 +106,10 @@ public class InventorySplitUI : MonoBehaviour
         if (sourceSlot == null)
             return;
 
-        int splitAmount = Mathf.RoundToInt(slider.value);
-        int remainingAmount = sourceSlot.amount - splitAmount;
+        int destroyAmount = Mathf.RoundToInt(slider.value);
+        int remainingAmount = sourceSlot.amount - destroyAmount;
 
-        splitAmountText.text = splitAmount.ToString();
+        destroyAmountText.text = destroyAmount.ToString();
         remainingAmountText.text = remainingAmount.ToString();
     }
 
@@ -124,11 +124,17 @@ public class InventorySplitUI : MonoBehaviour
             return;
         }
 
-        int splitAmount = Mathf.RoundToInt(slider.value);
+        int destroyAmount = Mathf.RoundToInt(slider.value);
 
-        inventoryUI.SplitSlot(sourceSlot, splitAmount);
+        sourceSlot.amount -= destroyAmount;
+
+        if (sourceSlot.amount <= 0)
+        {
+            sourceSlot.item = null;
+            sourceSlot.amount = 0;
+        }
+
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
-
         Hide();
     }
 

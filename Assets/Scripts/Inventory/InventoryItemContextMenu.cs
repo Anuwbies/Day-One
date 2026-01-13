@@ -42,7 +42,6 @@ public class InventoryItemContextMenu : MonoBehaviour
 
         panel.gameObject.SetActive(true);
 
-        // Convert screen position → canvas local position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
             screenPosition,
@@ -140,7 +139,10 @@ public class InventoryItemContextMenu : MonoBehaviour
         currentSlot.amount--;
 
         if (currentSlot.amount <= 0)
-            inventoryUI.inventory.items.Remove(currentSlot);
+        {
+            currentSlot.item = null;
+            currentSlot.amount = 0;
+        }
 
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
         Hide();
@@ -168,11 +170,29 @@ public class InventoryItemContextMenu : MonoBehaviour
         if (!currentSlot.item.canDestroy)
             return;
 
-        inventoryUI.DestroySlot(currentSlot);
+        // AUTO DESTROY IF AMOUNT == 1
+        if (currentSlot.amount <= 1)
+        {
+            int index = inventoryUI.inventory.items.IndexOf(currentSlot);
+            if (index != -1)
+            {
+                inventoryUI.inventory.items[index] = null;
+            }
+
+            inventoryUI.inventory.OnInventoryChanged?.Invoke();
+            Hide();
+            return;
+        }
+
+        // Otherwise open Destroy UI
+        if (inventoryUI == null || inventoryUI.destroyUI == null)
+            return;
+
+        inventoryUI.OpenDestroyUI(currentSlot, Input.mousePosition);
         Hide();
     }
 
-    // SPLIT (OPEN SPLIT UI AT MOUSE)
+    // SPLIT
     public void Split()
     {
         if (currentSlot == null || currentSlot.item == null)
