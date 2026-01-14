@@ -112,8 +112,10 @@ MonoBehaviour:
   cam: {fileID: 1428446710424074672}
   minZoom: 3
   maxZoom: 5
-  zoomInSpeed: 0.2
+  zoomInSpeed: 0.1
   zoomOutSpeed: 1
+  zoomSlowRange: 1
+  minSlowFactor: 0.1
   idleDelay: 5
 --- !u!114 &7292163221888827172
 MonoBehaviour:

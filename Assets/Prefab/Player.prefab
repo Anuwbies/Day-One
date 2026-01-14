@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: -0.21
+  sortYOffset: -0.48
   offset: 0
 --- !u!70 &5170028944625674284
 CapsuleCollider2D:
@@ -378,10 +378,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9753fc6a1c7a96428817db20565ccf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  Hunger: 100
-  Thirst: 100
-  Energy: 100
+  Health: 50
+  Hunger: 50
+  Thirst: 50
+  Energy: 50
+  MaxHealth: 100
+  MaxHunger: 100
+  MaxThirst: 100
+  MaxEnergy: 100
   hungerDecay: 1
   thirstDecay: 1.5
   energyRegenRate: 8
@@ -405,3 +409,4 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4763697282470600238}
   attackCollider: {fileID: 2234338737673453692}
   playerStats: {fileID: 3424390607189394427}
+  inventoryUI: {fileID: 0}

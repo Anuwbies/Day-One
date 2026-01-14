@@ -8,10 +8,15 @@ public class CameraFollow : MonoBehaviour
 
     // Zoom settings
     public Camera cam;
-    public float minZoom = 5f;       // Zoomed in when idle
-    public float maxZoom = 8f;       // Zoomed out when moving
-    public float zoomInSpeed = 2f;   // units per second when zooming in
-    public float zoomOutSpeed = 8f;  // units per second when zooming out
+    public float minZoom = 5f;
+    public float maxZoom = 8f;
+    public float zoomInSpeed = 2f;
+    public float zoomOutSpeed = 8f;
+
+    // Slowdown behavior
+    public float zoomSlowRange = 0.75f;
+    [Range(0.1f, 1f)]
+    public float minSlowFactor = 0.3f; // 30% minimum speed
 
     // Idle delay settings
     public float idleDelay = 1.0f;
@@ -33,7 +38,11 @@ public class CameraFollow : MonoBehaviour
 
         // Smooth follow
         Vector3 desiredPosition = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(
+            transform.position,
+            desiredPosition,
+            smoothSpeed * Time.deltaTime
+        );
 
         // Determine target zoom
         float speed = playerMovement.movement.sqrMagnitude;
@@ -41,19 +50,34 @@ public class CameraFollow : MonoBehaviour
 
         if (speed > 0.01f)
         {
-            // Moving → zoom out
             targetZoom = maxZoom;
             idleTimer = 0f;
         }
         else
         {
-            // Idle → start counting
             idleTimer += Time.deltaTime;
             targetZoom = idleTimer >= idleDelay ? minZoom : cam.orthographicSize;
         }
 
-        // Move zoom linearly toward target
-        float zoomSpeed = cam.orthographicSize < targetZoom ? zoomOutSpeed : zoomInSpeed;
-        cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, targetZoom, zoomSpeed * Time.deltaTime);
+        float currentZoom = cam.orthographicSize;
+
+        // Base speed direction
+        float baseSpeed = currentZoom < targetZoom ? zoomOutSpeed : zoomInSpeed;
+
+        // Distance-based slowdown
+        float distance = Mathf.Abs(targetZoom - currentZoom);
+
+        float slowdownFactor = Mathf.Clamp01(distance / zoomSlowRange);
+
+        // Enforce minimum slowdown limit
+        slowdownFactor = Mathf.Max(slowdownFactor, minSlowFactor);
+
+        float finalSpeed = baseSpeed * slowdownFactor;
+
+        cam.orthographicSize = Mathf.MoveTowards(
+            currentZoom,
+            targetZoom,
+            finalSpeed * Time.deltaTime
+        );
     }
 }
