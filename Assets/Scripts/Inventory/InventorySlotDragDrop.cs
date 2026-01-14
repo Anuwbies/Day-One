@@ -100,7 +100,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (droppedOnSlot)
             return;
 
-        if (IsPointerInsideInventoryGrid(eventData))
+        if (IsPointerInsideSafeUI(eventData))
             return;
 
         inventoryUI.DropItemFromSlot(slotIndex);
@@ -166,17 +166,31 @@ public class InventorySlotDragDrop : MonoBehaviour,
     // =========================
     // HELPERS
     // =========================
-    private bool IsPointerInsideInventoryGrid(PointerEventData eventData)
+    private bool IsPointerInsideSafeUI(PointerEventData eventData)
     {
-        if (inventoryUI == null || inventoryUI.inventoryGrid == null)
+        if (inventoryUI == null)
             return false;
 
-        return RectTransformUtility.RectangleContainsScreenPoint(
-            inventoryUI.inventoryGrid,
-            eventData.position,
-            canvas.renderMode == RenderMode.ScreenSpaceOverlay
-                ? null
-                : canvas.worldCamera
-        );
+        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+            ? null
+            : canvas.worldCamera;
+
+        // Inventory Grid
+        if (inventoryUI.inventoryGrid != null &&
+            RectTransformUtility.RectangleContainsScreenPoint(
+                inventoryUI.inventoryGrid,
+                eventData.position,
+                cam))
+            return true;
+
+        // Craft Panel
+        if (inventoryUI.craftPanel != null &&
+            RectTransformUtility.RectangleContainsScreenPoint(
+                inventoryUI.craftPanel,
+                eventData.position,
+                cam))
+            return true;
+
+        return false;
     }
 }

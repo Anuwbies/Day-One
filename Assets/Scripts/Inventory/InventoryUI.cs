@@ -19,6 +19,10 @@ public class InventoryUI : MonoBehaviour
 
     [Header("UI")]
     public RectTransform inventoryGrid;
+    public RectTransform craftPanel;
+
+    [SerializeField]
+    private CraftingGridController craftingGrid;
 
     [Header("Split UI")]
     public InventorySplitUI splitUI;
@@ -103,19 +107,30 @@ public class InventoryUI : MonoBehaviour
         if (inventoryGrid == null)
             return;
 
-        bool insideInventory = RectTransformUtility.RectangleContainsScreenPoint(
-            inventoryGrid,
-            Input.mousePosition,
-            canvas.renderMode == RenderMode.ScreenSpaceOverlay
-                ? null
-                : canvas.worldCamera
-        );
-
-        if (!insideInventory)
+        if (!IsPointerInsideSafeUI(Input.mousePosition))
         {
             SetOpen(false);
             ConsumeClickThisFrame = true;
         }
+    }
+
+    private bool IsPointerInsideSafeUI(Vector2 screenPosition)
+    {
+        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+            ? null
+            : canvas.worldCamera;
+
+        if (inventoryGrid != null &&
+            RectTransformUtility.RectangleContainsScreenPoint(
+                inventoryGrid, screenPosition, cam))
+            return true;
+
+        if (craftPanel != null &&
+            RectTransformUtility.RectangleContainsScreenPoint(
+                craftPanel, screenPosition, cam))
+            return true;
+
+        return false;
     }
 
     private void SetOpen(bool open)
@@ -135,6 +150,12 @@ public class InventoryUI : MonoBehaviour
 
             if (destroyUI != null && destroyUI.IsOpen)
                 destroyUI.Cancel();
+
+            // =========================
+            // RETURN CRAFTING ITEMS
+            // =========================
+            if (craftingGrid != null)
+                craftingGrid.ReturnAllItemsToInventory();
         }
 
         if (isOpen)
