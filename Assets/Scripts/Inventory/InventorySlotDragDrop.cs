@@ -117,6 +117,34 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (eventData.pointerDrag == null)
             return;
 
+        // =========================
+        // CRAFT SLOT → INVENTORY SLOT
+        // =========================
+        CraftingSlotUI craftSource =
+            eventData.pointerDrag.GetComponent<CraftingSlotUI>();
+
+        if (craftSource != null)
+        {
+            if (inventoryUI.inventory.items[slotIndex] != null)
+                return;
+
+            if (craftSource.slot == null || craftSource.slot.IsEmpty)
+                return;
+
+            inventoryUI.inventory.items[slotIndex] =
+                new InventorySlot(
+                    craftSource.slot.item,
+                    craftSource.slot.amount
+                );
+
+            craftSource.Clear();
+            inventoryUI.inventory.OnInventoryChanged?.Invoke();
+            return;
+        }
+
+        // =========================
+        // INVENTORY SLOT → INVENTORY SLOT
+        // =========================
         InventorySlotDragDrop source =
             eventData.pointerDrag.GetComponent<InventorySlotDragDrop>();
 
@@ -144,12 +172,14 @@ public class InventorySlotDragDrop : MonoBehaviour,
         ghost.transform.SetParent(canvas.transform, false);
 
         ghostRect = ghost.GetComponent<RectTransform>();
-        ghostRect.sizeDelta = new Vector2(48f, 48f);
+        ghostRect.sizeDelta = new Vector2(80f, 80f);
 
         ghostImage = ghost.GetComponent<Image>();
+        ghostImage.type = Image.Type.Simple;
+        ghostImage.preserveAspect = true;
         ghostImage.sprite = icon;
         ghostImage.raycastTarget = false;
-        ghostImage.color = new Color(1f, 1f, 1f, 0.9f);
+        ghostImage.color = new Color(1f, 1f, 1f, 1f);
 
         ghost.transform.SetAsLastSibling();
     }

@@ -217,6 +217,9 @@ public class InventoryUI : MonoBehaviour
 
         if (hotbar != null)
             hotbar.Refresh();
+
+        if (craftingGrid != null)
+            craftingGrid.UpdateResultPreview();
     }
 
     public void OpenContextMenu(int slotIndex, Vector2 screenPosition)

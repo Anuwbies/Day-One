@@ -808,6 +808,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &333636887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+  m_PrefabInstance: {fileID: 1081625158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!213 &379348053
 Sprite:
   m_ObjectHideFlags: 0
@@ -1100,6 +1111,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!224 &517702084 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3473579028838792543, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -10636,6 +10648,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &860592351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7799949185328503680, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+  m_PrefabInstance: {fileID: 1081625158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &860592354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860592351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763146a7ce8680a44b1c9ac611437635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 2043336997}
+  amountText: {fileID: 333636887}
+  blockedAlpha: 0.3
 --- !u!114 &872636643 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -257470,6 +257502,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!1 &990879251
 GameObject:
   m_ObjectHideFlags: 0
@@ -257482,6 +257515,7 @@ GameObject:
   - component: {fileID: 990879255}
   - component: {fileID: 990879254}
   - component: {fileID: 990879253}
+  - component: {fileID: 990879256}
   m_Layer: 5
   m_Name: Craft Button
   m_TagString: Untagged
@@ -257591,6 +257625,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990879251}
   m_CullTransparentMesh: 1
+--- !u!114 &990879256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990879251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f472a61dfcb2104409406123e2a331c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftingGrid: {fileID: 1117714166}
 --- !u!114 &1018647574 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7656930614544450586, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -257881,6 +257928,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1499691790}
     m_Modifications:
+    - target: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_fontSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694091971206415826, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694091971206415826, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694091971206415826, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694091971206415826, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3473579028838792543, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -257980,7 +258055,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7799949185328503680, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 860592354}
   m_SourcePrefab: {fileID: 100100000, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
 --- !u!213 &1116267988
 Sprite:
@@ -258325,6 +258403,8 @@ MonoBehaviour:
   - {fileID: 981127318}
   - {fileID: 513876098}
   - {fileID: 1437349777}
+  craftingDatabase: {fileID: 11400000, guid: 2ea15f2d8f2d592419e7417086021ee4, type: 2}
+  resultUI: {fileID: 860592354}
   inventoryUI: {fileID: 148314363}
 --- !u!224 &1135956577 stripped
 RectTransform:
@@ -258348,6 +258428,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!224 &1155118621 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3473579028838792543, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -258370,6 +258451,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!224 &1156587281 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3473579028838792543, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -258436,6 +258518,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!224 &1239055360 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1916278426175832968, guid: ae7f3ec12306c624c8f6a91493b1328b, type: 3}
@@ -258463,6 +258546,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!1 &1241968785
 GameObject:
   m_ObjectHideFlags: 0
@@ -258521,6 +258605,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!114 &1440303724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -259026,6 +259111,7 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
 --- !u!114 &1759300470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
@@ -259214,6 +259300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1117714161}
     m_Modifications:
+    - target: {fileID: 925839835480104240, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3473579028838792543, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -259590,6 +259680,18 @@ MonoBehaviour:
   slot:
     item: {fileID: 0}
     amount: 0
+  craftingGridController: {fileID: 1117714166}
+--- !u!114 &2043336997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7656930614544450586, guid: cdf6f4ccef821fe46b2fed087c0584b2, type: 3}
+  m_PrefabInstance: {fileID: 1081625158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105496888 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2056255379201553663, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
@@ -261243,6 +261345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1241968786}
     m_Modifications:
+    - target: {fileID: 3452216420478162429, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
+      propertyPath: amount
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4719200396125063612, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
       propertyPath: m_Name
       value: Stick
