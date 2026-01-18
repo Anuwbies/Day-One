@@ -24,16 +24,19 @@ public class CraftButtonConsume : MonoBehaviour
             return;
 
         InventoryUI inventoryUI = craftingGrid.inventoryUI;
-        if (inventoryUI == null ||
-            inventoryUI.inventory == null ||
-            !inventoryUI.HasEmptySlot())
-        {
-            // Inventory full → do nothing
+        if (inventoryUI == null || inventoryUI.inventory == null)
             return;
-        }
 
         CraftingRecipe recipe = craftingGrid.GetCurrentRecipe();
         if (recipe == null)
+            return;
+
+        // =========================
+        // SMART INVENTORY CHECK
+        // =========================
+        if (!inventoryUI.CanAcceptItem(
+                recipe.resultItem,
+                recipe.resultAmount))
             return;
 
         ConsumeIngredients(recipe);
@@ -94,20 +97,58 @@ public class CraftButtonConsume : MonoBehaviour
         }
     }
 
+    // =========================
+    // GIVE RESULT
+    // =========================
+
     private void GiveResult(CraftingRecipe recipe)
     {
         InventoryUI inventoryUI = craftingGrid.inventoryUI;
         if (inventoryUI == null || inventoryUI.inventory == null)
             return;
 
-        int emptyIndex =
-            inventoryUI.inventory.items.FindIndex(i => i == null);
+        var items = inventoryUI.inventory.items;
+        ItemData item = recipe.resultItem;
+        int remaining = recipe.resultAmount;
 
-        if (emptyIndex == -1)
-            return;
+        // 1. Merge into existing stacks
+        if (item.stackable)
+        {
+            for (int i = 0; i < items.Count && remaining > 0; i++)
+            {
+                InventorySlot slot = items[i];
+                if (slot == null || slot.item != item)
+                    continue;
 
-        inventoryUI.inventory.items[emptyIndex] =
-            new InventorySlot(recipe.resultItem, recipe.resultAmount);
+                if (slot.amount >= item.maxStack)
+                    continue;
+
+                int space = item.maxStack - slot.amount;
+                int add = Mathf.Min(space, remaining);
+
+                slot.amount += add;
+                remaining -= add;
+            }
+        }
+
+        // 2. Place into empty slots
+        while (remaining > 0)
+        {
+            int emptyIndex = items.FindIndex(
+                s => s == null || s.item == null);
+
+            if (emptyIndex == -1)
+                break;
+
+            int amountToPlace = item.stackable
+                ? Mathf.Min(item.maxStack, remaining)
+                : 1;
+
+            items[emptyIndex] =
+                new InventorySlot(item, amountToPlace);
+
+            remaining -= amountToPlace;
+        }
 
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
     }

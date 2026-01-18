@@ -39,15 +39,19 @@ public class CraftingGridController : MonoBehaviour
             return;
         }
 
-        bool inventoryFull =
-            inventoryUI == null ||
-            inventoryUI.inventory == null ||
-            !inventoryUI.HasEmptySlot();
+        bool blocked =
+        inventoryUI == null ||
+        inventoryUI.inventory == null ||
+        !inventoryUI.CanAcceptItem(
+        recipe.resultItem,
+        recipe.resultAmount
+    );
+
 
         resultUI.Show(
-            recipe.resultItem,
-            recipe.resultAmount,
-            inventoryFull
+        recipe.resultItem,
+        recipe.resultAmount,
+        blocked
         );
     }
 
@@ -155,9 +159,10 @@ public class CraftingGridController : MonoBehaviour
 
     public void ReturnAllItemsToInventory()
     {
-        if (inventoryUI == null ||
-            inventoryUI.inventory == null)
+        if (inventoryUI == null || inventoryUI.inventory == null)
             return;
+
+        var items = inventoryUI.inventory.items;
 
         foreach (CraftingSlotUI slotUI in craftingSlots)
         {
@@ -165,24 +170,57 @@ public class CraftingGridController : MonoBehaviour
                 continue;
 
             ItemData item = slotUI.slot.item;
-            int amount = slotUI.slot.amount;
+            int remaining = slotUI.slot.amount;
 
-            // Try to find empty inventory slot
-            int emptyIndex =
-                inventoryUI.inventory.items.FindIndex(
-                    slot => slot == null || slot.item == null
-                );
-
-            if (emptyIndex != -1)
+            // =========================
+            // 1. MERGE INTO STACKS
+            // =========================
+            if (item.stackable)
             {
-                // ✅ Return to inventory
-                inventoryUI.inventory.items[emptyIndex] =
-                    new InventorySlot(item, amount);
+                for (int i = 0; i < items.Count && remaining > 0; i++)
+                {
+                    InventorySlot invSlot = items[i];
+                    if (invSlot == null || invSlot.item != item)
+                        continue;
+
+                    if (invSlot.amount >= item.maxStack)
+                        continue;
+
+                    int space = item.maxStack - invSlot.amount;
+                    int add = Mathf.Min(space, remaining);
+
+                    invSlot.amount += add;
+                    remaining -= add;
+                }
             }
-            else
+
+            // =========================
+            // 2. PLACE INTO EMPTY SLOTS
+            // =========================
+            while (remaining > 0)
             {
-                // ❌ Inventory full → drop to world
-                DropToWorld(item, amount);
+                int emptyIndex = items.FindIndex(
+                    s => s == null || s.item == null);
+
+                if (emptyIndex == -1)
+                    break;
+
+                int amountToPlace = item.stackable
+                    ? Mathf.Min(item.maxStack, remaining)
+                    : 1;
+
+                items[emptyIndex] =
+                    new InventorySlot(item, amountToPlace);
+
+                remaining -= amountToPlace;
+            }
+
+            // =========================
+            // 3. DROP ONLY IF NECESSARY
+            // =========================
+            if (remaining > 0)
+            {
+                DropToWorld(item, remaining);
             }
 
             // Always clear crafting slot

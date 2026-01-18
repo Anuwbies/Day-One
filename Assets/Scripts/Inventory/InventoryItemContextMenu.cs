@@ -11,6 +11,7 @@ public class InventoryItemContextMenu : MonoBehaviour
     public CanvasGroup dropButton;
     public CanvasGroup splitButton;
     public CanvasGroup destroyButton;
+    public CanvasGroup placeButton;
 
     [Header("Player")]
     public PlayerStats playerStats;
@@ -86,15 +87,15 @@ public class InventoryItemContextMenu : MonoBehaviour
     }
 
     // =========================
-    // BUTTON STATES
+    // BUTTON STATES (HIDE / SHOW)
     // =========================
     private void UpdateButtons(InventorySlot slot)
     {
         ItemData data = slot.item;
 
-        SetButtonState(eatButton, data.canEat);
-        SetButtonState(dropButton, data.canDrop);
-        SetButtonState(destroyButton, data.canDestroy);
+        SetButtonVisible(eatButton, data.canEat);
+        SetButtonVisible(dropButton, data.canDrop);
+        SetButtonVisible(destroyButton, data.canDestroy);
 
         bool canSplit =
             data.stackable &&
@@ -103,22 +104,35 @@ public class InventoryItemContextMenu : MonoBehaviour
             inventoryUI != null &&
             inventoryUI.HasEmptySlot();
 
-        SetButtonState(splitButton, canSplit);
+        SetButtonVisible(splitButton, canSplit);
+        SetButtonVisible(placeButton, data.canPlace);
     }
 
-    private void SetButtonState(CanvasGroup group, bool enabled)
+    private void SetButtonVisible(CanvasGroup group, bool visible)
     {
         if (group == null)
             return;
 
-        group.alpha = enabled ? 1f : 0.35f;
-        group.interactable = enabled;
-        group.blocksRaycasts = enabled;
+        group.gameObject.SetActive(visible);
     }
 
     // =========================
     // ACTIONS
     // =========================
+
+    // PLACE
+    public void Place()
+    {
+        if (currentSlot == null || currentSlot.item == null)
+            return;
+
+        if (!currentSlot.item.canPlace)
+            return;
+
+        // Placement logic intentionally left empty
+
+        Hide();
+    }
 
     // EAT
     public void Eat()

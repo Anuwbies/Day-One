@@ -15,12 +15,13 @@ MonoBehaviour:
   itemName: Log
   icon: {fileID: 2368875588930414890, guid: 27b55c26acfebca42a3c8f4d70928f0b, type: 3}
   worldPrefab: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
-  stackable: 0
-  maxStack: 1
+  stackable: 1
+  maxStack: 16
+  canPlace: 0
   canEat: 0
   canDestroy: 1
   canDrop: 1
-  canSplit: 0
+  canSplit: 1
   healthRestore: 0
   hungerRestore: 0
   thirstRestore: 0

@@ -3,13 +3,16 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventorySlotDragDrop : MonoBehaviour,
-    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
 {
     public int slotIndex;
     public InventoryUI inventoryUI;
 
     private Canvas canvas;
     private CanvasGroup slotCanvasGroup;
+
+    private float lastClickTime;
+    private const float doubleClickThreshold = 0.25f;
 
     // Drag ghost
     private RectTransform ghostRect;
@@ -25,6 +28,32 @@ public class InventorySlotDragDrop : MonoBehaviour,
             slotCanvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         canvas = GetComponentInParent<Canvas>();
+    }
+
+    // =========================
+    // DOUBLE LEFT CLICK
+    // =========================
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        // Prevent interaction if UI has priority
+        if (inventoryUI == null ||
+            inventoryUI.ConsumeClickThisFrame)
+            return;
+
+        float time = Time.unscaledTime;
+
+        if (time - lastClickTime <= doubleClickThreshold)
+        {
+            inventoryUI.CombineAllSameItems(slotIndex);
+            lastClickTime = 0f;
+        }
+        else
+        {
+            lastClickTime = time;
+        }
     }
 
     // =========================
@@ -125,19 +154,39 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
         if (craftSource != null)
         {
-            if (inventoryUI.inventory.items[slotIndex] != null)
-                return;
-
             if (craftSource.slot == null || craftSource.slot.IsEmpty)
                 return;
 
-            inventoryUI.inventory.items[slotIndex] =
-                new InventorySlot(
-                    craftSource.slot.item,
-                    craftSource.slot.amount
-                );
+            InventorySlot invSlot =
+                inventoryUI.inventory.items[slotIndex];
 
-            craftSource.Clear();
+            // =========================
+            // SWAP: CRAFT <-> INVENTORY
+            // =========================
+            if (invSlot != null)
+            {
+                InventorySlot tempInv =
+                    new InventorySlot(
+                        craftSource.slot.item,
+                        craftSource.slot.amount
+                    );
+
+                craftSource.slot.Set(invSlot.item, invSlot.amount);
+                inventoryUI.inventory.items[slotIndex] = tempInv;
+                craftSource.Refresh();
+            }
+            else
+            {
+                // MOVE craft → inventory
+                inventoryUI.inventory.items[slotIndex] =
+                    new InventorySlot(
+                        craftSource.slot.item,
+                        craftSource.slot.amount
+                    );
+
+                craftSource.Clear();
+            }
+
             inventoryUI.inventory.OnInventoryChanged?.Invoke();
             return;
         }

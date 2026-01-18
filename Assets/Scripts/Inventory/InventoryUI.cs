@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventoryUI : MonoBehaviour
@@ -67,6 +68,32 @@ public class InventoryUI : MonoBehaviour
         {
             SetOpen(!isOpen);
         }
+    }
+
+    public void TryAddSingleItem(int fromIndex, int toIndex)
+    {
+        if (inventory == null || inventory.items == null)
+            return;
+
+        if (fromIndex < 0 || toIndex < 0 ||
+            fromIndex >= inventory.items.Count ||
+            toIndex >= inventory.items.Count)
+            return;
+
+        InventorySlot target = inventory.items[toIndex];
+
+        // Target slot must already exist (single-item drag only adds to valid slot)
+        if (target == null || target.item == null)
+            return;
+
+        // Respect max stack
+        if (!target.item.stackable ||
+            target.amount >= target.item.maxStack)
+            return;
+
+        target.amount += 1;
+
+        inventory.OnInventoryChanged?.Invoke();
     }
 
     private void HandleClickOutside()
@@ -405,6 +432,120 @@ public class InventoryUI : MonoBehaviour
 
         inventory.items[index] = null;
         inventory.OnInventoryChanged?.Invoke();
+    }
+
+    // =========================
+    // DOUBLE CLICK COMBINE (LOW AMOUNT FIRST)
+    // =========================
+    public void CombineAllSameItems(int targetIndex)
+    {
+        if (inventory == null || inventory.items == null)
+            return;
+
+        if (targetIndex < 0 || targetIndex >= inventory.items.Count)
+            return;
+
+        InventorySlot targetSlot = inventory.items[targetIndex];
+        if (targetSlot == null || targetSlot.item == null)
+            return;
+
+        ItemData item = targetSlot.item;
+
+        if (!item.stackable)
+            return;
+
+        // Target already full → do nothing
+        if (targetSlot.amount >= item.maxStack)
+            return;
+
+        int spaceLeft = item.maxStack - targetSlot.amount;
+
+        // =========================
+        // COLLECT VALID SOURCE STACKS
+        // =========================
+        List<int> sourceIndices = new List<int>();
+
+        for (int i = 0; i < inventory.items.Count; i++)
+        {
+            if (i == targetIndex)
+                continue;
+
+            InventorySlot slot = inventory.items[i];
+            if (slot == null || slot.item != item)
+                continue;
+
+            // Ignore already max stacks
+            if (slot.amount >= item.maxStack)
+                continue;
+
+            sourceIndices.Add(i);
+        }
+
+        // =========================
+        // SORT BY LOWEST AMOUNT FIRST
+        // =========================
+        sourceIndices.Sort((a, b) =>
+            inventory.items[a].amount.CompareTo(inventory.items[b].amount)
+        );
+
+        // =========================
+        // TRANSFER ITEMS
+        // =========================
+        foreach (int index in sourceIndices)
+        {
+            if (spaceLeft <= 0)
+                break;
+
+            InventorySlot source = inventory.items[index];
+            if (source == null)
+                continue;
+
+            int transfer = Mathf.Min(spaceLeft, source.amount);
+
+            targetSlot.amount += transfer;
+            source.amount -= transfer;
+            spaceLeft -= transfer;
+
+            if (source.amount <= 0)
+                inventory.items[index] = null;
+        }
+
+        inventory.OnInventoryChanged?.Invoke();
+    }
+
+    public bool CanAcceptItem(ItemData item, int amount)
+    {
+        if (inventory == null || inventory.items == null)
+            return false;
+
+        var items = inventory.items;
+        int remaining = amount;
+
+        // 1. Merge into stacks
+        if (item.stackable)
+        {
+            foreach (var slot in items)
+            {
+                if (slot == null || slot.item != item)
+                    continue;
+
+                if (slot.amount >= item.maxStack)
+                    continue;
+
+                remaining -= (item.maxStack - slot.amount);
+                if (remaining <= 0)
+                    return true;
+            }
+        }
+
+        // 2. Empty slots
+        int emptySlots = items.FindAll(s => s == null || s.item == null).Count;
+
+        if (!item.stackable)
+            return emptySlots >= remaining;
+
+        int stacksNeeded = Mathf.CeilToInt((float)remaining / item.maxStack);
+        return emptySlots >= stacksNeeded;
     }
 
     private void OnDrawGizmosSelected()

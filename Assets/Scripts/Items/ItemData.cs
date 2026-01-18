@@ -15,6 +15,7 @@ public class ItemData : ScriptableObject
     public int maxStack = 64;
 
     [Header("Actions")]
+    public bool canPlace = false;
     public bool canEat = false;
     public bool canDestroy = true;
     public bool canDrop = true;

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class CraftingSlotUI : MonoBehaviour,
-    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
 {
     [Header("UI")]
     public Image itemIcon;
@@ -36,6 +36,39 @@ public class CraftingSlotUI : MonoBehaviour,
 
         itemIcon.enabled = false;
         amountText.text = "";
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Right)
+            return;
+
+        if (slot.IsEmpty)
+            return;
+
+        ReturnItemToInventory();
+    }
+
+    private void ReturnItemToInventory()
+    {
+        if (craftingGridController == null ||
+            craftingGridController.inventoryUI == null ||
+            craftingGridController.inventoryUI.inventory == null)
+            return;
+
+        PlayerInventory inventory =
+            craftingGridController.inventoryUI.inventory;
+
+        bool added = inventory.AddItem(slot.item, slot.amount);
+
+        if (!added)
+            return; // inventory full → do nothing (or add world drop later)
+
+        slot.Clear();
+        Refresh();
+        NotifyGridChanged();
+
+        inventory.OnInventoryChanged?.Invoke();
     }
 
     // =========================
@@ -140,20 +173,29 @@ public class CraftingSlotUI : MonoBehaviour,
             invIndex >= inventoryUI.inventory.items.Count)
             return;
 
-        InventorySlot invSlot =
-            inventoryUI.inventory.items[invIndex];
-
+        InventorySlot invSlot = inventoryUI.inventory.items[invIndex];
         if (invSlot == null || invSlot.item == null)
             return;
 
+        // =========================
+        // SWAP: INVENTORY <-> CRAFT
+        // =========================
         if (!slot.IsEmpty)
-            return;
+        {
+            InventorySlot tempInv =
+                new InventorySlot(slot.item, slot.amount);
 
-        slot.Set(invSlot.item, invSlot.amount);
+            slot.Set(invSlot.item, invSlot.amount);
+            inventoryUI.inventory.items[invIndex] = tempInv;
+        }
+        else
+        {
+            // MOVE inventory → craft
+            slot.Set(invSlot.item, invSlot.amount);
+            inventoryUI.inventory.items[invIndex] = null;
+        }
 
-        inventoryUI.inventory.items[invIndex] = null;
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
-
         Refresh();
         NotifyGridChanged();
     }
