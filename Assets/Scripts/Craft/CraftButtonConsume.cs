@@ -28,36 +28,37 @@ public class CraftButtonConsume : MonoBehaviour
             return;
 
         CraftingRecipe recipe = craftingGrid.GetCurrentRecipe();
-        if (recipe == null)
+        CraftingIngredientSet set = craftingGrid.CurrentMatchedSet;
+
+        if (recipe == null || set == null)
             return;
 
-        // =========================
-        // SMART INVENTORY CHECK
-        // =========================
         if (!inventoryUI.CanAcceptItem(
                 recipe.resultItem,
                 recipe.resultAmount))
             return;
 
-        ConsumeIngredients(recipe);
+        ConsumeIngredientSet(set);
         GiveResult(recipe);
 
         craftingGrid.UpdateResultPreview();
     }
 
     // =========================
-    // CONSUME LOGIC
+    // CONSUME INGREDIENT SET
     // =========================
 
-    private void ConsumeIngredients(CraftingRecipe recipe)
+    private void ConsumeIngredientSet(CraftingIngredientSet set)
     {
-        if (recipe.shapeless)
-        {
-            ConsumeShapeless(recipe);
-            return;
-        }
+        if (set.shapeless)
+            ConsumeShapeless(set);
+        else
+            ConsumeShaped(set);
+    }
 
-        foreach (CraftingIngredient ing in recipe.ingredients)
+    private void ConsumeShaped(CraftingIngredientSet set)
+    {
+        foreach (CraftingIngredient ing in set.ingredients)
         {
             CraftingSlot slot =
                 craftingGrid.craftingSlots[ing.slotIndex].slot;
@@ -71,28 +72,30 @@ public class CraftButtonConsume : MonoBehaviour
         }
     }
 
-    private void ConsumeShapeless(CraftingRecipe recipe)
+    private void ConsumeShapeless(CraftingIngredientSet set)
     {
-        foreach (CraftingIngredient ing in recipe.ingredients)
+        foreach (CraftingIngredient ing in set.ingredients)
         {
+            int remaining = ing.amount;
+
             foreach (CraftingSlotUI slotUI in craftingGrid.craftingSlots)
             {
+                if (remaining <= 0)
+                    break;
+
                 CraftingSlot slot = slotUI.slot;
 
-                if (slot.IsEmpty)
+                if (slot.IsEmpty || slot.item != ing.item)
                     continue;
 
-                if (slot.item == ing.item &&
-                    slot.amount >= ing.amount)
-                {
-                    slot.amount -= ing.amount;
+                int used = Mathf.Min(slot.amount, remaining);
+                slot.amount -= used;
+                remaining -= used;
 
-                    if (slot.amount <= 0)
-                        slot.Clear();
+                if (slot.amount <= 0)
+                    slot.Clear();
 
-                    slotUI.Refresh();
-                    break;
-                }
+                slotUI.Refresh();
             }
         }
     }
@@ -111,7 +114,6 @@ public class CraftButtonConsume : MonoBehaviour
         ItemData item = recipe.resultItem;
         int remaining = recipe.resultAmount;
 
-        // 1. Merge into existing stacks
         if (item.stackable)
         {
             for (int i = 0; i < items.Count && remaining > 0; i++)
@@ -131,7 +133,6 @@ public class CraftButtonConsume : MonoBehaviour
             }
         }
 
-        // 2. Place into empty slots
         while (remaining > 0)
         {
             int emptyIndex = items.FindIndex(

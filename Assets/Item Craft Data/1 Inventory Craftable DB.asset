@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14542a56ef957f54db907198f320a017, type: 3}
-  m_Name: CraftingDatabase
+  m_Name: 1 Inventory Craftable DB
   m_EditorClassIdentifier: 
   recipes:
   - {fileID: 11400000, guid: 0e57f968285ee2a469c028df1321d0df, type: 2}
   - {fileID: 11400000, guid: 19702e28ee9be594a8101076ade0568b, type: 2}
-  - {fileID: 11400000, guid: efb2a4bedef44294db680350173a001b, type: 2}
-  - {fileID: 11400000, guid: a8f300bd25bd16e4e9a5b77f83e6b07d, type: 2}

@@ -15,6 +15,8 @@ public class CraftingGridController : MonoBehaviour
     [Header("Inventory")]
     public InventoryUI inventoryUI;
 
+    public CraftingIngredientSet CurrentMatchedSet { get; private set; }
+
     private void Start()
     {
         UpdateResultPreview();
@@ -66,6 +68,10 @@ public class CraftingGridController : MonoBehaviour
 
         foreach (CraftingRecipe recipe in craftingDatabase.recipes)
         {
+            // 🔒 LOCATION CHECK (Inventory only)
+            if (!recipe.craftableLocations.HasFlag(CraftingLocation.Inventory))
+                continue;
+
             if (RecipeMatches(recipe))
                 return recipe;
         }
@@ -75,30 +81,39 @@ public class CraftingGridController : MonoBehaviour
 
     private bool RecipeMatches(CraftingRecipe recipe)
     {
-        return recipe.shapeless
-            ? ShapelessRecipeMatches(recipe)
-            : ShapedRecipeMatches(recipe);
+        foreach (CraftingIngredientSet set in recipe.ingredientSets)
+        {
+            bool matched = set.shapeless
+                ? ShapelessSetMatches(set)
+                : ShapedSetMatches(set);
+
+            if (matched)
+            {
+                CurrentMatchedSet = set;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // =========================
     // SHAPED
     // =========================
 
-    private bool ShapedRecipeMatches(CraftingRecipe recipe)
+    private bool ShapedSetMatches(CraftingIngredientSet set)
     {
         Dictionary<int, CraftingIngredient> requiredSlots = new();
 
-        foreach (CraftingIngredient ing in recipe.ingredients)
+        foreach (CraftingIngredient ing in set.ingredients)
             requiredSlots[ing.slotIndex] = ing;
 
         for (int i = 0; i < craftingSlots.Length; i++)
         {
             CraftingSlot slot = craftingSlots[i].slot;
 
-            if (requiredSlots.ContainsKey(i))
+            if (requiredSlots.TryGetValue(i, out CraftingIngredient req))
             {
-                CraftingIngredient req = requiredSlots[i];
-
                 if (slot.IsEmpty) return false;
                 if (slot.item != req.item) return false;
                 if (slot.amount < req.amount) return false;
@@ -116,7 +131,7 @@ public class CraftingGridController : MonoBehaviour
     // SHAPELESS (STRICT SLOT)
     // =========================
 
-    private bool ShapelessRecipeMatches(CraftingRecipe recipe)
+    private bool ShapelessSetMatches(CraftingIngredientSet set)
     {
         List<CraftingSlot> occupiedSlots = new();
 
@@ -126,12 +141,12 @@ public class CraftingGridController : MonoBehaviour
                 occupiedSlots.Add(slotUI.slot);
         }
 
-        if (occupiedSlots.Count != recipe.ingredients.Count)
+        if (occupiedSlots.Count != set.ingredients.Count)
             return false;
 
         bool[] used = new bool[occupiedSlots.Count];
 
-        foreach (CraftingIngredient ing in recipe.ingredients)
+        foreach (CraftingIngredient ing in set.ingredients)
         {
             bool matched = false;
 

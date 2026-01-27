@@ -1,18 +1,25 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Flags]
+public enum CraftingLocation
+{
+    Inventory = 1 << 0,
+    CraftingTable = 1 << 1
+}
+
 [CreateAssetMenu(
-    fileName = "NewCraftingRecipe",
+    fileName = "NewCraftingRecipasdf",
     menuName = "Crafting/Crafting Recipe"
 )]
 public class CraftingRecipe : ScriptableObject
 {
-    [Header("Recipe Type")]
-    [Tooltip("If true, ingredient positions do NOT matter")]
-    public bool shapeless = false;
+    [Header("Craftable Locationssdfasd")]
+    public CraftingLocation craftableLocations =
+        CraftingLocation.Inventory | CraftingLocation.CraftingTable;
 
-    [Header("Ingredients")]
-    public List<CraftingIngredient> ingredients = new List<CraftingIngredient>();
+    [Header("Ingredient Variants (OR)")]
+    public List<CraftingIngredientSet> ingredientSets = new();
 
     [Header("Result")]
     public ItemData resultItem;
