@@ -3,16 +3,14 @@ using UnityEngine.UI;
 
 public class HotbarUI : MonoBehaviour
 {
+    public PlayerStats playerStats;
     public PlayerInventory playerInventory;
     public HotbarSlot[] slots = new HotbarSlot[8];
 
     public int selectedIndex = 0;
 
     [Header("Selection Visuals")]
-    [Tooltip("Color of the currently selected hotbar slot")]
     public Color selectedColor = Color.white;
-
-    [Tooltip("Color of non-selected hotbar slots")]
     public Color unselectedColor = new Color(1f, 1f, 1f, 0.5f);
 
     [Header("UI")]
@@ -20,7 +18,7 @@ public class HotbarUI : MonoBehaviour
 
     private void Start()
     {
-        playerInventory.OnInventoryChanged += Refresh;
+        playerInventory.OnInventoryChanged += OnInventoryChanged;
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -29,13 +27,22 @@ public class HotbarUI : MonoBehaviour
         }
 
         Refresh();
-        HighlightSelectedSlot();
+        ApplySelection(); // initial sync
     }
 
     private void Update()
     {
         CheckHotbarKeyPress();
         HandleScrollWheel();
+    }
+
+    // =========================
+    // INVENTORY SYNC
+    // =========================
+    private void OnInventoryChanged()
+    {
+        Refresh();
+        ApplySelection(); // 🔴 CRITICAL FIX
     }
 
     public void Refresh()
@@ -49,6 +56,9 @@ public class HotbarUI : MonoBehaviour
         }
     }
 
+    // =========================
+    // INPUT
+    // =========================
     private void CheckHotbarKeyPress()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -63,21 +73,32 @@ public class HotbarUI : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (scroll > 0f)
-        {
-            selectedIndex = (selectedIndex - 1 + slots.Length) % slots.Length;
-            HighlightSelectedSlot();
-        }
+            SelectSlot((selectedIndex - 1 + slots.Length) % slots.Length);
         else if (scroll < 0f)
-        {
-            selectedIndex = (selectedIndex + 1) % slots.Length;
-            HighlightSelectedSlot();
-        }
+            SelectSlot((selectedIndex + 1) % slots.Length);
     }
 
+    // =========================
+    // SELECTION
+    // =========================
     public void SelectSlot(int index)
     {
         selectedIndex = Mathf.Clamp(index, 0, slots.Length - 1);
+        ApplySelection();
+    }
+
+    private void ApplySelection()
+    {
         HighlightSelectedSlot();
+
+        InventorySlot activeSlot = GetActiveSlot();
+
+        if (playerStats != null)
+        {
+            playerStats.SetCurrentItem(
+                activeSlot != null ? activeSlot.item : null
+            );
+        }
     }
 
     private void HighlightSelectedSlot()
@@ -94,11 +115,15 @@ public class HotbarUI : MonoBehaviour
         }
     }
 
+    // =========================
+    // DATA ACCESS
+    // =========================
     public InventorySlot GetActiveSlot()
     {
-        if (selectedIndex < playerInventory.items.Count)
-            return playerInventory.items[selectedIndex];
+        if (selectedIndex >= playerInventory.items.Count)
+            return null;
 
-        return null;
+        InventorySlot slot = playerInventory.items[selectedIndex];
+        return (slot != null && slot.item != null) ? slot : null;
     }
 }

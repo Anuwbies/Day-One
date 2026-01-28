@@ -22,7 +22,36 @@ public class PlayerStats : MonoBehaviour
     public float energyRegenRate = 8f;
     public float energyRegenDelay = 2f;
 
+    [Header("Combat")]
+    public int baseAttackDamage = 1;
+
+    private ItemData currentItem;
     private float lastEnergyUseTime = 0f;
+
+    // =========================
+    // HOTBAR HOOK
+    // =========================
+    public void SetCurrentItem(ItemData item)
+    {
+        currentItem = item;
+    }
+
+    // =========================
+    // DAMAGE RESOLUTION
+    // =========================
+    public int GetDamage(DamageTarget target)
+    {
+        if (currentItem == null)
+            return baseAttackDamage;
+
+        return target switch
+        {
+            DamageTarget.Enemy => baseAttackDamage + currentItem.damageToEnemy,
+            DamageTarget.Tree => baseAttackDamage + currentItem.damageToTree,
+            DamageTarget.Rock => baseAttackDamage + currentItem.damageToRock,
+            _ => baseAttackDamage
+        };
+    }
 
     private void Update()
     {
@@ -39,9 +68,6 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    // =========================
-    // SAFE STAT MODIFIERS
-    // =========================
     public void AddHealth(float amount)
     {
         Health = Mathf.Clamp(Health + amount, 0, MaxHealth);

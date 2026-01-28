@@ -1,14 +1,8 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class CraftingSlot
 {
-    [Header("Ghost Preview")]
-    [SerializeField] private Image ghostIcon;
-    [SerializeField] private TMP_Text ghostAmountText;
-
     public ItemData item;
     public int amount;
 

@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack Settings")]
-    public float attackDamage = 10f;
     public float attackDuration = 0.08f;
     public float attackCooldown = 0.3f;
     public float energyCostPerAttack = 1f;
@@ -18,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
     private bool isAttacking = false;
     private bool canAttack = true;
 
-    // NEW: prevents attack until mouse is released
+    // Prevents attack until mouse is released after UI click
     private bool requireMouseRelease = false;
 
     private void Start()
@@ -61,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        // ORIGINAL HOLD-TO-ATTACK LOGIC (unchanged)
+        // HOLD-TO-ATTACK
         if (Input.GetMouseButton(0))
         {
             isAttacking = true;
@@ -118,7 +117,7 @@ public class PlayerAttack : MonoBehaviour
     {
         canAttack = true;
 
-        // Preserve original chained attack behavior
+        // Preserve chained attacks
         if (isAttacking && playerStats != null && playerStats.Energy > 0f)
             TryAttack();
     }
@@ -132,9 +131,10 @@ public class PlayerAttack : MonoBehaviour
             return;
 
         EnemyHealth health = collision.GetComponentInParent<EnemyHealth>();
-        if (health != null)
-        {
-            health.TakeDamage(attackDamage);
-        }
+        if (health == null)
+            return;
+
+        int damage = playerStats.GetDamage(health.damageTarget);
+        health.TakeDamage(damage);
     }
 }

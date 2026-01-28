@@ -3,6 +3,10 @@ using System;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("Type")]
+    public DamageTarget damageTarget = DamageTarget.Enemy;
+
+    [Header("Health")]
     public float maxHealth = 30f;
     public float currentHealth;
 

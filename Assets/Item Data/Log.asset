@@ -26,3 +26,6 @@ MonoBehaviour:
   hungerRestore: 0
   thirstRestore: 0
   energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 0
+  damageToRock: 5

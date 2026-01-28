@@ -22,15 +22,18 @@ public class ItemData : ScriptableObject
     public bool canSplit = true;
 
     [Header("Consume Effects")]
-    [Tooltip("Health restored when eaten")]
     public int healthRestore = 0;
-
-    [Tooltip("Hunger restored when eaten")]
     public int hungerRestore = 0;
-
-    [Tooltip("Thirst restored when eaten")]
     public int thirstRestore = 0;
-
-    [Tooltip("Energy restored when eaten")]
     public int energyRestore = 0;
+
+    [Header("Damage Per Target")]
+    [Tooltip("Bonus damage dealt to enemies")]
+    public int damageToEnemy = 0;
+
+    [Tooltip("Bonus damage dealt to trees")]
+    public int damageToTree = 0;
+
+    [Tooltip("Bonus damage dealt to rocks")]
+    public int damageToRock = 0;
 }
