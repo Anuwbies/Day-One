@@ -19,9 +19,15 @@ public class CraftingSlotUI : MonoBehaviour,
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 
-    // Drag ghost
+    // Drag ghost (cursor-following)
     private RectTransform ghostRect;
     private Image ghostImage;
+
+    // Ghost preview state
+    private bool isGhostPreview = false;
+
+    private static readonly float REAL_ALPHA = 1f;
+    private static readonly float GHOST_ALPHA = 0.4f;
 
     private void Awake()
     {
@@ -38,6 +44,9 @@ public class CraftingSlotUI : MonoBehaviour,
         amountText.text = "";
     }
 
+    // =========================
+    // POINTER CLICK
+    // =========================
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Right)
@@ -60,9 +69,8 @@ public class CraftingSlotUI : MonoBehaviour,
             craftingGridController.inventoryUI.inventory;
 
         bool added = inventory.AddItem(slot.item, slot.amount);
-
         if (!added)
-            return; // inventory full → do nothing (or add world drop later)
+            return;
 
         slot.Clear();
         Refresh();
@@ -72,7 +80,7 @@ public class CraftingSlotUI : MonoBehaviour,
     }
 
     // =========================
-    // BEGIN DRAG
+    // DRAG
     // =========================
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -90,18 +98,12 @@ public class CraftingSlotUI : MonoBehaviour,
         eventData.pointerDrag = gameObject;
     }
 
-    // =========================
-    // DRAG
-    // =========================
     public void OnDrag(PointerEventData eventData)
     {
         if (ghostRect != null)
             ghostRect.position = eventData.position;
     }
 
-    // =========================
-    // END DRAG
-    // =========================
     public void OnEndDrag(PointerEventData eventData)
     {
         DestroyGhost();
@@ -118,9 +120,6 @@ public class CraftingSlotUI : MonoBehaviour,
         if (eventData.pointerDrag == null)
             return;
 
-        // =========================
-        // CRAFT → CRAFT (SWAP)
-        // =========================
         CraftingSlotUI otherCraft =
             eventData.pointerDrag.GetComponent<CraftingSlotUI>();
 
@@ -130,9 +129,6 @@ public class CraftingSlotUI : MonoBehaviour,
             return;
         }
 
-        // =========================
-        // INVENTORY → CRAFT
-        // =========================
         InventorySlotDragDrop invDrag =
             eventData.pointerDrag.GetComponent<InventorySlotDragDrop>();
 
@@ -177,9 +173,6 @@ public class CraftingSlotUI : MonoBehaviour,
         if (invSlot == null || invSlot.item == null)
             return;
 
-        // =========================
-        // SWAP: INVENTORY <-> CRAFT
-        // =========================
         if (!slot.IsEmpty)
         {
             InventorySlot tempInv =
@@ -190,7 +183,6 @@ public class CraftingSlotUI : MonoBehaviour,
         }
         else
         {
-            // MOVE inventory → craft
             slot.Set(invSlot.item, invSlot.amount);
             inventoryUI.inventory.items[invIndex] = null;
         }
@@ -210,15 +202,17 @@ public class CraftingSlotUI : MonoBehaviour,
             itemIcon.enabled = false;
             itemIcon.sprite = null;
             amountText.text = "";
+            SetAlpha(REAL_ALPHA);
+            isGhostPreview = false;
             return;
         }
 
         itemIcon.enabled = true;
         itemIcon.sprite = slot.item.icon;
+        amountText.text = slot.amount > 1 ? slot.amount.ToString() : "";
 
-        amountText.text = slot.amount > 1
-            ? slot.amount.ToString()
-            : "";
+        SetAlpha(REAL_ALPHA);
+        isGhostPreview = false;
     }
 
     public void Clear()
@@ -226,6 +220,46 @@ public class CraftingSlotUI : MonoBehaviour,
         slot.Clear();
         Refresh();
         NotifyGridChanged();
+    }
+
+    // =========================
+    // GHOST PREVIEW (RECIPE CLICK)
+    // =========================
+    public void ShowGhost(ItemData item, int amount)
+    {
+        if (item == null)
+            return;
+
+        itemIcon.enabled = true;
+        itemIcon.sprite = item.icon;
+        amountText.text = amount > 1 ? amount.ToString() : "";
+
+        SetAlpha(GHOST_ALPHA);
+        isGhostPreview = true;
+    }
+
+    public void ClearGhost()
+    {
+        if (!isGhostPreview)
+            return;
+
+        itemIcon.enabled = false;
+        itemIcon.sprite = null;
+        amountText.text = "";
+
+        SetAlpha(REAL_ALPHA);
+        isGhostPreview = false;
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Color c = itemIcon.color;
+        c.a = alpha;
+        itemIcon.color = c;
+
+        c = amountText.color;
+        c.a = alpha;
+        amountText.color = c;
     }
 
     // =========================
@@ -238,7 +272,7 @@ public class CraftingSlotUI : MonoBehaviour,
     }
 
     // =========================
-    // GHOST
+    // DRAG GHOST (CURSOR)
     // =========================
     private void CreateGhost(Sprite icon)
     {

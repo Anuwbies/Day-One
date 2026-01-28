@@ -1,7 +1,8 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryCraftableListUI : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class InventoryCraftableListUI : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Transform contentRoot;
     [SerializeField] private GameObject craftableItemPrefab;
+
+    [Header("Crafting")]
+    [SerializeField] private CraftingGridController craftingGridController;
 
     private void Start()
     {
@@ -47,38 +51,16 @@ public class InventoryCraftableListUI : MonoBehaviour
         }
     }
 
-    private string BuildIngredientSetKey(CraftingIngredientSet set)
-    {
-        // Aggregate amounts by item
-        Dictionary<ItemData, int> totals = new Dictionary<ItemData, int>();
-
-        foreach (CraftingIngredient ing in set.ingredients)
-        {
-            if (ing.item == null)
-                continue;
-
-            if (totals.TryGetValue(ing.item, out int current))
-                totals[ing.item] = current + ing.amount;
-            else
-                totals.Add(ing.item, ing.amount);
-        }
-
-        // Build a deterministic, order-independent key
-        List<string> parts = new List<string>();
-
-        foreach (var pair in totals)
-        {
-            parts.Add(pair.Key.name + ":" + pair.Value);
-        }
-
-        parts.Sort();
-
-        return string.Join("|", parts);
-    }
-
+    // =========================
+    // ENTRY
+    // =========================
     private void CreateEntry(CraftingRecipe recipe, CraftingIngredientSet set)
     {
         GameObject go = Instantiate(craftableItemPrefab, contentRoot);
+
+        Image iconImage =
+            go.transform.Find("Icon")
+            ?.GetComponent<Image>();
 
         TextMeshProUGUI itemNameText =
             go.transform.Find("Text/Item Name")
@@ -88,20 +70,58 @@ public class InventoryCraftableListUI : MonoBehaviour
             go.transform.Find("Text/Item Ingredients")
             ?.GetComponent<TextMeshProUGUI>();
 
-        if (itemNameText != null)
-            itemNameText.text = recipe.resultItem != null
-                ? recipe.resultItem.itemName
-                : "Unknown Item";
+        Button button = go.GetComponent<Button>();
+        if (button == null)
+            button = go.AddComponent<Button>();
+
+        // =========================
+        // RESULT ITEM UI
+        // =========================
+        if (recipe.resultItem != null)
+        {
+            if (itemNameText != null)
+                itemNameText.text = recipe.resultItem.itemName;
+
+            if (iconImage != null)
+            {
+                iconImage.sprite = recipe.resultItem.icon;
+                iconImage.enabled = recipe.resultItem.icon != null;
+                iconImage.preserveAspect = true;
+            }
+        }
+        else
+        {
+            if (itemNameText != null)
+                itemNameText.text = "Unknown Item";
+
+            if (iconImage != null)
+                iconImage.enabled = false;
+        }
 
         if (ingredientsText != null)
             ingredientsText.text = BuildIngredientsText(set);
+
+        // =========================
+        // CLICK → SHOW GHOST
+        // =========================
+        button.onClick.AddListener(() =>
+        {
+            if (craftingGridController == null)
+                return;
+
+            // Auto place real items if available,
+            // show ghost only for missing ingredients
+            craftingGridController.AutoFillOrGhost(set);
+        });
     }
 
+    // =========================
+    // INGREDIENT TEXT
+    // =========================
     private string BuildIngredientsText(CraftingIngredientSet set)
     {
         StringBuilder sb = new StringBuilder();
 
-        // Aggregate amounts by item
         Dictionary<ItemData, int> totals = new Dictionary<ItemData, int>();
 
         foreach (CraftingIngredient ing in set.ingredients)
@@ -114,8 +134,6 @@ public class InventoryCraftableListUI : MonoBehaviour
             else
                 totals.Add(ing.item, ing.amount);
         }
-
-        sb.Append("- ");
 
         bool first = true;
 
@@ -134,11 +152,39 @@ public class InventoryCraftableListUI : MonoBehaviour
         return sb.ToString();
     }
 
+    // =========================
+    // KEY FOR DEDUPLICATION
+    // =========================
+    private string BuildIngredientSetKey(CraftingIngredientSet set)
+    {
+        Dictionary<ItemData, int> totals = new Dictionary<ItemData, int>();
+
+        foreach (CraftingIngredient ing in set.ingredients)
+        {
+            if (ing.item == null)
+                continue;
+
+            if (totals.TryGetValue(ing.item, out int current))
+                totals[ing.item] = current + ing.amount;
+            else
+                totals.Add(ing.item, ing.amount);
+        }
+
+        List<string> parts = new List<string>();
+
+        foreach (var pair in totals)
+            parts.Add(pair.Key.name + ":" + pair.Value);
+
+        parts.Sort();
+        return string.Join("|", parts);
+    }
+
+    // =========================
+    // CLEAR
+    // =========================
     private void Clear()
     {
         for (int i = contentRoot.childCount - 1; i >= 0; i--)
-        {
             Destroy(contentRoot.GetChild(i).gameObject);
-        }
     }
 }

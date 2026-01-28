@@ -23,9 +23,21 @@ public class CraftingGridController : MonoBehaviour
     }
 
     // =========================
+    // IMPORTANT: UI LIFECYCLE
+    // =========================
+    private void OnDisable()
+    {
+        // Craft UI closed → clear all ghost previews
+        ClearAllGhosts();
+
+        // Optional: clear result preview as well
+        if (resultUI != null)
+            resultUI.Clear();
+    }
+
+    // =========================
     // PUBLIC API
     // =========================
-
     public CraftingRecipe GetCurrentRecipe()
     {
         return FindMatchingRecipe();
@@ -37,30 +49,29 @@ public class CraftingGridController : MonoBehaviour
 
         if (recipe == null)
         {
-            resultUI.Clear();
+            if (resultUI != null)
+                resultUI.Clear();
             return;
         }
 
         bool blocked =
-        inventoryUI == null ||
-        inventoryUI.inventory == null ||
-        !inventoryUI.CanAcceptItem(
-        recipe.resultItem,
-        recipe.resultAmount
-    );
-
+            inventoryUI == null ||
+            inventoryUI.inventory == null ||
+            !inventoryUI.CanAcceptItem(
+                recipe.resultItem,
+                recipe.resultAmount
+            );
 
         resultUI.Show(
-        recipe.resultItem,
-        recipe.resultAmount,
-        blocked
+            recipe.resultItem,
+            recipe.resultAmount,
+            blocked
         );
     }
 
     // =========================
     // RECIPE MATCHING
     // =========================
-
     private CraftingRecipe FindMatchingRecipe()
     {
         if (craftingDatabase == null)
@@ -68,7 +79,6 @@ public class CraftingGridController : MonoBehaviour
 
         foreach (CraftingRecipe recipe in craftingDatabase.recipes)
         {
-            // 🔒 LOCATION CHECK (Inventory only)
             if (!recipe.craftableLocations.HasFlag(CraftingLocation.Inventory))
                 continue;
 
@@ -100,7 +110,6 @@ public class CraftingGridController : MonoBehaviour
     // =========================
     // SHAPED
     // =========================
-
     private bool ShapedSetMatches(CraftingIngredientSet set)
     {
         Dictionary<int, CraftingIngredient> requiredSlots = new();
@@ -130,7 +139,6 @@ public class CraftingGridController : MonoBehaviour
     // =========================
     // SHAPELESS (STRICT SLOT)
     // =========================
-
     private bool ShapelessSetMatches(CraftingIngredientSet set)
     {
         List<CraftingSlot> occupiedSlots = new();
@@ -172,8 +180,13 @@ public class CraftingGridController : MonoBehaviour
         return true;
     }
 
+    // =========================
+    // INVENTORY RETURN
+    // =========================
     public void ReturnAllItemsToInventory()
     {
+        ClearAllGhosts();
+
         if (inventoryUI == null || inventoryUI.inventory == null)
             return;
 
@@ -187,9 +200,6 @@ public class CraftingGridController : MonoBehaviour
             ItemData item = slotUI.slot.item;
             int remaining = slotUI.slot.amount;
 
-            // =========================
-            // 1. MERGE INTO STACKS
-            // =========================
             if (item.stackable)
             {
                 for (int i = 0; i < items.Count && remaining > 0; i++)
@@ -209,9 +219,6 @@ public class CraftingGridController : MonoBehaviour
                 }
             }
 
-            // =========================
-            // 2. PLACE INTO EMPTY SLOTS
-            // =========================
             while (remaining > 0)
             {
                 int emptyIndex = items.FindIndex(
@@ -230,15 +237,9 @@ public class CraftingGridController : MonoBehaviour
                 remaining -= amountToPlace;
             }
 
-            // =========================
-            // 3. DROP ONLY IF NECESSARY
-            // =========================
             if (remaining > 0)
-            {
                 DropToWorld(item, remaining);
-            }
 
-            // Always clear crafting slot
             slotUI.Clear();
         }
 
@@ -280,6 +281,90 @@ public class CraftingGridController : MonoBehaviour
         {
             worldItem.data = data;
             worldItem.amount = amount;
+        }
+    }
+
+    // =========================
+    // GHOST PREVIEW
+    // =========================
+    public void PreviewIngredientSet(CraftingIngredientSet set)
+    {
+        ClearAllGhosts();
+
+        if (set == null)
+            return;
+
+        foreach (CraftingIngredient ing in set.ingredients)
+        {
+            if (ing.slotIndex < 0 || ing.slotIndex >= craftingSlots.Length)
+                continue;
+
+            craftingSlots[ing.slotIndex]
+                .ShowGhost(ing.item, ing.amount);
+        }
+    }
+
+    public void AutoFillOrGhost(CraftingIngredientSet set)
+    {
+        if (set == null || inventoryUI == null || inventoryUI.inventory == null)
+            return;
+
+        // Reset grid
+        ReturnAllItemsToInventory();
+        ClearAllGhosts();
+
+        var inventory = inventoryUI.inventory;
+
+        foreach (CraftingIngredient ing in set.ingredients)
+        {
+            if (ing.slotIndex < 0 || ing.slotIndex >= craftingSlots.Length)
+                continue;
+
+            CraftingSlotUI slotUI = craftingSlots[ing.slotIndex];
+            int needed = ing.amount;
+
+            // Pull from inventory
+            for (int i = 0; i < inventory.items.Count && needed > 0; i++)
+            {
+                InventorySlot invSlot = inventory.items[i];
+                if (invSlot == null || invSlot.item != ing.item)
+                    continue;
+
+                int take = Mathf.Min(invSlot.amount, needed);
+                needed -= take;
+                invSlot.amount -= take;
+
+                if (invSlot.amount <= 0)
+                    inventory.items[i] = null;
+
+                slotUI.slot.Set(
+                    ing.item,
+                    slotUI.slot.amount + take
+                );
+            }
+
+            // Show real item if any
+            if (!slotUI.slot.IsEmpty)
+                slotUI.Refresh();
+
+            // Show ghost if missing
+            if (needed > 0)
+                slotUI.ShowGhost(ing.item, needed);
+        }
+
+        inventory.OnInventoryChanged?.Invoke();
+        UpdateResultPreview();
+    }
+
+    public void ClearAllGhosts()
+    {
+        if (craftingSlots == null)
+            return;
+
+        foreach (var slot in craftingSlots)
+        {
+            if (slot != null)
+                slot.ClearGhost();
         }
     }
 }
