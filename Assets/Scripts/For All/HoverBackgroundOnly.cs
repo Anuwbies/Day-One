@@ -12,16 +12,27 @@ public class HoverBackgroundRotate : MonoBehaviour,
     [SerializeField] private float maxRotation = 1f;        // degrees
     [SerializeField] private float oscillationSpeed = 1f;   // cycles per second
 
+    [Header("Position Drift")]
+    [SerializeField] private float maxOffset = 2f;          // pixels
+    [SerializeField] private float offsetSpeed = 0.8f;      // cycles per second
+
     private bool isHovering;
     private float time;
 
+    private Vector2 basePosition;
+    private float xPhase;
+    private float yPhase;
+
     void Awake()
     {
-        if (backgroundImage != null)
-        {
-            backgroundImage.enabled = false;
-            backgroundImage.rectTransform.localRotation = Quaternion.identity;
-        }
+        if (backgroundImage == null)
+            return;
+
+        backgroundImage.enabled = false;
+
+        RectTransform rt = backgroundImage.rectTransform;
+        basePosition = rt.anchoredPosition;
+        rt.localRotation = Quaternion.identity;
     }
 
     void Update()
@@ -31,12 +42,21 @@ public class HoverBackgroundRotate : MonoBehaviour,
 
         time += Time.unscaledDeltaTime;
 
-        // Proper sinusoidal oscillation
+        // Rotation (smooth)
         float angle =
             Mathf.Sin(time * oscillationSpeed * Mathf.PI * 2f) * maxRotation;
 
-        backgroundImage.rectTransform.localRotation =
-            Quaternion.Euler(0f, 0f, angle);
+        // Position drift (organic)
+        float offsetX =
+            Mathf.Sin((time + xPhase) * offsetSpeed * Mathf.PI * 2f) * maxOffset;
+
+        float offsetY =
+            Mathf.Sin((time + yPhase) * offsetSpeed * Mathf.PI * 2f) * maxOffset;
+
+        RectTransform rt = backgroundImage.rectTransform;
+
+        rt.localRotation = Quaternion.Euler(0f, 0f, angle);
+        rt.anchoredPosition = basePosition + new Vector2(offsetX, offsetY);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -45,7 +65,12 @@ public class HoverBackgroundRotate : MonoBehaviour,
             return;
 
         isHovering = true;
-        time = 0f;
+
+        // Randomize phases so it doesn't look synchronized
+        time = Random.value;
+        xPhase = Random.value * 2f;
+        yPhase = Random.value * 2f;
+
         backgroundImage.enabled = true;
     }
 
@@ -55,7 +80,11 @@ public class HoverBackgroundRotate : MonoBehaviour,
             return;
 
         isHovering = false;
+
+        RectTransform rt = backgroundImage.rectTransform;
+        rt.localRotation = Quaternion.identity;
+        rt.anchoredPosition = basePosition;
+
         backgroundImage.enabled = false;
-        backgroundImage.rectTransform.localRotation = Quaternion.identity;
     }
 }
