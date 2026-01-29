@@ -17,7 +17,7 @@ public class FullscreenHotkeyHandler : MonoBehaviour
             return;
 
         if (makeFullscreenAtStart)
-            FullscreenGameView.EnterFullscreen();
+            FullscreenGameView.Toggle();
     }
 
     void Update()
@@ -31,7 +31,6 @@ public class FullscreenHotkeyHandler : MonoBehaviour
 
 public static class FullscreenGameView
 {
-    // ---------- Unity ----------
     static readonly Type GameViewType =
         Type.GetType("UnityEditor.GameView,UnityEditor");
 
@@ -40,9 +39,8 @@ public static class FullscreenGameView
             BindingFlags.Instance | BindingFlags.NonPublic);
 
     static EditorWindow instance;
-    static bool isFullscreen;
 
-    // ---------- Win32 ----------
+    // ---- Win32 ----
     const int GWL_STYLE = -16;
     const int WS_POPUP = unchecked((int)0x80000000);
 
@@ -50,66 +48,58 @@ public static class FullscreenGameView
     const int SWP_NOZORDER = 0x0004;
     const int SWP_SHOWWINDOW = 0x0040;
 
-    const int SM_CXSCREEN = 0;
-    const int SM_CYSCREEN = 1;
+    [DllImport("user32.dll")]
+    static extern IntPtr GetActiveWindow();
 
-    [DllImport("user32.dll")] static extern IntPtr GetActiveWindow();
-    [DllImport("user32.dll")] static extern int GetSystemMetrics(int nIndex);
-    [DllImport("user32.dll")] static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+    [DllImport("user32.dll")]
+    static extern int GetSystemMetrics(int nIndex);
+
+    [DllImport("user32.dll")]
+    static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
     [DllImport("user32.dll")]
     static extern bool SetWindowPos(
         IntPtr hWnd,
         IntPtr hWndInsertAfter,
-        int X, int Y, int cx, int cy, int uFlags);
+        int X,
+        int Y,
+        int cx,
+        int cy,
+        int uFlags
+    );
 
-    // ---------- Lifecycle ----------
+    const int SM_CXSCREEN = 0;
+    const int SM_CYSCREEN = 1;
+
     static FullscreenGameView()
     {
-        AssemblyReloadEvents.beforeAssemblyReload += ExitInternal;
-        EditorApplication.focusChanged += OnEditorFocusChanged;
-        EditorApplication.update += OnEditorUpdate;
+        AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
     }
 
-    static void OnEditorFocusChanged(bool hasFocus)
-    {
-        if (hasFocus && isFullscreen)
-            EditorApplication.delayCall += ForceWin32Fullscreen;
-    }
-
-    static void OnEditorUpdate()
-    {
-        if (isFullscreen && instance != null && !instance.hasFocus)
-        {
-            // Scene view or layout stole focus — reapply
-            EditorApplication.delayCall += ForceWin32Fullscreen;
-        }
-    }
-
-    static void ExitInternal()
+    static void OnBeforeAssemblyReload()
     {
         if (instance != null)
         {
             instance.Close();
             instance = null;
         }
-
-        isFullscreen = false;
     }
 
-    // ---------- Public API ----------
     [MenuItem("Window/General/Game (True Fullscreen) %#&2", priority = 2)]
     public static void Toggle()
     {
-        if (isFullscreen)
-            ExitFullscreen();
-        else
-            EnterFullscreen();
-    }
-
-    public static void EnterFullscreen()
-    {
-        if (GameViewType == null || isFullscreen)
+        if (GameViewType == null)
+        {
+            Debug.LogError("GameView type not found.");
             return;
+        }
+
+        if (instance != null)
+        {
+            instance.Close();
+            instance = null;
+            return;
+        }
 
         instance = (EditorWindow)ScriptableObject.CreateInstance(GameViewType);
         ShowToolbarProperty?.SetValue(instance, false);
@@ -117,21 +107,11 @@ public static class FullscreenGameView
         instance.ShowPopup();
         instance.Focus();
 
-        isFullscreen = true;
         EditorApplication.delayCall += ForceWin32Fullscreen;
     }
 
-    public static void ExitFullscreen()
-    {
-        ExitInternal();
-    }
-
-    // ---------- Win32 fullscreen enforcement ----------
     static void ForceWin32Fullscreen()
     {
-        if (!isFullscreen)
-            return;
-
         IntPtr hwnd = GetActiveWindow();
         if (hwnd == IntPtr.Zero)
             return;
@@ -139,13 +119,16 @@ public static class FullscreenGameView
         int width = GetSystemMetrics(SM_CXSCREEN);
         int height = GetSystemMetrics(SM_CYSCREEN);
 
+        // Force true borderless popup
         SetWindowLong(hwnd, GWL_STYLE, WS_POPUP);
 
         SetWindowPos(
             hwnd,
             IntPtr.Zero,
-            0, 0,
-            width, height,
+            0,
+            0,
+            width,
+            height,
             SWP_FRAMECHANGED | SWP_NOZORDER | SWP_SHOWWINDOW
         );
     }

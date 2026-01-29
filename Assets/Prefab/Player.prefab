@@ -390,6 +390,7 @@ MonoBehaviour:
   thirstDecay: 1.5
   energyRegenRate: 8
   energyRegenDelay: 2
+  baseAttackDamage: 10
 --- !u!114 &3526834453816086215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e77abda018433344954e1b02e040b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
   attackDuration: 0.3
   attackCooldown: 0.5
   energyCostPerAttack: 5
