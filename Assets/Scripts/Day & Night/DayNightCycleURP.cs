@@ -4,6 +4,10 @@ using TMPro;
 
 public class DayNightCycleURP : MonoBehaviour
 {
+    [Header("Save System")]
+    [Tooltip("If true, time passes between scenes. Uncheck this for gameplay scenes if you want them to always start fresh.")]
+    public bool enableTimeTransfer = true;
+
     [Header("Time Settings")]
     public float dayLengthInMinutes = 10f;
     [Range(0, 24)]
@@ -13,7 +17,7 @@ public class DayNightCycleURP : MonoBehaviour
 
     [Header("Lighting")]
     public Light2D globalLight;
-    public Gradient lightColorGradient; // You set this manually
+    public Gradient lightColorGradient;
 
     [Header("Intensity (4-phase values)")]
     [Tooltip("Night intensity (0.00 & 1.00)")]
@@ -45,6 +49,34 @@ public class DayNightCycleURP : MonoBehaviour
 
         if (lightColorGradient == null || lightColorGradient.colorKeys.Length == 0)
             Debug.LogWarning("Light Color Gradient is NOT assigned.");
+
+        // LOAD: Only load if transfer is enabled and we have data
+        if (enableTimeTransfer && TimeTransfer.HasData)
+        {
+            timeOfDay = TimeTransfer.SavedTime;
+            currentDay = TimeTransfer.SavedDay;
+        }
+    }
+
+    // SAVE: Runs automatically when scene changes
+    private void OnDestroy()
+    {
+        if (enableTimeTransfer)
+        {
+            TimeTransfer.SavedTime = timeOfDay;
+            TimeTransfer.SavedDay = currentDay;
+            TimeTransfer.HasData = true;
+        }
+    }
+
+    // Call this function when starting a completely NEW GAME to reset time
+    public void ResetCycle()
+    {
+        TimeTransfer.HasData = false;
+        timeOfDay = 8f; // Reset to morning (or your preferred start time)
+        currentDay = 1;
+        UpdateLighting(); // Apply immediately
+        UpdateUI();
     }
 
     private void Update()
@@ -65,13 +97,12 @@ public class DayNightCycleURP : MonoBehaviour
     {
         float t = timeOfDay / 24f;
 
-        // Color from gradient
-        globalLight.color = lightColorGradient.Evaluate(t);
+        if (globalLight != null && lightColorGradient != null)
+            globalLight.color = lightColorGradient.Evaluate(t);
 
-        // 4-phase manual intensity
-        globalLight.intensity = Get4PhaseIntensity(timeOfDay);
+        if (globalLight != null)
+            globalLight.intensity = Get4PhaseIntensity(timeOfDay);
 
-        // Moonlight
         if (moonLight != null)
         {
             bool isDay = timeOfDay >= 6 && timeOfDay < 18;
@@ -83,19 +114,13 @@ public class DayNightCycleURP : MonoBehaviour
     {
         float t = hour / 24f;
 
-        // Night → Sunrise
         if (t < 0.25f)
             return Mathf.Lerp(nightIntensity, sunriseIntensity, t / 0.25f);
-
-        // Sunrise → Day
         if (t < 0.50f)
             return Mathf.Lerp(sunriseIntensity, dayIntensity, (t - 0.25f) / 0.25f);
-
-        // Day → Sunset
         if (t < 0.75f)
             return Mathf.Lerp(dayIntensity, sunsetIntensity, (t - 0.50f) / 0.25f);
 
-        // Sunset → Night
         return Mathf.Lerp(sunsetIntensity, nightIntensity, (t - 0.75f) / 0.25f);
     }
 
