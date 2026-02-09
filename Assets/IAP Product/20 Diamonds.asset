@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045253d370385d54a966d6c192f035fe, type: 3}
+  m_Name: 20 Diamonds
+  m_EditorClassIdentifier: 
+  contractProductId: 1
+  productType: 0
+  displayName: 20 Diamonds
+  displayIcon: {fileID: 6586461156150141773, guid: ddb56321edfc05c499a5b56f548f7c14, type: 3}
+  description: 20 Diamonds to start your shopping.
+  itemsToGive:
+  - type: 1
+    item: {fileID: 0}
+    customId: 0
+    customIcon: {fileID: 6586461156150141773, guid: ddb56321edfc05c499a5b56f548f7c14, type: 3}
+    quantity: 20
