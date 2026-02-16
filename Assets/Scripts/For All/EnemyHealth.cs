@@ -18,6 +18,10 @@ public class EnemyHealth : MonoBehaviour
     [Tooltip("Amount of health restored per second.")]
     public float regenRate = 5f;
 
+    [Header("References")]
+    [Tooltip("Assign the specific collider that represents the damageable area.")]
+    public Collider2D hitCollider;
+
     private float lastHitTime;
 
     public bool IsDead => currentHealth <= 0f;
@@ -31,6 +35,12 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         // Initialize lastHitTime so regen can occur immediately if starting damaged (rare, but safe)
         lastHitTime = -regenDelay;
+
+        // Auto-assign collider if not manually set in Inspector
+        if (hitCollider == null)
+        {
+            hitCollider = GetComponent<Collider2D>();
+        }
     }
 
     private void Update()

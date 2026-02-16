@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections.Generic; // Added for HashSet
+using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -21,18 +21,22 @@ public class PlayerAttack : MonoBehaviour
     // Prevents attack until mouse is released after UI click
     private bool requireMouseRelease = false;
 
-    // Track enemies hit during the current attack swing to prevent double damage
+    // Track enemies hit during the current attack swing
     private HashSet<GameObject> enemiesHit = new HashSet<GameObject>();
+
+    private Camera mainCam;
 
     private void Start()
     {
+        mainCam = Camera.main;
+
         if (attackCollider != null)
             attackCollider.enabled = false;
     }
 
     private void Update()
     {
-        // Inventory/UI consumed this click → require release
+        // 1. Check UI interactions
         if (inventoryUI != null && inventoryUI.ConsumeClickThisFrame)
         {
             requireMouseRelease = true;
@@ -40,31 +44,26 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        // Wait until mouse button is released once
         if (requireMouseRelease)
         {
             if (Input.GetMouseButtonUp(0))
                 requireMouseRelease = false;
-
             return;
         }
 
-        // Pointer over UI
-        if (EventSystem.current != null &&
-            EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
         {
             isAttacking = false;
             return;
         }
 
-        // Inventory open
         if (inventoryUI != null && inventoryUI.IsOpen)
         {
             isAttacking = false;
             return;
         }
 
-        // HOLD-TO-ATTACK
+        // 2. Handle Input
         if (Input.GetMouseButton(0))
         {
             isAttacking = true;
@@ -78,34 +77,53 @@ public class PlayerAttack : MonoBehaviour
 
     private void TryAttack()
     {
-        if (!canAttack)
-            return;
-
-        if (playerStats == null || playerStats.Energy <= 0f)
-            return;
+        if (!canAttack) return;
+        if (playerStats == null || playerStats.Energy <= 0f) return;
 
         PerformAttack();
     }
 
     private void PerformAttack()
     {
-        // Clear the list of hit enemies for this new swing
         enemiesHit.Clear();
-
         canAttack = false;
-
-        // Consume energy
         playerStats.UseEnergy(energyCostPerAttack);
 
-        bool facingLeft = spriteRenderer != null && spriteRenderer.flipX;
+        // Get mouse position in World Space
+        if (mainCam == null) mainCam = Camera.main;
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+        // --- Sprite Flipping Logic ---
+        // Flip the player sprite to face the mouse cursor
+        if (spriteRenderer != null)
+        {
+            if (mousePos.x < transform.position.x)
+                spriteRenderer.flipX = true; // Face Left
+            else
+                spriteRenderer.flipX = false; // Face Right
+        }
 
         if (attackCollider != null)
         {
-            attackCollider.transform.localScale = new Vector3(
-                facingLeft ? -1f : 1f,
-                1f,
-                1f
-            );
+            // --- 8-Directional Logic Start ---
+
+            // Calculate direction vector from Player to Mouse
+            Vector2 direction = (mousePos - transform.position).normalized;
+
+            // Calculate angle in degrees
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // Snap to nearest 45 degrees (8 directions)
+            // 0, 45, 90, 135, 180, 225, 270, 315
+            float snappedAngle = Mathf.Round(angle / 45f) * 45f;
+
+            // Apply rotation to the collider
+            attackCollider.transform.rotation = Quaternion.Euler(0f, 0f, snappedAngle);
+
+            // Reset scale to (1,1,1) to ensure no negative flipping conflicts with rotation
+            attackCollider.transform.localScale = Vector3.one;
+
+            // --- 8-Directional Logic End ---
 
             attackCollider.enabled = true;
         }
@@ -123,7 +141,6 @@ public class PlayerAttack : MonoBehaviour
     private void ResetAttack()
     {
         canAttack = true;
-
         // Preserve chained attacks
         if (isAttacking && playerStats != null && playerStats.Energy > 0f)
             TryAttack();
@@ -131,21 +148,21 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (attackCollider == null || !attackCollider.enabled)
-            return;
+        if (attackCollider == null || !attackCollider.enabled) return;
 
-        if (!collision.CompareTag("Damageable"))
-            return;
-
+        // Find Health component on object or parent
         EnemyHealth health = collision.GetComponentInParent<EnemyHealth>();
-        if (health == null)
+
+        if (health == null) return;
+
+        // Check against specific hitCollider if assigned
+        if (health.hitCollider != null && collision != health.hitCollider)
             return;
 
-        // Check if we already hit this specific enemy instance in this swing
+        // Prevent multi-hits on the same enemy in one swing
         if (enemiesHit.Contains(health.gameObject))
             return;
 
-        // Add to list so we don't hit it again this swing
         enemiesHit.Add(health.gameObject);
 
         int damage = playerStats.GetDamage(health.damageTarget);

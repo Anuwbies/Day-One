@@ -29,7 +29,7 @@ public class HotbarSlotDragDrop : MonoBehaviour,
         if (hotbarSlot == null)
             hotbarSlot = GetComponent<HotbarSlot>();
 
-        inventoryUI = FindObjectOfType<InventoryUI>();
+        inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
 
         ResetState();
     }
