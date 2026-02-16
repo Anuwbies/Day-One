@@ -64,7 +64,8 @@ public class InventoryUI : MonoBehaviour
 
     private void HandleToggleKey()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        // Added KeyCode.Tab here
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
         {
             SetOpen(!isOpen);
         }

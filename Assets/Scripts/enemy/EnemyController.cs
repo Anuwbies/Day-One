@@ -47,17 +47,17 @@ public class EnemyController : MonoBehaviour
     public Collider2D ownCollider;
 
     private EnemyHealth enemyHealth;
+    private SpriteRenderer spriteRenderer;
     private bool isAggroed = false;
     private Vector2 startPosition;
-    private Vector3 initialScale;
 
     private Vector2 patrolTarget;
     private float nextMoveTime;
 
     private void Start()
     {
-        initialScale = transform.localScale;
         enemyHealth = GetComponent<EnemyHealth>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Auto-assign own collider if not set in Inspector
         if (ownCollider == null)
@@ -269,14 +269,14 @@ public class EnemyController : MonoBehaviour
         }
 
         // 2D Flip Logic
-        if (enableFlip && direction.x != 0)
+        if (enableFlip && direction.x != 0 && spriteRenderer != null)
         {
             // Face Right
             if (direction.x > 0)
-                transform.localScale = new Vector3(Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
+                spriteRenderer.flipX = false;
             // Face Left
             else
-                transform.localScale = new Vector3(-Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
+                spriteRenderer.flipX = true;
         }
     }
 

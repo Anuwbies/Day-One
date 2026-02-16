@@ -68,6 +68,19 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        Health = Mathf.Clamp(Health - amount, 0, MaxHealth);
+
+        Debug.Log($"Player took {amount} damage. Current Health: {Health}");
+
+        if (Health <= 0)
+        {
+            // Optional: Handle Player Death here
+            Debug.Log("Player has died!");
+        }
+    }
+
     public void AddHealth(float amount)
     {
         Health = Mathf.Clamp(Health + amount, 0, MaxHealth);

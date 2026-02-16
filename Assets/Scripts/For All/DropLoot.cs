@@ -15,18 +15,18 @@ public class DropLoot : MonoBehaviour
     public List<LootEntry> lootTable = new List<LootEntry>();
 
     [Header("Drop Position Offsets")]
-    [Tooltip("Fixed horizontal offset")]
+    [Tooltip("Fixed horizontal offset from the object center")]
     public float xOffset = 0f;
 
-    [Tooltip("Fixed vertical offset")]
+    [Tooltip("Fixed vertical offset from the object center")]
     public float yOffset = 0f;
 
-    [Tooltip("Random spread around the offset")]
-    public Vector2 randomSpread = new Vector2(0.4f, 0.4f);
+    [Header("Circular Drop Settings")]
+    [Tooltip("Outer Radius (X, Y). Set X > Y for a wide oval.")]
+    public Vector2 dropRadius = new Vector2(1.5f, 1.5f);
 
-    [Header("Dead Zone (No Drop Area)")]
-    [Tooltip("Size of the inner area where loot will NOT spawn")]
-    public Vector2 deadZoneSize = new Vector2(0.3f, 0.3f);
+    [Tooltip("Inner Radius (X, Y). The empty space in the middle.")]
+    public Vector2 deadZoneRadius = new Vector2(0.5f, 0.5f);
 
     [Header("Destroy Object (Optional)")]
     [Tooltip("Destroy this GameObject after loot is dropped")]
@@ -36,13 +36,13 @@ public class DropLoot : MonoBehaviour
     public float destroyDelay = 0f;
 
     private bool looted = false;
-    private const int MAX_POSITION_ATTEMPTS = 15;
 
     private void Awake()
     {
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
+        // Optional: Listen for death event if you have an EnemyHealth script
         EnemyHealth health = GetComponent<EnemyHealth>();
         if (health != null)
             health.OnDeath += Drop;
@@ -55,9 +55,11 @@ public class DropLoot : MonoBehaviour
 
         looted = true;
 
+        // Change sprite to "looted" version (e.g. open chest)
         if (changeSpriteOnLoot && spriteRenderer != null && afterLootSprite != null)
             spriteRenderer.sprite = afterLootSprite;
 
+        // Disable collider so player can walk through
         if (hitbox != null)
             hitbox.enabled = false;
 
@@ -70,6 +72,7 @@ public class DropLoot : MonoBehaviour
     private void SpawnLoot()
     {
         Vector2 baseOffset = new Vector2(xOffset, yOffset);
+        Vector3 centerPos = transform.position + (Vector3)baseOffset;
 
         foreach (LootEntry entry in lootTable)
         {
@@ -80,56 +83,66 @@ public class DropLoot : MonoBehaviour
 
             for (int i = 0; i < count; i++)
             {
-                Vector2 randomOffset = GenerateValidOffset();
-                Vector2 finalPosition =
-                    (Vector2)transform.position + baseOffset + randomOffset;
+                // Get a random position within the oval annulus
+                Vector2 randomOffset = GetRandomPointInAnnulus(deadZoneRadius, dropRadius);
+                Vector2 finalPosition = (Vector2)centerPos + randomOffset;
 
                 Instantiate(entry.prefab, finalPosition, Quaternion.identity);
             }
         }
     }
 
-    private Vector2 GenerateValidOffset()
+    // Calculates a random point between minRadii and maxRadii (Oval support)
+    private Vector2 GetRandomPointInAnnulus(Vector2 minRadii, Vector2 maxRadii)
     {
-        Vector2 offset = Vector2.zero;
+        // Get a random direction (normalized vector)
+        Vector2 dir = Random.insideUnitCircle.normalized;
 
-        for (int attempt = 0; attempt < MAX_POSITION_ATTEMPTS; attempt++)
-        {
-            offset = new Vector2(
-                Random.Range(-randomSpread.x, randomSpread.x),
-                Random.Range(-randomSpread.y, randomSpread.y)
-            );
+        // If normalized failed (rare 0,0 case), pick UP as default
+        if (dir == Vector2.zero)
+            dir = Vector2.up;
 
-            if (!IsInsideDeadZone(offset))
-                return offset;
-        }
+        // Pick a random t (0 to 1)
+        float t = Random.Range(0f, 1f);
 
-        return offset;
-    }
+        // Interpolate between the inner radius and outer radius for X and Y separately
+        float rX = Mathf.Lerp(minRadii.x, maxRadii.x, t);
+        float rY = Mathf.Lerp(minRadii.y, maxRadii.y, t);
 
-    private bool IsInsideDeadZone(Vector2 offset)
-    {
-        return Mathf.Abs(offset.x) < deadZoneSize.x * 0.5f &&
-               Mathf.Abs(offset.y) < deadZoneSize.y * 0.5f;
+        // Apply the elliptical scaling
+        return new Vector2(dir.x * rX, dir.y * rY);
     }
 
     private void OnDrawGizmosSelected()
     {
         Vector3 center = transform.position + new Vector3(xOffset, yOffset, 0f);
 
+        // Draw Outer Oval (Yellow)
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(
-            center,
-            new Vector3(randomSpread.x * 2f, randomSpread.y * 2f, 0.01f)
-        );
+        DrawEllipse(center, dropRadius.x, dropRadius.y);
 
+        // Draw Inner Dead Zone Oval (Red)
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(
-            center,
-            new Vector3(deadZoneSize.x, deadZoneSize.y, 0.01f)
-        );
+        DrawEllipse(center, deadZoneRadius.x, deadZoneRadius.y);
 
+        // Draw Center Line to show offset
+        Gizmos.color = Color.white;
         Gizmos.DrawLine(transform.position, center);
+    }
+
+    // Helper to draw ellipses in the editor
+    private void DrawEllipse(Vector3 center, float radiusX, float radiusY)
+    {
+        float step = 10f;
+        Vector3 lastPos = center + new Vector3(radiusX, 0, 0); // Start at 0 degrees
+
+        for (float angle = step; angle <= 360; angle += step)
+        {
+            float rad = angle * Mathf.Deg2Rad;
+            Vector3 nextPos = center + new Vector3(Mathf.Cos(rad) * radiusX, Mathf.Sin(rad) * radiusY, 0);
+            Gizmos.DrawLine(lastPos, nextPos);
+            lastPos = nextPos;
+        }
     }
 }
 

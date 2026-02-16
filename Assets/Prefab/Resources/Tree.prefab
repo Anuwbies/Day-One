@@ -161,6 +161,7 @@ MonoBehaviour:
   canRegenerate: 0
   regenDelay: 3
   regenRate: 5
+  hitCollider: {fileID: 0}
 --- !u!114 &7036731261951661396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,9 +186,9 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 4
   xOffset: -0.06
-  yOffset: -1.5
-  randomSpread: {x: 1.5, y: 0.5}
-  deadZoneSize: {x: 1.5, y: 0.4}
+  yOffset: -1.49
+  dropRadius: {x: 2, y: 0.65}
+  deadZoneRadius: {x: 1, y: 0.325}
   destroyOnLoot: 0
   destroyDelay: 0
 --- !u!50 &61339940074944985
