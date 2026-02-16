@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic; // Added for HashSet
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerAttack : MonoBehaviour
 
     // Prevents attack until mouse is released after UI click
     private bool requireMouseRelease = false;
+
+    // Track enemies hit during the current attack swing to prevent double damage
+    private HashSet<GameObject> enemiesHit = new HashSet<GameObject>();
 
     private void Start()
     {
@@ -85,6 +89,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void PerformAttack()
     {
+        // Clear the list of hit enemies for this new swing
+        enemiesHit.Clear();
+
         canAttack = false;
 
         // Consume energy
@@ -133,6 +140,13 @@ public class PlayerAttack : MonoBehaviour
         EnemyHealth health = collision.GetComponentInParent<EnemyHealth>();
         if (health == null)
             return;
+
+        // Check if we already hit this specific enemy instance in this swing
+        if (enemiesHit.Contains(health.gameObject))
+            return;
+
+        // Add to list so we don't hit it again this swing
+        enemiesHit.Add(health.gameObject);
 
         int damage = playerStats.GetDamage(health.damageTarget);
         health.TakeDamage(damage);
