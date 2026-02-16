@@ -92,6 +92,52 @@ Assets/
 - **Day/Night Cycle** - Time progression and lighting
 - **Wildlife AI** - Animal behavior and combat
 
+## ⛓️ Blockchain Integration
+
+This game features blockchain technology to enable true ownership of in-game items and achievements.
+
+### Features
+
+- **NFT Item Shop** - Purchase survival items as NFTs that persist across sessions
+- **Wallet Integration** - Connect with Google, email, phone, or 400+ external wallets
+- **Polygon Network** - Fast and low-cost transactions using MATIC
+- **True Ownership** - Items are stored on the blockchain, not just in the game
+- **Cross-Platform** - Works on PC, mobile, and web builds
+
+### Supported Wallets
+
+| Wallet Type | Provider | Description |
+|------------|----------|-------------|
+| **Social Login** | InAppWallet | Sign in with Google, email, or phone - easiest for new players |
+| **Crypto Wallets** | WalletConnect | Connect MetaMask, Trust Wallet, Rainbow, and 400+ other wallets |
+| **Ecosystem Wallet** | EcosystemWallet | Share wallet across multiple games in the ecosystem |
+
+### Technology Stack
+
+- **SDK:** Thirdweb Unity SDK v5.7.0
+- **Blockchain:** Polygon (Amoy testnet for development, Mainnet for production)
+- **Smart Contracts:** ERC-721 (NFTs) and ERC-20 (marketplace transactions)
+- **Network:** Layer 2 solution for fast, affordable transactions
+
+### Getting Started with Blockchain
+
+For detailed implementation instructions, see [blockchain_shop_guide.md](blockchain_shop_guide.md)
+
+**Quick Setup:**
+1. Install Thirdweb Unity SDK from Unity Package Manager
+2. Configure your Thirdweb Client ID
+3. Set up wallet connection UI
+4. Deploy smart contracts to Polygon testnet
+5. Integrate shop and inventory systems
+
+### Benefits
+
+- **Player Retention** - True ownership keeps players invested
+- **Monetization** - Additional revenue stream through NFT sales
+- **Community Building** - Players can trade items outside the game
+- **Innovation** - Stand out with Web3 gaming features
+- **Future-Proof** - Ready for the evolving gaming landscape
+
 ## 🐛 Known Issues
 
 *Document any known bugs or issues here*
@@ -106,6 +152,9 @@ Assets/
 - [ ] Day/night cycle
 - [ ] Wildlife AI
 - [ ] Building/shelter system
+- [ ] Blockchain wallet integration
+- [ ] NFT item shop
+- [ ] Smart contract deployment
 - [ ] Save/load functionality
 - [ ] Audio implementation
 - [ ] Polish and optimization
@@ -143,4 +192,4 @@ For questions or feedback, please contact the development team.
 
 **Project Status:** In Development 🚧
 
-*Last Updated: January 2026*
+*Last Updated: February 2026*
