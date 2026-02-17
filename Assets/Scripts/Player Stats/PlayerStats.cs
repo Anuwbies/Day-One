@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Decay")]
     public float hungerDecay = 1f;
     public float thirstDecay = 1.5f;
+    public float sprintEnergyCost = 15f;
 
     [Header("Energy Recovery")]
     public float energyRegenRate = 8f;

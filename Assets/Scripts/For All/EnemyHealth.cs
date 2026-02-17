@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("Regeneration")]
     [Tooltip("Toggle to enable or disable health regeneration.")]
     public bool canRegenerate = true;
-    [Tooltip("Time in seconds since last hit before regeneration starts.")]
+    [Tooltip("Time in seconds since last hit or aggression ended before regeneration starts.")]
     public float regenDelay = 3f;
     [Tooltip("Amount of health restored per second.")]
     public float regenRate = 5f;
@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("References")]
     [Tooltip("Assign the specific collider that represents the damageable area.")]
     public Collider2D hitCollider;
+    private EnemyController enemyController;
 
     private float lastHitTime;
 
@@ -36,18 +37,23 @@ public class EnemyHealth : MonoBehaviour
         // Initialize lastHitTime so regen can occur immediately if starting damaged (rare, but safe)
         lastHitTime = -regenDelay;
 
-        // Auto-assign collider if not manually set in Inspector
-        if (hitCollider == null)
-        {
-            hitCollider = GetComponent<Collider2D>();
-        }
+        // Auto-assign references if not manually set
+        if (hitCollider == null) hitCollider = GetComponent<Collider2D>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     private void Update()
     {
+        // Reset the timer if we are currently aggroed
+        if (enemyController != null && enemyController.IsAggroed)
+        {
+            lastHitTime = Time.time;
+            return;
+        }
+
         if (canRegenerate && !IsDead && currentHealth < maxHealth)
         {
-            // Check if enough time has passed since the last hit
+            // Check if enough time has passed since the last hit OR aggression ended
             if (Time.time >= lastHitTime + regenDelay)
             {
                 Regenerate();
