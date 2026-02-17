@@ -7,6 +7,10 @@ public class PlayerPickup : MonoBehaviour
 
     private List<Item> itemsInRange = new List<Item>();
 
+    [Header("Pickup Settings")]
+    [SerializeField] private float pickupInterval = 0.15f;
+    private float nextPickupTime;
+
     private void Awake()
     {
         inventory = GetComponent<PlayerInventory>();
@@ -26,14 +30,17 @@ public class PlayerPickup : MonoBehaviour
 
         if (itemsInRange.Count == 0) return;
 
-        Item targetItem = itemsInRange[0];
-
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.Space))
         {
+            if (Time.time < nextPickupTime) return;
+
+            Item targetItem = itemsInRange[0];
+
             // DEBUG: Check if the item actually has data assigned
             if (targetItem.data == null)
             {
-                Debug.LogWarning($"Cannot pick up '{targetItem.name}' — ItemData is missing in Inspector!");
+                Debug.LogWarning($"Cannot pick up '{targetItem.name}' - ItemData is missing in Inspector!");
+                itemsInRange.RemoveAt(0); // Remove invalid item to avoid getting stuck
                 return;
             }
 
@@ -41,11 +48,17 @@ public class PlayerPickup : MonoBehaviour
 
             if (!pickedUp)
             {
-                Debug.Log("Cannot pick up item — inventory is full.");
+                // Only log when inventory is full, but with a cooldown to avoid log spam
+                if (Time.time > nextPickupTime + 1f)
+                {
+                    Debug.Log("Cannot pick up item - inventory is full.");
+                    nextPickupTime = Time.time;
+                }
                 return;
             }
 
             // Success
+            nextPickupTime = Time.time + pickupInterval;
             itemsInRange.Remove(targetItem);
             Destroy(targetItem.gameObject);
         }
