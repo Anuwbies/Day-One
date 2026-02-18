@@ -128,26 +128,45 @@ public class PlacementManager : MonoBehaviour
 
         // Create main tracking ghost
         ghostObject = CreateGhostInstance("MainPlacementGhost");
-        ghostRenderer = ghostObject.GetComponent<SpriteRenderer>();
 
         // Hide UI
         if (inventoryUI != null)
         {
-            inventoryUI.inventoryWindow.SetActive(false);
+            inventoryUI.SetOpen(false);
         }
     }
 
     private GameObject CreateGhostInstance(string name)
     {
-        GameObject ghost = new GameObject(name);
-        SpriteRenderer sr = ghost.AddComponent<SpriteRenderer>();
+        // Instantiate the actual prefab so it matches visuals and scale perfectly
+        GameObject ghost = Instantiate(currentItemData.worldPrefab);
+        ghost.name = name;
 
-        // Use the icon or a sprite from the prefab
-        SpriteRenderer prefabRenderer = currentItemData.worldPrefab.GetComponentInChildren<SpriteRenderer>();
-        sr.sprite = prefabRenderer != null ? prefabRenderer.sprite : currentItemData.icon;
+        // Disable or Remove all logic scripts to prevent behavior/errors
+        MonoBehaviour[] scripts = ghost.GetComponentsInChildren<MonoBehaviour>();
+        foreach (var script in scripts)
+        {
+            // Don't remove the transform or the renderer
+            if (!(script is Renderer) && !(script is Transform) && !(script is CanvasRenderer))
+            {
+                DestroyImmediate(script);
+            }
+        }
 
-        sr.sortingLayerName = "UI";
-        sr.sortingOrder = 1000;
+        // Set all renderers to transparent and on top
+        SpriteRenderer[] renderers = ghost.GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in renderers)
+        {
+            sr.sortingLayerName = "UI";
+            sr.sortingOrder = 1000;
+        }
+
+        // Disable all colliders on the ghost
+        Collider2D[] colliders = ghost.GetComponentsInChildren<Collider2D>();
+        foreach (var col in colliders)
+        {
+            col.enabled = false;
+        }
         
         return ghost;
     }
@@ -174,16 +193,15 @@ public class PlacementManager : MonoBehaviour
         Vector3 snappedPos = grid.GetCellCenterWorld(cellPos);
         ghostObject.transform.position = snappedPos;
 
-        // Validation check for the main cursor ghost
-        bool isValid = IsPositionValid(snappedPos) && !pendingCells.Contains(cellPos);
-        UpdateGhostColor(ghostRenderer, isValid);
+        // Validation check for the main cursor ghost (Check world AND pending ghosts)
+        bool isValid = IsPositionValid(snappedPos, cellPos);
+        UpdateGhostColor(ghostObject, isValid);
 
-        // VISUAL FEEDBACK: Update colors of all pending ghosts in case an entity moved onto them
+        // VISUAL FEEDBACK: Update colors of all pending ghosts
         for (int i = 0; i < pendingCells.Count; i++)
         {
             Vector3 pPos = grid.GetCellCenterWorld(pendingCells[i]);
-            SpriteRenderer sr = pendingGhosts[i].GetComponent<SpriteRenderer>();
-            UpdateGhostColor(sr, IsPositionValid(pPos));
+            UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true));
         }
     }
 
@@ -210,11 +228,9 @@ public class PlacementManager : MonoBehaviour
         }
         else
         {
-            // If not locked yet, only the start cell is valid
             currentCell = startCell;
         }
 
-        // Calculate the range of cells from start to current
         List<Vector3Int> desiredCells = GetCellsInLine(startCell, currentCell);
 
         // 1. Remove ghosts that are no longer in the line
@@ -228,20 +244,20 @@ public class PlacementManager : MonoBehaviour
             }
         }
 
-        // 2. Add ghosts for new cells in the line (respecting stack size)
+        // 2. Add ghosts for new cells in the line (respecting stack size and collision)
         foreach (Vector3Int cell in desiredCells)
         {
             if (pendingCells.Contains(cell)) continue;
-            
-            // Check if we have enough items left in the stack
             if (pendingCells.Count >= currentSlot.amount) break;
 
             Vector3 snappedPos = grid.GetCellCenterWorld(cell);
-            if (IsPositionValid(snappedPos))
+            
+            // Check if this new ghost would be valid (considering world obstacles AND previous ghosts)
+            if (IsPositionValid(snappedPos, cell))
             {
                 GameObject pGhost = CreateGhostInstance("PendingGhost");
                 pGhost.transform.position = snappedPos;
-                UpdateGhostColor(pGhost.GetComponent<SpriteRenderer>(), true);
+                UpdateGhostColor(pGhost, true);
 
                 pendingCells.Add(cell);
                 pendingGhosts.Add(pGhost);
@@ -282,7 +298,7 @@ public class PlacementManager : MonoBehaviour
             Vector3 pos = grid.GetCellCenterWorld(cell);
 
             // RE-VALIDATE: Ensure position is still clear before final instantiation
-            if (!IsPositionValid(pos))
+            if (!IsPositionValid(pos, cell, true))
             {
                 Debug.Log($"Skipping placement at {cell}: Position is now occupied.");
                 continue;
@@ -323,19 +339,71 @@ public class PlacementManager : MonoBehaviour
         pendingCells.Clear();
     }
 
-    private void UpdateGhostColor(SpriteRenderer sr, bool isValid)
+    private void UpdateGhostColor(GameObject ghost, bool isValid)
     {
-        if (sr == null) return;
+        if (ghost == null) return;
         
         Color baseColor = isValid ? validColor : invalidColor;
         baseColor.a = ghostTransparency;
-        sr.color = baseColor;
+
+        SpriteRenderer[] renderers = ghost.GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in renderers)
+        {
+            sr.color = baseColor;
+        }
     }
 
-    private bool IsPositionValid(Vector3 pos)
+    private bool IsPositionValid(Vector3 pos, Vector3Int? cellToIgnore = null, bool worldOnly = false)
     {
-        Collider2D hit = Physics2D.OverlapBox(pos, new Vector2(0.8f, 0.8f), 0, obstacleLayer);
-        return hit == null;
+        Vector2 size = GetItemSize();
+        
+        // 1. Check World Obstacles (Physics)
+        Collider2D hit = Physics2D.OverlapBox(pos, size * 0.95f, 0, obstacleLayer);
+        if (hit != null) return false;
+
+        if (worldOnly) return true;
+
+        // 2. Check Pending Ghosts (Logical Overlap)
+        foreach (var pCell in pendingCells)
+        {
+            if (cellToIgnore.HasValue && pCell == cellToIgnore.Value) continue;
+
+            Vector3 pPos = grid.GetCellCenterWorld(pCell);
+            
+            // Check if the footprints overlap based on their actual world size
+            if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.95f &&
+                Mathf.Abs(pos.y - pPos.y) < size.y * 0.95f)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private Vector2 GetItemSize()
+    {
+        if (currentItemData == null || currentItemData.worldPrefab == null)
+            return new Vector2(0.8f, 0.8f);
+
+        Vector3 scale = currentItemData.worldPrefab.transform.localScale;
+
+        // Find the footprint box
+        BoxCollider2D box = currentItemData.worldPrefab.GetComponentInChildren<BoxCollider2D>();
+        if (box != null) 
+        {
+            // Multiply collider size by transform scale to get the real world width/height
+            return new Vector2(box.size.x * scale.x, box.size.y * scale.y);
+        }
+
+        // Fallback to sprite size if no collider
+        SpriteRenderer sr = currentItemData.worldPrefab.GetComponentInChildren<SpriteRenderer>();
+        if (sr != null && sr.sprite != null)
+        {
+            return new Vector2(sr.sprite.bounds.size.x * scale.x, sr.sprite.bounds.size.y * scale.y);
+        }
+
+        return new Vector2(0.8f, 0.8f);
     }
 
     public void EndPlacement()
