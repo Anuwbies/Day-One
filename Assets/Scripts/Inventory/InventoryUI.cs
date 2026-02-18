@@ -69,7 +69,7 @@ public class InventoryUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SetOpen(!isOpen);
+            SetInventoryOpen(!isOpen);
         }
     }
 
@@ -139,7 +139,7 @@ public class InventoryUI : MonoBehaviour
 
         if (!IsPointerInsideSafeUI(Input.mousePosition))
         {
-            SetOpen(false);
+            SetInventoryOpen(false);
             ConsumeClickThisFrame = true;
         }
     }
@@ -163,7 +163,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public void SetOpen(bool open)
+    public void SetInventoryOpen(bool open)
     {
         isOpen = open;
 

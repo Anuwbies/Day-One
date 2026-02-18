@@ -23,17 +23,24 @@ public class PlayerInventory : MonoBehaviour
 
     public bool IsFullForNewItem(ItemData data)
     {
-        // If the item is stackable and already exists, it's NOT blocked
+        // If the item is stackable and already exists with space, it's NOT blocked
         if (data.stackable)
         {
             foreach (var slot in items)
             {
-                if (slot.item == data && slot.amount < data.maxStack)
+                if (slot != null && slot.item == data && slot.amount < data.maxStack)
                     return false; // Can fit in an existing stack
             }
         }
 
-        // Otherwise picking this item requires a new slot
+        // Check if there's any truly empty slot in current list
+        foreach (var slot in items)
+        {
+            if (slot == null || slot.item == null)
+                return false;
+        }
+
+        // If no empty slots found, is it full?
         return items.Count >= maxSlots;
     }
 
@@ -68,15 +75,23 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
-        // Fill empty slots
+        // Fill empty slots (checking for null OR slots with no item data)
         for (int i = 0; i < items.Count && amount > 0; i++)
         {
-            if (items[i] == null)
+            if (items[i] == null || items[i].item == null)
             {
                 int addAmount = Mathf.Min(amount, data.maxStack);
                 items[i] = new InventorySlot(data, addAmount);
                 amount -= addAmount;
             }
+        }
+
+        // If we still have amount left, try adding new slots IF we are under maxSlots
+        while (amount > 0 && items.Count < maxSlots)
+        {
+            int addAmount = Mathf.Min(amount, data.maxStack);
+            items.Add(new InventorySlot(data, addAmount));
+            amount -= addAmount;
         }
 
         OnInventoryChanged?.Invoke();

@@ -24,6 +24,7 @@ public class YSorter : MonoBehaviour
     public TransparencyTrigger[] triggerAreas;
 
     private SpriteRenderer sr;
+    private SpriteRenderer playerSR;
     private Transform playerTransform;
     private float targetAlpha = 1f;
     private float originalAlpha = 1f;
@@ -37,6 +38,7 @@ public class YSorter : MonoBehaviour
         if (player != null)
         {
             playerTransform = player.transform;
+            playerSR = player.GetComponent<SpriteRenderer>();
             if (player == gameObject) enableTransparency = false;
         }
     }
@@ -50,6 +52,7 @@ public class YSorter : MonoBehaviour
             if (player != null)
             {
                 playerTransform = player.transform;
+                playerSR = player.GetComponent<SpriteRenderer>();
                 if (player == gameObject) enableTransparency = false;
             }
         }
@@ -67,8 +70,9 @@ public class YSorter : MonoBehaviour
     {
         Vector3 playerPos = playerTransform.position;
 
-        // Player is behind if their center is visually behind the sorting pivot
-        bool isBehind = playerPos.y > pivotY;
+        // Player is behind if their sorting order is lower than this object's
+        // Fallback to Y comparison if playerSR is not available
+        bool isBehind = (playerSR != null) ? (playerSR.sortingOrder < sr.sortingOrder) : (playerPos.y > pivotY);
         bool isInAnyTrigger = false;
 
         // Check if player's center is inside any of the defined trigger areas

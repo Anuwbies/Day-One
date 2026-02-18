@@ -13,6 +13,14 @@ MonoBehaviour:
   m_Name: Campfire
   m_EditorClassIdentifier: 
   craftableLocations: -1
-  ingredientSets: []
-  resultItem: {fileID: 0}
+  ingredientSets:
+  - shapeless: 0
+    ingredients:
+    - slotIndex: 0
+      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
+      amount: 2
+    - slotIndex: 1
+      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
+      amount: 2
+  resultItem: {fileID: 11400000, guid: cbc924ac49b56ea47b2ffdaac3793994, type: 2}
   resultAmount: 1

@@ -58,8 +58,6 @@ public class PlacementManager : MonoBehaviour
 
         if (Time.timeScale == 0) return;
 
-        UpdateGhost();
-
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -113,6 +111,8 @@ public class PlacementManager : MonoBehaviour
                 EndPlacement();
             }
         }
+
+        UpdateGhost();
     }
 
     public void StartPlacement(ItemData data, InventorySlot slot, InventoryUI ui)
@@ -132,7 +132,7 @@ public class PlacementManager : MonoBehaviour
         // Hide UI
         if (inventoryUI != null)
         {
-            inventoryUI.SetOpen(false);
+            inventoryUI.SetInventoryOpen(false);
         }
     }
 
@@ -143,14 +143,12 @@ public class PlacementManager : MonoBehaviour
         ghost.name = name;
 
         // Disable or Remove all logic scripts to prevent behavior/errors
+        // GetComponentsInChildren<MonoBehaviour> only returns user scripts, 
+        // not internal components like Transform, SpriteRenderer, or Collider2D.
         MonoBehaviour[] scripts = ghost.GetComponentsInChildren<MonoBehaviour>();
         foreach (var script in scripts)
         {
-            // Don't remove the transform or the renderer
-            if (!(script is Renderer) && !(script is Transform) && !(script is CanvasRenderer))
-            {
-                DestroyImmediate(script);
-            }
+            DestroyImmediate(script);
         }
 
         // Set all renderers to transparent and on top
@@ -196,6 +194,19 @@ public class PlacementManager : MonoBehaviour
         // Validation check for the main cursor ghost (Check world AND pending ghosts)
         bool isValid = IsPositionValid(snappedPos, cellPos);
         UpdateGhostColor(ghostObject, isValid);
+
+        // Hide mouse ghost if we are dragging and have reached the item limit, 
+        // or if the current cell is already occupied by a pending ghost.
+        if (Input.GetMouseButton(0) && currentSlot != null)
+        {
+            bool alreadyPending = pendingCells.Contains(cellPos);
+            bool isFull = pendingCells.Count >= currentSlot.amount;
+            ghostObject.SetActive(!alreadyPending && !isFull);
+        }
+        else
+        {
+            ghostObject.SetActive(true);
+        }
 
         // VISUAL FEEDBACK: Update colors of all pending ghosts
         for (int i = 0; i < pendingCells.Count; i++)

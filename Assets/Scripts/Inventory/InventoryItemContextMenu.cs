@@ -145,7 +145,7 @@ public class InventoryItemContextMenu : MonoBehaviour
             // Close the inventory UI immediately
             if (inventoryUI != null)
             {
-                inventoryUI.SetOpen(false);
+                inventoryUI.SetInventoryOpen(false);
             }
         }
         else
