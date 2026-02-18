@@ -16,8 +16,12 @@ public class HotbarUI : MonoBehaviour
     [Header("UI")]
     public RectTransform hotbarRoot;
 
+    private InventoryUI inventoryUI;
+
     private void Start()
     {
+        inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
+
         playerInventory.OnInventoryChanged += OnInventoryChanged;
 
         for (int i = 0; i < slots.Length; i++)
@@ -32,6 +36,12 @@ public class HotbarUI : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0) return;
+
+        // If the inventory is open, do not process hotbar input
+        if (inventoryUI != null && inventoryUI.IsOpen)
+            return;
+
         CheckHotbarKeyPress();
         HandleScrollWheel();
     }

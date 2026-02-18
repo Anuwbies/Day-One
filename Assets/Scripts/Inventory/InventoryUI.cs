@@ -64,6 +64,9 @@ public class InventoryUI : MonoBehaviour
 
     private void HandleToggleKey()
     {
+        // If the game is paused, do not process hotkeys
+        if (Time.timeScale == 0) return;
+
         // Added KeyCode.Tab here
         if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
         {
