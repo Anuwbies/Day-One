@@ -108,6 +108,34 @@ public class PlayerStats : MonoBehaviour
         lastEnergyUseTime = Time.time;
     }
 
+    /// <summary>
+    /// Consumes the provided inventory slot item if it is edible.
+    /// Returns true if the item was consumed.
+    /// </summary>
+    public bool EatItem(InventorySlot slot)
+    {
+        if (slot == null || slot.item == null || !slot.item.canEat)
+            return false;
+
+        ItemData data = slot.item;
+
+        // Apply effects
+        AddHealth(data.healthRestore);
+        AddHunger(data.hungerRestore);
+        AddThirst(data.thirstRestore);
+        AddEnergy(data.energyRestore);
+
+        // Reduce amount
+        slot.amount--;
+        if (slot.amount <= 0)
+        {
+            slot.item = null;
+            slot.amount = 0;
+        }
+
+        return true;
+    }
+
     private void HandleEnergyRegen()
     {
         if (Energy >= MaxEnergy)

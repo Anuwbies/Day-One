@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a8cf5562b688f4b9f9f9bf77988810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 2
+  sprintSpeed: 3
   movement: {x: 0, y: 0}
 --- !u!114 &5412482222995638234
 MonoBehaviour:
@@ -303,6 +304,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortYOffset: -0.48
   offset: 0
+  enableTransparency: 0
+  fadeAlpha: 0.4
+  fadeSpeed: 10
+  triggerAreas: []
 --- !u!70 &5170028944625674284
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -366,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ab816cccb9fb54291977e00601842a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupInterval: 0.15
 --- !u!114 &3424390607189394427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,16 +384,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9753fc6a1c7a96428817db20565ccf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
-  Hunger: 50
-  Thirst: 50
-  Energy: 50
-  MaxHealth: 100
-  MaxHunger: 100
-  MaxThirst: 100
-  MaxEnergy: 100
+  Health: 100
+  Hunger: 100
+  Thirst: 100
+  Energy: 100
+  MaxHealth: 150
+  MaxHunger: 150
+  MaxThirst: 150
+  MaxEnergy: 150
   hungerDecay: 1
   thirstDecay: 1.5
+  sprintEnergyCost: 15
   energyRegenRate: 8
   energyRegenDelay: 2
   baseAttackDamage: 10

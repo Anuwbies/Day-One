@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     [Header("8-Directional Offsets")]
     [Tooltip("Moves all 8 attack directions as a single group.")]
     public Vector2 groupOffset;
-    [Tooltip("Offsets for the attack collider at each angle (relative to Group Offset):\n0: Right (0°)\n1: Top-Right (45°)\n2: Top (90°)\n3: Top-Left (135°)\n4: Left (180°)\n5: Bottom-Left (225°)\n6: Bottom (270°)\n7: Bottom-Right (315°)")]
+    [Tooltip("Offsets for the attack collider at each angle (relative to Group Offset):\n0: Right (0ï¿½)\n1: Top-Right (45ï¿½)\n2: Top (90ï¿½)\n3: Top-Left (135ï¿½)\n4: Left (180ï¿½)\n5: Bottom-Left (225ï¿½)\n6: Bottom (270ï¿½)\n7: Bottom-Right (315ï¿½)")]
     public Vector2[] directionalOffsets = new Vector2[8];
 
     [Header("References")]
@@ -87,9 +87,17 @@ public class EnemyAttack : MonoBehaviour
     {
         if (playerCollider == null) return;
 
-        // 1. Check Behavior: Don't attack if we are purely Passive (fleeing logic)
-        if (enemyController != null && enemyController.behavior == EnemyController.AIBehavior.Passive)
-            return;
+        // 1. Check Behavior and Aggro State
+        if (enemyController != null)
+        {
+            // Don't attack if purely Passive (fleeing logic)
+            if (enemyController.behavior == EnemyController.AIBehavior.Passive)
+                return;
+
+            // Don't attack if not currently aggroed (e.g., Retaliatory enemy that hasn't been hit)
+            if (!enemyController.IsAggroed)
+                return;
+        }
 
         // 2. Movement Check
         float speed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;

@@ -116,7 +116,7 @@ MonoBehaviour:
   zoomOutSpeed: 1
   zoomSlowRange: 1
   minSlowFactor: 0.1
-  idleDelay: 5
+  idleDelay: 30
 --- !u!114 &7292163221888827172
 MonoBehaviour:
   m_ObjectHideFlags: 0

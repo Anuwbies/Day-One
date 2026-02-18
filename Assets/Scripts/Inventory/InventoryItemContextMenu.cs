@@ -137,28 +137,24 @@ public class InventoryItemContextMenu : MonoBehaviour
     // EAT
     public void Eat()
     {
-        if (currentSlot == null || currentSlot.item == null)
+        if (currentSlot == null || playerStats == null)
             return;
 
-        ItemData data = currentSlot.item;
-
-        if (!data.canEat || playerStats == null)
-            return;
-
-        playerStats.AddHealth(data.healthRestore);
-        playerStats.AddHunger(data.hungerRestore);
-        playerStats.AddThirst(data.thirstRestore);
-        playerStats.AddEnergy(data.energyRestore);
-
-        currentSlot.amount--;
-
-        if (currentSlot.amount <= 0)
+        if (playerStats.EatItem(currentSlot))
         {
-            currentSlot.item = null;
-            currentSlot.amount = 0;
+            // If the item was consumed and the slot is now empty, clear it in the inventory list
+            if (currentSlot.item == null && inventoryUI != null)
+            {
+                int index = inventoryUI.inventory.items.IndexOf(currentSlot);
+                if (index != -1)
+                {
+                    inventoryUI.inventory.items[index] = null;
+                }
+            }
+
+            inventoryUI.inventory.OnInventoryChanged?.Invoke();
         }
 
-        inventoryUI.inventory.OnInventoryChanged?.Invoke();
         Hide();
     }
 

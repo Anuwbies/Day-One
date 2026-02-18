@@ -44,6 +44,47 @@ public class HotbarUI : MonoBehaviour
 
         CheckHotbarKeyPress();
         HandleScrollWheel();
+        HandleRightClick();
+    }
+
+    private void HandleRightClick()
+    {
+        if (Input.GetMouseButtonDown(1)) // Right-click
+        {
+            // Do not eat if the mouse is over the hotbar itself
+            if (IsPointerInsideHotbar()) return;
+
+            if (selectedIndex < 0 || selectedIndex >= playerInventory.items.Count)
+                return;
+
+            InventorySlot slot = playerInventory.items[selectedIndex];
+            if (slot == null || slot.item == null)
+                return;
+
+            if (playerStats != null && playerStats.EatItem(slot))
+            {
+                // If the item was consumed and the slot is now empty, clear it in the inventory list
+                if (slot.item == null)
+                {
+                    playerInventory.items[selectedIndex] = null;
+                }
+
+                // Refresh UI
+                playerInventory.OnInventoryChanged?.Invoke();
+            }
+        }
+    }
+
+    private bool IsPointerInsideHotbar()
+    {
+        if (hotbarRoot == null) return false;
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+        Camera cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay)
+            ? canvas.worldCamera
+            : null;
+
+        return RectTransformUtility.RectangleContainsScreenPoint(hotbarRoot, Input.mousePosition, cam);
     }
 
     // =========================

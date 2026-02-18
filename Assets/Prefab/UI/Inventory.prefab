@@ -1612,7 +1612,6 @@ GameObject:
   - component: {fileID: 126957565455170416}
   - component: {fileID: 929295553686028377}
   - component: {fileID: 8200233211926624922}
-  - component: {fileID: 7851059393530205839}
   m_Layer: 5
   m_Name: Inventory Grid
   m_TagString: Untagged
@@ -1741,20 +1740,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7851059393530205839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056255379201553663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &2232374015902157817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6653,6 +6638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &6853591901146800593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6837,6 +6824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4127023651162382894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7010,6 +6999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &293392873693888987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7194,6 +7185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &905791995843295919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7378,6 +7371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &7972847576534749524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7759,6 +7754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2615511185087563286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7943,6 +7940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4997357429020254059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8139,6 +8138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2478463248556770457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8312,6 +8313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &1265675627076205277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8496,6 +8499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2838460046052963667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8691,6 +8696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &8766734327104681306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8864,6 +8871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4232838701256671117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9059,6 +9068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &5615342683378977320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9433,6 +9444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &7163599898278080591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9601,6 +9614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &8746230290250555093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9785,6 +9800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &1238345546879968092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9958,6 +9975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &6287694212930929785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10142,6 +10161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &56707691939498147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10326,6 +10347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4347815385786916667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10521,6 +10544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &8852839885873048092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10694,6 +10719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4234390552854669960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11064,6 +11091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &802223542440780567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11248,6 +11277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &7946186154779813105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11432,6 +11463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4172127733223551675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11627,6 +11660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &1115660777983155356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11811,6 +11846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2404166102533150755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11995,6 +12032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &6808540332485030479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12168,6 +12207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &678035053587078082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12363,6 +12404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &6658140592734268370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12536,6 +12579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &4280566847079391966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12720,6 +12765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2225257061756704304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12915,6 +12962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2965344473634984833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13099,6 +13148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &517135052671324917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13283,6 +13334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &8982678968119319994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13641,6 +13694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &5233897015823624094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14012,6 +14067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &5200083701744311841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14371,6 +14428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &2571133242023374031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14555,6 +14614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &3951804412663799754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14750,6 +14811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &7783724751589731316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14923,6 +14986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   inventoryUI: {fileID: 8782459400437450708}
+  ghostWidth: 80
+  ghostHeight: 80
 --- !u!114 &1163191148242225928
 MonoBehaviour:
   m_ObjectHideFlags: 0

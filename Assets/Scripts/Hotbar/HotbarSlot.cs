@@ -39,6 +39,24 @@ public class HotbarSlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
+        {
             hotbarUI.SelectSlot(slotIndex);
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (currentSlot == null || currentSlot.item == null)
+                return;
+
+            if (hotbarUI.playerStats != null && hotbarUI.playerStats.EatItem(currentSlot))
+            {
+                // If consumed and empty, clear it in the shared inventory list
+                if (currentSlot.item == null)
+                {
+                    hotbarUI.playerInventory.items[slotIndex] = null;
+                }
+
+                hotbarUI.playerInventory.OnInventoryChanged?.Invoke();
+            }
+        }
     }
 }

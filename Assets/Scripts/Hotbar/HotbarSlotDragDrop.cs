@@ -7,6 +7,12 @@ public class HotbarSlotDragDrop : MonoBehaviour,
 {
     public HotbarSlot hotbarSlot;
 
+    [Header("Ghost Settings")]
+    [Tooltip("Manual width for the drag ghost.")]
+    public float ghostWidth = 48f;
+    [Tooltip("Manual height for the drag ghost.")]
+    public float ghostHeight = 48f;
+
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 
@@ -233,10 +239,11 @@ public class HotbarSlotDragDrop : MonoBehaviour,
         ghost.transform.SetAsLastSibling();
 
         ghostRect = ghost.GetComponent<RectTransform>();
-        ghostRect.sizeDelta = new Vector2(48f, 48f);
+        ghostRect.sizeDelta = new Vector2(ghostWidth, ghostHeight);
 
         ghostImage = ghost.GetComponent<Image>();
         ghostImage.sprite = icon;
+        ghostImage.preserveAspect = true; // Fix stretching for non-square sprites
         ghostImage.raycastTarget = false;
         ghostImage.color = new Color(1f, 1f, 1f, 0.9f);
     }

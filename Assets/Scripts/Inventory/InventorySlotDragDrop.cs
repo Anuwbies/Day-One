@@ -8,6 +8,12 @@ public class InventorySlotDragDrop : MonoBehaviour,
     public int slotIndex;
     public InventoryUI inventoryUI;
 
+    [Header("Ghost Settings")]
+    [Tooltip("Manual width for the drag ghost.")]
+    public float ghostWidth = 80f;
+    [Tooltip("Manual height for the drag ghost.")]
+    public float ghostHeight = 80f;
+
     private Canvas canvas;
     private CanvasGroup slotCanvasGroup;
 
@@ -221,7 +227,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
         ghost.transform.SetParent(canvas.transform, false);
 
         ghostRect = ghost.GetComponent<RectTransform>();
-        ghostRect.sizeDelta = new Vector2(80f, 80f);
+        ghostRect.sizeDelta = new Vector2(ghostWidth, ghostHeight);
 
         ghostImage = ghost.GetComponent<Image>();
         ghostImage.type = Image.Type.Simple;
