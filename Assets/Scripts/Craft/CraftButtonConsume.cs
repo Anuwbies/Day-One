@@ -6,42 +6,59 @@ public class CraftButtonConsume : MonoBehaviour
     public CraftingGridController craftingGrid;
 
     private Button button;
+    private RepeatablePointerButton inputHandler;
 
     private void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnCraftPressed);
+        // We will now use inputHandler instead of the simple button click
+        
+        inputHandler = gameObject.AddComponent<RepeatablePointerButton>();
+        inputHandler.onLeftClick = () => TryCraft();
+        inputHandler.onHoldAction = () => TryCraft();
+        inputHandler.onRightClick = () => CraftAll();
     }
 
-    private void OnDestroy()
+    private void TryCraft()
     {
-        button.onClick.RemoveListener(OnCraftPressed);
+        OnCraftPressed();
     }
 
-    private void OnCraftPressed()
+    private void CraftAll()
+    {
+        // Keep crafting until it fails (no ingredients or full inventory)
+        int safetyLimit = 999;
+        while (OnCraftPressed() && safetyLimit > 0)
+        {
+            safetyLimit--;
+        }
+    }
+
+    private bool OnCraftPressed()
     {
         if (craftingGrid == null)
-            return;
+            return false;
 
         InventoryUI inventoryUI = craftingGrid.inventoryUI;
         if (inventoryUI == null || inventoryUI.inventory == null)
-            return;
+            return false;
 
         CraftingRecipe recipe = craftingGrid.GetCurrentRecipe();
         CraftingIngredientSet set = craftingGrid.CurrentMatchedSet;
 
         if (recipe == null || set == null)
-            return;
+            return false;
 
         if (!inventoryUI.CanAcceptItem(
                 recipe.resultItem,
                 recipe.resultAmount))
-            return;
+            return false;
 
         ConsumeIngredientSet(set);
         GiveResult(recipe);
 
         craftingGrid.UpdateResultPreview();
+        return true;
     }
 
     // =========================

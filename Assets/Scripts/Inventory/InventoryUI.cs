@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -67,8 +67,7 @@ public class InventoryUI : MonoBehaviour
         // If the game is paused, do not process hotkeys
         if (Time.timeScale == 0) return;
 
-        // Added KeyCode.Tab here
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SetOpen(!isOpen);
         }
@@ -164,9 +163,15 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    private void SetOpen(bool open)
+    public void SetOpen(bool open)
     {
         isOpen = open;
+
+        // If we are opening the inventory, cancel any active placement
+        if (isOpen && PlacementManager.Instance != null && PlacementManager.Instance.IsPlacing)
+        {
+            PlacementManager.Instance.EndPlacement();
+        }
 
         if (inventoryWindow != null)
             inventoryWindow.SetActive(isOpen);

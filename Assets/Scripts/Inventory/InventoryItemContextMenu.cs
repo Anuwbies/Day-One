@@ -123,13 +123,35 @@ public class InventoryItemContextMenu : MonoBehaviour
     // PLACE
     public void Place()
     {
+        Debug.Log($"Place button clicked for {currentSlot?.item?.itemName}");
+
         if (currentSlot == null || currentSlot.item == null)
+        {
+            Debug.LogWarning("Place failed: currentSlot or item is null.");
             return;
+        }
 
         if (!currentSlot.item.canPlace)
+        {
+            Debug.LogWarning($"Place failed: {currentSlot.item.itemName} canPlace is false.");
             return;
+        }
 
-        // Placement logic intentionally left empty
+        if (PlacementManager.Instance != null)
+        {
+            Debug.Log($"Calling PlacementManager for {currentSlot.item.itemName}");
+            PlacementManager.Instance.StartPlacement(currentSlot.item, currentSlot, inventoryUI);
+            
+            // Close the inventory UI immediately
+            if (inventoryUI != null)
+            {
+                inventoryUI.SetOpen(false);
+            }
+        }
+        else
+        {
+            Debug.LogError("Place failed: PlacementManager.Instance is null! Is there a PlacementManager in the scene?");
+        }
 
         Hide();
     }

@@ -63,6 +63,13 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
+        // 1.5 Check Placement Mode
+        if (PlacementManager.Instance != null && PlacementManager.Instance.IsPlacing)
+        {
+            isAttacking = false;
+            return;
+        }
+
         // 2. Handle Input
         if (Input.GetMouseButton(0))
         {

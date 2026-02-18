@@ -102,17 +102,57 @@ public class InventoryCraftableListUI : MonoBehaviour
             ingredientsText.text = BuildIngredientsText(set);
 
         // =========================
-        // CLICK → SHOW GHOST
+        // CLICK → SHOW GHOST / FILL
         // =========================
-        button.onClick.AddListener(() =>
+        RepeatablePointerButton handler = go.AddComponent<RepeatablePointerButton>();
+        
+        handler.onLeftClick = () => 
         {
-            if (craftingGridController == null)
-                return;
+            if (craftingGridController != null)
+                craftingGridController.AutoFillOrGhost(set);
+        };
 
-            // Auto place real items if available,
-            // show ghost only for missing ingredients
-            craftingGridController.AutoFillOrGhost(set);
-        });
+        handler.onHoldAction = () =>
+        {
+            if (craftingGridController != null)
+                craftingGridController.AutoFillOrGhost(set);
+        };
+
+        handler.onRightClick = () =>
+        {
+            if (craftingGridController == null) return;
+
+            // Fill as many as possible
+            int safetyLimit = 999;
+            while (CanAddMore(set) && safetyLimit > 0)
+            {
+                craftingGridController.AutoFillOrGhost(set);
+                safetyLimit--;
+            }
+        };
+    }
+
+    private bool CanAddMore(CraftingIngredientSet set)
+    {
+        if (craftingGridController == null || craftingGridController.inventoryUI == null) return false;
+        
+        var inventory = craftingGridController.inventoryUI.inventory;
+        
+        // Simplified check: does inventory have at least one of each required ingredient?
+        foreach (var ing in set.ingredients)
+        {
+            bool found = false;
+            foreach (var invSlot in inventory.items)
+            {
+                if (invSlot != null && invSlot.item == ing.item && invSlot.amount >= ing.amount)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return false;
+        }
+        return true;
     }
 
     // =========================
