@@ -22,6 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // If the game is paused, do not process movement or input
+        if (Time.timeScale == 0)
+        {
+            movement = Vector2.zero;
+            if (anim != null) anim.SetBool("isRunning", false);
+            return;
+        }
+
         // WASD input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");

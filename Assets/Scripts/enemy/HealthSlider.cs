@@ -25,7 +25,6 @@ public class HealthSlider : MonoBehaviour
     private float currentDisplayHealth;
     private float lastHealth;
     private float lastDamageTime = -999f;
-    private float lastAggroTime = -999f;
 
     private void Start()
     {
@@ -73,13 +72,13 @@ public class HealthSlider : MonoBehaviour
         // Initial visibility check
         if (uiRoot != null)
         {
-            bool aggroed = enemyController != null && enemyController.IsAggroed;
             float max = enemyHealth != null ? enemyHealth.maxHealth : (playerStats != null ? playerStats.MaxHealth : 1);
             
-            // Start visible only if currently damaged AND (aggroed or not an enemy)
-            // This prevents health bars showing on full-health enemies just because they are aggroed.
+            // Start visible only for the Player HUD if currently damaged.
+            // Enemies and Resources (Trees/Rocks) stay hidden until hit.
             bool isDamaged = currentDisplayHealth < max;
-            bool shouldShowInitial = isDamaged && (enemyController == null || aggroed);
+            bool isPlayerHUD = playerStats != null;
+            bool shouldShowInitial = isDamaged && isPlayerHUD;
             uiRoot.SetActive(shouldShowInitial && currentDisplayHealth > 0);
         }
     }
@@ -111,21 +110,28 @@ public class HealthSlider : MonoBehaviour
         }
         lastHealth = targetHealth;
 
-        // Detect aggression to reset the timer - only if already damaged
-        bool isDamaged = targetHealth < maxHealth;
-        if (enemyController != null && enemyController.IsAggroed && isDamaged)
+        bool hasBeenHit = lastDamageTime > 0;
+        bool isAggroed = enemyController != null && enemyController.IsAggroed;
+
+        // If currently aggroed and we've been hit before, keep the timer refreshed
+        // so that the hideDelay only starts counting down AFTER aggro is lost.
+        if (isAggroed && hasBeenHit)
         {
-            lastAggroTime = Time.time;
+            lastDamageTime = Time.time;
         }
 
         // Visibility logic: 
         // 1. Must be alive (health > 0)
-        // 2. Must have taken damage recently OR been aggroed while damaged recently
+        // 2. For Player HUD: Show if hit recently OR currently damaged.
+        // 3. For Everything else (Enemies, Resources): Show ONLY if hit recently (and hit at least once).
         bool isAlive = targetHealth > 0;
-        bool recentlyHit = Time.time < lastDamageTime + hideDelay;
-        bool recentlyAggroed = Time.time < lastAggroTime + hideDelay;
+        bool recentlyActive = Time.time < lastDamageTime + hideDelay;
+        bool isPlayerHUD = playerStats != null;
 
-        bool shouldShow = isAlive && (recentlyHit || recentlyAggroed);
+        bool shouldShow = isAlive && (
+            (isPlayerHUD && (recentlyActive || targetHealth < maxHealth)) ||
+            (!isPlayerHUD && hasBeenHit && recentlyActive)
+        );
 
         if (uiRoot != null && uiRoot.activeSelf != shouldShow)
         {

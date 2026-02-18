@@ -160,12 +160,6 @@ public class InventorySplitUI : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cancel();
-            return;
-        }
-
         // =========================
         // CLICK OUTSIDE TO CLOSE
         // =========================

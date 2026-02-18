@@ -76,6 +76,16 @@ public class HoverBackgroundRotate : MonoBehaviour,
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        ResetHover();
+    }
+
+    private void OnDisable()
+    {
+        ResetHover();
+    }
+
+    private void ResetHover()
+    {
         if (backgroundImage == null)
             return;
 
