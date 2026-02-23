@@ -1449,8 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad0322367351a04992093409b797732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalCoinAddress: 0x98a5679908dAe7AA57eF3F769fba1344d9fBd5eF
-  survivalShopAddress: 0x1ba4d874e87c5902cad2f2906492797a62fbf543
+  survivalCoinAddress: 0x0dEFf35F91F30ef994651Cdf669AB82Fd2153783
+  survivalShopAddress: 0xD1AEfB523dFAA39874E227F480C8D1DDC9904B20
   PlayerWalletAddress: 
   IsConnected: 0
 --- !u!114 &347875948
@@ -1605,8 +1605,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0.00 SURV
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10768,6 +10768,7 @@ GameObject:
   - component: {fileID: 1526931466}
   - component: {fileID: 1526931465}
   - component: {fileID: 1526931464}
+  - component: {fileID: 1526931467}
   m_Layer: 5
   m_Name: FeedbackText
   m_TagString: Untagged
@@ -10797,8 +10798,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2359390ffd626e846b8dcbae71997455, type: 2}
+  m_sharedMaterial: {fileID: -2484913621483706219, guid: 2359390ffd626e846b8dcbae71997455, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10829,8 +10830,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -10892,8 +10893,31 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -434.4}
-  m_SizeDelta: {x: 223.2, y: 70.9}
+  m_SizeDelta: {x: 680.19, y: 70.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &1526931467
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526931463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 10
+  m_TargetDisplay: 0
 --- !u!1 &1528555170
 GameObject:
   m_ObjectHideFlags: 0
@@ -13440,15 +13464,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Connect Wallet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df1c7c06ef00ce241a6bc033e8e0281e, type: 2}
+  m_sharedMaterial: {fileID: 4410697011862772449, guid: df1c7c06ef00ce241a6bc033e8e0281e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13465,8 +13489,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

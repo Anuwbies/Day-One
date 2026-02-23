@@ -21,7 +21,7 @@ public class ShopBlockchain : MonoBehaviour
     /// <summary>Fires after a successful purchase. Args: (itemId, itemName, price).</summary>
     public event Action<int, string, decimal> OnPurchaseSuccess;
     /// <summary>Fires when a purchase fails. Args: (itemId, errorMessage).</summary>
-    public event Action<int, string>          OnPurchaseFailed;
+    public event Action<int, string> OnPurchaseFailed;
 
     private void Awake()
     {
@@ -37,12 +37,22 @@ public class ShopBlockchain : MonoBehaviour
     /// </summary>
     public async void BuyItem(int itemId)
     {
+        // ── Guard: wallet must be connected first ─────────────
+        if (!BlockchainManager.Instance.IsConnected)
+        {
+            string msg = "Please connect your wallet before purchasing.";
+            Debug.LogWarning($"[ShopBlockchain] {msg}");
+            OnPurchaseFailed?.Invoke(itemId, msg);
+            return;
+        }
+
         try
         {
             Debug.Log($"[ShopBlockchain] Buying item #{itemId}…");
 
             // 1. Read item info from the blockchain
             var (name, price, active) = await GetItemInfo(itemId);
+
 
             if (!active)
             {
@@ -124,9 +134,9 @@ public class ShopBlockchain : MonoBehaviour
         var shopContract = BlockchainManager.Instance.GetShopContract();
         var result = await shopContract.Call("getItem", new object[] { itemId });
 
-        string     name     = result[1].ToString();
+        string name = result[1].ToString();
         BigInteger rawPrice = BigInteger.Parse(result[2].ToString());
-        bool       active   = bool.Parse(result[3].ToString());
+        bool active = bool.Parse(result[3].ToString());
 
         decimal price = (decimal)rawPrice / 1_000_000_000_000_000_000m;
         return (name, price, active);

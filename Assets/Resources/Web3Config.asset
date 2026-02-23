@@ -17,6 +17,6 @@ MonoBehaviour:
     <Symbol>k__BackingField: ETH
     <Chain>k__BackingField: Ethereum Sepolia
     <Network>k__BackingField: ETH
-    <Rpc>k__BackingField: https://rpc.sepolia.org
+    <Rpc>k__BackingField: 'https://ethereum-sepolia-rpc.publicnode.com '
     <Ws>k__BackingField: wss://sepolia.infura.io/v3/${INFURA_API_KEY}
     <BlockExplorerUrl>k__BackingField: https://sepolia.etherscan.io
