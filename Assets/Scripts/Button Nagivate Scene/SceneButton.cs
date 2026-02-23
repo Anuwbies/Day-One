@@ -35,12 +35,6 @@ public class SceneButton : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
-        Debug.Log("Exiting to Desktop...");
         Application.Quit();
-
-        #if UNITY_EDITOR
-        // This allows testing the quit functionality within the Unity Editor
-        UnityEditor.EditorApplication.isPlaying = false;
-        #endif
     }
 }
