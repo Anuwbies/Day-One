@@ -14,11 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftableLocations: -1
   ingredientSets:
-  - shapeless: 1
-    ingredients:
-    - slotIndex: 0
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
-      amount: 4
   - shapeless: 0
     ingredients:
     - slotIndex: 0
