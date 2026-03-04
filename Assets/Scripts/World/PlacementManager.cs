@@ -10,7 +10,7 @@ public class PlacementManager : MonoBehaviour
 
     [Header("Settings")]
     public List<string> obstacleSortingLayers = new List<string> { "World", "Foreground" };
-    private LayerMask obstacleLayer = -1; // Hidden as you use Sorting Layers for filtering
+    public LayerMask obstacleLayer = -1; 
     public string ghostSortingLayer = "Tool";
     public int ghostSortingOrder = 1001;
     [Range(0f, 1f)]
@@ -43,6 +43,12 @@ public class PlacementManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        // Initialize obstacleLayer if it hasn't been set in the inspector
+        if (obstacleLayer == -1 || obstacleLayer == 0)
+        {
+            obstacleLayer = ~(1 << 2); // Everything except Ignore Raycast
+        }
 
         // Create an unlit material for ghosts so they aren't affected by lighting (prevents being black)
         Shader ghostShader = Shader.Find("Sprites/Default");
@@ -85,8 +91,16 @@ public class PlacementManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (EventSystem.current.IsPointerOverGameObject()) 
+            {
+                Debug.Log("Placement blocked: Pointer is over UI.");
+                return;
+            }
+
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
+            
+            Debug.Log($"Mouse Down at {mouseWorldPos}. Checking validity...");
             
             // Clear previous pending to be sure
             ClearPending();
@@ -96,17 +110,23 @@ public class PlacementManager : MonoBehaviour
                 startCell = GetBottomLeftCell(mouseWorldPos);
                 axisLocked = false;
                 Vector3 snappedStartPos = GetSnappedPosition(startCell);
-                canDrag = IsPositionValid(snappedStartPos, startCell);
+                canDrag = IsPositionValid(snappedStartPos, startCell, false, ghostObject);
+                Debug.Log($"Grid placement initial check at {startCell}: canDrag={canDrag}");
             }
             else
             {
                 // For non-grid, we don't really support "drag lines", so we just treat it as a single placement on click
-                canDrag = IsPositionValid(mouseWorldPos);
+                canDrag = IsPositionValid(mouseWorldPos, null, false, ghostObject);
+                Debug.Log($"Free placement initial check at {mouseWorldPos}: canDrag={canDrag}");
             }
 
             if (canDrag)
             {
                 ContinueDragPlacement();
+            }
+            else
+            {
+                Debug.Log("Placement invalid at click position. canDrag is false.");
             }
         }
 
@@ -119,7 +139,13 @@ public class PlacementManager : MonoBehaviour
         {
             if (canDrag)
             {
+                int count = currentItemData.snapToGrid ? pendingCells.Count : pendingPositions.Count;
+                Debug.Log($"Mouse Up: Attempting FinalizePlacement. Pending count: {count}");
                 FinalizePlacement();
+            }
+            else
+            {
+                Debug.Log("Mouse Up: canDrag was false, skipping Finalize.");
             }
             canDrag = false;
         }
@@ -172,6 +198,9 @@ public class PlacementManager : MonoBehaviour
         GameObject ghost = Instantiate(currentItemData.worldPrefab);
         ghost.name = name;
 
+        // Set layer recursively to Ignore Raycast (Layer 2) to avoid hitting other ghosts
+        SetLayerRecursive(ghost, 2);
+
         // Disable or Remove all logic scripts to prevent behavior/errors
         // Keep YSorter active so the ghost sorts correctly in the world
         MonoBehaviour[] scripts = ghost.GetComponentsInChildren<MonoBehaviour>();
@@ -203,6 +232,16 @@ public class PlacementManager : MonoBehaviour
         }
         
         return ghost;
+    }
+
+    private void SetLayerRecursive(GameObject obj, int newLayer)
+    {
+        if (obj == null) return;
+        obj.layer = newLayer;
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursive(child.gameObject, newLayer);
+        }
     }
 
     private void UpdateGhost()
@@ -238,7 +277,7 @@ public class PlacementManager : MonoBehaviour
         ghostObject.transform.position = finalPos;
 
         // Validation check for the main cursor ghost (Check world AND pending ghosts)
-        bool isValid = IsPositionValid(finalPos, cellPos);
+        bool isValid = IsPositionValid(finalPos, cellPos, false, ghostObject);
         UpdateGhostColor(ghostObject, isValid);
 
         // Hide mouse ghost if we are dragging and have reached the item limit, 
@@ -260,14 +299,14 @@ public class PlacementManager : MonoBehaviour
             for (int i = 0; i < pendingCells.Count; i++)
             {
                 Vector3 pPos = GetSnappedPosition(pendingCells[i]);
-                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true));
+                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true, pendingGhosts[i]));
             }
         }
         else
         {
             for (int i = 0; i < pendingPositions.Count; i++)
             {
-                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pendingPositions[i], null, true));
+                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pendingPositions[i], null, true, pendingGhosts[i]));
             }
         }
     }
@@ -345,15 +384,21 @@ public class PlacementManager : MonoBehaviour
 
                 Vector3 snappedPos = GetSnappedPosition(cell);
                 
-                // Check if this new ghost would be valid (considering world obstacles AND previous ghosts)
-                if (IsPositionValid(snappedPos, cell))
-                {
-                    GameObject pGhost = CreateGhostInstance("PendingGhost");
-                    pGhost.transform.position = snappedPos;
-                    UpdateGhostColor(pGhost, true);
+                GameObject pGhost = CreateGhostInstance("PendingGhost");
+                pGhost.transform.position = snappedPos;
 
+                // Check if this new ghost is valid (considering world obstacles AND previous ghosts)
+                if (IsPositionValid(snappedPos, cell, false, pGhost))
+                {
+                    UpdateGhostColor(pGhost, true);
                     pendingCells.Add(cell);
                     pendingGhosts.Add(pGhost);
+                    Debug.Log($"Added pending ghost at cell {cell}. Total pending: {pendingCells.Count}");
+                }
+                else
+                {
+                    Debug.Log($"Failed to add pending ghost at cell {cell}: Invalid position.");
+                    Destroy(pGhost);
                 }
             }
         }
@@ -369,14 +414,23 @@ public class PlacementManager : MonoBehaviour
                     if (Vector3.Distance(mouseWorldPos, pos) < 0.5f) { tooClose = true; break; }
                 }
 
-                if (!tooClose && IsPositionValid(mouseWorldPos))
+                if (!tooClose)
                 {
                     GameObject pGhost = CreateGhostInstance("PendingGhost");
                     pGhost.transform.position = mouseWorldPos;
-                    UpdateGhostColor(pGhost, true);
 
-                    pendingPositions.Add(mouseWorldPos);
-                    pendingGhosts.Add(pGhost);
+                    if (IsPositionValid(mouseWorldPos, null, false, pGhost))
+                    {
+                        UpdateGhostColor(pGhost, true);
+                        pendingPositions.Add(mouseWorldPos);
+                        pendingGhosts.Add(pGhost);
+                        Debug.Log($"Added pending ghost at free position {mouseWorldPos}. Total pending: {pendingPositions.Count}");
+                    }
+                    else
+                    {
+                        Debug.Log($"Failed to add pending ghost at free position {mouseWorldPos}: Invalid position.");
+                        Destroy(pGhost);
+                    }
                 }
             }
         }
@@ -416,27 +470,31 @@ public class PlacementManager : MonoBehaviour
     private void FinalizePlacement()
     {
         int count = currentItemData.snapToGrid ? pendingCells.Count : pendingPositions.Count;
-        if (count == 0) return;
+        if (count == 0) 
+        {
+            Debug.Log("FinalizePlacement: No pending positions/cells to place.");
+            return;
+        }
 
         Debug.Log($"Finalizing placement of {count} {currentItemData.itemName}(s)");
 
         if (currentItemData.snapToGrid)
         {
-            foreach (var cell in pendingCells)
+            for (int i = 0; i < pendingCells.Count; i++)
             {
-                Vector3 pos = GetSnappedPosition(cell);
-                if (!IsPositionValid(pos, cell, true)) continue;
-
+                Vector3 pos = GetSnappedPosition(pendingCells[i]);
+                // We trust the drag validation, so we instantiate directly
+                Debug.Log($"Instantiating {currentItemData.itemName} at {pos}");
                 Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
                 ConsumeItem();
             }
         }
         else
         {
-            foreach (var pos in pendingPositions)
+            for (int i = 0; i < pendingPositions.Count; i++)
             {
-                if (!IsPositionValid(pos, null, true)) continue;
-
+                Vector3 pos = pendingPositions[i];
+                Debug.Log($"Instantiating {currentItemData.itemName} at {pos}");
                 Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
                 ConsumeItem();
             }
@@ -450,8 +508,9 @@ public class PlacementManager : MonoBehaviour
         ClearPending();
 
         // If we ran out of items, exit placement mode
-        if (currentSlot == null || currentSlot.item == null)
+        if (currentSlot == null || currentSlot.item == null || currentSlot.amount <= 0)
         {
+            Debug.Log("Ran out of items, ending placement mode.");
             EndPlacement();
         }
     }
@@ -460,6 +519,7 @@ public class PlacementManager : MonoBehaviour
     {
         if (currentSlot == null) return;
         currentSlot.amount--;
+        Debug.Log($"Consumed 1 {currentItemData.itemName}. Remaining: {currentSlot.amount}");
         if (currentSlot.amount <= 0)
         {
             currentSlot.item = null;
@@ -492,21 +552,112 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
-    private bool IsPositionValid(Vector3 pos, Vector3Int? cellToIgnore = null, bool worldOnly = false)
+    private bool IsPositionValid(Vector3 pos, Vector3Int? cellToIgnore = null, bool worldOnly = false, GameObject ghost = null)
     {
-        Vector2 size = GetItemSize();
-        
-        // 1. Check World Obstacles
-        Collider2D[] hits = Physics2D.OverlapBoxAll(pos, size * 0.9f, 0, obstacleLayer);
-        
-        foreach (var hit in hits)
+        if (currentItemData == null) return false;
+
+        bool collisionFound = false;
+        Collider2D obstacleCollider = null;
+        string gName = ghost != null ? ghost.name : "None";
+
+        if (ghost != null)
         {
-            if (hit.gameObject.name.Contains("Ghost")) continue;
-            if (hit.CompareTag("Obstacle")) return false;
+            // Try to find a collider tagged "Obstacle" on the ghost
+            Collider2D[] ghostColliders = ghost.GetComponentsInChildren<Collider2D>(true);
+            foreach (var col in ghostColliders)
+            {
+                if (col.CompareTag("Obstacle"))
+                {
+                    obstacleCollider = col;
+                    break;
+                }
+            }
+            if (obstacleCollider == null) Debug.Log($"IsPositionValid({gName}): No 'Obstacle' tagged collider found on ghost");
+            else Debug.Log($"IsPositionValid({gName}): Using 'Obstacle' collider '{obstacleCollider.name}' from ghost.");
         }
 
+        if (obstacleCollider != null)
+        {
+            // Sync ghost position to the test position temporarily for the check
+            Vector3 prevPos = ghost.transform.position;
+            ghost.transform.position = pos;
+
+            bool originalEnabled = obstacleCollider.enabled;
+            obstacleCollider.enabled = true;
+
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.useTriggers = true; // Include trigger-based obstacles
+            filter.SetLayerMask(obstacleLayer);
+
+            List<Collider2D> results = new List<Collider2D>();
+            int count = Physics2D.OverlapCollider(obstacleCollider, filter, results);
+
+            obstacleCollider.enabled = originalEnabled;
+            ghost.transform.position = prevPos;
+
+            for (int i = 0; i < count; i++)
+            {
+                // 1. Skip self and ANY part of this ghost's hierarchy
+                if (results[i].gameObject == ghost || results[i].transform.IsChildOf(ghost.transform)) continue;
+                
+                // 2. Extremely robust ghost check: check root name and layer
+                Transform root = results[i].transform.root;
+                if (root.name.Contains("Ghost") || results[i].gameObject.layer == 2) 
+                {
+                    continue;
+                }
+
+                // 3. Ignore the Player (even if tagged Obstacle)
+                if (results[i].CompareTag("Player") || root.CompareTag("Player"))
+                {
+                    continue;
+                }
+
+                Debug.Log($"IsPositionValid({gName}): Hit '{results[i].name}' (Root: '{root.name}') with tag '{results[i].tag}' on layer {LayerMask.LayerToName(results[i].gameObject.layer)}");
+
+                if (results[i].CompareTag("Obstacle"))
+                {
+                    Debug.Log($"IsPositionValid({gName}): VALID COLLISION with Obstacle: {results[i].name} (Root: {root.name})");
+                    collisionFound = true;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            // Fallback to box check based on grid size
+            Vector2 size = GetItemSize();
+            Collider2D[] hits = Physics2D.OverlapBoxAll(pos, size * 0.9f, 0, obstacleLayer);
+            foreach (var hit in hits)
+            {
+                if (ghost != null && (hit.gameObject == ghost || hit.transform.IsChildOf(ghost.transform))) continue;
+                
+                Transform root = hit.transform.root;
+                if (root.name.Contains("Ghost") || hit.gameObject.layer == 2) 
+                {
+                    continue;
+                }
+
+                if (hit.CompareTag("Player") || root.CompareTag("Player"))
+                {
+                    continue;
+                }
+
+                Debug.Log($"IsPositionValid({gName} Box): Hit '{hit.name}' (Root: '{root.name}') with tag '{hit.tag}' on layer {LayerMask.LayerToName(hit.gameObject.layer)}");
+
+                if (hit.CompareTag("Obstacle"))
+                {
+                    Debug.Log($"IsPositionValid({gName} Box): VALID COLLISION with Obstacle: {hit.name} (Root: {root.name})");
+                    collisionFound = true;
+                    break;
+                }
+            }
+        }
+
+        if (collisionFound) return false;
         if (worldOnly) return true;
 
+        Vector2 logicalSize = GetItemSize();
         // 2. Check Pending Ghosts (Logical Overlap)
         if (currentItemData.snapToGrid)
         {
@@ -514,7 +665,11 @@ public class PlacementManager : MonoBehaviour
             {
                 if (cellToIgnore.HasValue && pCell == cellToIgnore.Value) continue;
                 Vector3 pPos = GetSnappedPosition(pCell);
-                if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f) return false;
+                if (Mathf.Abs(pos.x - pPos.x) < logicalSize.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < logicalSize.y * 0.9f)
+                {
+                    Debug.Log($"IsPositionValid({gName}): Blocked by pending grid cell.");
+                    return false;
+                }
             }
         }
         else
@@ -522,7 +677,11 @@ public class PlacementManager : MonoBehaviour
             foreach (var pPos in pendingPositions)
             {
                 if (Vector3.Distance(pos, pPos) < 0.1f) continue; // Same ghost
-                if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f) return false;
+                if (Mathf.Abs(pos.x - pPos.x) < logicalSize.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < logicalSize.y * 0.9f)
+                {
+                    Debug.Log($"IsPositionValid({gName}): Blocked by pending position.");
+                    return false;
+                }
             }
         }
 

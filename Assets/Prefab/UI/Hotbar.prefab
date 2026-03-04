@@ -360,6 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 1965077553203830090}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &628131375533308861
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: -40}
+  m_AnchoredPosition: {x: -145.8, y: -352.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &702111296228925700
@@ -1050,6 +1052,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 4268601858012577337}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &3766389953118837086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 3393228264800690404}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &4478850278391432686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 7908452447336207789}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &5672852229807357841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 365307349264546253}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &6683432712512112723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 2876409499171129996}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &7140019957795918396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,6 +2326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 4583668864935578681}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &7410843875316100769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarSlot: {fileID: 4602177247770350264}
+  ghostWidth: 63
+  ghostHeight: 63
 --- !u!1 &7489175833566295801
 GameObject:
   m_ObjectHideFlags: 0

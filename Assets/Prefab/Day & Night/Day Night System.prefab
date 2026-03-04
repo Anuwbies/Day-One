@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45af1456a8c0e504d8bbb7707c7cc6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableTimeTransfer: 0
   dayLengthInMinutes: 10
   timeOfDay: 7
   globalLight: {fileID: 0}
