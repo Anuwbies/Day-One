@@ -5901,6 +5901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 73409088759054991, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
+      propertyPath: <ResumeSessionOnInit>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376894756574179703, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5919,7 +5923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288923049808236541, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: <AutoConnectLastWallet>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985666425045432145, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_Name

@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using WalletConnectUnity.Core;
+using WalletConnectUnity.Modal;
 
 namespace Survival.Shop
 {
@@ -75,6 +76,13 @@ namespace Survival.Shop
                     Debug.LogError($"WalletConnect: Core Init failed - {initTask.Exception.InnerException?.Message}");
                     yield break;
                 }
+            }
+
+            // 3.1. Ensure WalletConnect Modal is ready
+            while (!WalletConnectModal.IsReady)
+            {
+                Debug.Log("WalletConnect: Waiting for WalletConnectModal to be ready...");
+                yield return null;
             }
 
             Debug.Log("<color=green>WalletConnect: Backend Ready!</color>");

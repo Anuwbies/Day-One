@@ -616,9 +616,9 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: 
-    Standalone: 
-    iPhone: 
+    Android: THIRDWEB_REOWN
+    Standalone: THIRDWEB_REOWN
+    iPhone: THIRDWEB_REOWN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
