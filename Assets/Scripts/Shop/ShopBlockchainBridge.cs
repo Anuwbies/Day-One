@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class ShopBlockchainBridge : MonoBehaviour
     private void Start()
     {
         // Find the blockchain service in the scene
-        _blockchain = FindObjectOfType<BlockchainInteraction>();
+        _blockchain = FindFirstObjectByType<BlockchainInteraction>();
         if (_blockchain == null)
         {
             Debug.LogError("[ShopBridge] BlockchainInteraction not found! " +
@@ -37,6 +38,9 @@ public class ShopBlockchainBridge : MonoBehaviour
         // Initialise every ShopItemCard that is already in the Content area
         InitialiseAllCards();
 
+        // Refresh immediately in case the shop panel is already visible on scene start
+        StartCoroutine(RefreshAllCardsStaggered());
+
         Debug.Log("[ShopBridge] Shop blockchain bridge ready.");
     }
 
@@ -46,7 +50,7 @@ public class ShopBlockchainBridge : MonoBehaviour
     public void OpenShop()
     {
         shopPanel.SetActive(true);
-        RefreshAllCards();
+        StartCoroutine(RefreshAllCardsStaggered());
     }
 
     /// <summary>Called by CloseShopButton.</summary>
@@ -73,15 +77,16 @@ public class ShopBlockchainBridge : MonoBehaviour
         Debug.Log($"[ShopBridge] Initialised {cards.Length} shop item card(s).");
     }
 
-    /// <summary>Tell every card to re-read its data from the blockchain.</summary>
-    private void RefreshAllCards()
+    /// <summary>Refreshes cards one at a time with a delay to avoid Infura rate limits.</summary>
+    private IEnumerator RefreshAllCardsStaggered()
     {
-        if (contentParent == null) return;
+        if (contentParent == null) yield break;
 
         ShopItemCard[] cards = contentParent.GetComponentsInChildren<ShopItemCard>();
         foreach (ShopItemCard card in cards)
         {
             card.RefreshFromBlockchain();
+            yield return new WaitForSeconds(0.5f); // 500 ms between each card = 2 calls/sec
         }
     }
 }

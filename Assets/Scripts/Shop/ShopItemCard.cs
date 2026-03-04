@@ -4,13 +4,14 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Represents one shop item card. Each card reads its price from the
-/// blockchain (getNumber) and records purchases (setNumber / setMessage).
+/// Represents one shop item card. Each card reads its per-item price from
+/// the blockchain (getItemPrice) and checks ownership (isOwned), then
+/// purchases via a single buyItem transaction with ETH value.
 ///
 /// PREFAB STRUCTURE (inside ShopItemCard):
 ///   - TextMeshProUGUI  "ItemNameText"   (the item title)
 ///   - TextMeshProUGUI  "PriceText"      (displays blockchain price)
-///   - TextMeshProUGUI  "StatusLabel"    (shows "Available" / "Owned" / error)
+///   - TextMeshProUGUI  "StatusLabel"    (shows "Available" / "Owned ✓" / error)
 ///   - Button           "BuyButton"      (triggers the purchase TX)
 ///
 /// Drag each child into the matching Inspector slot.
@@ -31,7 +32,9 @@ public class ShopItemCard : MonoBehaviour
     public int itemId = 0;
 
     private BlockchainInteraction _blockchain;
-    private bool _purchased = false;
+    private bool       _purchased    = false;
+    private bool       _priceLoaded  = false;
+    private BigInteger _cachedPrice  = BigInteger.Zero;
 
     // ---------- Initialisation ----------
 
@@ -40,13 +43,12 @@ public class ShopItemCard : MonoBehaviour
     {
         _blockchain = blockchain;
         itemNameText.text = itemName;
+        buyButton.interactable = false;   // disabled until RefreshFromBlockchain succeeds
         buyButton.onClick.AddListener(OnBuyClicked);
     }
 
     /// <summary>
-    /// Read blockchain data and update the card UI.
-    /// Uses getNumber() as a demo (you could map itemId to a
-    /// mapping in a real contract).
+    /// Read per-item price and ownership from the blockchain and update the card UI.
     /// </summary>
     public async void RefreshFromBlockchain()
     {
@@ -55,19 +57,18 @@ public class ShopItemCard : MonoBehaviour
             statusLabel.text = "Not connected";
             return;
         }
-
         try
         {
             statusLabel.text = "Loading...";
 
-            // READ price from blockchain (stored number = price in wei/units)
-            BigInteger price = await _blockchain.ReadNumber();
-            priceText.text = $"{price} wei";
+            _cachedPrice = await _blockchain.GetItemPrice(itemId);
+            _priceLoaded = true;
+            // Convert wei to ETH for display (divide by 10^18)
+            decimal ethPrice = (decimal)_cachedPrice / 1_000_000_000_000_000_000m;
+            priceText.text = $"{ethPrice:0.####} ETH";
 
-            // READ ownership message (stored message = last buyer info)
-            string message = await _blockchain.ReadMessage();
-
-            if (!string.IsNullOrEmpty(message) && message.Contains($"ITEM#{itemId}:OWNED"))
+            bool owned = await _blockchain.IsOwned(itemId);
+            if (owned)
             {
                 _purchased = true;
                 statusLabel.text = "Owned";
@@ -77,6 +78,7 @@ public class ShopItemCard : MonoBehaviour
             else
             {
                 statusLabel.text = "Available";
+                buyButton.interactable = true;  // safe to buy now that price is confirmed
             }
         }
         catch (System.Exception ex)
@@ -92,46 +94,43 @@ public class ShopItemCard : MonoBehaviour
     {
         if (_purchased || _blockchain == null || !_blockchain.IsConnected) return;
 
+        if (!_priceLoaded)
+        {
+            statusLabel.text = "Price not loaded — refresh first";
+            Debug.LogWarning($"[ShopItemCard] Buy attempted before price loaded for '{itemName}' (itemId={itemId})");
+            return;
+        }
+
         buyButton.interactable = false;
         statusLabel.text = "Processing TX...";
-
-        // Show the global loading spinner
         LoadingSpinnerController.Instance?.Show();
 
         try
         {
-            // WRITE 1: Record the item ID on-chain as the stored number
-            string txHash1 = await _blockchain.WriteNumber(new BigInteger(itemId));
-            Debug.Log($"[ShopItemCard] Purchase TX1 (setNumber): {txHash1}");
+            // Use price cached during RefreshFromBlockchain() — no extra contract call needed.
+            string txHash = await _blockchain.BuyItem(itemId, _cachedPrice);
+            Debug.Log($"[ShopItemCard] Purchase TX: {txHash}");
 
-            // WRITE 2: Record ownership message on-chain
-            string purchaseMsg = $"ITEM#{itemId}:OWNED by {_blockchain.WalletAddress}";
-            string txHash2 = await _blockchain.WriteMessage(purchaseMsg);
-            Debug.Log($"[ShopItemCard] Purchase TX2 (setMessage): {txHash2}");
-
-            if (txHash1 != null && txHash2 != null)
+            if (txHash != null)
             {
                 _purchased = true;
                 statusLabel.text = "Owned";
                 buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Owned";
-                Debug.Log($"[ShopItemCard] '{itemName}' purchased successfully!");
             }
             else
             {
                 statusLabel.text = "TX Failed";
                 buyButton.interactable = true;
-                Debug.LogError($"[ShopItemCard] Purchase failed for '{itemName}'");
             }
         }
         catch (System.Exception ex)
         {
             statusLabel.text = "Error";
             buyButton.interactable = true;
-            Debug.LogError($"[ShopItemCard] Buy failed: {ex.Message}");
+            Debug.LogError($"[ShopItemCard] Buy failed for '{itemName}' (itemId={itemId}): {ex.Message}\n{ex.StackTrace}");
         }
         finally
         {
-            // Always hide the spinner when done
             LoadingSpinnerController.Instance?.Hide();
         }
     }

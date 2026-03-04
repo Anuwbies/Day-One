@@ -9,9 +9,9 @@ using Nethereum.RPC.Eth.DTOs;
 using UnityEngine;
 
 /// <summary>
-/// Handles all communication with the SimpleStorage smart contract on Ganache.
-///  - Reading: getNumber(), getMessage(), getAll()
-///  - Writing: setNumber(uint256), setMessage(string)
+/// Handles all communication with the shop smart contract on Ganache.
+///  - Reading: getItemPrice(itemId), isOwned(address, itemId)
+///  - Writing: buyItem(itemId) with ETH value
 /// Attach to the same GameObject as BlockchainConfig.
 /// </summary>
 public class BlockchainInteraction : MonoBehaviour
@@ -78,97 +78,35 @@ public class BlockchainInteraction : MonoBehaviour
     //  READ FUNCTIONS  (no gas cost)
     // =====================================================================
 
-    /// <summary>Read the stored number from the contract.</summary>
-    public async Task<BigInteger> ReadNumber()
+    /// <summary>Gets the price of an item in wei from the contract.</summary>
+    public async Task<BigInteger> GetItemPrice(int itemId)
     {
-        try
-        {
-            var function = _contract.GetFunction("getNumber");
-            BigInteger result = await function.CallAsync<BigInteger>();
-            Debug.Log($"[Blockchain] getNumber() => {result}");
-            return result;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Blockchain] ReadNumber failed: {ex.Message}");
-            return -1;
-        }
+        var getItemPriceFunction = _contract.GetFunction("getItemPrice");
+        return await getItemPriceFunction.CallAsync<BigInteger>(new BigInteger(itemId));
     }
 
-    /// <summary>Read the stored message from the contract.</summary>
-    public async Task<string> ReadMessage()
+    /// <summary>Checks if the current wallet owns a specific item.</summary>
+    public async Task<bool> IsOwned(int itemId)
     {
-        try
-        {
-            var function = _contract.GetFunction("getMessage");
-            string result = await function.CallAsync<string>();
-            Debug.Log($"[Blockchain] getMessage() => {result}");
-            return result;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Blockchain] ReadMessage failed: {ex.Message}");
-            return $"Error: {ex.Message}";
-        }
+        var isOwnedFunction = _contract.GetFunction("isOwned");
+        return await isOwnedFunction.CallAsync<bool>(WalletAddress, new BigInteger(itemId));
     }
 
     // =====================================================================
     //  WRITE FUNCTIONS  (cost gas — create transactions)
     // =====================================================================
 
-    /// <summary>Store a new number on-chain.</summary>
-    public async Task<string> WriteNumber(BigInteger number)
+    /// <summary>Sends ETH + calls buyItem on the contract.</summary>
+    public async Task<string> BuyItem(int itemId, BigInteger priceWei)
     {
-        try
-        {
-            var function = _contract.GetFunction("setNumber");
-            var cfg = BlockchainConfig.Instance;
-
-            TransactionReceipt receipt = await function.SendTransactionAndWaitForReceiptAsync(
-                _account.Address,
-                new HexBigInteger(cfg.GasLimit),
-                new HexBigInteger(0),   // value (no ETH sent)
-                null,                   // cancellation token
-                number
-            );
-
-            Debug.Log($"[Blockchain] setNumber TX hash : {receipt.TransactionHash}");
-            Debug.Log($"[Blockchain] Block number      : {receipt.BlockNumber}");
-            Debug.Log($"[Blockchain] Gas used           : {receipt.GasUsed}");
-            return receipt.TransactionHash;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Blockchain] WriteNumber failed: {ex.Message}");
-            return null;
-        }
-    }
-
-    /// <summary>Store a new message on-chain.</summary>
-    public async Task<string> WriteMessage(string message)
-    {
-        try
-        {
-            var function = _contract.GetFunction("setMessage");
-            var cfg = BlockchainConfig.Instance;
-
-            TransactionReceipt receipt = await function.SendTransactionAndWaitForReceiptAsync(
-                _account.Address,
-                new HexBigInteger(cfg.GasLimit),
-                new HexBigInteger(0),
-                null,
-                message
-            );
-
-            Debug.Log($"[Blockchain] setMessage TX hash: {receipt.TransactionHash}");
-            Debug.Log($"[Blockchain] Block number      : {receipt.BlockNumber}");
-            Debug.Log($"[Blockchain] Gas used           : {receipt.GasUsed}");
-            return receipt.TransactionHash;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Blockchain] WriteMessage failed: {ex.Message}");
-            return null;
-        }
+        var buyItemFunction = _contract.GetFunction("buyItem");
+        var receipt = await buyItemFunction.SendTransactionAndWaitForReceiptAsync(
+            WalletAddress,
+            new Nethereum.Hex.HexTypes.HexBigInteger(300000), // gas limit
+            new Nethereum.Hex.HexTypes.HexBigInteger(priceWei), // ETH value sent
+            null,
+            new BigInteger(itemId)
+        );
+        return receipt?.TransactionHash;
     }
 }
