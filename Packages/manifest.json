@@ -48,10 +48,11 @@
   },
   "scopedRegistries": [
     {
-      "name": "package.openupm.com",
+      "name": "OpenUPM",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.nethereum.unity"
+        "com.reown",
+        "com.nethereum"
       ]
     }
   ]
