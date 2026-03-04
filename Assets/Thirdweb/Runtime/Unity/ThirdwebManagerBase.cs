@@ -1,11 +1,11 @@
-using UnityEngine;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
-using System.Linq;
-using System;
-using System.IO;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace Thirdweb.Unity
 {
@@ -16,7 +16,7 @@ namespace Thirdweb.Unity
         InAppWallet,
         WalletConnectWallet,
         MetaMaskWallet,
-        EcosystemWallet
+        EcosystemWallet,
     }
 
     [Serializable]
@@ -31,7 +31,8 @@ namespace Thirdweb.Unity
             IThirdwebWallet siweSigner = null,
             string legacyEncryptionKey = null,
             string walletSecret = null,
-            List<string> forceSiweExternalWalletIds = null
+            List<string> forceSiweExternalWalletIds = null,
+            ExecutionMode executionMode = ExecutionMode.EOA
         )
             : base(
                 email: email,
@@ -42,7 +43,8 @@ namespace Thirdweb.Unity
                 siweSigner: siweSigner,
                 legacyEncryptionKey: legacyEncryptionKey,
                 walletSecret: walletSecret,
-                forceSiweExternalWalletIds: forceSiweExternalWalletIds
+                forceSiweExternalWalletIds: forceSiweExternalWalletIds,
+                executionMode: executionMode
             ) { }
     }
 
@@ -82,6 +84,9 @@ namespace Thirdweb.Unity
         [JsonProperty("forceSiweExternalWalletIds")]
         public List<string> ForceSiweExternalWalletIds;
 
+        [JsonProperty("executionMode")]
+        public ExecutionMode ExecutionMode = ExecutionMode.EOA;
+
         public EcosystemWalletOptions(
             string ecosystemId = null,
             string ecosystemPartnerId = null,
@@ -93,7 +98,8 @@ namespace Thirdweb.Unity
             IThirdwebWallet siweSigner = null,
             string legacyEncryptionKey = null,
             string walletSecret = null,
-            List<string> forceSiweExternalWalletIds = null
+            List<string> forceSiweExternalWalletIds = null,
+            ExecutionMode executionMode = ExecutionMode.EOA
         )
         {
             EcosystemId = ecosystemId;
@@ -107,6 +113,7 @@ namespace Thirdweb.Unity
             LegacyEncryptionKey = legacyEncryptionKey;
             WalletSecret = walletSecret;
             ForceSiweExternalWalletIds = forceSiweExternalWalletIds;
+            ExecutionMode = executionMode;
         }
     }
 
@@ -225,7 +232,7 @@ namespace Thirdweb.Unity
 
         public static ThirdwebManagerBase Instance { get; protected set; }
 
-        public static readonly string THIRDWEB_UNITY_SDK_VERSION = "5.18.8";
+        public static readonly string THIRDWEB_UNITY_SDK_VERSION = "5.25.2";
 
         protected const string THIRDWEB_AUTO_CONNECT_OPTIONS_KEY = "ThirdwebAutoConnectOptions";
 
@@ -376,7 +383,8 @@ namespace Thirdweb.Unity
                         storageDirectoryPath: walletOptions.InAppWalletOptions.StorageDirectoryPath,
                         siweSigner: walletOptions.InAppWalletOptions.SiweSigner,
                         legacyEncryptionKey: walletOptions.InAppWalletOptions.LegacyEncryptionKey,
-                        walletSecret: walletOptions.InAppWalletOptions.WalletSecret
+                        walletSecret: walletOptions.InAppWalletOptions.WalletSecret,
+                        executionMode: walletOptions.InAppWalletOptions.ExecutionMode
                     );
                     break;
 
@@ -399,7 +407,8 @@ namespace Thirdweb.Unity
                         storageDirectoryPath: walletOptions.EcosystemWalletOptions.StorageDirectoryPath,
                         siweSigner: walletOptions.EcosystemWalletOptions.SiweSigner,
                         legacyEncryptionKey: walletOptions.EcosystemWalletOptions.LegacyEncryptionKey,
-                        walletSecret: walletOptions.EcosystemWalletOptions.WalletSecret
+                        walletSecret: walletOptions.EcosystemWalletOptions.WalletSecret,
+                        executionMode: walletOptions.EcosystemWalletOptions.ExecutionMode
                     );
                     break;
 

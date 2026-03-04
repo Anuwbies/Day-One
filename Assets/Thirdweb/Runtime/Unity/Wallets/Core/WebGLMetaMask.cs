@@ -67,8 +67,9 @@ namespace Thirdweb.Unity
             }
         }
 
-        public async Task<bool> EnableEthereumAsync()
+        public async Task<bool> EnableEthereumAsync(BigInteger chainId)
         {
+            _activeChainId = chainId;
             _enableEthereumTaskCompletionSource = new TaskCompletionSource<bool>();
 
 #if UNITY_WEBGL && !UNITY_EDITOR

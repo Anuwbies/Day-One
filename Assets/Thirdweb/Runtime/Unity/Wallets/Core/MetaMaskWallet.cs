@@ -45,7 +45,7 @@ namespace Thirdweb.Unity
                 if (metaMaskInstance.IsMetaMaskAvailable())
                 {
                     ThirdwebDebug.Log("MetaMask is available. Enabling Ethereum...");
-                    var isEnabled = await metaMaskInstance.EnableEthereumAsync();
+                    var isEnabled = await metaMaskInstance.EnableEthereumAsync(activeChainId);
                     ThirdwebDebug.Log($"Ethereum enabled: {isEnabled}");
                     if (isEnabled && !string.IsNullOrEmpty(metaMaskInstance.GetAddress()))
                     {
@@ -117,19 +117,32 @@ namespace Thirdweb.Unity
                 Method = "eth_sendTransaction",
                 Params = new object[]
                 {
-                    new TransactionInput()
-                    {
-                        Nonce = transaction.Nonce,
-                        From = await GetAddress(),
-                        To = transaction.To,
-                        Gas = transaction.Gas,
-                        GasPrice = transaction.GasPrice,
-                        Value = transaction.Value,
-                        Data = transaction.Data,
-                        MaxFeePerGas = transaction.MaxFeePerGas,
-                        MaxPriorityFeePerGas = transaction.MaxPriorityFeePerGas,
-                        ChainId = new HexBigInteger(WebGLMetaMask.Instance.GetActiveChainId()),
-                    }
+                    transaction.GasPrice == null
+                        ? new
+                        {
+                            nonce = transaction.Nonce.HexValue,
+                            from = await GetAddress(),
+                            to = transaction.To,
+                            gas = transaction.Gas.HexValue,
+                            value = transaction.Value?.HexValue ?? "0x0",
+                            data = transaction.Data,
+                            maxFeePerGas = transaction.MaxFeePerGas.HexValue,
+                            maxPriorityFeePerGas = transaction.MaxPriorityFeePerGas?.HexValue ?? "0x0",
+                            chainId = WebGLMetaMask.Instance.GetActiveChainId().NumberToHex(),
+                            type = "0x2"
+                        }
+                        : new
+                        {
+                            nonce = transaction.Nonce.HexValue,
+                            from = await GetAddress(),
+                            to = transaction.To,
+                            gas = transaction.Gas.HexValue,
+                            value = transaction.Value?.HexValue ?? "0x0",
+                            data = transaction.Data,
+                            gasPrice = transaction.GasPrice.HexValue,
+                            chainId = WebGLMetaMask.Instance.GetActiveChainId().NumberToHex(),
+                            type = "0x0"
+                        }
                 }
             };
             return await WebGLMetaMask.Instance.RequestAsync<string>(rpcRequest);
