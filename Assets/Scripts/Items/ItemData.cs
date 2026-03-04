@@ -9,6 +9,8 @@ public class ItemData : ScriptableObject
 
     [Header("World")]
     public GameObject worldPrefab;
+    public int gridWidth = 1;
+    public int gridHeight = 1;
 
     [Header("Stacking")]
     public bool stackable = true;

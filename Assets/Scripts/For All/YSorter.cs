@@ -58,7 +58,10 @@ public class YSorter : MonoBehaviour
         }
 
         float pivotY = transform.position.y + sortYOffset;
-        sr.sortingOrder = Mathf.RoundToInt(-(pivotY * 100)) + offset;
+        if (sr != null)
+        {
+            sr.sortingOrder = Mathf.RoundToInt(-(pivotY * 100)) + offset;
+        }
 
         if (enableTransparency && playerTransform != null)
         {

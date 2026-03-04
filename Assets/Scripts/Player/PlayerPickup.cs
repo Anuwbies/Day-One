@@ -11,6 +11,17 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private float pickupInterval = 0.15f;
     private float nextPickupTime;
 
+    private static int totalItemsPickedUp = 0;
+    private const int MaxHintsToShow = 10;
+
+    // This ensures the counter resets whenever you press Play in the editor,
+    // even if "Domain Reload" is disabled in Enter Play Mode settings.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetCounter()
+    {
+        totalItemsPickedUp = 0;
+    }
+
     private void Awake()
     {
         inventory = GetComponent<PlayerInventory>();
@@ -58,28 +69,45 @@ public class PlayerPickup : MonoBehaviour
             }
 
             // Success
+            totalItemsPickedUp++;
             nextPickupTime = Time.time + pickupInterval;
             itemsInRange.Remove(targetItem);
             Destroy(targetItem.gameObject);
+
+            // If we just hit the limit, hide hints for all other items currently in range
+            if (totalItemsPickedUp >= MaxHintsToShow)
+            {
+                foreach (Item item in itemsInRange)
+                {
+                    if (item != null) item.ToggleHint(false);
+                }
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Item item = other.GetComponent<Item>();
+        Item item = other.GetComponentInParent<Item>();
 
         // FIX: Check if list already contains this item to prevent duplicates
         if (item != null && !itemsInRange.Contains(item))
         {
             itemsInRange.Add(item);
+            
+            // Only show hint if we haven't reached the tutorial limit
+            if (totalItemsPickedUp < MaxHintsToShow)
+            {
+                item.ToggleHint(true);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Item item = other.GetComponent<Item>();
+        Item item = other.GetComponentInParent<Item>();
         if (item != null)
         {
+            item.ToggleHint(false); // Hide hint when out of range
             itemsInRange.Remove(item);
         }
     }

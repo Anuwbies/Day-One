@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Damageable
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -12,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
-  - UI Top
+  - Sea
+  - Ground
+  - Item
   - 
-  - 
-  - 
-  - 
+  - MIni Map
   - 
   - 
   - 
@@ -42,11 +43,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 2405617585
+    locked: 0
   - name: Background
     uniqueID: 1483671757
     locked: 0
+  - name: Grid
+    uniqueID: 1091586751
+    locked: 0
   - name: World
     uniqueID: 475674409
+    locked: 0
+  - name: Ghost
+    uniqueID: 2883352577
     locked: 0
   - name: Tool
     uniqueID: 2093143913

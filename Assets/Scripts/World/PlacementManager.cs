@@ -9,13 +9,19 @@ public class PlacementManager : MonoBehaviour
     public bool IsPlacing => isPlacing;
 
     [Header("Settings")]
-    public LayerMask obstacleLayer;
+    public List<string> obstacleSortingLayers = new List<string> { "World", "Foreground" };
+    private LayerMask obstacleLayer = -1; // Hidden as you use Sorting Layers for filtering
+    public string ghostSortingLayer = "Tool";
+    public int ghostSortingOrder = 1001;
     [Range(0f, 1f)]
     public float ghostTransparency = 0.5f;
+
     public Color validColor = Color.green;
     public Color invalidColor = Color.red;
 
+    private Material ghostMaterial;
     private Grid grid;
+    private GridVisualizer gridVisualizer;
     private bool isPlacing = false;
     private ItemData currentItemData;
     private InventorySlot currentSlot;
@@ -37,13 +43,31 @@ public class PlacementManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        // Create an unlit material for ghosts so they aren't affected by lighting (prevents being black)
+        Shader ghostShader = Shader.Find("Sprites/Default");
+        if (ghostShader != null) ghostMaterial = new Material(ghostShader);
+
         // Find the grid in the scene
         grid = Object.FindAnyObjectByType<Grid>();
+        if (grid != null)
+        {
+            gridVisualizer = grid.GetComponent<GridVisualizer>();
+            if (gridVisualizer == null)
+            {
+                gridVisualizer = grid.gameObject.AddComponent<GridVisualizer>();
+            }
+        }
     }
 
     private void Update()
     {
         if (!isPlacing) return;
+
+        // Force grid visibility if it was lost
+        if (gridVisualizer != null && !gridVisualizer.isActiveAndEnabled && isPlacing)
+        {
+            gridVisualizer.SetVisible(true);
+        }
 
         // Handle ESC specifically to cancel an active drag
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -62,14 +86,14 @@ public class PlacementManager : MonoBehaviour
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
-            startCell = grid.WorldToCell(mouseWorldPos);
+            startCell = GetBottomLeftCell(mouseWorldPos);
             axisLocked = false;
             
             // Clear previous pending to be sure
             ClearPending();
             
             // Check if start position is valid before allowing drag
-            Vector3 snappedStartPos = grid.GetCellCenterWorld(startCell);
+            Vector3 snappedStartPos = GetSnappedPosition(startCell);
             canDrag = IsPositionValid(snappedStartPos);
 
             if (canDrag)
@@ -124,6 +148,8 @@ public class PlacementManager : MonoBehaviour
         inventoryUI = ui;
         isPlacing = true;
 
+        if (gridVisualizer != null) gridVisualizer.SetVisible(true);
+
         Debug.Log($"Starting placement for {data.itemName}");
 
         // Create main tracking ghost
@@ -143,20 +169,26 @@ public class PlacementManager : MonoBehaviour
         ghost.name = name;
 
         // Disable or Remove all logic scripts to prevent behavior/errors
-        // GetComponentsInChildren<MonoBehaviour> only returns user scripts, 
-        // not internal components like Transform, SpriteRenderer, or Collider2D.
+        // Keep YSorter active so the ghost sorts correctly in the world
         MonoBehaviour[] scripts = ghost.GetComponentsInChildren<MonoBehaviour>();
         foreach (var script in scripts)
         {
+            if (script is YSorter) 
+            {
+                // Disable transparency fading on the ghost's sorter
+                ((YSorter)script).enableTransparency = false;
+                continue; 
+            }
             DestroyImmediate(script);
         }
 
-        // Set all renderers to transparent and on top
+        // Set all renderers to transparent, on top, and use unlit material
         SpriteRenderer[] renderers = ghost.GetComponentsInChildren<SpriteRenderer>();
         foreach (var sr in renderers)
         {
-            sr.sortingLayerName = "UI";
-            sr.sortingOrder = 1000;
+            if (ghostMaterial != null) sr.material = ghostMaterial;
+            sr.sortingLayerName = ghostSortingLayer;
+            // The YSorter will overwrite sortingOrder, but we set the layer here
         }
 
         // Disable all colliders on the ghost
@@ -171,12 +203,13 @@ public class PlacementManager : MonoBehaviour
 
     private void UpdateGhost()
     {
-        if (ghostObject == null || grid == null) return;
+        if (ghostObject == null || grid == null || currentItemData == null) return;
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
-        Vector3Int cellPos = grid.WorldToCell(mouseWorldPos);
+        // Snapping logic: find the bottom-left anchor cell based on centered mouse
+        Vector3Int cellPos = GetBottomLeftCell(mouseWorldPos);
 
         // If dragging, apply axis lock to the main tracking ghost too
         if (Input.GetMouseButton(0))
@@ -188,7 +221,7 @@ public class PlacementManager : MonoBehaviour
             }
         }
 
-        Vector3 snappedPos = grid.GetCellCenterWorld(cellPos);
+        Vector3 snappedPos = GetSnappedPosition(cellPos);
         ghostObject.transform.position = snappedPos;
 
         // Validation check for the main cursor ghost (Check world AND pending ghosts)
@@ -211,18 +244,41 @@ public class PlacementManager : MonoBehaviour
         // VISUAL FEEDBACK: Update colors of all pending ghosts
         for (int i = 0; i < pendingCells.Count; i++)
         {
-            Vector3 pPos = grid.GetCellCenterWorld(pendingCells[i]);
+            Vector3 pPos = GetSnappedPosition(pendingCells[i]);
             UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true));
         }
     }
 
+    private Vector3Int GetBottomLeftCell(Vector3 worldPos)
+    {
+        // To keep the item centered on the mouse, we offset the world position 
+        // by half the item's grid size before converting to a cell coordinate.
+        Vector3 offset = new Vector3(
+            (currentItemData.gridWidth - 1) * grid.cellSize.x * 0.5f,
+            (currentItemData.gridHeight - 1) * grid.cellSize.y * 0.5f,
+            0
+        );
+        return grid.WorldToCell(worldPos - offset);
+    }
+
+    private Vector3 GetSnappedPosition(Vector3Int cellPos)
+    {
+        Vector3 cellCenter = grid.GetCellCenterWorld(cellPos);
+        
+        // Offset the position if the item is larger than 1x1 to keep it centered on its grid footprint
+        float offsetX = (currentItemData.gridWidth - 1) * grid.cellSize.x * 0.5f;
+        float offsetY = (currentItemData.gridHeight - 1) * grid.cellSize.y * 0.5f;
+        
+        return cellCenter + new Vector3(offsetX, offsetY, 0);
+    }
+
     private void ContinueDragPlacement()
     {
-        if (grid == null || currentSlot == null) return;
+        if (grid == null || currentSlot == null || currentItemData == null) return;
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
-        Vector3Int currentCell = grid.WorldToCell(mouseWorldPos);
+        Vector3Int currentCell = GetBottomLeftCell(mouseWorldPos);
 
         // Determine axis lock if not already set
         if (!axisLocked && currentCell != startCell)
@@ -261,7 +317,7 @@ public class PlacementManager : MonoBehaviour
             if (pendingCells.Contains(cell)) continue;
             if (pendingCells.Count >= currentSlot.amount) break;
 
-            Vector3 snappedPos = grid.GetCellCenterWorld(cell);
+            Vector3 snappedPos = GetSnappedPosition(cell);
             
             // Check if this new ghost would be valid (considering world obstacles AND previous ghosts)
             if (IsPositionValid(snappedPos, cell))
@@ -282,16 +338,25 @@ public class PlacementManager : MonoBehaviour
         
         if (isHorizontal)
         {
+            int step = currentItemData.gridWidth;
             int minX = Mathf.Min(start.x, end.x);
             int maxX = Mathf.Max(start.x, end.x);
-            for (int x = minX; x <= maxX; x++)
+            
+            // Ensure we step from the start position correctly
+            for (int x = start.x; x <= maxX; x += step)
+                cells.Add(new Vector3Int(x, start.y, 0));
+            for (int x = start.x - step; x >= minX; x -= step)
                 cells.Add(new Vector3Int(x, start.y, 0));
         }
         else
         {
+            int step = currentItemData.gridHeight;
             int minY = Mathf.Min(start.y, end.y);
             int maxY = Mathf.Max(start.y, end.y);
-            for (int y = minY; y <= maxY; y++)
+            
+            for (int y = start.y; y <= maxY; y += step)
+                cells.Add(new Vector3Int(start.x, y, 0));
+            for (int y = start.y - step; y >= minY; y -= step)
                 cells.Add(new Vector3Int(start.x, y, 0));
         }
 
@@ -306,7 +371,7 @@ public class PlacementManager : MonoBehaviour
 
         foreach (var cell in pendingCells)
         {
-            Vector3 pos = grid.GetCellCenterWorld(cell);
+            Vector3 pos = GetSnappedPosition(cell);
 
             // RE-VALIDATE: Ensure position is still clear before final instantiation
             if (!IsPositionValid(pos, cell, true))
@@ -368,9 +433,21 @@ public class PlacementManager : MonoBehaviour
     {
         Vector2 size = GetItemSize();
         
-        // 1. Check World Obstacles (Physics)
-        Collider2D hit = Physics2D.OverlapBox(pos, size * 0.95f, 0, obstacleLayer);
-        if (hit != null) return false;
+        // 1. Check World Obstacles
+        // We only consider colliders tagged as "Obstacle" to be blocking.
+        // This prevents utility triggers (like the player's pickup range) from interfering.
+        Collider2D[] hits = Physics2D.OverlapBoxAll(pos, size * 0.9f, 0, obstacleLayer);
+        
+        foreach (var hit in hits)
+        {
+            // Ignore the ghosts themselves
+            if (hit.gameObject.name.Contains("Ghost")) continue;
+
+            if (hit.CompareTag("Obstacle"))
+            {
+                return false;
+            }
+        }
 
         if (worldOnly) return true;
 
@@ -379,11 +456,11 @@ public class PlacementManager : MonoBehaviour
         {
             if (cellToIgnore.HasValue && pCell == cellToIgnore.Value) continue;
 
-            Vector3 pPos = grid.GetCellCenterWorld(pCell);
+            Vector3 pPos = GetSnappedPosition(pCell);
             
             // Check if the footprints overlap based on their actual world size
-            if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.95f &&
-                Mathf.Abs(pos.y - pPos.y) < size.y * 0.95f)
+            if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f &&
+                Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f)
             {
                 return false;
             }
@@ -394,27 +471,14 @@ public class PlacementManager : MonoBehaviour
 
     private Vector2 GetItemSize()
     {
-        if (currentItemData == null || currentItemData.worldPrefab == null)
+        if (currentItemData == null)
             return new Vector2(0.8f, 0.8f);
 
-        Vector3 scale = currentItemData.worldPrefab.transform.localScale;
-
-        // Find the footprint box
-        BoxCollider2D box = currentItemData.worldPrefab.GetComponentInChildren<BoxCollider2D>();
-        if (box != null) 
-        {
-            // Multiply collider size by transform scale to get the real world width/height
-            return new Vector2(box.size.x * scale.x, box.size.y * scale.y);
-        }
-
-        // Fallback to sprite size if no collider
-        SpriteRenderer sr = currentItemData.worldPrefab.GetComponentInChildren<SpriteRenderer>();
-        if (sr != null && sr.sprite != null)
-        {
-            return new Vector2(sr.sprite.bounds.size.x * scale.x, sr.sprite.bounds.size.y * scale.y);
-        }
-
-        return new Vector2(0.8f, 0.8f);
+        // Return dimensions based on grid size
+        float width = currentItemData.gridWidth * grid.cellSize.x;
+        float height = currentItemData.gridHeight * grid.cellSize.y;
+        
+        return new Vector2(width, height);
     }
 
     public void EndPlacement()
@@ -423,6 +487,8 @@ public class PlacementManager : MonoBehaviour
         isPlacing = false;
         currentItemData = null;
         currentSlot = null;
+
+        if (gridVisualizer != null) gridVisualizer.SetVisible(false);
 
         ClearPending();
 

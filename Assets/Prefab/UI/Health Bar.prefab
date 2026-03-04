@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5311778705896841295}
   - component: {fileID: 5796206293636986441}
   - component: {fileID: 7570080931764532297}
-  - component: {fileID: 647703507237231168}
   - component: {fileID: 7426528178851745424}
+  - component: {fileID: 647703507237231168}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -104,14 +104,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!222 &647703507237231168
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4266040707913117934}
-  m_CullTransparentMesh: 1
 --- !u!114 &7426528178851745424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +134,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 100
+--- !u!222 &647703507237231168
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266040707913117934}
+  m_CullTransparentMesh: 1
 --- !u!1001 &7124510158384843852
 PrefabInstance:
   m_ObjectHideFlags: 0
