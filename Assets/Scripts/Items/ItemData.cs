@@ -9,6 +9,7 @@ public class ItemData : ScriptableObject
 
     [Header("World")]
     public GameObject worldPrefab;
+    public bool snapToGrid = true;
     public int gridWidth = 1;
     public int gridHeight = 1;
 

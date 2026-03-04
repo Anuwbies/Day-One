@@ -31,6 +31,7 @@ public class PlacementManager : MonoBehaviour
     private SpriteRenderer ghostRenderer;
 
     private List<Vector3Int> pendingCells = new List<Vector3Int>();
+    private List<Vector3> pendingPositions = new List<Vector3>();
     private List<GameObject> pendingGhosts = new List<GameObject>();
 
     private Vector3Int startCell;
@@ -64,7 +65,7 @@ public class PlacementManager : MonoBehaviour
         if (!isPlacing) return;
 
         // Force grid visibility if it was lost
-        if (gridVisualizer != null && !gridVisualizer.isActiveAndEnabled && isPlacing)
+        if (gridVisualizer != null && !gridVisualizer.isActiveAndEnabled && isPlacing && currentItemData.snapToGrid)
         {
             gridVisualizer.SetVisible(true);
         }
@@ -86,23 +87,26 @@ public class PlacementManager : MonoBehaviour
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
-            startCell = GetBottomLeftCell(mouseWorldPos);
-            axisLocked = false;
             
             // Clear previous pending to be sure
             ClearPending();
             
-            // Check if start position is valid before allowing drag
-            Vector3 snappedStartPos = GetSnappedPosition(startCell);
-            canDrag = IsPositionValid(snappedStartPos);
+            if (currentItemData.snapToGrid)
+            {
+                startCell = GetBottomLeftCell(mouseWorldPos);
+                axisLocked = false;
+                Vector3 snappedStartPos = GetSnappedPosition(startCell);
+                canDrag = IsPositionValid(snappedStartPos, startCell);
+            }
+            else
+            {
+                // For non-grid, we don't really support "drag lines", so we just treat it as a single placement on click
+                canDrag = IsPositionValid(mouseWorldPos);
+            }
 
             if (canDrag)
             {
                 ContinueDragPlacement();
-            }
-            else
-            {
-                Debug.Log("Cannot start placement: Start cell is occupied.");
             }
         }
 
@@ -148,7 +152,7 @@ public class PlacementManager : MonoBehaviour
         inventoryUI = ui;
         isPlacing = true;
 
-        if (gridVisualizer != null) gridVisualizer.SetVisible(true);
+        if (gridVisualizer != null && currentItemData.snapToGrid) gridVisualizer.SetVisible(true);
 
         Debug.Log($"Starting placement for {data.itemName}");
 
@@ -208,32 +212,41 @@ public class PlacementManager : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
-        // Snapping logic: find the bottom-left anchor cell based on centered mouse
-        Vector3Int cellPos = GetBottomLeftCell(mouseWorldPos);
+        Vector3 finalPos;
+        Vector3Int? cellPos = null;
 
-        // If dragging, apply axis lock to the main tracking ghost too
-        if (Input.GetMouseButton(0))
+        if (currentItemData.snapToGrid)
         {
-            if (axisLocked)
+            // Snapping logic: find the bottom-left anchor cell based on centered mouse
+            Vector3Int currentCell = GetBottomLeftCell(mouseWorldPos);
+
+            // If dragging, apply axis lock to the main tracking ghost too
+            if (Input.GetMouseButton(0) && axisLocked)
             {
-                if (isHorizontal) cellPos.y = startCell.y;
-                else cellPos.x = startCell.x;
+                if (isHorizontal) currentCell.y = startCell.y;
+                else currentCell.x = startCell.x;
             }
+
+            finalPos = GetSnappedPosition(currentCell);
+            cellPos = currentCell;
+        }
+        else
+        {
+            finalPos = mouseWorldPos;
         }
 
-        Vector3 snappedPos = GetSnappedPosition(cellPos);
-        ghostObject.transform.position = snappedPos;
+        ghostObject.transform.position = finalPos;
 
         // Validation check for the main cursor ghost (Check world AND pending ghosts)
-        bool isValid = IsPositionValid(snappedPos, cellPos);
+        bool isValid = IsPositionValid(finalPos, cellPos);
         UpdateGhostColor(ghostObject, isValid);
 
         // Hide mouse ghost if we are dragging and have reached the item limit, 
         // or if the current cell is already occupied by a pending ghost.
         if (Input.GetMouseButton(0) && currentSlot != null)
         {
-            bool alreadyPending = pendingCells.Contains(cellPos);
-            bool isFull = pendingCells.Count >= currentSlot.amount;
+            bool alreadyPending = currentItemData.snapToGrid ? pendingCells.Contains(cellPos.Value) : pendingPositions.Contains(finalPos);
+            bool isFull = (currentItemData.snapToGrid ? pendingCells.Count : pendingPositions.Count) >= currentSlot.amount;
             ghostObject.SetActive(!alreadyPending && !isFull);
         }
         else
@@ -242,10 +255,20 @@ public class PlacementManager : MonoBehaviour
         }
 
         // VISUAL FEEDBACK: Update colors of all pending ghosts
-        for (int i = 0; i < pendingCells.Count; i++)
+        if (currentItemData.snapToGrid)
         {
-            Vector3 pPos = GetSnappedPosition(pendingCells[i]);
-            UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true));
+            for (int i = 0; i < pendingCells.Count; i++)
+            {
+                Vector3 pPos = GetSnappedPosition(pendingCells[i]);
+                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pPos, pendingCells[i], true));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < pendingPositions.Count; i++)
+            {
+                UpdateGhostColor(pendingGhosts[i], IsPositionValid(pendingPositions[i], null, true));
+            }
         }
     }
 
@@ -278,56 +301,83 @@ public class PlacementManager : MonoBehaviour
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
-        Vector3Int currentCell = GetBottomLeftCell(mouseWorldPos);
 
-        // Determine axis lock if not already set
-        if (!axisLocked && currentCell != startCell)
+        if (currentItemData.snapToGrid)
         {
-            axisLocked = true;
-            isHorizontal = Mathf.Abs(currentCell.x - startCell.x) >= Mathf.Abs(currentCell.y - startCell.y);
-        }
+            Vector3Int currentCell = GetBottomLeftCell(mouseWorldPos);
 
-        // Apply axis lock: force currentCell to stay on the start axis
-        if (axisLocked)
-        {
-            if (isHorizontal) currentCell.y = startCell.y;
-            else currentCell.x = startCell.x;
+            // Determine axis lock if not already set
+            if (!axisLocked && currentCell != startCell)
+            {
+                axisLocked = true;
+                isHorizontal = Mathf.Abs(currentCell.x - startCell.x) >= Mathf.Abs(currentCell.y - startCell.y);
+            }
+
+            // Apply axis lock: force currentCell to stay on the start axis
+            if (axisLocked)
+            {
+                if (isHorizontal) currentCell.y = startCell.y;
+                else currentCell.x = startCell.x;
+            }
+            else
+            {
+                currentCell = startCell;
+            }
+
+            List<Vector3Int> desiredCells = GetCellsInLine(startCell, currentCell);
+
+            // 1. Remove ghosts that are no longer in the line
+            for (int i = pendingCells.Count - 1; i >= 0; i--)
+            {
+                if (!desiredCells.Contains(pendingCells[i]))
+                {
+                    Destroy(pendingGhosts[i]);
+                    pendingGhosts.RemoveAt(i);
+                    pendingCells.RemoveAt(i);
+                }
+            }
+
+            // 2. Add ghosts for new cells in the line (respecting stack size and collision)
+            foreach (Vector3Int cell in desiredCells)
+            {
+                if (pendingCells.Contains(cell)) continue;
+                if (pendingCells.Count >= currentSlot.amount) break;
+
+                Vector3 snappedPos = GetSnappedPosition(cell);
+                
+                // Check if this new ghost would be valid (considering world obstacles AND previous ghosts)
+                if (IsPositionValid(snappedPos, cell))
+                {
+                    GameObject pGhost = CreateGhostInstance("PendingGhost");
+                    pGhost.transform.position = snappedPos;
+                    UpdateGhostColor(pGhost, true);
+
+                    pendingCells.Add(cell);
+                    pendingGhosts.Add(pGhost);
+                }
+            }
         }
         else
         {
-            currentCell = startCell;
-        }
-
-        List<Vector3Int> desiredCells = GetCellsInLine(startCell, currentCell);
-
-        // 1. Remove ghosts that are no longer in the line
-        for (int i = pendingCells.Count - 1; i >= 0; i--)
-        {
-            if (!desiredCells.Contains(pendingCells[i]))
+            // Non-grid placement: Just add single pending ghost at current mouse if valid and not too close to others
+            if (pendingPositions.Count < currentSlot.amount)
             {
-                Destroy(pendingGhosts[i]);
-                pendingGhosts.RemoveAt(i);
-                pendingCells.RemoveAt(i);
-            }
-        }
+                // To prevent spamming ghosts on top of each other while dragging
+                bool tooClose = false;
+                foreach (var pos in pendingPositions)
+                {
+                    if (Vector3.Distance(mouseWorldPos, pos) < 0.5f) { tooClose = true; break; }
+                }
 
-        // 2. Add ghosts for new cells in the line (respecting stack size and collision)
-        foreach (Vector3Int cell in desiredCells)
-        {
-            if (pendingCells.Contains(cell)) continue;
-            if (pendingCells.Count >= currentSlot.amount) break;
+                if (!tooClose && IsPositionValid(mouseWorldPos))
+                {
+                    GameObject pGhost = CreateGhostInstance("PendingGhost");
+                    pGhost.transform.position = mouseWorldPos;
+                    UpdateGhostColor(pGhost, true);
 
-            Vector3 snappedPos = GetSnappedPosition(cell);
-            
-            // Check if this new ghost would be valid (considering world obstacles AND previous ghosts)
-            if (IsPositionValid(snappedPos, cell))
-            {
-                GameObject pGhost = CreateGhostInstance("PendingGhost");
-                pGhost.transform.position = snappedPos;
-                UpdateGhostColor(pGhost, true);
-
-                pendingCells.Add(cell);
-                pendingGhosts.Add(pGhost);
+                    pendingPositions.Add(mouseWorldPos);
+                    pendingGhosts.Add(pGhost);
+                }
             }
         }
     }
@@ -365,29 +415,30 @@ public class PlacementManager : MonoBehaviour
 
     private void FinalizePlacement()
     {
-        if (pendingCells.Count == 0) return;
+        int count = currentItemData.snapToGrid ? pendingCells.Count : pendingPositions.Count;
+        if (count == 0) return;
 
-        Debug.Log($"Finalizing placement of {pendingCells.Count} {currentItemData.itemName}(s)");
+        Debug.Log($"Finalizing placement of {count} {currentItemData.itemName}(s)");
 
-        foreach (var cell in pendingCells)
+        if (currentItemData.snapToGrid)
         {
-            Vector3 pos = GetSnappedPosition(cell);
-
-            // RE-VALIDATE: Ensure position is still clear before final instantiation
-            if (!IsPositionValid(pos, cell, true))
+            foreach (var cell in pendingCells)
             {
-                Debug.Log($"Skipping placement at {cell}: Position is now occupied.");
-                continue;
+                Vector3 pos = GetSnappedPosition(cell);
+                if (!IsPositionValid(pos, cell, true)) continue;
+
+                Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
+                ConsumeItem();
             }
-
-            Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
-            
-            currentSlot.amount--;
-            if (currentSlot.amount <= 0)
+        }
+        else
+        {
+            foreach (var pos in pendingPositions)
             {
-                currentSlot.item = null;
-                currentSlot.amount = 0;
-                break;
+                if (!IsPositionValid(pos, null, true)) continue;
+
+                Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
+                ConsumeItem();
             }
         }
 
@@ -405,6 +456,17 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
+    private void ConsumeItem()
+    {
+        if (currentSlot == null) return;
+        currentSlot.amount--;
+        if (currentSlot.amount <= 0)
+        {
+            currentSlot.item = null;
+            currentSlot.amount = 0;
+        }
+    }
+
     private void ClearPending()
     {
         foreach (var g in pendingGhosts)
@@ -413,6 +475,7 @@ public class PlacementManager : MonoBehaviour
         }
         pendingGhosts.Clear();
         pendingCells.Clear();
+        pendingPositions.Clear();
     }
 
     private void UpdateGhostColor(GameObject ghost, bool isValid)
@@ -434,35 +497,32 @@ public class PlacementManager : MonoBehaviour
         Vector2 size = GetItemSize();
         
         // 1. Check World Obstacles
-        // We only consider colliders tagged as "Obstacle" to be blocking.
-        // This prevents utility triggers (like the player's pickup range) from interfering.
         Collider2D[] hits = Physics2D.OverlapBoxAll(pos, size * 0.9f, 0, obstacleLayer);
         
         foreach (var hit in hits)
         {
-            // Ignore the ghosts themselves
             if (hit.gameObject.name.Contains("Ghost")) continue;
-
-            if (hit.CompareTag("Obstacle"))
-            {
-                return false;
-            }
+            if (hit.CompareTag("Obstacle")) return false;
         }
 
         if (worldOnly) return true;
 
         // 2. Check Pending Ghosts (Logical Overlap)
-        foreach (var pCell in pendingCells)
+        if (currentItemData.snapToGrid)
         {
-            if (cellToIgnore.HasValue && pCell == cellToIgnore.Value) continue;
-
-            Vector3 pPos = GetSnappedPosition(pCell);
-            
-            // Check if the footprints overlap based on their actual world size
-            if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f &&
-                Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f)
+            foreach (var pCell in pendingCells)
             {
-                return false;
+                if (cellToIgnore.HasValue && pCell == cellToIgnore.Value) continue;
+                Vector3 pPos = GetSnappedPosition(pCell);
+                if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f) return false;
+            }
+        }
+        else
+        {
+            foreach (var pPos in pendingPositions)
+            {
+                if (Vector3.Distance(pos, pPos) < 0.1f) continue; // Same ghost
+                if (Mathf.Abs(pos.x - pPos.x) < size.x * 0.9f && Mathf.Abs(pos.y - pPos.y) < size.y * 0.9f) return false;
             }
         }
 

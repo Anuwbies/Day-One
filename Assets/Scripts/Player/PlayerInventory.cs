@@ -97,4 +97,39 @@ public class PlayerInventory : MonoBehaviour
         OnInventoryChanged?.Invoke();
         return amount <= 0;
     }
+
+    public bool HasItem(ItemData data, int amount)
+    {
+        int total = 0;
+        foreach (var slot in items)
+        {
+            if (slot != null && slot.item == data)
+            {
+                total += slot.amount;
+                if (total >= amount) return true;
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(ItemData data, int amount)
+    {
+        for (int i = items.Count - 1; i >= 0; i--)
+        {
+            if (items[i] != null && items[i].item == data)
+            {
+                int canRemove = Mathf.Min(amount, items[i].amount);
+                items[i].amount -= canRemove;
+                amount -= canRemove;
+
+                if (items[i].amount <= 0)
+                {
+                    items[i] = null;
+                }
+
+                if (amount <= 0) break;
+            }
+        }
+        OnInventoryChanged?.Invoke();
+    }
 }
