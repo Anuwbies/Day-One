@@ -15,6 +15,8 @@ namespace Survival.Shop
 {
     public class WalletConnect : MonoBehaviour
     {
+        public static WalletConnect Instance { get; private set; }
+
         [Header("References")]
         [Tooltip("The UI Button that will trigger the ThirdwebManager display.")]
         public Button connectButton;
@@ -31,6 +33,16 @@ namespace Survival.Shop
         [Header("Connection Settings")]
         [Tooltip("The Chain ID to connect to (e.g., 421614 for Arbitrum Sepolia).")]
         public ulong chainId = 421614;
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+        }
 
         private IEnumerator Start()
         {
@@ -95,7 +107,7 @@ namespace Survival.Shop
             }
         }
 
-        private void UpdateUI()
+        public void UpdateUI()
         {
             StartCoroutine(UpdateUIRoutine());
         }

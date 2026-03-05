@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Thirdweb;
+using Thirdweb.Unity;
 using System.Threading.Tasks;
 using System.Numerics;
 
@@ -195,9 +196,68 @@ namespace Survival.Shop
             }
         }
 
-        private void OnPurchaseClicked(IAPProductData data)
+        private async void OnPurchaseClicked(IAPProductData data)
         {
-            Debug.Log($"[Shop] Product Clicked: {data.displayName}. Implement purchase logic elsewhere.");
+            if (BlockchainConnect.Instance == null) return;
+
+            // 1. Check if wallet is connected
+            if (ThirdwebManager.Instance == null || ThirdwebManager.Instance.ActiveWallet == null)
+            {
+                Debug.LogWarning("[Shop] Wallet not connected! Please connect your wallet first.");
+                return;
+            }
+
+            try
+            {
+                Debug.Log($"[Shop] Starting purchase for: {data.displayName} (Contract Product ID: {data.contractProductId})");
+
+                var contract = await BlockchainConnect.Instance.GetContract();
+                if (contract == null) return;
+
+                // 2. Fetch the latest price and status from the contract
+                var info = await contract.Read<List<object>>("getProductInfo", data.contractProductId);
+                if (info == null || info.Count < 2)
+                {
+                    Debug.LogError("[Shop] Could not fetch product info from contract.");
+                    return;
+                }
+
+                string priceWeiString = info[0].ToString();
+                BigInteger priceWei = BigInteger.Parse(priceWeiString);
+                bool isEnabled = (bool)info[1];
+
+                if (!isEnabled)
+                {
+                    Debug.LogWarning($"[Shop] Product '{data.displayName}' is currently disabled in the contract.");
+                    return;
+                }
+
+                // 3. Prepare and Send Transaction
+                // Based on error CS7036, signature is: Prepare(IThirdwebWallet, ThirdwebContract, string, BigInteger, params object[])
+                // Since it's likely an extension method on ThirdwebContract: contract.Prepare(wallet, method, value, args)
+                Debug.Log($"[Shop] Sending transaction for {data.displayName} with value {priceWei} Wei...");
+                
+                var tx = await contract.Prepare(ThirdwebManager.Instance.ActiveWallet, "purchaseProduct", priceWei, data.contractProductId);
+                string txHash = await ThirdwebTransaction.Send(tx);
+
+                Debug.Log($"[Shop] Transaction broadcasted. Hash: {txHash}. Waiting for receipt...");
+                
+                // Wait for the transaction to be mined
+                BigInteger chainId = new BigInteger(BlockchainConnect.Instance.chainId);
+                await ThirdwebTransaction.WaitForTransactionReceipt(ThirdwebManager.Instance.Client, chainId, txHash);
+
+                Debug.Log($"<color=green>[Shop] Purchase Successful! Transaction Hash: {txHash}</color>");
+
+                // Refresh the wallet UI
+                if (WalletConnect.Instance != null)
+                {
+                    WalletConnect.Instance.UpdateUI();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[Shop] Purchase failed for {data.displayName}: {ex.Message}");
+            }
         }
     }
 }
