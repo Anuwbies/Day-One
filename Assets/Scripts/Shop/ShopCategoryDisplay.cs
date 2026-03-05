@@ -1,22 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking; // Required for web requests
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics; // Required for BigInteger
+using Thirdweb;
+using System.Threading.Tasks;
+using System.Numerics;
 
 namespace Survival.Shop
 {
+    /// <summary>
+    /// Handles the UI display for the Shop, generating category tabs and populating
+    /// the product grid based on the IAPProductDatabase.
+    /// </summary>
     public class ShopCategoryDisplay : MonoBehaviour
     {
-        [Header("Blockchain Config")]
-        [Tooltip("Paste your deployed SimplePaymentGateway contract address here (0x...).")]
-        public string contractAddress;
-        [Tooltip("The RPC URL for Sepolia. You can use 'https://rpc.sepolia.org' or an Infura/Alchemy URL.")]
-        public string rpcUrl = "https://rpc.sepolia.org";
-
         [Header("References")]
         [Tooltip("Drag your IAP Product Database asset here.")]
         public IAPProductDatabase productDatabase;
@@ -55,6 +54,7 @@ namespace Survival.Shop
 
             Transform spawnParent = containerOverride != null ? containerOverride : this.transform;
 
+            // Get all unique categories present in the database
             List<ProductType> activeTypes = productDatabase.allProducts
                 .Select(p => p.productType)
                 .Distinct()
@@ -69,6 +69,7 @@ namespace Survival.Shop
                 CreateCategoryButton(type, spawnParent);
             }
 
+            // Select the first category by default
             if (_createdButtons.Count > 0)
                 _createdButtons[0].onClick.Invoke();
         }
@@ -92,7 +93,6 @@ namespace Survival.Shop
 
         private void OnCategoryClicked(ProductType type, Button selectedButton)
         {
-            Debug.Log($"<color=cyan>Shop Category Selected:</color> {type}");
             UpdateSelectionVisuals(selectedButton);
             DisplayProducts(type);
         }
@@ -112,6 +112,7 @@ namespace Survival.Shop
         {
             if (productItemTemplate == null || productContainer == null) return;
 
+            // Clear old items
             foreach (GameObject obj in _spawnedProducts) Destroy(obj);
             _spawnedProducts.Clear();
 
@@ -147,8 +148,8 @@ namespace Survival.Shop
                             TMP_Text priceText = priceContainer.GetComponentInChildren<TMP_Text>();
                             if (priceText != null)
                             {
-                                priceText.text = "..."; // Loading
-                                StartCoroutine(FetchRealPrice(data.contractProductId, priceText));
+                                priceText.text = "Loading...";
+                                UpdatePriceDisplay(data, priceText);
                             }
                         }
 
@@ -165,83 +166,38 @@ namespace Survival.Shop
             }
         }
 
-        // =========================================================
-        // REAL BLOCKCHAIN FETCHING (No SDK Required for Read-Only)
-        // =========================================================
-
-        private IEnumerator FetchRealPrice(int productId, TMP_Text targetText)
+        private async void UpdatePriceDisplay(IAPProductData data, TMP_Text priceText)
         {
-            if (string.IsNullOrEmpty(contractAddress))
+            if (priceText == null || BlockchainConnect.Instance == null) return;
+
+            try
             {
-                targetText.text = "No Contract";
-                yield break;
-            }
+                var contract = await BlockchainConnect.Instance.GetContract();
+                if (contract == null) return;
 
-            // 1. Construct the payload
-            // function selector for getProductInfo(uint256) is "0xbd02d0f5"
-            // We pad the productId to 64 characters (32 bytes)
-            string idHex = productId.ToString("X").PadLeft(64, '0');
-            string data = "0xbd02d0f5" + idHex;
+                // getProductInfo(uint256 id) returns (uint256 price, bool isEnabled, string name)
+                var result = await contract.Read<List<object>>("getProductInfo", data.contractProductId);
 
-            string jsonPayload = $"{{\"jsonrpc\":\"2.0\",\"method\":\"eth_call\",\"params\":[{{\"to\":\"{contractAddress}\",\"data\":\"{data}\"}}, \"latest\"],\"id\":1}}";
-
-            // 2. Send Request
-            using (UnityWebRequest webRequest = new UnityWebRequest(rpcUrl, "POST"))
-            {
-                byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
-                webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
-                webRequest.downloadHandler = new DownloadHandlerBuffer();
-                webRequest.SetRequestHeader("Content-Type", "application/json");
-
-                yield return webRequest.SendWebRequest();
-
-                if (webRequest.result != UnityWebRequest.Result.Success)
+                if (result != null && result.Count > 0 && priceText != null)
                 {
-                    Debug.LogError("RPC Error: " + webRequest.error);
-                    targetText.text = "Err";
+                    string rawPrice = result[0].ToString();
+                    string ethPrice = Utils.ToEth(rawPrice, 4, true);
+                    priceText.text = $"{ethPrice} ETH";
                 }
-                else
+            }
+            catch (System.Exception ex)
+            {
+                if (priceText != null)
                 {
-                    // 3. Parse Response
-                    string jsonResponse = webRequest.downloadHandler.text;
-
-                    // Simple parse to find "result"
-                    // Response format: {"jsonrpc":"2.0","id":1,"result":"0x0000..."}
-                    int resultIndex = jsonResponse.IndexOf("\"result\":\"");
-                    if (resultIndex != -1)
-                    {
-                        int start = resultIndex + 10;
-                        int end = jsonResponse.IndexOf("\"", start);
-                        string hexResult = jsonResponse.Substring(start, end - start);
-
-                        if (hexResult.StartsWith("0x")) hexResult = hexResult.Substring(2);
-
-                        if (hexResult.Length >= 64)
-                        {
-                            // The first 32 bytes (64 chars) is the Price
-                            string priceHex = hexResult.Substring(0, 64);
-
-                            // Parse BigInt
-                            BigInteger priceWei = BigInteger.Parse("0" + priceHex, System.Globalization.NumberStyles.AllowHexSpecifier);
-
-                            // Convert Wei to Eth (divide by 10^18)
-                            double eth = (double)priceWei / 1000000000000000000d;
-
-                            targetText.text = eth.ToString("0.####") + " ETH";
-                        }
-                        else
-                        {
-                            targetText.text = "Inv"; // Invalid product ID likely
-                        }
-                    }
+                    Debug.LogWarning($"[Shop] Failed to fetch price for {data.displayName}: {ex.Message}");
+                    priceText.text = "---";
                 }
             }
         }
 
         private void OnPurchaseClicked(IAPProductData data)
         {
-            Debug.Log($"Initiating purchase for: {data.displayName} (ID: {data.contractProductId})");
-            // Connect this to your real SDK for the transaction part
+            Debug.Log($"[Shop] Product Clicked: {data.displayName}. Implement purchase logic elsewhere.");
         }
     }
 }

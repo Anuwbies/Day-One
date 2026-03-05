@@ -684,8 +684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0b33ec81abe6f4a9923f9adcefc4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contractAddress: 0x5306d9E54cF63e9Efd3FFED7c05eA95a14E8A777
-  rpcUrl: https://sepolia.etherscan.io
   productDatabase: {fileID: 11400000, guid: b870f106101cdea449dccd992105c545, type: 2}
   categoryButtonTemplate: {fileID: 2062077542661674459, guid: c815e3701742d9d45a85cd09120a3f86, type: 3}
   containerOverride: {fileID: 0}
@@ -5649,11 +5647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.52
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.42
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9003,7 +9001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 587749807986087485, guid: 56198918b3090834889b1d038ba396c8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 90
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 587749807986087485, guid: 56198918b3090834889b1d038ba396c8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9168,6 +9166,10 @@ PrefabInstance:
     - target: {fileID: 7343972355283152597, guid: 56198918b3090834889b1d038ba396c8, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343972355283152597, guid: 56198918b3090834889b1d038ba396c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 7343972355283152597, guid: 56198918b3090834889b1d038ba396c8, type: 3}
       propertyPath: m_AnchoredPosition.x

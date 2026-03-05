@@ -5,6 +5,14 @@ using System.Linq;
 [CreateAssetMenu(fileName = "IAPProductDatabase", menuName = "Shop/Product Database")]
 public class IAPProductDatabase : ScriptableObject
 {
+    [Header("Blockchain Settings")]
+    [Tooltip("The address of your deployed SimplePaymentGateway contract.")]
+    public string contractAddress;
+    [Tooltip("The Chain ID (e.g., 11155111 for Sepolia).")]
+    public ulong chainId = 11155111;
+    [Tooltip("Optional: Manual RPC URL if you want to override the default.")]
+    public string rpcUrl;
+
     [Header("Configuration")]
     [Tooltip("Drag all your created IAP Product assets here.")]
     public List<IAPProductData> allProducts;
