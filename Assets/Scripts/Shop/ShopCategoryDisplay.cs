@@ -109,6 +109,34 @@ namespace Survival.Shop
             }
         }
 
+        private void Update()
+        {
+            // Update button alphas based on wallet connection status
+            bool isConnected = ThirdwebManager.Instance != null && ThirdwebManager.Instance.ActiveWallet != null;
+            foreach (GameObject productObj in _spawnedProducts)
+            {
+                if (productObj == null) continue;
+                // Target path: Vertical/Price and Button/Button
+                Transform verticalTr = productObj.transform.Find("Vertical");
+                if (verticalTr != null)
+                {
+                    Transform priceBtnGroup = verticalTr.Find("Price and Button");
+                    if (priceBtnGroup != null)
+                    {
+                        Transform btnTr = priceBtnGroup.Find("Button");
+                        if (btnTr != null)
+                        {
+                            CanvasGroup cg = btnTr.GetComponent<CanvasGroup>();
+                            if (cg != null)
+                            {
+                                cg.alpha = isConnected ? 1.0f : 0.5f;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void DisplayProducts(ProductType type)
         {
             if (productItemTemplate == null || productContainer == null) return;
@@ -160,7 +188,7 @@ namespace Survival.Shop
                         {
                             Button buyBtn = btnTr.GetComponent<Button>();
                             buyBtn.onClick.RemoveAllListeners();
-                            buyBtn.onClick.AddListener(() => OnPurchaseClicked(data));
+                            buyBtn.onClick.AddListener(() => OnPurchaseClicked(data, buyBtn));
                         }
                     }
                 }
@@ -196,7 +224,7 @@ namespace Survival.Shop
             }
         }
 
-        private async void OnPurchaseClicked(IAPProductData data)
+        private async void OnPurchaseClicked(IAPProductData data, Button buyBtn)
         {
             if (BlockchainConnect.Instance == null) return;
 
@@ -207,8 +235,19 @@ namespace Survival.Shop
                 return;
             }
 
+            TMP_Text btnText = buyBtn.GetComponentInChildren<TMP_Text>();
+            string originalText = btnText != null ? btnText.text : "BUY";
+            float originalFontSize = btnText != null ? btnText.fontSize : 0;
+
             try
             {
+                if (btnText != null)
+                {
+                    btnText.text = "Processing";
+                    btnText.fontSize = 18;
+                }
+                buyBtn.interactable = false;
+
                 Debug.Log($"[Shop] Starting purchase for: {data.displayName} (Contract Product ID: {data.contractProductId})");
 
                 var contract = await BlockchainConnect.Instance.GetContract();
@@ -233,8 +272,6 @@ namespace Survival.Shop
                 }
 
                 // 3. Prepare and Send Transaction
-                // Based on error CS7036, signature is: Prepare(IThirdwebWallet, ThirdwebContract, string, BigInteger, params object[])
-                // Since it's likely an extension method on ThirdwebContract: contract.Prepare(wallet, method, value, args)
                 Debug.Log($"[Shop] Sending transaction for {data.displayName} with value {priceWei} Wei...");
                 
                 var tx = await contract.Prepare(ThirdwebManager.Instance.ActiveWallet, "purchaseProduct", priceWei, data.contractProductId);
@@ -257,6 +294,15 @@ namespace Survival.Shop
             catch (System.Exception ex)
             {
                 Debug.LogError($"[Shop] Purchase failed for {data.displayName}: {ex.Message}");
+            }
+            finally
+            {
+                if (btnText != null)
+                {
+                    btnText.text = originalText;
+                    btnText.fontSize = originalFontSize;
+                }
+                buyBtn.interactable = true;
             }
         }
     }

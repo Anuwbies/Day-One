@@ -9144,6 +9144,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3963688737541061785, guid: 56198918b3090834889b1d038ba396c8, type: 3}
+      propertyPath: m_text
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963688737541061785, guid: 56198918b3090834889b1d038ba396c8, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963688737541061785, guid: 56198918b3090834889b1d038ba396c8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 4594457313251758149, guid: 56198918b3090834889b1d038ba396c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
