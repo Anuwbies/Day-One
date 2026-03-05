@@ -39,6 +39,7 @@ namespace Survival.Shop
 
         private List<Button> _createdButtons = new List<Button>();
         private List<GameObject> _spawnedProducts = new List<GameObject>();
+        private bool _isPurchasing = false;
 
         private void Start()
         {
@@ -94,6 +95,12 @@ namespace Survival.Shop
 
         private void OnCategoryClicked(ProductType type, Button selectedButton)
         {
+            if (_isPurchasing)
+            {
+                Debug.LogWarning("[Shop] Cannot change category while a purchase is in progress.");
+                return;
+            }
+
             UpdateSelectionVisuals(selectedButton);
             DisplayProducts(type);
         }
@@ -129,7 +136,13 @@ namespace Survival.Shop
                             CanvasGroup cg = btnTr.GetComponent<CanvasGroup>();
                             if (cg != null)
                             {
-                                cg.alpha = isConnected ? 1.0f : 0.5f;
+                                // If purchasing, we might want to keep the current purchase button interactable but dim others? 
+                                // User said: "Don't let changing category when processing purchase."
+                                // Let's keep alpha logic for connection status as is.
+                                cg.alpha = (isConnected && !_isPurchasing) ? 1.0f : 0.5f;
+
+                                // Special case: the button that is actually processing should be 1.0 alpha even if _isPurchasing is true?
+                                // Actually, let's just use _isPurchasing to dim ALL buy buttons to indicate busy state.
                             }
                         }
                     }
@@ -226,7 +239,7 @@ namespace Survival.Shop
 
         private async void OnPurchaseClicked(IAPProductData data, Button buyBtn)
         {
-            if (BlockchainConnect.Instance == null) return;
+            if (BlockchainConnect.Instance == null || _isPurchasing) return;
 
             // 1. Check if wallet is connected
             if (ThirdwebManager.Instance == null || ThirdwebManager.Instance.ActiveWallet == null)
@@ -241,6 +254,8 @@ namespace Survival.Shop
 
             try
             {
+                _isPurchasing = true;
+
                 if (btnText != null)
                 {
                     btnText.text = "Processing";
@@ -297,6 +312,7 @@ namespace Survival.Shop
             }
             finally
             {
+                _isPurchasing = false;
                 if (btnText != null)
                 {
                     btnText.text = originalText;
