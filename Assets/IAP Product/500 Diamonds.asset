@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 500 Diamonds
   m_EditorClassIdentifier: 
   contractProductId: 4
-  productType: 3
+  productType: 0
   displayName: 500 Diamonds
   displayIcon: {fileID: 6586461156150141773, guid: ddb56321edfc05c499a5b56f548f7c14, type: 3}
   description: 500 Diamonds to start your shopping.

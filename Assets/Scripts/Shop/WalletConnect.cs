@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using Thirdweb.Unity;
+using Thirdweb;
 using System.Threading.Tasks;
 using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using WalletConnectUnity.Core;
 using WalletConnectUnity.Modal;
+using TMPro;
 
 namespace Survival.Shop
 {
@@ -16,6 +19,12 @@ namespace Survival.Shop
         [Tooltip("The UI Button that will trigger the ThirdwebManager display.")]
         public Button connectButton;
 
+        [Tooltip("Text to display the connected wallet address.")]
+        public TextMeshProUGUI addressText;
+
+        [Tooltip("Text to display the connected wallet balance.")]
+        public TextMeshProUGUI balanceText;
+
         [Tooltip("Drag the ThirdwebManager prefab here.")]
         public GameObject thirdwebManagerPrefab;
 
@@ -23,91 +32,185 @@ namespace Survival.Shop
         [Tooltip("The Chain ID to connect to (e.g., 421614 for Arbitrum Sepolia).")]
         public ulong chainId = 421614;
 
-        private void Start()
+        private IEnumerator Start()
         {
             if (connectButton != null)
             {
                 connectButton.onClick.AddListener(OnConnectButtonClicked);
             }
-            else
+
+            ResetUI();
+
+            yield return null;
+
+            yield return StartCoroutine(AutoConnectRoutine());
+        }
+
+        private IEnumerator AutoConnectRoutine()
+        {
+            ShowThirdwebManager();
+
+            while (ThirdwebManager.Instance == null || !ThirdwebManager.Instance.Initialized)
             {
-                Debug.LogWarning("WalletConnect: Connect Button is not assigned in the inspector!");
+                yield return null;
+            }
+
+            if (ThirdwebManager.Instance.ActiveWallet != null)
+            {
+                UpdateUI();
+                yield break;
+            }
+
+            // Wait for WalletConnect to be initialized by Thirdweb SDK
+            while (!WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
+            {
+                yield return null;
+            }
+
+            if (WalletConnectUnity.Core.WalletConnect.Instance.IsConnected)
+            {
+                var options = new WalletOptions(
+                    provider: WalletProvider.WalletConnectWallet,
+                    chainId: new BigInteger(chainId)
+                );
+
+                var connectTask = ThirdwebManager.Instance.ConnectWallet(options);
+                while (!connectTask.IsCompleted) yield return null;
+
+                if (!connectTask.IsFaulted)
+                {
+                    UpdateUI();
+                }
+            }
+        }
+
+        private void ResetUI()
+        {
+            if (addressText != null) addressText.text = "Wallet is";
+            if (balanceText != null) balanceText.text = "not connected";
+            if (connectButton != null)
+            {
+                var btnText = connectButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (btnText != null) btnText.text = "Connect Wallet";
+            }
+        }
+
+        private void UpdateUI()
+        {
+            StartCoroutine(UpdateUIRoutine());
+        }
+
+        private IEnumerator UpdateUIRoutine()
+        {
+            var wallet = ThirdwebManager.Instance.ActiveWallet;
+            if (wallet == null)
+            {
+                ResetUI();
+                yield break;
+            }
+
+            var addressTask = wallet.GetAddress();
+            while (!addressTask.IsCompleted) yield return null;
+            string address = addressTask.Result;
+
+            var balanceTask = wallet.GetBalance(chainId: new BigInteger(chainId));
+            while (!balanceTask.IsCompleted) yield return null;
+            var balance = balanceTask.Result;
+
+            if (addressText != null)
+            {
+                addressText.text = FormatAddress(address);
+            }
+
+            if (balanceText != null)
+            {
+                string balanceEth = Utils.ToEth(wei: balance.ToString(), decimalsToDisplay: 4, addCommas: true);
+                balanceText.text = $"{balanceEth} ETH";
+            }
+
+            if (connectButton != null)
+            {
+                var btnText = connectButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (btnText != null) btnText.text = "Disconnect Wallet";
             }
         }
 
         private void OnConnectButtonClicked()
         {
-            StartCoroutine(ConnectionFlowRoutine());
+            if (ThirdwebManager.Instance != null && ThirdwebManager.Instance.ActiveWallet != null)
+            {
+                StartCoroutine(DisconnectFlowRoutine());
+            }
+            else
+            {
+                StartCoroutine(ConnectionFlowRoutine());
+            }
+        }
+
+        private IEnumerator DisconnectFlowRoutine()
+        {
+            var wallet = ThirdwebManager.Instance.ActiveWallet;
+            if (wallet != null)
+            {
+                Task disconnectTask = wallet.Disconnect();
+                while (!disconnectTask.IsCompleted)
+                {
+                    yield return null;
+                }
+            }
+
+            ThirdwebManager.Instance.SetActiveWallet(null);
+            ResetUI();
+            
+            Debug.Log("<color=green>WalletConnect: Disconnected.</color>");
         }
 
         private IEnumerator ConnectionFlowRoutine()
         {
-            Debug.Log("<color=yellow>WalletConnect: Initializing Flow...</color>");
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                yield break;
+            }
 
-            // 1. Ensure ThirdwebManager is present
             ShowThirdwebManager();
 
-            // 2. Wait for ThirdwebManager to be fully initialized
-            float timeout = 10f;
-            float timer = 0f;
             while (ThirdwebManager.Instance == null || !ThirdwebManager.Instance.Initialized)
             {
-                timer += Time.deltaTime;
-                if (timer > timeout)
-                {
-                    Debug.LogError("WalletConnect: TIMEOUT - ThirdwebManager did not initialize in time!");
-                    yield break;
-                }
                 yield return null;
             }
 
-            // 3. Ensure WalletConnect Core is initialized
-            if (!WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
+            // Wait for WalletConnect to be initialized by Thirdweb SDK
+            while (!WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
             {
-                Debug.Log("WalletConnect: Initializing WalletConnect Core...");
-                var initTask = WalletConnectUnity.Core.WalletConnect.Instance.InitializeAsync();
-                while (!initTask.IsCompleted)
-                {
-                    yield return null;
-                }
-                
-                if (initTask.IsFaulted)
-                {
-                    Debug.LogError($"WalletConnect: Core Init failed - {initTask.Exception.InnerException?.Message}");
-                    yield break;
-                }
+                yield return null;
             }
 
-            // 3.1. Ensure WalletConnect Modal is ready
             while (!WalletConnectModal.IsReady)
             {
-                Debug.Log("WalletConnect: Waiting for WalletConnectModal to be ready...");
                 yield return null;
             }
 
-            Debug.Log("<color=green>WalletConnect: Backend Ready!</color>");
+            var options = new WalletOptions(
+                provider: WalletProvider.WalletConnectWallet,
+                chainId: new BigInteger(chainId)
+            );
 
-            // 4. Trigger the Connection Flow
-            Task connectTask = ConnectToWallet();
-            
+            Task connectTask = ThirdwebManager.Instance.ConnectWallet(options);
             while (!connectTask.IsCompleted)
             {
                 yield return null;
             }
 
-            if (connectTask.IsFaulted)
+            if (!connectTask.IsFaulted)
             {
-                Debug.LogError($"WalletConnect: Connection Task failed - {connectTask.Exception.InnerException?.Message}");
+                UpdateUI();
+                Debug.Log("<color=cyan>WalletConnect: Wallet Connected Successfully.</color>");
             }
         }
 
         public void ShowThirdwebManager()
         {
-            if (thirdwebManagerPrefab == null)
-            {
-                Debug.LogError("WalletConnect: ThirdwebManager prefab is not assigned!");
-                return;
-            }
+            if (thirdwebManagerPrefab == null) return;
 
             ThirdwebManager existingInstance = FindFirstObjectByType<ThirdwebManager>();
 
@@ -115,40 +218,18 @@ namespace Survival.Shop
             {
                 GameObject newInstance = Instantiate(thirdwebManagerPrefab);
                 newInstance.name = "ThirdwebManager";
-                Debug.Log("WalletConnect: ThirdwebManager prefab instantiated.");
+                newInstance.transform.SetParent(null); // Ensure it is a root object for DontDestroyOnLoad
             }
             else
             {
                 existingInstance.gameObject.SetActive(true);
-                Debug.Log("WalletConnect: Existing ThirdwebManager found and activated.");
             }
         }
 
-        private async Task ConnectToWallet()
+        private string FormatAddress(string address)
         {
-            try
-            {
-                Debug.Log($"WalletConnect: Requesting Modal for Chain {chainId}...");
-
-                var options = new WalletOptions(
-                    provider: WalletProvider.WalletConnectWallet,
-                    chainId: new BigInteger(chainId)
-                );
-
-                // This triggers the Thirdweb UI flow
-                var wallet = await ThirdwebManager.Instance.ConnectWallet(options);
-                
-                var address = await wallet.GetAddress();
-                Debug.Log($"<color=cyan>WalletConnect: SUCCESS! Connected Address: {address}</color>");
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"WalletConnect: Error during connection - {e.Message}");
-                if (e.InnerException != null)
-                {
-                    Debug.LogError($"WalletConnect Inner Error: {e.InnerException.Message}");
-                }
-            }
+            if (string.IsNullOrEmpty(address) || address.Length < 10) return address;
+            return address.Substring(0, 6) + "..." + address.Substring(address.Length - 4);
         }
     }
 }

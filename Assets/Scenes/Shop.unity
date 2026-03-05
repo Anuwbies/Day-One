@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 209511101}
   - component: {fileID: 209511100}
   m_Layer: 5
-  m_Name: eth Balance
+  m_Name: ETH Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'eth: 1.2532'
+  m_text: not connected
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -817,6 +817,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5817367264711198309, guid: 5fd288e837e330743bda2fc5cf336afa, type: 3}
   m_PrefabInstance: {fileID: 352036175}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &377318921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377318923}
+  - component: {fileID: 377318922}
+  m_Layer: 0
+  m_Name: Blockchain Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &377318922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377318921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad8e2dab9b10f24e88959592bd7009a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contractAddress: 0x5306d9E54cF63e9Efd3FFED7c05eA95a14E8A777
+  chainId: 11155111
+--- !u!4 &377318923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377318921}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 641.3846, y: 825.3894, z: -1.9720854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452590582
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,10 +5947,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 73409088759054991, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-      propertyPath: <ResumeSessionOnInit>k__BackingField
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 376894756574179703, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5923,7 +5965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288923049808236541, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: <AutoConnectLastWallet>k__BackingField
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985666425045432145, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_Name
@@ -5957,10 +5999,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4247494887157076696, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
     - target: {fileID: 5707893795298269323, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6016,14 +6054,6 @@ PrefabInstance:
     - target: {fileID: 7170212912609988251, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170212912886943273, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170212913231360705, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7170212914370332091, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6084,10 +6114,6 @@ PrefabInstance:
     - target: {fileID: 7977017408921700919, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8640258251510663825, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7257,7 +7283,7 @@ GameObject:
   - component: {fileID: 1736016790}
   - component: {fileID: 1736016791}
   m_Layer: 0
-  m_Name: ConnectManager
+  m_Name: Connect Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7291,8 +7317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectButton: {fileID: 1414689657}
+  addressText: {fileID: 2139050189}
+  balanceText: {fileID: 209511100}
   thirdwebManagerPrefab: {fileID: 2985666425045432145, guid: f1f7a02a8c5efe54c95062bd90592227, type: 3}
-  chainId: 421614
+  chainId: 11155111
 --- !u!1001 &1790669564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8869,7 +8897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0xD7e2d990F66bF3ddF655263C2EabE4641F096832
+  m_text: Wallet is
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -9185,3 +9213,4 @@ SceneRoots:
   - {fileID: 1263780926}
   - {fileID: 1312408282}
   - {fileID: 1736016790}
+  - {fileID: 377318923}
