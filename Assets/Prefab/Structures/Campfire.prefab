@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1398309014301982399}
   - component: {fileID: 6603095136377519225}
   - component: {fileID: 1764226555006830786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185349573685694748}
   - component: {fileID: 72889313684983327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 2753391303698084237}
   - component: {fileID: 5454888377208801759}
   - component: {fileID: 8846862860307383978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 4912227619509617889}
   - component: {fileID: 8805858508259559086}
   - component: {fileID: 9114171811734635803}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409541364845019626}
   - component: {fileID: 416530811722488052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 2896387929510556320}
   - component: {fileID: 2620341038550541388}
   - component: {fileID: 1278486882659685167}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 7438004931917808328}
   - component: {fileID: 2299315252468570076}
   - component: {fileID: 2107889194189647279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

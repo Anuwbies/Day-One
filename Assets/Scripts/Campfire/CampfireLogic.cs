@@ -133,28 +133,43 @@ public class CampfireLogic : MonoBehaviour
         }
     }
 
+    private int playerCollidersInRange = 0;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
         {
-            playerInventory = other.GetComponent<PlayerInventory>();
-            if (interactionCanvas != null)
+            playerCollidersInRange++;
+            
+            // Only initialize and show UI if this is the first collider entering
+            if (playerInventory == null)
             {
-                interactionCanvas.SetActive(true);
+                playerInventory = other.attachedRigidbody.GetComponent<PlayerInventory>();
+                if (interactionCanvas != null)
+                {
+                    interactionCanvas.SetActive(true);
+                }
+                UpdateUI();
             }
-            UpdateUI();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
         {
-            if (interactionCanvas != null)
+            playerCollidersInRange--;
+
+            // Only hide UI if ALL colliders of the player have left the range
+            if (playerCollidersInRange <= 0)
             {
-                interactionCanvas.SetActive(false);
+                playerCollidersInRange = 0; // Guard against potential negative values
+                if (interactionCanvas != null)
+                {
+                    interactionCanvas.SetActive(false);
+                }
+                playerInventory = null;
             }
-            playerInventory = null;
         }
     }
 }

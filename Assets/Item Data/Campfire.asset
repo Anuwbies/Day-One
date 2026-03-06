@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Campfire
   icon: {fileID: 21300000, guid: 6215746b34718ad43887d74d8d89f30d, type: 3}
   worldPrefab: {fileID: 4072441690978074281, guid: e5d00b148d331f8478da179f18191589, type: 3}
-  snapToGrid: 1
+  snapToGrid: 0
   gridWidth: 1
   gridHeight: 1
   stackable: 0

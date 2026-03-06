@@ -39,6 +39,8 @@ public class PlacementManager : MonoBehaviour
     private bool isHorizontal = false;
     private bool canDrag = false;
 
+    private float placementStartTime;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -54,7 +56,13 @@ public class PlacementManager : MonoBehaviour
         Shader ghostShader = Shader.Find("Sprites/Default");
         if (ghostShader != null) ghostMaterial = new Material(ghostShader);
 
-        // Find the grid in the scene
+        FindGrid();
+    }
+
+    private bool FindGrid()
+    {
+        if (grid != null) return true;
+
         grid = Object.FindAnyObjectByType<Grid>();
         if (grid != null)
         {
@@ -63,12 +71,17 @@ public class PlacementManager : MonoBehaviour
             {
                 gridVisualizer = grid.gameObject.AddComponent<GridVisualizer>();
             }
+            return true;
         }
+        return false;
     }
 
     private void Update()
     {
         if (!isPlacing) return;
+
+        // Try to find grid if missing (e.g. if world was generated at runtime)
+        if (grid == null) FindGrid();
 
         // Force grid visibility if it was lost
         if (gridVisualizer != null && !gridVisualizer.isActiveAndEnabled && isPlacing && currentItemData.snapToGrid)
@@ -91,7 +104,9 @@ public class PlacementManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (EventSystem.current.IsPointerOverGameObject()) 
+            // Only block placement if pointer is over UI AND we didn't just start placement in this frame
+            // (prevents the context menu click from blocking the first placement click if they overlap)
+            if (EventSystem.current.IsPointerOverGameObject() && Time.time > placementStartTime + 0.1f) 
             {
                 Debug.Log("Placement blocked: Pointer is over UI.");
                 return;
@@ -107,6 +122,12 @@ public class PlacementManager : MonoBehaviour
             
             if (currentItemData.snapToGrid)
             {
+                if (grid == null)
+                {
+                    Debug.LogWarning("Placement failed: No Grid found in scene.");
+                    return;
+                }
+
                 startCell = GetBottomLeftCell(mouseWorldPos);
                 axisLocked = false;
                 Vector3 snappedStartPos = GetSnappedPosition(startCell);
@@ -177,6 +198,9 @@ public class PlacementManager : MonoBehaviour
         currentSlot = slot;
         inventoryUI = ui;
         isPlacing = true;
+        placementStartTime = Time.time;
+
+        FindGrid();
 
         if (gridVisualizer != null && currentItemData.snapToGrid) gridVisualizer.SetVisible(true);
 
@@ -213,6 +237,13 @@ public class PlacementManager : MonoBehaviour
                 continue; 
             }
             DestroyImmediate(script);
+        }
+
+        // Disable all rigidbodies on the ghost to prevent them from falling or interacting
+        Rigidbody2D[] rbs = ghost.GetComponentsInChildren<Rigidbody2D>();
+        foreach (var rb in rbs)
+        {
+            rb.simulated = false;
         }
 
         // Set all renderers to transparent, on top, and use unlit material
@@ -483,20 +514,14 @@ public class PlacementManager : MonoBehaviour
             for (int i = 0; i < pendingCells.Count; i++)
             {
                 Vector3 pos = GetSnappedPosition(pendingCells[i]);
-                // We trust the drag validation, so we instantiate directly
-                Debug.Log($"Instantiating {currentItemData.itemName} at {pos}");
-                Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
-                ConsumeItem();
+                PlaceItem(pos);
             }
         }
         else
         {
             for (int i = 0; i < pendingPositions.Count; i++)
             {
-                Vector3 pos = pendingPositions[i];
-                Debug.Log($"Instantiating {currentItemData.itemName} at {pos}");
-                Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
-                ConsumeItem();
+                PlaceItem(pendingPositions[i]);
             }
         }
 
@@ -513,6 +538,22 @@ public class PlacementManager : MonoBehaviour
             Debug.Log("Ran out of items, ending placement mode.");
             EndPlacement();
         }
+    }
+
+    private void PlaceItem(Vector3 pos)
+    {
+        Debug.Log($"Instantiating {currentItemData.itemName} at {pos}");
+        GameObject go = Instantiate(currentItemData.worldPrefab, pos, Quaternion.identity);
+        
+        // Ensure the placed item has its data and amount set
+        Item worldItem = go.GetComponent<Item>();
+        if (worldItem != null)
+        {
+            worldItem.data = currentItemData;
+            worldItem.amount = 1;
+        }
+
+        ConsumeItem();
     }
 
     private void ConsumeItem()
@@ -572,9 +613,10 @@ public class PlacementManager : MonoBehaviour
                     break;
                 }
             }
-            if (obstacleCollider == null) Debug.Log($"IsPositionValid({gName}): No 'Obstacle' tagged collider found on ghost");
-            else Debug.Log($"IsPositionValid({gName}): Using 'Obstacle' collider '{obstacleCollider.name}' from ghost.");
         }
+
+        // Sync transforms before any collision check to ensure newly moved ghosts are accurate in physics
+        Physics2D.SyncTransforms();
 
         if (obstacleCollider != null)
         {
@@ -607,14 +649,6 @@ public class PlacementManager : MonoBehaviour
                     continue;
                 }
 
-                // 3. Ignore the Player (even if tagged Obstacle)
-                if (results[i].CompareTag("Player") || root.CompareTag("Player"))
-                {
-                    continue;
-                }
-
-                Debug.Log($"IsPositionValid({gName}): Hit '{results[i].name}' (Root: '{root.name}') with tag '{results[i].tag}' on layer {LayerMask.LayerToName(results[i].gameObject.layer)}");
-
                 if (results[i].CompareTag("Obstacle"))
                 {
                     Debug.Log($"IsPositionValid({gName}): VALID COLLISION with Obstacle: {results[i].name} (Root: {root.name})");
@@ -637,13 +671,6 @@ public class PlacementManager : MonoBehaviour
                 {
                     continue;
                 }
-
-                if (hit.CompareTag("Player") || root.CompareTag("Player"))
-                {
-                    continue;
-                }
-
-                Debug.Log($"IsPositionValid({gName} Box): Hit '{hit.name}' (Root: '{root.name}') with tag '{hit.tag}' on layer {LayerMask.LayerToName(hit.gameObject.layer)}");
 
                 if (hit.CompareTag("Obstacle"))
                 {
@@ -693,12 +720,19 @@ public class PlacementManager : MonoBehaviour
         if (currentItemData == null)
             return new Vector2(0.8f, 0.8f);
 
+        // If grid is missing, try to find it again
+        if (grid == null) FindGrid();
+
+        if (grid == null)
+            return new Vector2(0.8f, 0.8f);
+
         // Return dimensions based on grid size
         float width = currentItemData.gridWidth * grid.cellSize.x;
         float height = currentItemData.gridHeight * grid.cellSize.y;
         
         return new Vector2(width, height);
     }
+
 
     public void EndPlacement()
     {
