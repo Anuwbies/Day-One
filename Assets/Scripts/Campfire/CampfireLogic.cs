@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 // For the parent to receive trigger events from its children, 
 // the parent MUST have a Rigidbody2D component.
@@ -22,13 +23,163 @@ public class CampfireLogic : MonoBehaviour
     [SerializeField] private Sprite litSprite;
     [SerializeField] private Sprite unlitSprite;
 
+    [Header("Lighting")]
+    [SerializeField] private Light2D campfireLight;
+    [SerializeField] private float minIntensity = 0.7f;
+    [SerializeField] private float maxIntensity = 1.1f;
+    [SerializeField] private float flickerSpeed = 5f;
+    [SerializeField] private Color lightColor = new Color(1f, 0.6f, 0.2f);
+
+    [Header("Light Levels (Radius)")]
+    [Tooltip("Used when logs are between 1 and Medium Threshold - 1")]
+    [SerializeField] private float lowInner = 0.2f;
+    [SerializeField] private float lowOuter = 2.5f;
+    
+    [Space]
+    [SerializeField] private int mediumThreshold = 4;
+    [SerializeField] private float medInner = 0.5f;
+    [SerializeField] private float medOuter = 4.5f;
+
+    [Space]
+    [SerializeField] private int highThreshold = 8;
+    [SerializeField] private float highInner = 1.0f;
+    [SerializeField] private float highOuter = 7.0f;
+
     [Header("Settings")]
     [SerializeField] private int maxLogs = 10;
     [SerializeField] private float timePerLog = 24f;
+    [SerializeField] private float radiusLerpSpeed = 3f;
+    [SerializeField] private float intensityFadeSpeed = 2f;
+    [SerializeField] private float fadeOutThreshold = 10f;
 
     private int currentLogs = 0;
     private float burnTime = 0f;
     private PlayerInventory playerInventory;
+    
+    private float targetInner;
+    private float targetOuter;
+    private float intensityMultiplier = 0f;
+
+    private void Awake()
+    {
+        InitializeLight();
+        ConfigureLight();
+    }
+
+    private void OnValidate()
+    {
+        if (campfireLight == null)
+            campfireLight = GetComponentInChildren<Light2D>();
+
+        if (campfireLight != null)
+            ConfigureLight();
+    }
+
+    private void InitializeLight()
+    {
+        // Automatically find or create the light if not assigned
+        if (campfireLight == null)
+        {
+            campfireLight = GetComponentInChildren<Light2D>();
+            if (campfireLight == null)
+            {
+                GameObject lightObj = new GameObject("Campfire Light");
+                lightObj.transform.SetParent(transform);
+                lightObj.transform.localPosition = Vector3.zero;
+                
+                // Set the layer to "Item"
+                int itemLayer = LayerMask.NameToLayer("Item");
+                if (itemLayer != -1)
+                {
+                    lightObj.layer = itemLayer;
+                }
+                
+                campfireLight = lightObj.AddComponent<Light2D>();
+            }
+        }
+    }
+
+    private void ConfigureLight()
+    {
+        campfireLight.lightType = Light2D.LightType.Point;
+        campfireLight.color = lightColor;
+        ApplyRadiusByLevel();
+
+        if (!Application.isPlaying)
+        {
+            campfireLight.intensity = maxIntensity;
+            campfireLight.enabled = true;
+        }
+    }
+
+    private void ApplyRadiusByLevel()
+    {
+        if (burnTime <= 0)
+        {
+            targetInner = 0;
+            targetOuter = 0;
+        }
+        else if (currentLogs >= highThreshold)
+        {
+            targetInner = highInner;
+            targetOuter = highOuter;
+        }
+        else if (currentLogs >= mediumThreshold)
+        {
+            targetInner = medInner;
+            targetOuter = medOuter;
+        }
+        else
+        {
+            targetInner = lowInner;
+            targetOuter = lowOuter;
+        }
+
+        // Snap immediately if in editor
+        if (!Application.isPlaying && campfireLight != null)
+        {
+            campfireLight.pointLightInnerRadius = targetInner;
+            campfireLight.pointLightOuterRadius = targetOuter;
+        }
+    }
+
+    private void HandleLightTransitions()
+    {
+        if (campfireLight == null) return;
+
+        // Calculate target multiplier
+        // If burnTime is 0, target is 0.
+        // If burnTime is between 0 and fadeOutThreshold, it scales linearly (e.g. 5s left = 0.5 intensity).
+        // If burnTime is above fadeOutThreshold, it stays at 1.0.
+        float targetMult = Mathf.Clamp01(burnTime / fadeOutThreshold);
+        
+        // Use MoveTowards for smooth transition (primarily for ignition/fade-in)
+        intensityMultiplier = Mathf.MoveTowards(intensityMultiplier, targetMult, Time.deltaTime * intensityFadeSpeed);
+
+        if (intensityMultiplier > 0)
+        {
+            if (!campfireLight.enabled) campfireLight.enabled = true;
+            
+            // Radii
+            ApplyRadiusByLevel();
+            SmoothRadiusTransition();
+            
+            // Flicker + Fade
+            FlickerLight(); 
+        }
+        else
+        {
+            if (campfireLight.enabled) campfireLight.enabled = false;
+        }
+    }
+
+    private void SmoothRadiusTransition()
+    {
+        if (campfireLight == null) return;
+
+        campfireLight.pointLightInnerRadius = Mathf.MoveTowards(campfireLight.pointLightInnerRadius, targetInner, Time.deltaTime * radiusLerpSpeed);
+        campfireLight.pointLightOuterRadius = Mathf.MoveTowards(campfireLight.pointLightOuterRadius, targetOuter, Time.deltaTime * radiusLerpSpeed);
+    }
 
     private void Start()
     {
@@ -57,7 +208,7 @@ public class CampfireLogic : MonoBehaviour
         {
             burnTime -= Time.deltaTime;
             
-            // Recalculate logs based on remaining time
+            int previousLogs = currentLogs;
             currentLogs = Mathf.CeilToInt(burnTime / timePerLog);
 
             if (burnTime <= 0)
@@ -66,15 +217,31 @@ public class CampfireLogic : MonoBehaviour
                 currentLogs = 0;
                 UpdateVisuals();
             }
+            else if (previousLogs != currentLogs)
+            {
+                UpdateVisuals();
+            }
+
             UpdateUI();
+        }
+
+        HandleLightTransitions();
+    }
+
+    private void FlickerLight()
+    {
+        if (campfireLight != null)
+        {
+            // Use PerlinNoise for a more natural flicker
+            float noise = Mathf.PerlinNoise(Time.time * flickerSpeed, 0);
+            float baseIntensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
+            campfireLight.intensity = baseIntensity * intensityMultiplier;
         }
     }
 
     public void AddLog()
     {
         if (currentLogs >= maxLogs) return;
-
-        bool wasOut = burnTime <= 0;
 
         if (playerInventory != null && logItemData != null)
         {
@@ -84,12 +251,8 @@ public class CampfireLogic : MonoBehaviour
                 currentLogs++;
                 burnTime += timePerLog;
                 
-                if (wasOut) UpdateVisuals();
+                UpdateVisuals();
                 UpdateUI();
-            }
-            else
-            {
-                Debug.Log("Player does not have a log!");
             }
         }
         else if (logItemData == null)
@@ -98,7 +261,7 @@ public class CampfireLogic : MonoBehaviour
             currentLogs++;
             burnTime += timePerLog;
             
-            if (wasOut) UpdateVisuals();
+            UpdateVisuals();
             UpdateUI();
         }
     }
@@ -108,6 +271,11 @@ public class CampfireLogic : MonoBehaviour
         if (campfireSR != null)
         {
             campfireSR.sprite = (burnTime > 0) ? litSprite : unlitSprite;
+        }
+
+        if (burnTime > 0)
+        {
+            ApplyRadiusByLevel();
         }
     }
 

@@ -45,27 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableTimeTransfer: 0
-  dayLengthInMinutes: 10
+  dayLengthInMinutes: 0.5
   timeOfDay: 7
   globalLight: {fileID: 0}
   lightColorGradient:
     serializedVersion: 2
     key0: {r: 0.011764706, g: 0.06666667, b: 0.41568628, a: 1}
-    key1: {r: 0.20784314, g: 0.24313726, b: 0.5254902, a: 1}
-    key2: {r: 0.93333334, g: 0.62352943, b: 0.31764707, a: 0}
+    key1: {r: 0.93333334, g: 0.62352943, b: 0.31764707, a: 1}
+    key2: {r: 0.98039216, g: 0.8980392, b: 0.81960785, a: 0}
     key3: {r: 0.98039216, g: 0.8980392, b: 0.81960785, a: 0}
     key4: {r: 0.98039216, g: 0.8980392, b: 0.81960785, a: 0}
-    key5: {r: 0.98039216, g: 0.8980392, b: 0.81960785, a: 0}
-    key6: {r: 0.95686275, g: 0.67058825, b: 0.36862746, a: 0}
-    key7: {r: 0.011764706, g: 0.06666667, b: 0.41568628, a: 0}
-    ctime0: 11796
-    ctime1: 16769
-    ctime2: 21627
-    ctime3: 29491
-    ctime4: 32768
-    ctime5: 36044
-    ctime6: 49151
-    ctime7: 55705
+    key5: {r: 0.95686275, g: 0.67058825, b: 0.36862746, a: 0}
+    key6: {r: 0.011764706, g: 0.06666667, b: 0.41568628, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 16384
+    ctime1: 21627
+    ctime2: 29491
+    ctime3: 32768
+    ctime4: 36044
+    ctime5: 49151
+    ctime6: 55705
+    ctime7: 0
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -76,12 +76,12 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 8
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  nightIntensity: 0.5
+  nightIntensity: 0.05
   sunriseIntensity: 0.7
   dayIntensity: 1
-  sunsetIntensity: 0.7
+  sunsetIntensity: 0.05
   moonLight: {fileID: 0}
   moonNightIntensity: 0.25
   moonDayIntensity: 0

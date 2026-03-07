@@ -641,8 +641,24 @@ MonoBehaviour:
   campfireSR: {fileID: 2896387929510556320}
   litSprite: {fileID: 21300000, guid: 6215746b34718ad43887d74d8d89f30d, type: 3}
   unlitSprite: {fileID: 21300000, guid: bc6ee4615708f744796d2a204ccaa81c, type: 3}
+  campfireLight: {fileID: 0}
+  minIntensity: 0.7
+  maxIntensity: 1.1
+  flickerSpeed: 5
+  lightColor: {r: 1, g: 0.6, b: 0.2, a: 1}
+  lowInner: 0.2
+  lowOuter: 2.5
+  mediumThreshold: 4
+  medInner: 0.2
+  medOuter: 4
+  highThreshold: 8
+  highInner: 0.2
+  highOuter: 5.5
   maxLogs: 10
   timePerLog: 20
+  radiusLerpSpeed: 0.2
+  intensityFadeSpeed: 2
+  fadeOutThreshold: 10
 --- !u!1 &4832933251515437155
 GameObject:
   m_ObjectHideFlags: 0

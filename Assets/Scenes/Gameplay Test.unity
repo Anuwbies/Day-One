@@ -83004,6 +83004,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5718902470757064031, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
+      propertyPath: amount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
       propertyPath: m_Name
       value: Log
@@ -83104,8 +83108,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 972584193}
     - target: {fileID: 531421397570872977, guid: c1b2c7a53b829094894fb1454dfa802b, type: 3}
-      propertyPath: enableTimeTransfer
-      value: 0
+      propertyPath: sunriseIntensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 531421397570872977, guid: c1b2c7a53b829094894fb1454dfa802b, type: 3}
+      propertyPath: dayLengthInMinutes
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7611570363267110000, guid: c1b2c7a53b829094894fb1454dfa802b, type: 3}
       propertyPath: m_LocalPosition.x
