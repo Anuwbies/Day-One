@@ -34,6 +34,8 @@ namespace Survival.Shop
         [Tooltip("The Chain ID to connect to (e.g., 421614 for Arbitrum Sepolia).")]
         public ulong chainId = 421614;
 
+        private bool _isConnecting = false;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -60,6 +62,8 @@ namespace Survival.Shop
 
         private IEnumerator AutoConnectRoutine()
         {
+            if (_isConnecting) yield break;
+
             ShowThirdwebManager();
 
             while (ThirdwebManager.Instance == null || !ThirdwebManager.Instance.Initialized)
@@ -74,13 +78,15 @@ namespace Survival.Shop
             }
 
             // Wait for WalletConnect to be initialized by Thirdweb SDK
-            while (!WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
+            while (WalletConnectUnity.Core.WalletConnect.Instance == null || !WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
             {
                 yield return null;
             }
 
             if (WalletConnectUnity.Core.WalletConnect.Instance.IsConnected)
             {
+                Debug.Log("<color=orange>WalletConnect: Existing session found, attempting to re-connect...</color>");
+                _isConnecting = true;
                 var options = new WalletOptions(
                     provider: WalletProvider.WalletConnectWallet,
                     chainId: new BigInteger(chainId)
@@ -89,9 +95,15 @@ namespace Survival.Shop
                 var connectTask = ThirdwebManager.Instance.ConnectWallet(options);
                 while (!connectTask.IsCompleted) yield return null;
 
-                if (!connectTask.IsFaulted)
+                _isConnecting = false;
+
+                if (!connectTask.IsFaulted && ThirdwebManager.Instance.ActiveWallet != null)
                 {
                     UpdateUI();
+                }
+                else
+                {
+                    Debug.LogWarning("WalletConnect: Failed to re-connect to existing session.");
                 }
             }
         }
@@ -104,16 +116,20 @@ namespace Survival.Shop
             {
                 var btnText = connectButton.GetComponentInChildren<TextMeshProUGUI>();
                 if (btnText != null) btnText.text = "Connect Wallet";
+                connectButton.interactable = true;
             }
         }
 
         public void UpdateUI()
         {
+            if (this == null || !gameObject.activeInHierarchy) return;
             StartCoroutine(UpdateUIRoutine());
         }
 
         private IEnumerator UpdateUIRoutine()
         {
+            if (ThirdwebManager.Instance == null) yield break;
+
             var wallet = ThirdwebManager.Instance.ActiveWallet;
             if (wallet == null)
             {
@@ -123,11 +139,24 @@ namespace Survival.Shop
 
             var addressTask = wallet.GetAddress();
             while (!addressTask.IsCompleted) yield return null;
+            
+            if (addressTask.IsFaulted)
+            {
+                ResetUI();
+                yield break;
+            }
+
             string address = addressTask.Result;
 
             var balanceTask = wallet.GetBalance(chainId: new BigInteger(chainId));
             while (!balanceTask.IsCompleted) yield return null;
-            var balance = balanceTask.Result;
+            
+            string balanceEth = "0.0000";
+            if (!balanceTask.IsFaulted)
+            {
+                var balance = balanceTask.Result;
+                balanceEth = Utils.ToEth(wei: balance.ToString(), decimalsToDisplay: 4, addCommas: true);
+            }
 
             if (addressText != null)
             {
@@ -136,7 +165,6 @@ namespace Survival.Shop
 
             if (balanceText != null)
             {
-                string balanceEth = Utils.ToEth(wei: balance.ToString(), decimalsToDisplay: 4, addCommas: true);
                 balanceText.text = $"{balanceEth} ETH";
             }
 
@@ -144,11 +172,14 @@ namespace Survival.Shop
             {
                 var btnText = connectButton.GetComponentInChildren<TextMeshProUGUI>();
                 if (btnText != null) btnText.text = "Disconnect Wallet";
+                connectButton.interactable = true;
             }
         }
 
         private void OnConnectButtonClicked()
         {
+            if (_isConnecting) return;
+
             if (ThirdwebManager.Instance != null && ThirdwebManager.Instance.ActiveWallet != null)
             {
                 StartCoroutine(DisconnectFlowRoutine());
@@ -161,6 +192,8 @@ namespace Survival.Shop
 
         private IEnumerator DisconnectFlowRoutine()
         {
+            if (connectButton != null) connectButton.interactable = false;
+
             var wallet = ThirdwebManager.Instance.ActiveWallet;
             if (wallet != null)
             {
@@ -181,8 +214,14 @@ namespace Survival.Shop
         {
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
+                Debug.LogWarning("WalletConnect: No internet connection.");
                 yield break;
             }
+
+            if (_isConnecting) yield break;
+            _isConnecting = true;
+
+            if (connectButton != null) connectButton.interactable = false;
 
             ShowThirdwebManager();
 
@@ -192,7 +231,7 @@ namespace Survival.Shop
             }
 
             // Wait for WalletConnect to be initialized by Thirdweb SDK
-            while (!WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
+            while (WalletConnectUnity.Core.WalletConnect.Instance == null || !WalletConnectUnity.Core.WalletConnect.Instance.IsInitialized)
             {
                 yield return null;
             }
@@ -207,16 +246,23 @@ namespace Survival.Shop
                 chainId: new BigInteger(chainId)
             );
 
-            Task connectTask = ThirdwebManager.Instance.ConnectWallet(options);
+            Task<IThirdwebWallet> connectTask = ThirdwebManager.Instance.ConnectWallet(options);
             while (!connectTask.IsCompleted)
             {
                 yield return null;
             }
 
-            if (!connectTask.IsFaulted)
+            _isConnecting = false;
+
+            if (!connectTask.IsFaulted && connectTask.Result != null)
             {
                 UpdateUI();
                 Debug.Log("<color=cyan>WalletConnect: Wallet Connected Successfully.</color>");
+            }
+            else
+            {
+                if (connectButton != null) connectButton.interactable = true;
+                Debug.LogError($"WalletConnect: Connection failed. {connectTask.Exception?.Message}");
             }
         }
 

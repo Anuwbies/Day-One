@@ -664,7 +664,10 @@ namespace WalletConnectUnity.NativeWebSocket
             catch (Exception ex)
             {
                 if (ex.InnerException is not ObjectDisposedException)
+                {
+                    WCLogger.LogError($"[WebSocket] Receive loop exception: {ex.Message}");
                     m_TokenSource.Cancel();
+                }
             }
             finally
             {

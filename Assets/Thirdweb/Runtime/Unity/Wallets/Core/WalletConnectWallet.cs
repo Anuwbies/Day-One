@@ -50,21 +50,31 @@ namespace Thirdweb.Unity
             {
                 try
                 {
+                    ThirdwebDebug.Log("WalletConnectWallet: Disconnecting existing session before creating new one.");
                     await WalletConnect.Instance.DisconnectAsync();
                 }
-                catch
+                catch (Exception e)
                 {
-                    // no-op
+                    ThirdwebDebug.LogWarning($"WalletConnectWallet: Disconnect failed: {e.Message}");
                 }
-                await Task.Delay(100);
+                await Task.Delay(500); // Increased delay to allow library to settle
             }
+
+            if (_exception != null) _exception = null;
 
             CreateNewSession(eip155ChainsSupported);
             WalletConnectModal.ModalClosed += OnModalClosed;
 
+            // Wait for connection with a timeout to prevent infinite loops
+            var timeoutTask = Task.Delay(60000); // 1 minute timeout
             while (!WalletConnect.Instance.IsConnected && _exception == null)
             {
-                await Task.Delay(100);
+                if (timeoutTask.IsCompleted)
+                {
+                    _exception = new Exception("WalletConnect connection timed out.");
+                    break;
+                }
+                await Task.Delay(200);
             }
 
             if (_exception != null)
