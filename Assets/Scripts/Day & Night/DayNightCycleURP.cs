@@ -12,7 +12,7 @@ public class DayNightCycleURP : MonoBehaviour
     public float dayLengthInMinutes = 10f;
     [Range(0, 24)]
     public float timeOfDay = 12f;
-    private float timeMultiplier;
+    public float timeMultiplier;
     private int currentDay = 1;
 
     [Header("Lighting")]
@@ -20,17 +20,22 @@ public class DayNightCycleURP : MonoBehaviour
     public Gradient lightColorGradient;
 
     [Header("Intensity (4-phase values)")]
-    [Tooltip("Night intensity (0.00 & 1.00)")]
+    [Tooltip("Night intensity (Reached at 0:00 & 24:00)")]
     public float nightIntensity = 0.05f;
 
-    [Tooltip("Sunrise intensity (0.25)")]
+    [Tooltip("Sunrise intensity")]
     public float sunriseIntensity = 0.22f;
 
-    [Tooltip("Day intensity (0.50)")]
+    [Tooltip("Day intensity")]
     public float dayIntensity = 0.45f;
 
-    [Tooltip("Sunset intensity (0.75)")]
+    [Tooltip("Sunset intensity")]
     public float sunsetIntensity = 0.22f;
+
+    [Header("Phase Start Times (Hours)")]
+    [Range(0, 24)] public float sunriseTime = 6f;
+    [Range(0, 24)] public float dayTime = 12f;
+    [Range(0, 24)] public float sunsetTime = 18f;
 
     [Header("Moon Light (Optional)")]
     public Light2D moonLight;
@@ -42,6 +47,9 @@ public class DayNightCycleURP : MonoBehaviour
     public TMP_Text dayText;
     public GameObject sunIcon;
     public GameObject moonIcon;
+
+    [Header("Runtime State")]
+    public bool isPaused = false;
 
     private void Start()
     {
@@ -79,14 +87,21 @@ public class DayNightCycleURP : MonoBehaviour
         UpdateUI();
     }
 
-    private void Update()
+    public void AdvanceTime(float hours)
     {
-        timeOfDay += Time.deltaTime * timeMultiplier;
-
-        if (timeOfDay >= 24f)
+        timeOfDay += hours;
+        while (timeOfDay >= 24f)
         {
             timeOfDay -= 24f;
             currentDay++;
+        }
+    }
+
+    private void Update()
+    {
+        if (!isPaused)
+        {
+            AdvanceTime(Time.deltaTime * timeMultiplier);
         }
 
         UpdateLighting();
@@ -105,23 +120,21 @@ public class DayNightCycleURP : MonoBehaviour
 
         if (moonLight != null)
         {
-            bool isDay = timeOfDay >= 6 && timeOfDay < 18;
+            bool isDay = timeOfDay >= sunriseTime && timeOfDay < sunsetTime;
             moonLight.intensity = isDay ? moonDayIntensity : moonNightIntensity;
         }
     }
 
     private float Get4PhaseIntensity(float hour)
     {
-        float t = hour / 24f;
+        if (hour < sunriseTime)
+            return Mathf.Lerp(nightIntensity, sunriseIntensity, hour / sunriseTime);
+        if (hour < dayTime)
+            return Mathf.Lerp(sunriseIntensity, dayIntensity, (hour - sunriseTime) / (dayTime - sunriseTime));
+        if (hour < sunsetTime)
+            return Mathf.Lerp(dayIntensity, sunsetIntensity, (hour - dayTime) / (sunsetTime - dayTime));
 
-        if (t < 0.25f)
-            return Mathf.Lerp(nightIntensity, sunriseIntensity, t / 0.25f);
-        if (t < 0.50f)
-            return Mathf.Lerp(sunriseIntensity, dayIntensity, (t - 0.25f) / 0.25f);
-        if (t < 0.75f)
-            return Mathf.Lerp(dayIntensity, sunsetIntensity, (t - 0.50f) / 0.25f);
-
-        return Mathf.Lerp(sunsetIntensity, nightIntensity, (t - 0.75f) / 0.25f);
+        return Mathf.Lerp(sunsetIntensity, nightIntensity, (hour - sunsetTime) / (24f - sunsetTime));
     }
 
     private void UpdateUI()
@@ -135,7 +148,7 @@ public class DayNightCycleURP : MonoBehaviour
         if (dayText != null)
             dayText.text = $"Day {currentDay}";
 
-        bool isDay = hours >= 6 && hours < 18;
+        bool isDay = timeOfDay >= sunriseTime && timeOfDay < sunsetTime;
 
         if (sunIcon != null)
             sunIcon.SetActive(isDay);

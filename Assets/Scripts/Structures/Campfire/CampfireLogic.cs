@@ -17,6 +17,12 @@ public class CampfireLogic : MonoBehaviour
     [SerializeField] private Button addLogButton;
     [SerializeField] private ItemData logItemData;
 
+    [Header("Trigger Settings")]
+    [Tooltip("The tag of the player object (or its Rigidbody).")]
+    [SerializeField] private string targetTag = "Player";
+    [Tooltip("Optional: If assigned, only this specific player collider will trigger the UI. If left empty, any collider with the correct tag will work.")]
+    [SerializeField] private Collider2D targetPlayerCollider;
+
     [Header("Visuals")]
     [Tooltip("The SpriteRenderer of the campfire.")]
     [SerializeField] private SpriteRenderer campfireSR;
@@ -46,6 +52,7 @@ public class CampfireLogic : MonoBehaviour
     [SerializeField] private float highOuter = 7.0f;
 
     [Header("Settings")]
+    [SerializeField] private int startingLogs = 3;
     [SerializeField] private int maxLogs = 10;
     [SerializeField] private float timePerLog = 24f;
     [SerializeField] private float radiusLerpSpeed = 3f;
@@ -59,6 +66,48 @@ public class CampfireLogic : MonoBehaviour
     private float targetInner;
     private float targetOuter;
     private float intensityMultiplier = 0f;
+
+    // Use a HashSet to track unique player colliders currently in the range trigger.
+    // This is much more robust than a simple counter.
+    private System.Collections.Generic.HashSet<Collider2D> playerCollidersInRange = new System.Collections.Generic.HashSet<Collider2D>();
+
+    public static System.Collections.Generic.List<CampfireLogic> AllCampfires = new System.Collections.Generic.List<CampfireLogic>();
+
+    [Header("Runtime State")]
+    public bool isPaused = false;
+
+    private void OnEnable()
+    {
+        if (!AllCampfires.Contains(this))
+            AllCampfires.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        AllCampfires.Remove(this);
+        
+        // Clean up UI state if the object is disabled
+        if (playerCollidersInRange.Count > 0)
+        {
+            playerCollidersInRange.Clear();
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.SetActive(false);
+            }
+            playerInventory = null;
+        }
+    }
+
+    public void ConsumeTime(float seconds)
+    {
+        if (burnTime > 0)
+        {
+            burnTime -= seconds;
+            if (burnTime < 0) burnTime = 0;
+            
+            // Trigger visuals/UI update if needed, but Update() will handle it next frame
+        }
+    }
 
     private void Awake()
     {
@@ -198,31 +247,40 @@ public class CampfireLogic : MonoBehaviour
             addLogButton.onClick.AddListener(AddLog);
         }
 
+        // Initialize with starting logs
+        currentLogs = startingLogs;
+        burnTime = currentLogs * timePerLog;
+
         UpdateVisuals();
         UpdateUI();
     }
 
     private void Update()
     {
-        if (burnTime > 0)
+        if (burnTime > 0 && !isPaused)
         {
             burnTime -= Time.deltaTime;
-            
-            int previousLogs = currentLogs;
-            currentLogs = Mathf.CeilToInt(burnTime / timePerLog);
+            if (burnTime < 0) burnTime = 0;
+        }
 
-            if (burnTime <= 0)
-            {
-                burnTime = 0;
-                currentLogs = 0;
-                UpdateVisuals();
-            }
-            else if (previousLogs != currentLogs)
-            {
-                UpdateVisuals();
-            }
-
+        // Always update UI if the canvas is active to show ticking seconds
+        if (interactionCanvas != null && interactionCanvas.activeSelf)
+        {
             UpdateUI();
+        }
+
+        // Recalculate logs and update visuals if there's a change
+        int nextLogs = Mathf.CeilToInt(burnTime / timePerLog);
+        if (nextLogs != currentLogs)
+        {
+            currentLogs = nextLogs;
+            UpdateVisuals();
+            
+            // If the UI wasn't updated above, update it now to reflect log count change
+            if (interactionCanvas == null || !interactionCanvas.activeSelf)
+            {
+                UpdateUI();
+            }
         }
 
         HandleLightTransitions();
@@ -301,42 +359,70 @@ public class CampfireLogic : MonoBehaviour
         }
     }
 
-    private int playerCollidersInRange = 0;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
+        // 1. If a range trigger is specified on THIS object, ensure this collision involves it
+        if (rangeTrigger != null && !other.IsTouching(rangeTrigger)) return;
+
+        // 2. Check if the entering collider matches our target requirements
+        bool isTarget = false;
+        if (targetPlayerCollider != null)
         {
-            playerCollidersInRange++;
-            
-            // Only initialize and show UI if this is the first collider entering
-            if (playerInventory == null)
+            isTarget = (other == targetPlayerCollider);
+        }
+        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
+        {
+            isTarget = true;
+        }
+
+        if (isTarget)
+        {
+            if (playerCollidersInRange.Add(other)) // Only proceed if this collider wasn't already tracked
             {
-                playerInventory = other.attachedRigidbody.GetComponent<PlayerInventory>();
-                if (interactionCanvas != null)
+                // Only initialize and show UI if this is the first collider entering
+                if (playerInventory == null)
                 {
-                    interactionCanvas.SetActive(true);
+                    playerInventory = other.attachedRigidbody.GetComponent<PlayerInventory>();
+                    if (interactionCanvas != null)
+                    {
+                        interactionCanvas.SetActive(true);
+                    }
+                    UpdateUI();
                 }
-                UpdateUI();
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
+        // 1. Check if this collider matches our target requirements
+        bool isTarget = false;
+        if (targetPlayerCollider != null)
         {
-            playerCollidersInRange--;
+            isTarget = (other == targetPlayerCollider);
+        }
+        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
+        {
+            isTarget = true;
+        }
 
-            // Only hide UI if ALL colliders of the player have left the range
-            if (playerCollidersInRange <= 0)
+        if (isTarget)
+        {
+            // 2. Only decrement if the collider is actually leaving the SPECIFIC range trigger
+            // (Unity fires Exit when leaving ANY trigger on this object)
+            if (rangeTrigger == null || !other.IsTouching(rangeTrigger))
             {
-                playerCollidersInRange = 0; // Guard against potential negative values
-                if (interactionCanvas != null)
+                playerCollidersInRange.Remove(other);
+
+                // Only hide UI if ALL colliders of the player have left the range
+                if (playerCollidersInRange.Count == 0)
                 {
-                    interactionCanvas.SetActive(false);
+                    if (interactionCanvas != null)
+                    {
+                        interactionCanvas.SetActive(false);
+                    }
+                    playerInventory = null;
                 }
-                playerInventory = null;
             }
         }
     }

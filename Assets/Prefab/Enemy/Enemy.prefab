@@ -390,7 +390,7 @@ MonoBehaviour:
   canRegenerate: 1
   regenDelay: 10
   regenRate: 1
-  hitCollider: {fileID: 3351694068055821671}
+  hitCollider: {fileID: 0}
 --- !u!114 &1530141095482744543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   - {x: 0.25, y: -0.1}
   attackCollider: {fileID: 6244558745614437885}
   playerCollider: {fileID: 0}
-  ownCollider: {fileID: 3351694068055821671}
+  ownCollider: {fileID: 0}
 --- !u!1001 &6440804972902668276
 PrefabInstance:
   m_ObjectHideFlags: 0

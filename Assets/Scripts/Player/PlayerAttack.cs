@@ -26,6 +26,18 @@ public class PlayerAttack : MonoBehaviour
 
     private Camera mainCam;
 
+    public void BlockAttackUntilMouseRelease()
+    {
+        // Set flag to wait for button release
+        requireMouseRelease = true;
+        isAttacking = false;
+        canAttack = false;
+
+        // Reset canAttack quickly, but keep requireMouseRelease until mouse is up
+        CancelInvoke(nameof(ResetAttack));
+        Invoke(nameof(ResetAttack), 0.1f);
+    }
+
     private void Start()
     {
         mainCam = Camera.main;

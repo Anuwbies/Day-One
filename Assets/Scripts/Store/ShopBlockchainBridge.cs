@@ -19,6 +19,7 @@ public class ShopBlockchainBridge : MonoBehaviour
 
     private BlockchainInteraction _blockchain;
 
+    [System.Obsolete]
     private void Start()
     {
         // Find the blockchain service in the scene
