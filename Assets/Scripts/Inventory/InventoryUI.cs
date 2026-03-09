@@ -4,6 +4,12 @@ using UnityEngine.EventSystems;
 
 public class InventoryUI : MonoBehaviour
 {
+    private static readonly List<InventoryUI> Instances = new();
+
+    [Header("Open / Close")]
+    [SerializeField] private bool allowKeyboardToggle = true;
+    [SerializeField] private KeyCode toggleKey = KeyCode.Tab;
+
     [Header("Inventory")]
     public PlayerInventory inventory;
     public InventorySlotUI[] slots;
@@ -39,7 +45,15 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
+        if (!Instances.Contains(this))
+            Instances.Add(this);
+
         canvas = GetComponentInParent<Canvas>();
+    }
+
+    private void OnDestroy()
+    {
+        Instances.Remove(this);
     }
 
     private void Start()
@@ -67,10 +81,57 @@ public class InventoryUI : MonoBehaviour
         // If the game is paused, do not process hotkeys
         if (Time.timeScale == 0) return;
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (!allowKeyboardToggle)
+            return;
+
+        if (!isOpen && IsAnotherInventoryOpen())
+            return;
+
+        if (Input.GetKeyDown(toggleKey))
         {
             SetInventoryOpen(!isOpen);
         }
+    }
+
+    public void ToggleInventoryOpen()
+    {
+        SetInventoryOpen(!isOpen);
+    }
+
+    public static bool IsAnyInventoryOpen()
+    {
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui != null && ui.IsOpen)
+                return true;
+        }
+
+        return false;
+    }
+
+    public static bool ConsumeAnyClickThisFrame()
+    {
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui != null && ui.ConsumeClickThisFrame)
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool IsAnotherInventoryOpen()
+    {
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui == null || ui == this)
+                continue;
+
+            if (ui.IsOpen)
+                return true;
+        }
+
+        return false;
     }
 
     public void TryAddSingleItem(int fromIndex, int toIndex)

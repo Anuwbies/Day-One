@@ -8,6 +8,8 @@ public class InventoryCraftableListUI : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private CraftingDatabase craftingDatabase;
+    [SerializeField] private CraftingLocation visibleCraftingLocations =
+        CraftingLocation.Inventory;
 
     [Header("UI")]
     [SerializeField] private Transform contentRoot;
@@ -28,11 +30,8 @@ public class InventoryCraftableListUI : MonoBehaviour
         if (craftingDatabase == null)
             return;
 
-        foreach (CraftingRecipe recipe in craftingDatabase.recipes)
+        foreach (CraftingRecipe recipe in craftingDatabase.GetRecipesForLocation(visibleCraftingLocations))
         {
-            if (!recipe.craftableLocations.HasFlag(CraftingLocation.Inventory))
-                continue;
-
             if (recipe.ingredientSets == null)
                 continue;
 
@@ -49,6 +48,12 @@ public class InventoryCraftableListUI : MonoBehaviour
                 CreateEntry(recipe, set);
             }
         }
+    }
+
+    public void SetVisibleCraftingLocations(CraftingLocation locations)
+    {
+        visibleCraftingLocations = locations;
+        BuildList();
     }
 
     // =========================

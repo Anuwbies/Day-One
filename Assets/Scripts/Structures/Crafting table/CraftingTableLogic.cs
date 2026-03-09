@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 // For the parent to receive trigger events from its children, 
 // the parent MUST have a Rigidbody2D component.
@@ -11,6 +12,8 @@ public class CraftingTableLogic : MonoBehaviour
     [SerializeField] private Collider2D rangeTrigger;
     
     [SerializeField] private GameObject interactionCanvas;
+    [SerializeField] private Button toggleCanvasButton;
+    [SerializeField] private InventoryUI targetInventoryUI;
 
     [Header("Trigger Settings")]
     [Tooltip("The tag of the player object (or its Rigidbody).")]
@@ -32,6 +35,9 @@ public class CraftingTableLogic : MonoBehaviour
                 interactionCanvas.SetActive(false);
             }
         }
+
+        if (targetInventoryUI != null)
+            targetInventoryUI.SetInventoryOpen(false);
     }
 
     private void Start()
@@ -44,6 +50,22 @@ public class CraftingTableLogic : MonoBehaviour
         if (interactionCanvas != null)
         {
             interactionCanvas.SetActive(false);
+        }
+
+        if (targetInventoryUI != null)
+            targetInventoryUI.SetInventoryOpen(false);
+
+        if (toggleCanvasButton != null)
+        {
+            toggleCanvasButton.onClick.AddListener(ToggleTargetCanvas);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (toggleCanvasButton != null)
+        {
+            toggleCanvasButton.onClick.RemoveListener(ToggleTargetCanvas);
         }
     }
 
@@ -103,8 +125,19 @@ public class CraftingTableLogic : MonoBehaviour
                     {
                         interactionCanvas.SetActive(false);
                     }
+
+                    if (targetInventoryUI != null)
+                        targetInventoryUI.SetInventoryOpen(false);
                 }
             }
         }
+    }
+
+    public void ToggleTargetCanvas()
+    {
+        if (targetInventoryUI == null)
+            return;
+
+        targetInventoryUI.ToggleInventoryOpen();
     }
 }

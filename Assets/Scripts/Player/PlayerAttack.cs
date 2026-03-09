@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         // 1. Check UI interactions
-        if (inventoryUI != null && inventoryUI.ConsumeClickThisFrame)
+        if (InventoryUI.ConsumeAnyClickThisFrame())
         {
             requireMouseRelease = true;
             isAttacking = false;
@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        if (inventoryUI != null && inventoryUI.IsOpen)
+        if (InventoryUI.IsAnyInventoryOpen())
         {
             isAttacking = false;
             return;

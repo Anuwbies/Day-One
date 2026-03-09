@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class CraftingGridController : MonoBehaviour
 {
+    [Header("Crafting Context")]
+    [SerializeField] private CraftingLocation activeCraftingLocation =
+        CraftingLocation.Inventory;
     [Header("Grid (0–8, top-left → bottom-right)")]
     public CraftingSlotUI[] craftingSlots;
 
@@ -43,6 +46,12 @@ public class CraftingGridController : MonoBehaviour
         return FindMatchingRecipe();
     }
 
+    public void SetCraftingLocation(CraftingLocation location)
+    {
+        activeCraftingLocation = location;
+        UpdateResultPreview();
+    }
+
     public void UpdateResultPreview()
     {
         CraftingRecipe recipe = FindMatchingRecipe();
@@ -77,11 +86,8 @@ public class CraftingGridController : MonoBehaviour
         if (craftingDatabase == null)
             return null;
 
-        foreach (CraftingRecipe recipe in craftingDatabase.recipes)
+        foreach (CraftingRecipe recipe in craftingDatabase.GetRecipesForLocation(activeCraftingLocation))
         {
-            if (!recipe.craftableLocations.HasFlag(CraftingLocation.Inventory))
-                continue;
-
             if (RecipeMatches(recipe))
                 return recipe;
         }

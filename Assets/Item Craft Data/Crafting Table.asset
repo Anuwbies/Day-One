@@ -10,38 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8522bd54ada64da49a318f5c4c90ca8a, type: 3}
-  m_Name: Campfire
+  m_Name: Crafting Table
   m_EditorClassIdentifier: 
-  craftableLocations: 2
+  craftableLocations: 1
   ingredientSets:
   - shapeless: 0
     ingredients:
     - slotIndex: 0
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
+      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
     - slotIndex: 1
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
+      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
     - slotIndex: 2
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
+      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
     - slotIndex: 3
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
-      amount: 1
-    - slotIndex: 4
       item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
-    - slotIndex: 5
-      item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
-      amount: 1
-    - slotIndex: 6
-      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-      amount: 1
-    - slotIndex: 7
-      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-      amount: 1
-    - slotIndex: 8
-      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-      amount: 1
-  resultItem: {fileID: 11400000, guid: cbc924ac49b56ea47b2ffdaac3793994, type: 2}
+  resultItem: {fileID: 11400000, guid: 8eb5126b53508e843b13a52c30169241, type: 2}
   resultAmount: 1

@@ -9,12 +9,12 @@ public enum CraftingLocation
 }
 
 [CreateAssetMenu(
-    fileName = "NewCraftingRecipasdf",
+    fileName = "NewCraftingRecipe",
     menuName = "Crafting/Crafting Recipe"
 )]
 public class CraftingRecipe : ScriptableObject
 {
-    [Header("Craftable Locationssdfasd")]
+    [Header("Craftable Locations")]
     public CraftingLocation craftableLocations =
         CraftingLocation.Inventory | CraftingLocation.CraftingTable;
 
@@ -24,4 +24,9 @@ public class CraftingRecipe : ScriptableObject
     [Header("Result")]
     public ItemData resultItem;
     public int resultAmount = 1;
+
+    public bool IsCraftableAt(CraftingLocation location)
+    {
+        return (craftableLocations & location) != 0;
+    }
 }

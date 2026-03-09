@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8522bd54ada64da49a318f5c4c90ca8a, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: 
-  craftableLocations: -1
+  craftableLocations: 1
   ingredientSets:
   - shapeless: 1
     ingredients:

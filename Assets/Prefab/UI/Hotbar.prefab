@@ -1763,8 +1763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d877466f5e663e24b8fb5bdef1d3b3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
-  playerInventory: {fileID: 0}
+  playerStats: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+  playerInventory: {fileID: 746832510419213260, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
   slots:
   - {fileID: 4583668864935578681}
   - {fileID: 3393228264800690404}
