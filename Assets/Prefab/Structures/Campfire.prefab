@@ -491,10 +491,10 @@ GameObject:
   - component: {fileID: 1248492916396909665}
   - component: {fileID: 2896387929510556320}
   - component: {fileID: 2620341038550541388}
-  - component: {fileID: 1278486882659685167}
-  - component: {fileID: 775554780155814418}
   - component: {fileID: 7633748412729327823}
+  - component: {fileID: 775554780155814418}
   - component: {fileID: 9019508796431408499}
+  - component: {fileID: 1278486882659685167}
   m_Layer: 8
   m_Name: Campfire
   m_TagString: Untagged
@@ -625,6 +625,72 @@ MonoBehaviour:
     offset: {x: -0.03, y: 0.15}
     size: {x: 0.63, y: 0.65}
     cornerRadius: 0
+--- !u!114 &7633748412729327823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072441690978074281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e46a99974f1f7549a4afffc8cc9d8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 5173684190148256682}
+  fill: {fileID: 2301216894969346238}
+  playerStats: {fileID: 0}
+  enemyHealth: {fileID: 775554780155814418}
+  enemyController: {fileID: 0}
+  uiRoot: {fileID: 5339164154001720341}
+  hideDelay: 10
+  smoothTransition: 1
+  transitionSpeed: 10
+--- !u!114 &775554780155814418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072441690978074281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7509ee5313a8b154aafc1fdf2a299c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTarget: 1
+  maxHealth: 50
+  currentHealth: 0
+  canRegenerate: 1
+  regenDelay: 3
+  regenRate: 10
+  hitCollider: {fileID: 416530811722488052}
+--- !u!114 &9019508796431408499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072441690978074281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347970cee5dd9df48b0d0336d48e81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2896387929510556320}
+  afterLootSprite: {fileID: 0}
+  changeSpriteOnLoot: 0
+  hitbox: {fileID: 0}
+  lootTable:
+  - prefab: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
+    minAmount: 1
+    maxAmount: 2
+  xOffset: 0
+  yOffset: -0.27
+  dropRadius: {x: 1, y: 0.5}
+  deadZoneRadius: {x: 0.5, y: 0.25}
+  destroyOnLoot: 1
+  destroyDelay: 0
 --- !u!114 &1278486882659685167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,72 +733,6 @@ MonoBehaviour:
   intensityFadeSpeed: 2
   fadeOutThreshold: 10
   isPaused: 0
---- !u!114 &775554780155814418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072441690978074281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7509ee5313a8b154aafc1fdf2a299c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTarget: 1
-  maxHealth: 50
-  currentHealth: 0
-  canRegenerate: 1
-  regenDelay: 3
-  regenRate: 10
-  hitCollider: {fileID: 416530811722488052}
---- !u!114 &7633748412729327823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072441690978074281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e46a99974f1f7549a4afffc8cc9d8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  track: {fileID: 5173684190148256682}
-  fill: {fileID: 2301216894969346238}
-  playerStats: {fileID: 0}
-  enemyHealth: {fileID: 775554780155814418}
-  enemyController: {fileID: 0}
-  uiRoot: {fileID: 5339164154001720341}
-  hideDelay: 10
-  smoothTransition: 1
-  transitionSpeed: 10
---- !u!114 &9019508796431408499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072441690978074281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347970cee5dd9df48b0d0336d48e81d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 2896387929510556320}
-  afterLootSprite: {fileID: 0}
-  changeSpriteOnLoot: 0
-  hitbox: {fileID: 0}
-  lootTable:
-  - prefab: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
-    minAmount: 1
-    maxAmount: 2
-  xOffset: 0
-  yOffset: -0.27
-  dropRadius: {x: 1, y: 0.5}
-  deadZoneRadius: {x: 0.5, y: 0.25}
-  destroyOnLoot: 1
-  destroyDelay: 0
 --- !u!1 &4832933251515437155
 GameObject:
   m_ObjectHideFlags: 0

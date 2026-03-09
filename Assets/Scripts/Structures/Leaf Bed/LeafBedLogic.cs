@@ -166,6 +166,11 @@ public class LeafBedLogic : MonoBehaviour
 
     public void StartFastForward()
     {
+        if (interactionCanvas != null)
+        {
+            interactionCanvas.SetActive(false);
+        }
+
         if (playerStats != null)
         {
             if (playerStats.Hunger < minHungerToSleep || playerStats.Thirst < minThirstToSleep)
@@ -234,41 +239,50 @@ public class LeafBedLogic : MonoBehaviour
 
     public void StopFastForward()
     {
-        if (isFastForwarding && playerStats != null)
+        // Only re-enable the UI if the player is still in range
+        if (interactionCanvas != null && playerCollidersInRange.Count > 0)
         {
-            // Restore rotation, apply wake-up offset, and re-enable movement/attack
-            playerStats.transform.rotation = originalRotation;
-            playerStats.transform.position = transform.position + wakeUpOffset;
+            interactionCanvas.SetActive(true);
+        }
 
-            if (playerMovement != null) playerMovement.enabled = true;
-            if (playerAttack != null)
+        if (isFastForwarding)
+        {
+            if (playerStats != null)
             {
-                playerAttack.enabled = true;
-                playerAttack.BlockAttackUntilMouseRelease();
+                // Restore rotation, apply wake-up offset, and re-enable movement/attack
+                playerStats.transform.rotation = originalRotation;
+                playerStats.transform.position = transform.position + wakeUpOffset;
+
+                if (playerMovement != null) playerMovement.enabled = true;
+                if (playerAttack != null)
+                {
+                    playerAttack.enabled = true;
+                    playerAttack.BlockAttackUntilMouseRelease();
+                }
+
+                // Restore minimap rotation
+                if (minimapCameraTransform != null)
+                {
+                    minimapCameraTransform.rotation = minimapOriginalRotation;
+                    minimapCameraTransform = null;
+                }
             }
 
-            // Restore minimap rotation
-            if (minimapCameraTransform != null)
+            isFastForwarding = false;
+            
+            if (dayNightCycle != null)
             {
-                minimapCameraTransform.rotation = minimapOriginalRotation;
-                minimapCameraTransform = null;
+                dayNightCycle.isPaused = false;
             }
-        }
 
-        isFastForwarding = false;
-        
-        if (dayNightCycle != null)
-        {
-            dayNightCycle.isPaused = false;
-        }
+            // Resume all campfires normal countdown
+            foreach (var campfire in CampfireLogic.AllCampfires)
+            {
+                campfire.isPaused = false;
+            }
 
-        // Resume all campfires normal countdown
-        foreach (var campfire in CampfireLogic.AllCampfires)
-        {
-            campfire.isPaused = false;
+            if (sleepButton != null) sleepButton.interactable = true;
         }
-
-        if (sleepButton != null) sleepButton.interactable = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

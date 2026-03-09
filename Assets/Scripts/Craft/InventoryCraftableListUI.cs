@@ -122,37 +122,68 @@ public class InventoryCraftableListUI : MonoBehaviour
         {
             if (craftingGridController == null) return;
 
-            // Fill as many as possible
-            int safetyLimit = 999;
-            while (CanAddMore(set) && safetyLimit > 0)
+            // Calculate max multiplier
+            int maxPossible = GetMaxPossible(set);
+            if (maxPossible > 0)
             {
-                craftingGridController.AutoFillOrGhost(set);
-                safetyLimit--;
+                craftingGridController.AutoFillOrGhost(set, maxPossible);
             }
         };
     }
 
-    private bool CanAddMore(CraftingIngredientSet set)
+    private int GetMaxPossible(CraftingIngredientSet set)
     {
-        if (craftingGridController == null || craftingGridController.inventoryUI == null) return false;
+        if (craftingGridController == null || craftingGridController.inventoryUI == null) return 0;
         
         var inventory = craftingGridController.inventoryUI.inventory;
         
-        // Simplified check: does inventory have at least one of each required ingredient?
+        // 1. Calculate total required of each item for ONE craft
+        Dictionary<ItemData, int> requiredPerCraft = new Dictionary<ItemData, int>();
         foreach (var ing in set.ingredients)
         {
-            bool found = false;
-            foreach (var invSlot in inventory.items)
-            {
-                if (invSlot != null && invSlot.item == ing.item && invSlot.amount >= ing.amount)
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) return false;
+            if (ing.item == null) continue;
+            if (requiredPerCraft.ContainsKey(ing.item))
+                requiredPerCraft[ing.item] += ing.amount;
+            else
+                requiredPerCraft[ing.item] = ing.amount;
         }
-        return true;
+
+        int maxMultiplier = int.MaxValue;
+
+        // 2. For each unique item type, check total available (Inventory + Grid)
+        foreach (var pair in requiredPerCraft)
+        {
+            ItemData item = pair.Key;
+            int req = pair.Value;
+
+            int totalAvailable = 0;
+
+            // From Inventory
+            foreach (var slot in inventory.items)
+            {
+                if (slot != null && slot.item == item)
+                    totalAvailable += slot.amount;
+            }
+
+            // From Grid (only if they match the required item)
+            foreach (var slotUI in craftingGridController.craftingSlots)
+            {
+                if (!slotUI.slot.IsEmpty && slotUI.slot.item == item)
+                    totalAvailable += slotUI.slot.amount;
+            }
+
+            int possibleForThisItem = totalAvailable / req;
+            if (possibleForThisItem < maxMultiplier)
+                maxMultiplier = possibleForThisItem;
+        }
+
+        return maxMultiplier == int.MaxValue ? 0 : maxMultiplier;
+    }
+
+    private bool CanAddMore(CraftingIngredientSet set)
+    {
+        // This is now redundant since we use GetMaxPossible
+        return GetMaxPossible(set) > 0;
     }
 
     // =========================

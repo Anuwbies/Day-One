@@ -311,10 +311,13 @@ public class CraftingGridController : MonoBehaviour
         }
     }
 
-    public void AutoFillOrGhost(CraftingIngredientSet set)
+    public void AutoFillOrGhost(CraftingIngredientSet set, int multiplier = 1)
     {
         if (set == null || inventoryUI == null || inventoryUI.inventory == null)
             return;
+
+        // Ensure multiplier is at least 1
+        multiplier = Mathf.Max(1, multiplier);
 
         // Check for mismatch: if any item in the grid doesn't belong to this recipe, clear everything.
         bool mismatch = false;
@@ -358,7 +361,12 @@ public class CraftingGridController : MonoBehaviour
                 continue;
 
             CraftingSlotUI slotUI = craftingSlots[ing.slotIndex];
-            int needed = ing.amount;
+
+            // Only pull what we still need to reach the target amount (multiplier * ing.amount).
+            // If the mismatch check above passed, we know the item in the slot (if any) is the correct one.
+            int targetAmount = ing.amount * multiplier;
+            int currentAmount = (slotUI.slot.item == ing.item) ? slotUI.slot.amount : 0;
+            int needed = Mathf.Max(0, targetAmount - currentAmount);
 
             // Pull from inventory
             for (int i = 0; i < inventory.items.Count && needed > 0; i++)
@@ -388,7 +396,10 @@ public class CraftingGridController : MonoBehaviour
             }
             else if (needed > 0)
             {
-                slotUI.ShowGhost(ing.item, needed);
+                // Note: Ghost always shows 1x requirement by default or the remainder of 1x
+                int ghostNeeded = Mathf.Max(0, ing.amount - slotUI.slot.amount);
+                if (ghostNeeded > 0)
+                    slotUI.ShowGhost(ing.item, ghostNeeded);
             }
         }
 

@@ -299,15 +299,19 @@ public class CampfireLogic : MonoBehaviour
 
     public void AddLog()
     {
-        if (currentLogs >= maxLogs) return;
+        // Check if we have room for at least some fuel. 
+        // We cap it at maxLogs * timePerLog.
+        if (burnTime >= maxLogs * timePerLog) return;
 
         if (playerInventory != null && logItemData != null)
         {
             if (playerInventory.HasItem(logItemData, 1))
             {
                 playerInventory.RemoveItem(logItemData, 1);
-                currentLogs++;
-                burnTime += timePerLog;
+                
+                // Add time and cap it
+                burnTime = Mathf.Min(burnTime + timePerLog, maxLogs * timePerLog);
+                currentLogs = Mathf.CeilToInt(burnTime / timePerLog);
                 
                 UpdateVisuals();
                 UpdateUI();
@@ -316,8 +320,8 @@ public class CampfireLogic : MonoBehaviour
         else if (logItemData == null)
         {
             // If no data is assigned, just add it for testing (optional)
-            currentLogs++;
-            burnTime += timePerLog;
+            burnTime = Mathf.Min(burnTime + timePerLog, maxLogs * timePerLog);
+            currentLogs = Mathf.CeilToInt(burnTime / timePerLog);
             
             UpdateVisuals();
             UpdateUI();
@@ -348,10 +352,10 @@ public class CampfireLogic : MonoBehaviour
 
         if (addLogButton != null)
         {
-            // Button is interactable if we have space AND the player has a log
-            bool hasSpace = currentLogs < maxLogs;
-            bool hasLog = playerInventory != null && logItemData != null && playerInventory.HasItem(logItemData, 1);
-            
+        // Button is interactable if we have space AND the player has a log.
+        // We use burnTime to allow "topping off" the last log.
+        bool hasSpace = burnTime < (maxLogs * timePerLog);
+        bool hasLog = playerInventory != null && logItemData != null && playerInventory.HasItem(logItemData, 1);            
             // If logItemData is not set, we allow it for easier setup/testing
             if (logItemData == null) hasLog = true;
 

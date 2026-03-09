@@ -1,0 +1,110 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+// For the parent to receive trigger events from its children, 
+// the parent MUST have a Rigidbody2D component.
+[RequireComponent(typeof(Rigidbody2D))]
+public class CraftingTableLogic : MonoBehaviour
+{
+    [Header("References")]
+    [Tooltip("Drag the child object with the range Trigger Collider here.")]
+    [SerializeField] private Collider2D rangeTrigger;
+    
+    [SerializeField] private GameObject interactionCanvas;
+
+    [Header("Trigger Settings")]
+    [Tooltip("The tag of the player object (or its Rigidbody).")]
+    [SerializeField] private string targetTag = "Player";
+    [Tooltip("Optional: If assigned, only this specific player collider will trigger the UI. If left empty, any collider with the correct tag will work.")]
+    [SerializeField] private Collider2D targetPlayerCollider;
+
+    // Use a HashSet to track unique player colliders currently in the range trigger.
+    private HashSet<Collider2D> playerCollidersInRange = new HashSet<Collider2D>();
+
+    private void OnDisable()
+    {
+        // Clean up UI state if the object is disabled
+        if (playerCollidersInRange.Count > 0)
+        {
+            playerCollidersInRange.Clear();
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.SetActive(false);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        // Setup Rigidbody2D to ensure it's static and doesn't interfere with physics
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = true;
+
+        if (interactionCanvas != null)
+        {
+            interactionCanvas.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // 1. If a range trigger is specified on THIS object, ensure this collision involves it
+        if (rangeTrigger != null && !other.IsTouching(rangeTrigger)) return;
+
+        // 2. Check if the entering collider matches our target requirements
+        bool isTarget = false;
+        if (targetPlayerCollider != null)
+        {
+            isTarget = (other == targetPlayerCollider);
+        }
+        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
+        {
+            isTarget = true;
+        }
+
+        if (isTarget)
+        {
+            if (playerCollidersInRange.Add(other)) // Only proceed if this collider wasn't already tracked
+            {
+                // Only show UI if this is the first collider entering
+                if (interactionCanvas != null)
+                {
+                    interactionCanvas.SetActive(true);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // 1. Check if this collider matches our target requirements
+        bool isTarget = false;
+        if (targetPlayerCollider != null)
+        {
+            isTarget = (other == targetPlayerCollider);
+        }
+        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
+        {
+            isTarget = true;
+        }
+
+        if (isTarget)
+        {
+            // 2. Only decrement if the collider is actually leaving the SPECIFIC range trigger
+            if (rangeTrigger == null || !other.IsTouching(rangeTrigger))
+            {
+                playerCollidersInRange.Remove(other);
+
+                // Only hide UI if ALL colliders of the player have left the range
+                if (playerCollidersInRange.Count == 0)
+                {
+                    if (interactionCanvas != null)
+                    {
+                        interactionCanvas.SetActive(false);
+                    }
+                }
+            }
+        }
+    }
+}

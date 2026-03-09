@@ -313,6 +313,9 @@ public class InventoryUI : MonoBehaviour
 
         ItemData data = invSlot.item;
 
+        if (!data.canDrop)
+            return;
+
         if (data.worldPrefab == null)
         {
             Debug.LogError($"Item '{data.itemName}' has no worldPrefab assigned.");
