@@ -10,23 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8522bd54ada64da49a318f5c4c90ca8a, type: 3}
-  m_Name: Crafting Table
+  m_Name: Leaf Bed
   m_EditorClassIdentifier: 
-  craftableLocations: 1
+  craftableLocations: 2
   ingredientSets:
   - shapeless: 0
     ingredients:
-    - slotIndex: 0
+    - slotIndex: 6
       item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
-    - slotIndex: 1
+    - slotIndex: 7
       item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
-    - slotIndex: 3
+    - slotIndex: 8
       item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
       amount: 1
-    - slotIndex: 4
-      item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-      amount: 1
-  resultItem: {fileID: 11400000, guid: 8eb5126b53508e843b13a52c30169241, type: 2}
+  resultItem: {fileID: 11400000, guid: 085f7ceacf090904081f05f514d807c6, type: 2}
   resultAmount: 1

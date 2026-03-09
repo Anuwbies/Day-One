@@ -16,6 +16,12 @@ public class CraftingSlotUI : MonoBehaviour,
     [Header("Controller")]
     public CraftingGridController craftingGridController;
 
+    [Header("Grid Mapping")]
+    [Tooltip("Which recipe slot index this UI slot represents. Leave at -1 to use the array position from the controller.")]
+    [SerializeField] private int slotIndexOverride = -1;
+
+    public int SlotIndexOverride => slotIndexOverride;
+
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 

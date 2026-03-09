@@ -346,6 +346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0e7abfce8490d4e9af58442ccb5e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &173924318 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8840720255086559041, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+  m_PrefabInstance: {fileID: 6302474665055368718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &206763010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8520431723677658333, guid: ae7f3ec12306c624c8f6a91493b1328b, type: 3}
@@ -74976,6 +74981,17 @@ MonoBehaviour:
   menuUI: {fileID: 1620325912}
   mainMenuSceneName: Main Menu
   settingsSceneName: Settings
+--- !u!114 &869917298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2706354898722287325, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+  m_PrefabInstance: {fileID: 236689370748393806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197e34bd2ad164c4382d1cff41460085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &885764320
 GameObject:
   m_ObjectHideFlags: 0
@@ -80263,11 +80279,6 @@ Transform:
   - {fileID: 4397325473598340131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1275407406 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 102857879326321237, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
-  m_PrefabInstance: {fileID: 6302474665055368718}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1388027637
 GameObject:
   m_ObjectHideFlags: 0
@@ -80559,7 +80570,7 @@ PrefabInstance:
     - target: {fileID: 1278486882659685167, guid: e5d00b148d331f8478da179f18191589, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 1275407406}
+      objectReference: {fileID: 173924318}
     - target: {fileID: 4072441690978074281, guid: e5d00b148d331f8478da179f18191589, type: 3}
       propertyPath: m_Name
       value: Campfire
@@ -81080,6 +81091,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2250770095086441983, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: slotIndexOverride
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2406201072188651462, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
       propertyPath: hotbar
       value: 
@@ -81092,6 +81107,14 @@ PrefabInstance:
       propertyPath: dropOrigin
       value: 
       objectReference: {fileID: 432309879}
+    - target: {fileID: 2706354898722287325, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: slotIndexOverride
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050715326934278855, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: slotIndexOverride
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3714850819697073589, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
       propertyPath: playerStats
       value: 
@@ -81180,6 +81203,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4835169642454925432, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: activeCraftingLocation
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853553311760450700, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: slotIndexOverride
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715813167985004375, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: craftingSlots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715813167985004375, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
+      propertyPath: 'craftingSlots.Array.data[4]'
+      value: 
+      objectReference: {fileID: 869917298}
     - target: {fileID: 8782459400437450708, guid: 650592d693d28034c9ec5534435bd7da, type: 3}
       propertyPath: hotbar
       value: 
@@ -81379,7 +81418,7 @@ PrefabInstance:
     - target: {fileID: 7348478025749383366, guid: e1b58973eb905324e9de78966bd0eea6, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 1275407406}
+      objectReference: {fileID: 173924318}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81537,11 +81576,11 @@ PrefabInstance:
     - target: {fileID: 5937430366837119836, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1275407406}
+      objectReference: {fileID: 173924318}
     - target: {fileID: 7441284595493441364, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1275407406}
+      objectReference: {fileID: 0}
     - target: {fileID: 7543888126313665003, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -81820,7 +81859,7 @@ PrefabInstance:
     - target: {fileID: 6905862922857581378, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 1275407406}
+      objectReference: {fileID: 173924318}
     - target: {fileID: 7889623016721681155, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.42

@@ -77,15 +77,20 @@ public class CraftButtonConsume : MonoBehaviour
     {
         foreach (CraftingIngredient ing in set.ingredients)
         {
-            CraftingSlot slot =
-                craftingGrid.craftingSlots[ing.slotIndex].slot;
+            CraftingSlotUI slotUI =
+                craftingGrid.GetSlotUIForRecipeIndex(ing.slotIndex);
+
+            if (slotUI == null)
+                continue;
+
+            CraftingSlot slot = slotUI.slot;
 
             slot.amount -= ing.amount;
 
             if (slot.amount <= 0)
                 slot.Clear();
 
-            craftingGrid.craftingSlots[ing.slotIndex].Refresh();
+            slotUI.Refresh();
         }
     }
 

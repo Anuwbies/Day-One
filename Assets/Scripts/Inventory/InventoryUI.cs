@@ -41,6 +41,7 @@ public class InventoryUI : MonoBehaviour
     private Canvas canvas;
 
     public bool IsOpen => isOpen;
+    public bool AllowKeyboardToggle => allowKeyboardToggle;
     public bool ConsumeClickThisFrame { get; private set; }
 
     private void Awake()

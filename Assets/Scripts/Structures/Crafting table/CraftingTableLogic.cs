@@ -13,6 +13,7 @@ public class CraftingTableLogic : MonoBehaviour
     
     [SerializeField] private GameObject interactionCanvas;
     [SerializeField] private Button toggleCanvasButton;
+    [Tooltip("Optional scene reference. Prefab assets cannot store scene objects, so this will auto-resolve at runtime when left empty.")]
     [SerializeField] private InventoryUI targetInventoryUI;
 
     [Header("Trigger Settings")]
@@ -23,6 +24,11 @@ public class CraftingTableLogic : MonoBehaviour
 
     // Use a HashSet to track unique player colliders currently in the range trigger.
     private HashSet<Collider2D> playerCollidersInRange = new HashSet<Collider2D>();
+
+    private void Awake()
+    {
+        ResolveTargetInventoryUI();
+    }
 
     private void OnDisable()
     {
@@ -42,6 +48,8 @@ public class CraftingTableLogic : MonoBehaviour
 
     private void Start()
     {
+        ResolveTargetInventoryUI();
+
         // Setup Rigidbody2D to ensure it's static and doesn't interfere with physics
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
@@ -135,9 +143,37 @@ public class CraftingTableLogic : MonoBehaviour
 
     public void ToggleTargetCanvas()
     {
+        ResolveTargetInventoryUI();
+
         if (targetInventoryUI == null)
+        {
+            Debug.LogWarning($"No {nameof(InventoryUI)} found for {name}. Assign a scene instance on the placed object or keep one active in the scene.");
             return;
+        }
 
         targetInventoryUI.ToggleInventoryOpen();
+    }
+
+    private void ResolveTargetInventoryUI()
+    {
+        if (targetInventoryUI != null && !targetInventoryUI.AllowKeyboardToggle)
+            return;
+
+        InventoryUI[] inventoryUIs =
+            Object.FindObjectsByType<InventoryUI>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        foreach (InventoryUI inventoryUI in inventoryUIs)
+        {
+            if (inventoryUI != null && !inventoryUI.AllowKeyboardToggle)
+            {
+                targetInventoryUI = inventoryUI;
+                return;
+            }
+        }
+
+        if (targetInventoryUI != null)
+            return;
+
+        targetInventoryUI = Object.FindAnyObjectByType<InventoryUI>(FindObjectsInactive.Exclude);
     }
 }

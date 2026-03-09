@@ -19,9 +19,11 @@ public class CraftingGridController : MonoBehaviour
     public InventoryUI inventoryUI;
 
     public CraftingIngredientSet CurrentMatchedSet { get; private set; }
+    private readonly Dictionary<int, CraftingSlotUI> slotLookup = new();
 
     private void Start()
     {
+        RebuildSlotLookup();
         UpdateResultPreview();
     }
 
@@ -36,6 +38,11 @@ public class CraftingGridController : MonoBehaviour
         // Optional: clear result preview as well
         if (resultUI != null)
             resultUI.Clear();
+    }
+
+    private void OnValidate()
+    {
+        RebuildSlotLookup();
     }
 
     // =========================
@@ -97,6 +104,8 @@ public class CraftingGridController : MonoBehaviour
 
     private bool RecipeMatches(CraftingRecipe recipe)
     {
+        CurrentMatchedSet = null;
+
         foreach (CraftingIngredientSet set in recipe.ingredientSets)
         {
             bool matched = set.shapeless
@@ -118,16 +127,28 @@ public class CraftingGridController : MonoBehaviour
     // =========================
     private bool ShapedSetMatches(CraftingIngredientSet set)
     {
+        RebuildSlotLookup();
+
         Dictionary<int, CraftingIngredient> requiredSlots = new();
 
         foreach (CraftingIngredient ing in set.ingredients)
             requiredSlots[ing.slotIndex] = ing;
 
-        for (int i = 0; i < craftingSlots.Length; i++)
+        foreach (int requiredIndex in requiredSlots.Keys)
         {
-            CraftingSlot slot = craftingSlots[i].slot;
+            if (!slotLookup.ContainsKey(requiredIndex))
+                return false;
+        }
 
-            if (requiredSlots.TryGetValue(i, out CraftingIngredient req))
+        foreach (CraftingSlotUI slotUI in craftingSlots)
+        {
+            if (slotUI == null)
+                continue;
+
+            int slotIndex = GetResolvedSlotIndex(slotUI);
+            CraftingSlot slot = slotUI.slot;
+
+            if (requiredSlots.TryGetValue(slotIndex, out CraftingIngredient req))
             {
                 if (slot.IsEmpty) return false;
                 if (slot.item != req.item) return false;
@@ -302,6 +323,7 @@ public class CraftingGridController : MonoBehaviour
     // =========================
     public void PreviewIngredientSet(CraftingIngredientSet set)
     {
+        RebuildSlotLookup();
         ClearAllGhosts();
 
         if (set == null)
@@ -309,11 +331,11 @@ public class CraftingGridController : MonoBehaviour
 
         foreach (CraftingIngredient ing in set.ingredients)
         {
-            if (ing.slotIndex < 0 || ing.slotIndex >= craftingSlots.Length)
+            CraftingSlotUI slotUI = GetSlotUIForRecipeIndex(ing.slotIndex);
+            if (slotUI == null)
                 continue;
 
-            craftingSlots[ing.slotIndex]
-                .ShowGhost(ing.item, ing.amount);
+            slotUI.ShowGhost(ing.item, ing.amount);
         }
     }
 
@@ -327,9 +349,13 @@ public class CraftingGridController : MonoBehaviour
 
         // Check for mismatch: if any item in the grid doesn't belong to this recipe, clear everything.
         bool mismatch = false;
-        for (int i = 0; i < craftingSlots.Length; i++)
+        foreach (CraftingSlotUI slotUI in craftingSlots)
         {
-            CraftingSlot slot = craftingSlots[i].slot;
+            if (slotUI == null)
+                continue;
+
+            int slotIndex = GetResolvedSlotIndex(slotUI);
+            CraftingSlot slot = slotUI.slot;
             if (slot.IsEmpty) continue;
 
             if (set.shapeless)
@@ -346,7 +372,7 @@ public class CraftingGridController : MonoBehaviour
                 bool found = false;
                 foreach (var ing in set.ingredients)
                 {
-                    if (ing.slotIndex == i && ing.item == slot.item) { found = true; break; }
+                    if (ing.slotIndex == slotIndex && ing.item == slot.item) { found = true; break; }
                 }
                 if (!found) { mismatch = true; break; }
             }
@@ -358,15 +384,15 @@ public class CraftingGridController : MonoBehaviour
         }
 
         ClearAllGhosts();
+        RebuildSlotLookup();
 
         var inventory = inventoryUI.inventory;
 
         foreach (CraftingIngredient ing in set.ingredients)
         {
-            if (ing.slotIndex < 0 || ing.slotIndex >= craftingSlots.Length)
+            CraftingSlotUI slotUI = GetSlotUIForRecipeIndex(ing.slotIndex);
+            if (slotUI == null)
                 continue;
-
-            CraftingSlotUI slotUI = craftingSlots[ing.slotIndex];
 
             // Only pull what we still need to reach the target amount (multiplier * ing.amount).
             // If the mismatch check above passed, we know the item in the slot (if any) is the correct one.
@@ -423,5 +449,50 @@ public class CraftingGridController : MonoBehaviour
             if (slot != null)
                 slot.ClearGhost();
         }
+    }
+
+    public CraftingSlotUI GetSlotUIForRecipeIndex(int recipeSlotIndex)
+    {
+        RebuildSlotLookup();
+        slotLookup.TryGetValue(recipeSlotIndex, out CraftingSlotUI slotUI);
+        return slotUI;
+    }
+
+    private void RebuildSlotLookup()
+    {
+        slotLookup.Clear();
+
+        if (craftingSlots == null)
+            return;
+
+        for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            CraftingSlotUI slotUI = craftingSlots[i];
+            if (slotUI == null)
+                continue;
+
+            int resolvedIndex = GetResolvedSlotIndex(slotUI, i);
+            slotLookup[resolvedIndex] = slotUI;
+        }
+    }
+
+    private int GetResolvedSlotIndex(CraftingSlotUI slotUI, int fallbackIndex = -1)
+    {
+        if (slotUI == null)
+            return fallbackIndex;
+
+        if (slotUI.SlotIndexOverride >= 0)
+            return slotUI.SlotIndexOverride;
+
+        if (fallbackIndex >= 0)
+            return fallbackIndex;
+
+        for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            if (craftingSlots[i] == slotUI)
+                return i;
+        }
+
+        return -1;
     }
 }

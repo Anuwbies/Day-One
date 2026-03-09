@@ -22,10 +22,10 @@ MonoBehaviour:
     - slotIndex: 1
       item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
       amount: 1
-    - slotIndex: 2
+    - slotIndex: 3
       item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
       amount: 1
-    - slotIndex: 3
+    - slotIndex: 4
       item: {fileID: 11400000, guid: d94d49a290d3ad24fa19a8a3341973ae, type: 2}
       amount: 1
   resultItem: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
