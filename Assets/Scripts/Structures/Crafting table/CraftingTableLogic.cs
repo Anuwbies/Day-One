@@ -156,7 +156,8 @@ public class CraftingTableLogic : MonoBehaviour
 
     private void ResolveTargetInventoryUI()
     {
-        if (targetInventoryUI != null && !targetInventoryUI.AllowKeyboardToggle)
+        if (targetInventoryUI != null &&
+            targetInventoryUI.UIType == InventoryUIType.InventoryAndCraftingTable)
             return;
 
         InventoryUI[] inventoryUIs =
@@ -164,7 +165,8 @@ public class CraftingTableLogic : MonoBehaviour
 
         foreach (InventoryUI inventoryUI in inventoryUIs)
         {
-            if (inventoryUI != null && !inventoryUI.AllowKeyboardToggle)
+            if (inventoryUI != null &&
+                inventoryUI.UIType == InventoryUIType.InventoryAndCraftingTable)
             {
                 targetInventoryUI = inventoryUI;
                 return;

@@ -2,6 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum InventoryUIType
+{
+    InventoryOnly,
+    InventoryAndPlayerCraft,
+    InventoryAndCraftingTable,
+    InventoryAndWoodenChest,
+    Custom
+}
+
 public class InventoryUI : MonoBehaviour
 {
     private static readonly List<InventoryUI> Instances = new();
@@ -9,6 +18,7 @@ public class InventoryUI : MonoBehaviour
     [Header("Open / Close")]
     [SerializeField] private bool allowKeyboardToggle = true;
     [SerializeField] private KeyCode toggleKey = KeyCode.Tab;
+    [SerializeField] private InventoryUIType uiType = InventoryUIType.InventoryAndPlayerCraft;
 
     [Header("Inventory")]
     public PlayerInventory inventory;
@@ -42,7 +52,13 @@ public class InventoryUI : MonoBehaviour
 
     public bool IsOpen => isOpen;
     public bool AllowKeyboardToggle => allowKeyboardToggle;
+    public InventoryUIType UIType => uiType;
     public bool ConsumeClickThisFrame { get; private set; }
+
+    private bool UsesCraftPanel =>
+        uiType == InventoryUIType.InventoryAndPlayerCraft ||
+        uiType == InventoryUIType.InventoryAndCraftingTable ||
+        (uiType == InventoryUIType.Custom && craftPanel != null);
 
     private void Awake()
     {
@@ -217,7 +233,8 @@ public class InventoryUI : MonoBehaviour
                 inventoryGrid, screenPosition, cam))
             return true;
 
-        if (craftPanel != null &&
+        if (UsesCraftPanel &&
+            craftPanel != null &&
             RectTransformUtility.RectangleContainsScreenPoint(
                 craftPanel, screenPosition, cam))
             return true;

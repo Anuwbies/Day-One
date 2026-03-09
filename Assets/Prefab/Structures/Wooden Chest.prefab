@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4322923995792434453}
   - component: {fileID: 6627648707541017030}
   - component: {fileID: 3952453769284953280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wooden Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2902037738114458511}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -302,9 +302,9 @@ MonoBehaviour:
   hitbox: {fileID: 0}
   lootTable: []
   xOffset: 0
-  yOffset: 0
-  dropRadius: {x: 1.5, y: 1.5}
-  deadZoneRadius: {x: 0.5, y: 0.5}
+  yOffset: -0.09
+  dropRadius: {x: 1, y: 0.5}
+  deadZoneRadius: {x: 0.44, y: 0.24}
   destroyOnLoot: 1
   destroyDelay: 0
 --- !u!114 &3952453769284953280
@@ -319,8 +319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a525412a5817643ac535d1cc980827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeTrigger: {fileID: 0}
-  interactionCanvas: {fileID: 0}
+  rangeTrigger: {fileID: 5916010666186300591}
+  interactionCanvas: {fileID: 1696156377351513883}
+  toggleCanvasButton: {fileID: 885439475462523498}
+  targetInventoryUI: {fileID: 0}
   targetTag: Player
   targetPlayerCollider: {fileID: 0}
 --- !u!1 &7942812688330447483
@@ -553,7 +555,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -793,9 +795,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3754513067643088837, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4266040707913117934, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266040707913117934, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572007914162591000, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504703199171228719, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
