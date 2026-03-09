@@ -209,6 +209,23 @@ public class InventorySlotDragDrop : MonoBehaviour,
         droppedOnSlot = true;
         source.droppedOnSlot = true;
 
+        if (source.inventoryUI == null ||
+            source.inventoryUI.inventory == null ||
+            inventoryUI == null ||
+            inventoryUI.inventory == null)
+            return;
+
+        if (source.inventoryUI != inventoryUI)
+        {
+            MoveBetweenInventories(
+                source.inventoryUI.inventory,
+                source.slotIndex,
+                inventoryUI.inventory,
+                slotIndex
+            );
+            return;
+        }
+
         inventoryUI.TryMergeOrSwap(source.slotIndex, slotIndex);
     }
 
@@ -256,26 +273,67 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (inventoryUI == null)
             return false;
 
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+        Camera cam = canvas != null && canvas.renderMode == RenderMode.ScreenSpaceOverlay
             ? null
-            : canvas.worldCamera;
+            : canvas != null ? canvas.worldCamera : null;
 
-        // Inventory Grid
-        if (inventoryUI.inventoryGrid != null &&
-            RectTransformUtility.RectangleContainsScreenPoint(
-                inventoryUI.inventoryGrid,
-                eventData.position,
-                cam))
-            return true;
+        return inventoryUI.IsPointerInsideSafeUI(eventData.position, cam);
+    }
 
-        // Craft Panel
-        if (inventoryUI.craftPanel != null &&
-            RectTransformUtility.RectangleContainsScreenPoint(
-                inventoryUI.craftPanel,
-                eventData.position,
-                cam))
-            return true;
+    private static void MoveBetweenInventories(
+        PlayerInventory sourceInventory,
+        int sourceIndex,
+        PlayerInventory targetInventory,
+        int targetIndex)
+    {
+        if (sourceInventory == null || targetInventory == null)
+            return;
 
-        return false;
+        if (sourceIndex < 0 || sourceIndex >= sourceInventory.items.Count ||
+            targetIndex < 0 || targetIndex >= targetInventory.items.Count)
+            return;
+
+        InventorySlot sourceSlot = sourceInventory.items[sourceIndex];
+        if (sourceSlot == null || sourceSlot.item == null)
+            return;
+
+        InventorySlot targetSlot = targetInventory.items[targetIndex];
+
+        if (targetSlot == null || targetSlot.item == null)
+        {
+            targetInventory.items[targetIndex] =
+                new InventorySlot(sourceSlot.item, sourceSlot.amount);
+            sourceInventory.items[sourceIndex] = null;
+            sourceInventory.OnInventoryChanged?.Invoke();
+            targetInventory.OnInventoryChanged?.Invoke();
+            return;
+        }
+
+        if (targetSlot.item == sourceSlot.item &&
+            sourceSlot.item.stackable)
+        {
+            int spaceLeft = sourceSlot.item.maxStack - targetSlot.amount;
+            if (spaceLeft > 0)
+            {
+                int transferAmount = Mathf.Min(spaceLeft, sourceSlot.amount);
+                targetSlot.amount += transferAmount;
+                sourceSlot.amount -= transferAmount;
+
+                if (sourceSlot.amount <= 0)
+                    sourceInventory.items[sourceIndex] = null;
+
+                sourceInventory.OnInventoryChanged?.Invoke();
+                targetInventory.OnInventoryChanged?.Invoke();
+                return;
+            }
+        }
+
+        sourceInventory.items[sourceIndex] =
+            new InventorySlot(targetSlot.item, targetSlot.amount);
+        targetInventory.items[targetIndex] =
+            new InventorySlot(sourceSlot.item, sourceSlot.amount);
+
+        sourceInventory.OnInventoryChanged?.Invoke();
+        targetInventory.OnInventoryChanged?.Invoke();
     }
 }

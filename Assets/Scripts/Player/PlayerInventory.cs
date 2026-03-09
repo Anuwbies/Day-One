@@ -46,7 +46,41 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure inventory has maxSlots entries (null = empty slot)
+        EnsureSlotCapacity();
+    }
+
+    public void SetMaxSlots(int slotCount)
+    {
+        maxSlots = Mathf.Max(1, slotCount);
+        EnsureSlotCapacity();
+        OnInventoryChanged?.Invoke();
+    }
+
+    private void EnsureSlotCapacity()
+    {
+        maxSlots = Mathf.Max(1, maxSlots);
+
+        if (items == null)
+            items = new List<InventorySlot>();
+
+        if (items.Count > maxSlots)
+        {
+            for (int i = items.Count - 1; i >= maxSlots; i--)
+            {
+                InventorySlot slot = items[i];
+                if (slot != null && slot.item != null)
+                {
+                    Debug.LogWarning(
+                        $"{name}: cannot shrink inventory to {maxSlots} slots because slot {i} still contains '{slot.item.itemName}'.");
+                    maxSlots = items.Count;
+                    break;
+                }
+            }
+        }
+
+        if (items.Count > maxSlots)
+            items.RemoveRange(maxSlots, items.Count - maxSlots);
+
         while (items.Count < maxSlots)
             items.Add(null);
     }

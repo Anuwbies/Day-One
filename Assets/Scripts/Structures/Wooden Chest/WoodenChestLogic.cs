@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WoodenChestLogic : MonoBehaviour
 {
+    private static bool isApplicationQuitting;
+
     [Header("References")]
     [Tooltip("Drag the child object with the range Trigger Collider here.")]
     [SerializeField] private Collider2D rangeTrigger;
@@ -14,6 +16,12 @@ public class WoodenChestLogic : MonoBehaviour
     [SerializeField] private Button toggleCanvasButton;
     [Tooltip("Optional scene reference. Prefab assets cannot store scene objects, so this will auto-resolve at runtime when left empty.")]
     [SerializeField] private InventoryUI targetInventoryUI;
+    [SerializeField] private ChestGridController chestGridController;
+    [Min(1)]
+    [SerializeField] private int chestSlotCount = 20;
+    [Header("Destroyed Drops")]
+    [SerializeField] private Vector2 destroyedDropOffset;
+    [SerializeField] private Vector2 destroyedDropRadiusXY = new Vector2(0.5f, 0.25f);
 
     [Header("Trigger Settings")]
     [Tooltip("The tag of the player object (or its Rigidbody).")]
@@ -22,15 +30,41 @@ public class WoodenChestLogic : MonoBehaviour
     [SerializeField] private Collider2D targetPlayerCollider;
 
     private readonly HashSet<Collider2D> playerCollidersInRange = new();
+    private ChestInventory chestInventory;
+    private bool hasDroppedContents;
+
+    public int ChestSlotCount => chestSlotCount;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        ResolveChestInventory();
+        ResolveTargetInventoryUI();
+        ResolveChestGridController();
+    }
+#endif
+
+    private void Reset()
+    {
+        ResolveChestInventory();
+        ResolveTargetInventoryUI();
+        ResolveChestGridController();
+    }
 
     private void Awake()
     {
+        ResolveChestInventory();
         ResolveTargetInventoryUI();
+        ResolveChestGridController();
+        ApplyChestSlotCount();
     }
 
     private void Start()
     {
+        ResolveChestInventory();
         ResolveTargetInventoryUI();
+        ResolveChestGridController();
+        ApplyChestSlotCount();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
@@ -62,8 +96,15 @@ public class WoodenChestLogic : MonoBehaviour
 
     private void OnDestroy()
     {
+        DropStoredItemsIntoWorld();
+
         if (toggleCanvasButton != null)
             toggleCanvasButton.onClick.RemoveListener(ToggleTargetCanvas);
+    }
+
+    private void OnApplicationQuit()
+    {
+        isApplicationQuitting = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -110,6 +151,8 @@ public class WoodenChestLogic : MonoBehaviour
     public void ToggleTargetCanvas()
     {
         ResolveTargetInventoryUI();
+        ResolveChestGridController();
+        ApplyChestSlotCount();
 
         if (targetInventoryUI == null)
         {
@@ -143,5 +186,118 @@ public class WoodenChestLogic : MonoBehaviour
             return;
 
         targetInventoryUI = Object.FindAnyObjectByType<InventoryUI>(FindObjectsInactive.Exclude);
+    }
+
+    private void ResolveChestInventory()
+    {
+        chestInventory = GetComponent<ChestInventory>();
+
+        if (chestInventory == null)
+            chestInventory = gameObject.AddComponent<ChestInventory>();
+    }
+
+    private void ResolveChestGridController()
+    {
+        if (chestGridController != null)
+            return;
+
+        if (targetInventoryUI == null)
+            return;
+
+        chestGridController = targetInventoryUI.GetComponentInChildren<ChestGridController>(true);
+
+        if (chestGridController == null && targetInventoryUI.craftPanel != null)
+            chestGridController = targetInventoryUI.craftPanel.GetComponentInChildren<ChestGridController>(true);
+    }
+
+    private void ApplyChestSlotCount()
+    {
+        if (targetInventoryUI == null || chestInventory == null)
+            return;
+
+        chestInventory.SetMaxSlots(chestSlotCount);
+
+        ResolveChestGridController();
+
+        if (chestGridController != null)
+            chestGridController.BindChest(chestInventory, chestSlotCount, targetInventoryUI);
+    }
+
+    private void DropStoredItemsIntoWorld()
+    {
+        if (hasDroppedContents || !Application.isPlaying || isApplicationQuitting)
+            return;
+
+        ResolveChestInventory();
+        hasDroppedContents = true;
+
+        if (chestInventory == null || chestInventory.items == null)
+            return;
+
+        if (targetInventoryUI != null)
+            targetInventoryUI.SetInventoryOpen(false);
+
+        for (int i = 0; i < chestInventory.items.Count; i++)
+        {
+            InventorySlot slot = chestInventory.items[i];
+            if (slot == null || slot.item == null || slot.amount <= 0)
+                continue;
+
+            ItemData itemData = slot.item;
+            if (!itemData.canDrop)
+                continue;
+
+            if (itemData.worldPrefab == null)
+            {
+                Debug.LogWarning($"Chest '{name}' could not drop '{itemData.itemName}' because it has no world prefab assigned.");
+                continue;
+            }
+
+            Vector2 randomUnit = Random.insideUnitCircle;
+            Vector3 baseDropPosition = transform.position + new Vector3(
+                destroyedDropOffset.x,
+                destroyedDropOffset.y,
+                0f);
+            Vector3 spawnPosition = baseDropPosition + new Vector3(
+                randomUnit.x * destroyedDropRadiusXY.x,
+                randomUnit.y * destroyedDropRadiusXY.y,
+                0f);
+
+            GameObject droppedObject = Instantiate(itemData.worldPrefab, spawnPosition, Quaternion.identity);
+            Item worldItem = droppedObject.GetComponent<Item>();
+            if (worldItem != null)
+            {
+                worldItem.data = itemData;
+                worldItem.amount = slot.amount;
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 center = transform.position + new Vector3(
+            destroyedDropOffset.x,
+            destroyedDropOffset.y,
+            0f);
+
+        Gizmos.color = new Color(1f, 0.6f, 0.1f, 1f);
+
+        const int segments = 32;
+        Vector3 prevPoint = center + new Vector3(destroyedDropRadiusXY.x, 0f, 0f);
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = (i / (float)segments) * Mathf.PI * 2f;
+            Vector3 nextPoint = center + new Vector3(
+                Mathf.Cos(angle) * destroyedDropRadiusXY.x,
+                Mathf.Sin(angle) * destroyedDropRadiusXY.y,
+                0f);
+
+            Gizmos.DrawLine(prevPoint, nextPoint);
+            prevPoint = nextPoint;
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(center, 0.05f);
     }
 }

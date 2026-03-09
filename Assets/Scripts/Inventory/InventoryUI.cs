@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public enum InventoryUIType
 {
@@ -37,6 +38,7 @@ public class InventoryUI : MonoBehaviour
     [Header("UI")]
     public RectTransform inventoryGrid;
     public RectTransform craftPanel;
+    [SerializeField] private RectTransform[] additionalSafePanels;
 
     [SerializeField]
     private CraftingGridController craftingGrid;
@@ -70,6 +72,9 @@ public class InventoryUI : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (inventory != null)
+            inventory.OnInventoryChanged -= RefreshUI;
+
         Instances.Remove(this);
     }
 
@@ -78,9 +83,7 @@ public class InventoryUI : MonoBehaviour
         if (inventoryWindow != null)
             inventoryWindow.SetActive(false);
 
-        if (inventory != null)
-            inventory.OnInventoryChanged += RefreshUI;
-
+        BindInventory(inventory);
         SetupSlotIndices();
         RefreshUI();
     }
@@ -224,22 +227,38 @@ public class InventoryUI : MonoBehaviour
 
     private bool IsPointerInsideSafeUI(Vector2 screenPosition)
     {
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+        Camera cam = canvas != null && canvas.renderMode == RenderMode.ScreenSpaceOverlay
             ? null
-            : canvas.worldCamera;
+            : canvas != null ? canvas.worldCamera : null;
 
-        if (inventoryGrid != null &&
-            RectTransformUtility.RectangleContainsScreenPoint(
-                inventoryGrid, screenPosition, cam))
+        return IsPointerInsideSafeUI(screenPosition, cam);
+    }
+
+    public bool IsPointerInsideSafeUI(Vector2 screenPosition, Camera eventCamera)
+    {
+        if (IsScreenPointInsideRect(inventoryGrid, screenPosition, eventCamera))
             return true;
 
         if (UsesCraftPanel &&
-            craftPanel != null &&
-            RectTransformUtility.RectangleContainsScreenPoint(
-                craftPanel, screenPosition, cam))
+            IsScreenPointInsideRect(craftPanel, screenPosition, eventCamera))
             return true;
 
+        if (additionalSafePanels != null)
+        {
+            foreach (RectTransform panel in additionalSafePanels)
+            {
+                if (IsScreenPointInsideRect(panel, screenPosition, eventCamera))
+                    return true;
+            }
+        }
+
         return false;
+    }
+
+    private static bool IsScreenPointInsideRect(RectTransform rect, Vector2 screenPosition, Camera eventCamera)
+    {
+        return rect != null &&
+               RectTransformUtility.RectangleContainsScreenPoint(rect, screenPosition, eventCamera);
     }
 
     public void SetInventoryOpen(bool open)
@@ -303,6 +322,31 @@ public class InventoryUI : MonoBehaviour
             rightClick.slotIndex = i;
             rightClick.inventoryUI = this;
         }
+    }
+
+    public void SetSlots(InventorySlotUI[] slotUIs)
+    {
+        slots = slotUIs ?? Array.Empty<InventorySlotUI>();
+        SetupSlotIndices();
+        RefreshUI();
+    }
+
+    public void BindInventory(PlayerInventory newInventory)
+    {
+        if (inventory != null)
+            inventory.OnInventoryChanged -= RefreshUI;
+
+        inventory = newInventory;
+
+        if (inventory != null)
+            inventory.OnInventoryChanged += RefreshUI;
+
+        RefreshUI();
+    }
+
+    public void SetAdditionalSafePanels(RectTransform[] safePanels)
+    {
+        additionalSafePanels = safePanels ?? Array.Empty<RectTransform>();
     }
 
     public void RefreshUI()
@@ -405,7 +449,7 @@ public class InventoryUI : MonoBehaviour
             (dropOrigin != null ? dropOrigin.position : Vector3.zero) +
             new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
 
-        Vector2 randomUnit = Random.insideUnitCircle;
+        Vector2 randomUnit = UnityEngine.Random.insideUnitCircle;
         Vector2 randomOffset = new Vector2(
             randomUnit.x * dropRadiusXY.x,
             randomUnit.y * dropRadiusXY.y
