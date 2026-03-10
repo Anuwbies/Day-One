@@ -101,15 +101,24 @@ public class InventoryUI : MonoBehaviour
         // If the game is paused, do not process hotkeys
         if (Time.timeScale == 0) return;
 
-        if (!allowKeyboardToggle)
-            return;
-
-        if (!isOpen && IsAnotherInventoryOpen())
-            return;
-
         if (Input.GetKeyDown(toggleKey))
         {
-            SetInventoryOpen(!isOpen);
+            if (isOpen)
+            {
+                // Always allow closing an open UI with the toggle key
+                SetInventoryOpen(false);
+            }
+            else
+            {
+                // Only allow opening if keyboard toggle is allowed and no other inventory is open
+                if (!allowKeyboardToggle)
+                    return;
+
+                if (IsAnotherInventoryOpen())
+                    return;
+
+                SetInventoryOpen(true);
+            }
         }
     }
 
@@ -186,6 +195,11 @@ public class InventoryUI : MonoBehaviour
             return;
 
         if (!Input.GetMouseButtonDown(0))
+            return;
+
+        // If a split drag is currently active, don't close the inventory or consume the click
+        // here, as the click is intended for dropping single items.
+        if (InventorySlotDragDrop.IsAnySplitDragActive())
             return;
 
         // =========================
@@ -646,6 +660,81 @@ public class InventoryUI : MonoBehaviour
         }
 
         inventory.OnInventoryChanged?.Invoke();
+    }
+
+    public void TryQuickMoveItem(int slotIndex)
+    {
+        if (inventory == null || slotIndex < 0 || slotIndex >= inventory.items.Count)
+            return;
+
+        InventorySlot sourceSlot = inventory.items[slotIndex];
+        if (sourceSlot == null || sourceSlot.item == null)
+            return;
+
+        // Find another open inventory to move to.
+        // We check IsOpen for main UIs, but also activeInHierarchy for sub-grids (like chests)
+        // that might be part of the same window but managed by a separate InventoryUI component.
+        InventoryUI targetUI = null;
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui == null || ui == this) continue;
+
+            bool isActuallyOpen = ui.IsOpen || 
+                (ui.inventoryGrid != null && ui.inventoryGrid.gameObject.activeInHierarchy);
+
+            if (isActuallyOpen && ui.inventory != null)
+            {
+                targetUI = ui;
+                break;
+            }
+        }
+
+        if (targetUI == null)
+            return;
+
+        PlayerInventory targetInv = targetUI.inventory;
+        ItemData item = sourceSlot.item;
+        int amountToMove = sourceSlot.amount;
+
+        // 1. Try to merge into existing stacks in the target inventory
+        if (item.stackable)
+        {
+            for (int i = 0; i < targetInv.items.Count && amountToMove > 0; i++)
+            {
+                InventorySlot targetSlot = targetInv.items[i];
+                if (targetSlot != null && targetSlot.item == item && targetSlot.amount < item.maxStack)
+                {
+                    int space = item.maxStack - targetSlot.amount;
+                    int transfer = Mathf.Min(space, amountToMove);
+                    targetSlot.amount += transfer;
+                    amountToMove -= transfer;
+                }
+            }
+        }
+
+        // 2. Try to put remaining into empty slots
+        for (int i = 0; i < targetInv.items.Count && amountToMove > 0; i++)
+        {
+            if (targetInv.items[i] == null || targetInv.items[i].item == null)
+            {
+                int transfer = item.stackable ? Mathf.Min(item.maxStack, amountToMove) : 1;
+                targetInv.items[i] = new InventorySlot(item, transfer);
+                amountToMove -= transfer;
+            }
+        }
+
+        // Update source slot
+        if (amountToMove <= 0)
+        {
+            inventory.items[slotIndex] = null;
+        }
+        else
+        {
+            sourceSlot.amount = amountToMove;
+        }
+
+        inventory.OnInventoryChanged?.Invoke();
+        targetInv.OnInventoryChanged?.Invoke();
     }
 
     public bool CanAcceptItem(ItemData item, int amount)

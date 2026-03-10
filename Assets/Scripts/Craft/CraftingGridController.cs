@@ -344,44 +344,12 @@ public class CraftingGridController : MonoBehaviour
         if (set == null || inventoryUI == null || inventoryUI.inventory == null)
             return;
 
+        // Return current items to inventory first to ensure total item counts are accurate
+        // and slots are ready for the new recipe/multiplier.
+        ReturnAllItemsToInventory();
+
         // Ensure multiplier is at least 1
         multiplier = Mathf.Max(1, multiplier);
-
-        // Check for mismatch: if any item in the grid doesn't belong to this recipe, clear everything.
-        bool mismatch = false;
-        foreach (CraftingSlotUI slotUI in craftingSlots)
-        {
-            if (slotUI == null)
-                continue;
-
-            int slotIndex = GetResolvedSlotIndex(slotUI);
-            CraftingSlot slot = slotUI.slot;
-            if (slot.IsEmpty) continue;
-
-            if (set.shapeless)
-            {
-                bool found = false;
-                foreach (var ing in set.ingredients)
-                {
-                    if (ing.item == slot.item) { found = true; break; }
-                }
-                if (!found) { mismatch = true; break; }
-            }
-            else
-            {
-                bool found = false;
-                foreach (var ing in set.ingredients)
-                {
-                    if (ing.slotIndex == slotIndex && ing.item == slot.item) { found = true; break; }
-                }
-                if (!found) { mismatch = true; break; }
-            }
-        }
-
-        if (mismatch)
-        {
-            ReturnAllItemsToInventory();
-        }
 
         ClearAllGhosts();
         RebuildSlotLookup();

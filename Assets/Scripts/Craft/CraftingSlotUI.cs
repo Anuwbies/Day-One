@@ -96,6 +96,13 @@ public class CraftingSlotUI : MonoBehaviour,
             return;
         }
 
+        // Block regular drag if a split drag is already active in any inventory slot
+        if (InventorySlotDragDrop.IsAnySplitDragActive())
+        {
+            eventData.pointerDrag = null;
+            return;
+        }
+
         CreateGhost(slot.item.icon);
 
         canvasGroup.alpha = 0.4f;

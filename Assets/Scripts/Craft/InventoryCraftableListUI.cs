@@ -155,31 +155,40 @@ public class InventoryCraftableListUI : MonoBehaviour
 
         int maxMultiplier = int.MaxValue;
 
-        // 2. For each unique item type, check total available (Inventory + Grid)
-        foreach (var pair in requiredPerCraft)
+        // 2. For each unique recipe slot, check how many times it can be filled
+        foreach (var ing in set.ingredients)
         {
-            ItemData item = pair.Key;
-            int req = pair.Value;
+            if (ing.item == null || ing.amount <= 0) continue;
 
+            ItemData item = ing.item;
+            int reqPerCraft = ing.amount;
+
+            // Total available of this specific item in the whole system
             int totalAvailable = 0;
-
-            // From Inventory
             foreach (var slot in inventory.items)
             {
                 if (slot != null && slot.item == item)
                     totalAvailable += slot.amount;
             }
-
-            // From Grid (only if they match the required item)
             foreach (var slotUI in craftingGridController.craftingSlots)
             {
                 if (!slotUI.slot.IsEmpty && slotUI.slot.item == item)
                     totalAvailable += slotUI.slot.amount;
             }
 
-            int possibleForThisItem = totalAvailable / req;
-            if (possibleForThisItem < maxMultiplier)
-                maxMultiplier = possibleForThisItem;
+            // How many times can we craft based on RAW materials?
+            // Note: This is an upper bound across all slots using this item.
+            // We'll refine this by checking the individual slot capacity.
+            int possibleByResources = totalAvailable / requiredPerCraft[item];
+
+            // How many times can THIS SPECIFIC SLOT be filled?
+            int possibleByStackLimit = item.stackable ? (item.maxStack / reqPerCraft) : (1 / reqPerCraft);
+            
+            // The multiplier for this slot is the lesser of the two
+            int slotMultiplier = Mathf.Min(possibleByResources, possibleByStackLimit);
+
+            if (slotMultiplier < maxMultiplier)
+                maxMultiplier = slotMultiplier;
         }
 
         return maxMultiplier == int.MaxValue ? 0 : maxMultiplier;

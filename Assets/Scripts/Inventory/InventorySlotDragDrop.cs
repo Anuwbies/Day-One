@@ -12,6 +12,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
     private static InventorySlotDragDrop activeSplitDragSource;
     private static InventorySlotDragDrop pendingSplitDragSource;
     private static Vector2 pendingSplitDragStartPosition;
+    private static int lastPaintedSlotID = -1;
 
     private const float DoubleClickThreshold = 0.25f;
     private const float SplitDragStartDistance = 8f;
@@ -44,6 +45,11 @@ public class InventorySlotDragDrop : MonoBehaviour,
         return true;
     }
 
+    public static bool IsAnySplitDragActive()
+    {
+        return activeSplitDragSource != null;
+    }
+
     private void Awake()
     {
         slotCanvasGroup = GetComponent<CanvasGroup>();
@@ -55,6 +61,8 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
     private void Update()
     {
+        RestoreEmptySlotRaycasts();
+
         if (pendingSplitDragSource == this)
         {
             if (!Input.GetMouseButton(1))
@@ -73,15 +81,49 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (ghostRect != null)
             ghostRect.position = Input.mousePosition;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             TryDropSingleItemAtCursor();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            lastPaintedSlotID = -1;
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             EndSplitDrag();
         }
+    }
+
+    private void RestoreEmptySlotRaycasts()
+    {
+        if (inventoryUI == null || inventoryUI.inventory == null)
+            return;
+
+        if (slotIndex < 0 || slotIndex >= inventoryUI.inventory.items.Count)
+            return;
+
+        InventorySlot slot = inventoryUI.inventory.items[slotIndex];
+        if (slot != null && slot.item != null)
+            return;
+
+        if (activeSplitDragSource == this)
+            activeSplitDragSource = null;
+
+        if (pendingSplitDragSource == this)
+            pendingSplitDragSource = null;
+
+        dragBlocked = false;
+
+        if (slotCanvasGroup != null)
+        {
+            slotCanvasGroup.alpha = 1f;
+            slotCanvasGroup.blocksRaycasts = true;
+        }
+
+        DestroyGhost();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -118,6 +160,13 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (inventoryUI == null || inventoryUI.ConsumeClickThisFrame)
             return;
 
+        // Shift-Click quick move
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            inventoryUI.TryQuickMoveItem(slotIndex);
+            return;
+        }
+
         float time = Time.unscaledTime;
         if (time - lastClickTime <= DoubleClickThreshold)
         {
@@ -135,6 +184,14 @@ public class InventorySlotDragDrop : MonoBehaviour,
         dragBlocked = false;
 
         if (eventData.button != PointerEventData.InputButton.Left)
+        {
+            dragBlocked = true;
+            eventData.pointerDrag = null;
+            return;
+        }
+
+        // Block regular drag if a split drag is already active
+        if (IsAnySplitDragActive())
         {
             dragBlocked = true;
             eventData.pointerDrag = null;
@@ -202,9 +259,6 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (dragBlocked)
-            return;
-
         if (eventData.pointerDrag == null)
             return;
 
@@ -297,6 +351,8 @@ public class InventorySlotDragDrop : MonoBehaviour,
             activeSplitDragSource = null;
 
         pendingSplitDragSource = null;
+        dragBlocked = false;
+        lastPaintedSlotID = -1;
         DestroyGhost();
         slotCanvasGroup.alpha = 1f;
         slotCanvasGroup.blocksRaycasts = true;
@@ -376,7 +432,11 @@ public class InventorySlotDragDrop : MonoBehaviour,
                 result.gameObject.GetComponentInParent<InventorySlotDragDrop>();
             if (inventoryTarget != null && inventoryTarget != this)
             {
-                TryDropSingleItemToInventoryTarget(inventoryTarget);
+                // Only drop if we are entering a new slot or re-entering after leaving
+                if (lastPaintedSlotID != inventoryTarget.slotIndex)
+                {
+                    TryDropSingleItemToInventoryTarget(inventoryTarget);
+                }
                 return;
             }
 
@@ -384,10 +444,19 @@ public class InventorySlotDragDrop : MonoBehaviour,
                 result.gameObject.GetComponentInParent<CraftingSlotUI>();
             if (craftTarget != null)
             {
-                TryDropSingleItemToCraftTarget(craftTarget);
+                // For crafting, we'll use a unique ID for the tracking since slot indices may overlap
+                int craftID = -1000 - craftTarget.gameObject.GetInstanceID();
+                if (lastPaintedSlotID != craftID)
+                {
+                    TryDropSingleItemToCraftTarget(craftTarget, craftID);
+                }
                 return;
             }
         }
+
+        // If we are hovering over nothing or something else, reset lastPaintedSlotID
+        // so we can re-enter the last slot and paint it again immediately.
+        lastPaintedSlotID = -1;
     }
 
     private void TryDropSingleItemToInventoryTarget(InventorySlotDragDrop target)
@@ -410,6 +479,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (!moved)
             return;
 
+        lastPaintedSlotID = target.slotIndex;
         suppressNextLeftClick = true;
         CreateGhostForCurrentSlot();
 
@@ -418,7 +488,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
             EndSplitDrag();
     }
 
-    private void TryDropSingleItemToCraftTarget(CraftingSlotUI target)
+    private void TryDropSingleItemToCraftTarget(CraftingSlotUI target, int craftID)
     {
         if (target == null)
             return;
@@ -427,6 +497,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (!moved)
             return;
 
+        lastPaintedSlotID = craftID;
         suppressNextLeftClick = true;
         CreateGhostForCurrentSlot();
 
