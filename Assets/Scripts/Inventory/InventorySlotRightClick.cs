@@ -11,6 +11,9 @@ public class InventorySlotRightClick : MonoBehaviour, IPointerClickHandler
         if (eventData.button != PointerEventData.InputButton.Right)
             return;
 
+        if (InventorySlotDragDrop.ConsumeSuppressedRightClick())
+            return;
+
         if (inventoryUI == null)
             return;
 

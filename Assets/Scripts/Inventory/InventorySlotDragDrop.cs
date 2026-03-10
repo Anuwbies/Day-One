@@ -1,10 +1,21 @@
-﻿using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventorySlotDragDrop : MonoBehaviour,
-    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler,
+    IPointerDownHandler
 {
+    private static bool suppressNextLeftClick;
+    private static bool suppressNextRightClick;
+    private static InventorySlotDragDrop activeSplitDragSource;
+    private static InventorySlotDragDrop pendingSplitDragSource;
+    private static Vector2 pendingSplitDragStartPosition;
+
+    private const float DoubleClickThreshold = 0.25f;
+    private const float SplitDragStartDistance = 8f;
+
     public int slotIndex;
     public InventoryUI inventoryUI;
 
@@ -16,16 +27,22 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
     private Canvas canvas;
     private CanvasGroup slotCanvasGroup;
-
     private float lastClickTime;
-    private const float doubleClickThreshold = 0.25f;
 
-    // Drag ghost
     private RectTransform ghostRect;
     private Image ghostImage;
 
     private bool droppedOnSlot;
     private bool dragBlocked;
+
+    public static bool ConsumeSuppressedRightClick()
+    {
+        if (!suppressNextRightClick)
+            return false;
+
+        suppressNextRightClick = false;
+        return true;
+    }
 
     private void Awake()
     {
@@ -36,22 +53,73 @@ public class InventorySlotDragDrop : MonoBehaviour,
         canvas = GetComponentInParent<Canvas>();
     }
 
-    // =========================
-    // DOUBLE LEFT CLICK
-    // =========================
-    public void OnPointerClick(PointerEventData eventData)
+    private void Update()
     {
+        if (pendingSplitDragSource == this)
+        {
+            if (!Input.GetMouseButton(1))
+            {
+                pendingSplitDragSource = null;
+            }
+            else if (Vector2.Distance(Input.mousePosition, pendingSplitDragStartPosition) >= SplitDragStartDistance)
+            {
+                BeginSplitDrag();
+            }
+        }
+
+        if (activeSplitDragSource != this)
+            return;
+
+        if (ghostRect != null)
+            ghostRect.position = Input.mousePosition;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            TryDropSingleItemAtCursor();
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            EndSplitDrag();
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (CanStartSplitDrag())
+            {
+                pendingSplitDragSource = this;
+                pendingSplitDragStartPosition = eventData.position;
+            }
+
+            return;
+        }
+
         if (eventData.button != PointerEventData.InputButton.Left)
             return;
 
-        // Prevent interaction if UI has priority
-        if (inventoryUI == null ||
-            inventoryUI.ConsumeClickThisFrame)
+        if (activeSplitDragSource == null || activeSplitDragSource == this)
+            return;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (suppressNextLeftClick && eventData.button == PointerEventData.InputButton.Left)
+        {
+            suppressNextLeftClick = false;
+            return;
+        }
+
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        if (inventoryUI == null || inventoryUI.ConsumeClickThisFrame)
             return;
 
         float time = Time.unscaledTime;
-
-        if (time - lastClickTime <= doubleClickThreshold)
+        if (time - lastClickTime <= DoubleClickThreshold)
         {
             inventoryUI.CombineAllSameItems(slotIndex);
             lastClickTime = 0f;
@@ -62,16 +130,17 @@ public class InventorySlotDragDrop : MonoBehaviour,
         }
     }
 
-    // =========================
-    // BEGIN DRAG
-    // =========================
     public void OnBeginDrag(PointerEventData eventData)
     {
         dragBlocked = false;
 
-        // =========================
-        // HARD BLOCK DRAG CONDITIONS
-        // =========================
+        if (eventData.button != PointerEventData.InputButton.Left)
+        {
+            dragBlocked = true;
+            eventData.pointerDrag = null;
+            return;
+        }
+
         if (inventoryUI != null)
         {
             if (inventoryUI.splitUI != null && inventoryUI.splitUI.IsOpen)
@@ -83,7 +152,6 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
         if (dragBlocked)
         {
-            // This is CRITICAL — cancels Unity drag internally
             eventData.pointerDrag = null;
             return;
         }
@@ -100,16 +168,11 @@ public class InventorySlotDragDrop : MonoBehaviour,
             return;
 
         CreateGhost(slot.item.icon);
-
         slotCanvasGroup.alpha = 0.4f;
         slotCanvasGroup.blocksRaycasts = false;
-
         eventData.pointerDrag = gameObject;
     }
 
-    // =========================
-    // DRAG
-    // =========================
     public void OnDrag(PointerEventData eventData)
     {
         if (dragBlocked)
@@ -119,16 +182,12 @@ public class InventorySlotDragDrop : MonoBehaviour,
             ghostRect.position = eventData.position;
     }
 
-    // =========================
-    // END DRAG
-    // =========================
     public void OnEndDrag(PointerEventData eventData)
     {
         if (dragBlocked)
             return;
 
         DestroyGhost();
-
         slotCanvasGroup.alpha = 1f;
         slotCanvasGroup.blocksRaycasts = true;
 
@@ -141,9 +200,6 @@ public class InventorySlotDragDrop : MonoBehaviour,
         inventoryUI.DropItemFromSlot(slotIndex);
     }
 
-    // =========================
-    // DROP ON SLOT
-    // =========================
     public void OnDrop(PointerEventData eventData)
     {
         if (dragBlocked)
@@ -152,44 +208,24 @@ public class InventorySlotDragDrop : MonoBehaviour,
         if (eventData.pointerDrag == null)
             return;
 
-        // =========================
-        // CRAFT SLOT → INVENTORY SLOT
-        // =========================
-        CraftingSlotUI craftSource =
-            eventData.pointerDrag.GetComponent<CraftingSlotUI>();
-
+        CraftingSlotUI craftSource = eventData.pointerDrag.GetComponent<CraftingSlotUI>();
         if (craftSource != null)
         {
             if (craftSource.slot == null || craftSource.slot.IsEmpty)
                 return;
 
-            InventorySlot invSlot =
-                inventoryUI.inventory.items[slotIndex];
-
-            // =========================
-            // SWAP: CRAFT <-> INVENTORY
-            // =========================
+            InventorySlot invSlot = inventoryUI.inventory.items[slotIndex];
             if (invSlot != null)
             {
-                InventorySlot tempInv =
-                    new InventorySlot(
-                        craftSource.slot.item,
-                        craftSource.slot.amount
-                    );
-
+                InventorySlot tempInv = new InventorySlot(craftSource.slot.item, craftSource.slot.amount);
                 craftSource.slot.Set(invSlot.item, invSlot.amount);
                 inventoryUI.inventory.items[slotIndex] = tempInv;
                 craftSource.Refresh();
             }
             else
             {
-                // MOVE craft → inventory
                 inventoryUI.inventory.items[slotIndex] =
-                    new InventorySlot(
-                        craftSource.slot.item,
-                        craftSource.slot.amount
-                    );
-
+                    new InventorySlot(craftSource.slot.item, craftSource.slot.amount);
                 craftSource.Clear();
             }
 
@@ -197,12 +233,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
             return;
         }
 
-        // =========================
-        // INVENTORY SLOT → INVENTORY SLOT
-        // =========================
-        InventorySlotDragDrop source =
-            eventData.pointerDrag.GetComponent<InventorySlotDragDrop>();
-
+        InventorySlotDragDrop source = eventData.pointerDrag.GetComponent<InventorySlotDragDrop>();
         if (source == null || source == this)
             return;
 
@@ -229,11 +260,72 @@ public class InventorySlotDragDrop : MonoBehaviour,
         inventoryUI.TryMergeOrSwap(source.slotIndex, slotIndex);
     }
 
-    // =========================
-    // GHOST CREATION
-    // =========================
+    private bool CanStartSplitDrag()
+    {
+        if (activeSplitDragSource != null)
+            return false;
+
+        if (inventoryUI == null || inventoryUI.inventory == null)
+            return false;
+
+        if (slotIndex < 0 || slotIndex >= inventoryUI.inventory.items.Count)
+            return false;
+
+        if (inventoryUI.splitUI != null && inventoryUI.splitUI.IsOpen)
+            return false;
+
+        if (inventoryUI.contextMenu != null && inventoryUI.contextMenu.IsOpen)
+            return false;
+
+        InventorySlot slot = inventoryUI.inventory.items[slotIndex];
+        return slot != null && slot.item != null && slot.amount > 0;
+    }
+
+    private void BeginSplitDrag()
+    {
+        pendingSplitDragSource = null;
+        activeSplitDragSource = this;
+        suppressNextRightClick = true;
+        CreateGhostForCurrentSlot();
+        slotCanvasGroup.alpha = 0.4f;
+        slotCanvasGroup.blocksRaycasts = false;
+    }
+
+    private void EndSplitDrag()
+    {
+        if (activeSplitDragSource == this)
+            activeSplitDragSource = null;
+
+        pendingSplitDragSource = null;
+        DestroyGhost();
+        slotCanvasGroup.alpha = 1f;
+        slotCanvasGroup.blocksRaycasts = true;
+    }
+
+    private void CreateGhostForCurrentSlot()
+    {
+        if (inventoryUI == null || inventoryUI.inventory == null)
+            return;
+
+        if (slotIndex < 0 || slotIndex >= inventoryUI.inventory.items.Count)
+            return;
+
+        InventorySlot slot = inventoryUI.inventory.items[slotIndex];
+        if (slot == null || slot.item == null)
+            return;
+
+        DestroyGhost();
+        CreateGhost(slot.item.icon);
+
+        if (ghostRect != null)
+            ghostRect.position = Input.mousePosition;
+    }
+
     private void CreateGhost(Sprite icon)
     {
+        if (canvas == null)
+            return;
+
         GameObject ghost = new GameObject(
             "DragGhost",
             typeof(RectTransform),
@@ -265,9 +357,84 @@ public class InventorySlotDragDrop : MonoBehaviour,
         ghostImage = null;
     }
 
-    // =========================
-    // HELPERS
-    // =========================
+    private void TryDropSingleItemAtCursor()
+    {
+        if (EventSystem.current == null)
+            return;
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            InventorySlotDragDrop inventoryTarget =
+                result.gameObject.GetComponentInParent<InventorySlotDragDrop>();
+            if (inventoryTarget != null && inventoryTarget != this)
+            {
+                TryDropSingleItemToInventoryTarget(inventoryTarget);
+                return;
+            }
+
+            CraftingSlotUI craftTarget =
+                result.gameObject.GetComponentInParent<CraftingSlotUI>();
+            if (craftTarget != null)
+            {
+                TryDropSingleItemToCraftTarget(craftTarget);
+                return;
+            }
+        }
+    }
+
+    private void TryDropSingleItemToInventoryTarget(InventorySlotDragDrop target)
+    {
+        if (inventoryUI == null ||
+            inventoryUI.inventory == null ||
+            target == null ||
+            target == this ||
+            target.inventoryUI == null ||
+            target.inventoryUI.inventory == null)
+            return;
+
+        bool moved = MoveSingleItemBetweenInventories(
+            inventoryUI.inventory,
+            slotIndex,
+            target.inventoryUI.inventory,
+            target.slotIndex
+        );
+
+        if (!moved)
+            return;
+
+        suppressNextLeftClick = true;
+        CreateGhostForCurrentSlot();
+
+        InventorySlot sourceSlot = inventoryUI.inventory.items[slotIndex];
+        if (sourceSlot == null || sourceSlot.item == null)
+            EndSplitDrag();
+    }
+
+    private void TryDropSingleItemToCraftTarget(CraftingSlotUI target)
+    {
+        if (target == null)
+            return;
+
+        bool moved = target.TryReceiveSingleFromInventory(this);
+        if (!moved)
+            return;
+
+        suppressNextLeftClick = true;
+        CreateGhostForCurrentSlot();
+
+        InventorySlot sourceSlot = inventoryUI.inventory.items[slotIndex];
+        if (sourceSlot == null || sourceSlot.item == null)
+            EndSplitDrag();
+    }
+
     private bool IsPointerInsideSafeUI(PointerEventData eventData)
     {
         if (inventoryUI == null)
@@ -309,8 +476,7 @@ public class InventorySlotDragDrop : MonoBehaviour,
             return;
         }
 
-        if (targetSlot.item == sourceSlot.item &&
-            sourceSlot.item.stackable)
+        if (targetSlot.item == sourceSlot.item && sourceSlot.item.stackable)
         {
             int spaceLeft = sourceSlot.item.maxStack - targetSlot.amount;
             if (spaceLeft > 0)
@@ -335,5 +501,50 @@ public class InventorySlotDragDrop : MonoBehaviour,
 
         sourceInventory.OnInventoryChanged?.Invoke();
         targetInventory.OnInventoryChanged?.Invoke();
+    }
+
+    private static bool MoveSingleItemBetweenInventories(
+        PlayerInventory sourceInventory,
+        int sourceIndex,
+        PlayerInventory targetInventory,
+        int targetIndex)
+    {
+        if (sourceInventory == null || targetInventory == null)
+            return false;
+
+        if (sourceIndex < 0 || sourceIndex >= sourceInventory.items.Count ||
+            targetIndex < 0 || targetIndex >= targetInventory.items.Count)
+            return false;
+
+        InventorySlot sourceSlot = sourceInventory.items[sourceIndex];
+        if (sourceSlot == null || sourceSlot.item == null || sourceSlot.amount <= 0)
+            return false;
+
+        InventorySlot targetSlot = targetInventory.items[targetIndex];
+
+        if (targetSlot == null || targetSlot.item == null)
+        {
+            targetInventory.items[targetIndex] = new InventorySlot(sourceSlot.item, 1);
+        }
+        else
+        {
+            if (targetSlot.item != sourceSlot.item || !sourceSlot.item.stackable)
+                return false;
+
+            if (targetSlot.amount >= sourceSlot.item.maxStack)
+                return false;
+
+            targetSlot.amount += 1;
+        }
+
+        sourceSlot.amount -= 1;
+        if (sourceSlot.amount <= 0)
+            sourceInventory.items[sourceIndex] = null;
+
+        sourceInventory.OnInventoryChanged?.Invoke();
+        if (targetInventory != sourceInventory)
+            targetInventory.OnInventoryChanged?.Invoke();
+
+        return true;
     }
 }

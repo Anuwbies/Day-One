@@ -198,6 +198,46 @@ public class CraftingSlotUI : MonoBehaviour,
         NotifyGridChanged();
     }
 
+    public bool TryReceiveSingleFromInventory(InventorySlotDragDrop invDrag)
+    {
+        InventoryUI inventoryUI = invDrag.inventoryUI;
+        int invIndex = invDrag.slotIndex;
+
+        if (inventoryUI == null ||
+            inventoryUI.inventory == null ||
+            invIndex < 0 ||
+            invIndex >= inventoryUI.inventory.items.Count)
+            return false;
+
+        InventorySlot invSlot = inventoryUI.inventory.items[invIndex];
+        if (invSlot == null || invSlot.item == null || invSlot.amount <= 0)
+            return false;
+
+        if (slot.IsEmpty)
+        {
+            slot.Set(invSlot.item, 1);
+        }
+        else
+        {
+            if (slot.item != invSlot.item || !invSlot.item.stackable)
+                return false;
+
+            if (slot.amount >= invSlot.item.maxStack)
+                return false;
+
+            slot.amount += 1;
+        }
+
+        invSlot.amount -= 1;
+        if (invSlot.amount <= 0)
+            inventoryUI.inventory.items[invIndex] = null;
+
+        inventoryUI.inventory.OnInventoryChanged?.Invoke();
+        Refresh();
+        NotifyGridChanged();
+        return true;
+    }
+
     // =========================
     // UI
     // =========================
