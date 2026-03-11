@@ -6167,6 +6167,10 @@ PrefabInstance:
       propertyPath: dayLengthInMinutes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 531421397570872977, guid: c1b2c7a53b829094894fb1454dfa802b, type: 3}
+      propertyPath: enableTimeTransfer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7611570363267110000, guid: c1b2c7a53b829094894fb1454dfa802b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.517637

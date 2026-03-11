@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75aab3545ef7db7409b84bff5b7b3792, type: 3}
+  m_Name: Easy Island
+  m_EditorClassIdentifier: 
+  islandName: Easy Island
+  tags:
+  - Easy
+  - First
+  image: {fileID: -542413695912478464, guid: 0f2763fbfd586fb4594195d15b54b255, type: 3}
+  isEndlessMode: 0
+  description: This Island is Easy.
+  startingItems:
+  - item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
+    amount: 1
+  objectives:
+  - objectiveTitle: Craft 5 Campfires
+    type: 1
+    isMainObjective: 1
+    targetAmount: 5
+    targetItem: {fileID: 11400000, guid: cbc924ac49b56ea47b2ffdaac3793994, type: 2}
+    enemyPrefab: {fileID: 0}
