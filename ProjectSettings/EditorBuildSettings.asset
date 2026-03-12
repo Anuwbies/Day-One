@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Map Selection.unity
     guid: 2f9226292be64ba41a51368aefd1bd1b
   - enabled: 1
-    path: Assets/Scenes/Gameplay Test.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 4a728e31eeed91145aa7bfde79b0d6c7
   - enabled: 1
@@ -23,6 +20,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/About.unity
     guid: e488605e32d91e546b58f7adbc0b2753
+  - enabled: 1
+    path: Assets/Scenes/1st Island.unity
+    guid: 22b580ccec491cb4596b97a98cd6228b
+  - enabled: 1
+    path: Assets/Scenes/2nd Island.unity
+    guid: 00d7efe8f0d850a47ab086ceaaada8b0
+  - enabled: 1
+    path: Assets/Scenes/3rd Island.unity
+    guid: eee11b03f7f271a439764a7403bf822c
+  - enabled: 1
+    path: Assets/Scenes/Endless Island.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

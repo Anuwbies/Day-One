@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Endless Mode
   m_EditorClassIdentifier: 
   islandName: Endless Mode
+  sceneName: Endless Island
   tags:
   - Nonstop
   image: {fileID: -542413695912478464, guid: 0f2763fbfd586fb4594195d15b54b255, type: 3}

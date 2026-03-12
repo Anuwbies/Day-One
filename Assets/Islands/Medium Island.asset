@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Medium Island
   m_EditorClassIdentifier: 
   islandName: Medium Island
+  sceneName: 2nd Island
   tags:
   - Not Hard
   - Second

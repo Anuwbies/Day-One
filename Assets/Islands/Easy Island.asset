@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Easy Island
   m_EditorClassIdentifier: 
   islandName: Easy Island
+  sceneName: 1st Island
   tags:
   - Easy
   - First

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class IslandSelectionUI : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class IslandSelectionUI : MonoBehaviour
     public TMP_Text nameDisplay;
     public Image imageDisplay;
     public TMP_Text descriptionDisplay;
+
+    [Header("Navigation")]
+    public Button enterIslandButton;
 
     [Header("Tags")]
     public Transform tagsParent;
@@ -32,8 +37,13 @@ public class IslandSelectionUI : MonoBehaviour
     [Header("Selection Visuals")]
     public Color selectedTextColor = Color.black;
     public Color unselectedTextColor = Color.white;
+    public float selectedFontSize = 45f;
+    public float unselectedFontSize = 30f;
+    public float transitionDuration = 0.2f;
 
     private GameObject currentSelectedButton;
+    private IslandData currentSelectedIsland;
+    private Dictionary<GameObject, Coroutine> activeTransitions = new Dictionary<GameObject, Coroutine>();
 
     private void Start()
     {
@@ -41,6 +51,11 @@ public class IslandSelectionUI : MonoBehaviour
         {
             Debug.LogError("IslandSelectionUI: IslandDatabase is not assigned!");
             return;
+        }
+
+        if (enterIslandButton != null)
+        {
+            enterIslandButton.onClick.AddListener(EnterSelectedIsland);
         }
 
         PopulateIslandList();
@@ -56,6 +71,7 @@ public class IslandSelectionUI : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        activeTransitions.Clear();
 
         for (int i = 0; i < islandDatabase.islands.Count; i++)
         {
@@ -69,6 +85,7 @@ public class IslandSelectionUI : MonoBehaviour
             if (nameText != null)
             {
                 nameText.text = island.islandName;
+                nameText.fontSize = unselectedFontSize;
             }
 
             // Setup button click
@@ -79,7 +96,7 @@ public class IslandSelectionUI : MonoBehaviour
             }
 
             // Initialize visual state
-            UpdateButtonVisuals(btnObj, false);
+            UpdateButtonVisuals(btnObj, false, true);
 
             // Optional: Select the first island by default
             if (i == 0)
@@ -92,14 +109,21 @@ public class IslandSelectionUI : MonoBehaviour
     private void OnIslandSelected(IslandData island, GameObject buttonObj)
     {
         // Reset previous selection visuals
-        if (currentSelectedButton != null)
+        if (currentSelectedButton != null && currentSelectedButton != buttonObj)
         {
             UpdateButtonVisuals(currentSelectedButton, false);
         }
 
         // Apply new selection visuals
         currentSelectedButton = buttonObj;
+        currentSelectedIsland = island;
         UpdateButtonVisuals(currentSelectedButton, true);
+
+        // Update enter button interactivity
+        if (enterIslandButton != null)
+        {
+            enterIslandButton.interactable = !string.IsNullOrEmpty(island.sceneName);
+        }
 
         // Update basic info
         if (nameDisplay != null)
@@ -164,6 +188,15 @@ public class IslandSelectionUI : MonoBehaviour
         Debug.Log($"Selected Island: {island.islandName}");
     }
 
+    private void EnterSelectedIsland()
+    {
+        if (currentSelectedIsland != null && !string.IsNullOrEmpty(currentSelectedIsland.sceneName))
+        {
+            IslandSessionData.SelectedIsland = currentSelectedIsland;
+            SceneManager.LoadScene(currentSelectedIsland.sceneName);
+        }
+    }
+
     private void ConfigureSingleLineAutoSize(TMP_Text text)
     {
         text.enableAutoSizing = true;
@@ -199,13 +232,49 @@ public class IslandSelectionUI : MonoBehaviour
         }
     }
 
-    private void UpdateButtonVisuals(GameObject buttonObj, bool isSelected)
+    private void UpdateButtonVisuals(GameObject buttonObj, bool isSelected, bool immediate = false)
     {
-        // Update Text color
         TMP_Text btnText = buttonObj.GetComponentInChildren<TMP_Text>();
-        if (btnText != null)
+        if (btnText == null) return;
+
+        Color targetColor = isSelected ? selectedTextColor : unselectedTextColor;
+        float targetFontSize = isSelected ? selectedFontSize : unselectedFontSize;
+
+        if (immediate)
         {
-            btnText.color = isSelected ? selectedTextColor : unselectedTextColor;
+            btnText.color = targetColor;
+            btnText.fontSize = targetFontSize;
+            return;
         }
+
+        // Stop any existing transition for this button
+        if (activeTransitions.TryGetValue(buttonObj, out Coroutine existing))
+        {
+            if (existing != null) StopCoroutine(existing);
+        }
+
+        // Start new transition
+        activeTransitions[buttonObj] = StartCoroutine(TransitionButtonVisuals(btnText, targetColor, targetFontSize));
+    }
+
+    private IEnumerator TransitionButtonVisuals(TMP_Text text, Color targetColor, float targetFontSize)
+    {
+        Color startColor = text.color;
+        float startFontSize = text.fontSize;
+        float elapsed = 0f;
+
+        while (elapsed < transitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / transitionDuration;
+            
+            text.color = Color.Lerp(startColor, targetColor, t);
+            text.fontSize = Mathf.Lerp(startFontSize, targetFontSize, t);
+            
+            yield return null;
+        }
+
+        text.color = targetColor;
+        text.fontSize = targetFontSize;
     }
 }

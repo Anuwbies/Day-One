@@ -79908,6 +79908,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 290, y: 290}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1089596854 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3351694068055821671, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+  m_PrefabInstance: {fileID: 1777164493203238889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1141216924
 GameObject:
   m_ObjectHideFlags: 0
@@ -80859,7 +80864,7 @@ PrefabInstance:
     - target: {fileID: 1278486882659685167, guid: e5d00b148d331f8478da179f18191589, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 173924318}
+      objectReference: {fileID: 0}
     - target: {fileID: 4072441690978074281, guid: e5d00b148d331f8478da179f18191589, type: 3}
       propertyPath: m_Name
       value: Campfire
@@ -85207,7 +85212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718902470757064031, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
       propertyPath: amount
-      value: 100
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
       propertyPath: m_Name
@@ -89150,7 +89155,7 @@ PrefabInstance:
     - target: {fileID: 7348478025749383366, guid: e1b58973eb905324e9de78966bd0eea6, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 173924318}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -93042,6 +93047,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4350472880120648111, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+      propertyPath: hitCollider
+      value: 
+      objectReference: {fileID: 1089596854}
     - target: {fileID: 5495648684999206554, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.51
@@ -93083,6 +93092,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5937430366837119836, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+      propertyPath: playerCollider
+      value: 
+      objectReference: {fileID: 173924318}
+    - target: {fileID: 7441284595493441364, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+      propertyPath: ownCollider
+      value: 
+      objectReference: {fileID: 1089596854}
+    - target: {fileID: 7441284595493441364, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: playerCollider
       value: 
       objectReference: {fileID: 173924318}
@@ -93170,11 +93187,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3231220778586024692, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -164.74203
+      value: -167.31
       objectReference: {fileID: 0}
     - target: {fileID: 3231220778586024692, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1031.2903
+      value: -1034.63
       objectReference: {fileID: 0}
     - target: {fileID: 3231220778586024692, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_LocalPosition.z
@@ -93207,6 +93224,10 @@ PrefabInstance:
     - target: {fileID: 3231220778586024692, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441316773085971276, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
+      propertyPath: amount
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7046376547242490892, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_Name
@@ -95631,7 +95652,7 @@ MonoBehaviour:
   inventoryWindow: {fileID: 2192325324823908748}
   hotbar: {fileID: 1884636128}
   contextMenu: {fileID: 4792280605903294362}
-  dropOrigin: {fileID: 432309879}
+  dropOrigin: {fileID: 0}
   dropOriginOffset: {x: 0.03, y: -0.35}
   dropRadiusXY: {x: 0.7, y: 0.4}
   inventoryGrid: {fileID: 4398978249365333987}
@@ -108069,6 +108090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1241968786}
     m_Modifications:
+    - target: {fileID: 3452216420478162429, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
+      propertyPath: amount
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4719200396125063612, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
       propertyPath: m_Name
       value: Stick
@@ -108406,7 +108431,7 @@ PrefabInstance:
     - target: {fileID: 6905862922857581378, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 173924318}
+      objectReference: {fileID: 0}
     - target: {fileID: 7458398749602016829, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -119422,17 +119447,13 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1590386052232508416}
-    - target: {fileID: 4134289817249182788, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1271
-      objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.77
+      value: -8.73
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.13
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -132604,7 +132625,7 @@ PrefabInstance:
     - target: {fileID: 3952453769284953280, guid: 37190cb1e8473b54887f35ba2264a0a6, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 173924318}
+      objectReference: {fileID: 0}
     - target: {fileID: 8039393357490231435, guid: 37190cb1e8473b54887f35ba2264a0a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.54889065
@@ -137008,7 +137029,7 @@ PrefabInstance:
     - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
       propertyPath: targetPlayerCollider
       value: 
-      objectReference: {fileID: 173924318}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -15,6 +15,7 @@ public class IslandData : ScriptableObject
 {
     [Header("Basic Info")]
     public string islandName;
+    public string sceneName;
     public List<string> tags = new List<string>();
     public Sprite image;
     public bool isEndlessMode = false;
