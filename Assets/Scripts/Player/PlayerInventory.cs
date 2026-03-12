@@ -19,6 +19,8 @@ public class PlayerInventory : MonoBehaviour
     public int maxSlots = 20; // Maximum DIFFERENT item stacks allowed
     public List<InventorySlot> items = new List<InventorySlot>();
 
+    [SerializeField] protected bool addStartingItemsFromSession = true;
+
     public System.Action OnInventoryChanged;
 
     public bool IsFullForNewItem(ItemData data)
@@ -44,9 +46,28 @@ public class PlayerInventory : MonoBehaviour
         return items.Count >= maxSlots;
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         EnsureSlotCapacity();
+    }
+
+    protected virtual void Start()
+    {
+        AddStartingItems();
+    }
+
+    private void AddStartingItems()
+    {
+        if (addStartingItemsFromSession && IslandSessionData.SelectedIsland != null)
+        {
+            foreach (var startingItem in IslandSessionData.SelectedIsland.startingItems)
+            {
+                if (startingItem.item != null)
+                {
+                    AddItem(startingItem.item, startingItem.amount);
+                }
+            }
+        }
     }
 
     public void SetMaxSlots(int slotCount)
