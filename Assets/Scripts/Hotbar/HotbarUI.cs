@@ -20,7 +20,10 @@ public class HotbarUI : MonoBehaviour
 
     private void Start()
     {
-        inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
+        inventoryUI = InventoryUI.FindBestUIForInventory(playerInventory);
+
+        if (inventoryUI == null)
+            inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
 
         playerInventory.OnInventoryChanged += OnInventoryChanged;
 

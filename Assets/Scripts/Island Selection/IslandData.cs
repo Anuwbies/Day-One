@@ -46,7 +46,7 @@ public class IslandObjective
     public bool isMainObjective;
 
     [Header("Target Values")]
-    public int targetAmount; // Days to survive, items to craft/gather, or enemies to slay
+    public int targetAmount; // Target day to reach, items to craft/possess, or enemies to slay
     public ItemData targetItem; // Used for CraftItem or GatherItem
     public GameObject enemyPrefab; // Prefab of enemy to slay
 }

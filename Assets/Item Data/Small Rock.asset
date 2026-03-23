@@ -15,14 +15,20 @@ MonoBehaviour:
   itemName: Small Rock
   icon: {fileID: -5920602150751027771, guid: de9ce88196fb5d34c8bf089aaa392dc2, type: 3}
   worldPrefab: {fileID: 7046376547242490892, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
+  snapToGrid: 1
+  gridWidth: 1
+  gridHeight: 1
   stackable: 1
   maxStack: 64
-  canPlace: 0
+  canPlace: 1
   canEat: 1
   canDestroy: 1
   canDrop: 1
   canSplit: 1
   healthRestore: 0
   hungerRestore: 10
-  thirstRestore: 0
+  thirstRestore: 20
   energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 0
+  damageToRock: 0

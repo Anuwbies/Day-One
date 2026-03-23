@@ -24,9 +24,21 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
     amount: 1
   objectives:
-  - objectiveTitle: Craft 5 Campfires
+  - objectiveTitle: Craft x5 Campfires
     type: 1
     isMainObjective: 1
     targetAmount: 5
     targetItem: {fileID: 11400000, guid: cbc924ac49b56ea47b2ffdaac3793994, type: 2}
     enemyPrefab: {fileID: 0}
+  - objectiveTitle: Possess x4 logs
+    type: 2
+    isMainObjective: 1
+    targetAmount: 4
+    targetItem: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
+    enemyPrefab: {fileID: 0}
+  - objectiveTitle: Slay x1 Enemy
+    type: 3
+    isMainObjective: 1
+    targetAmount: 1
+    targetItem: {fileID: 0}
+    enemyPrefab: {fileID: 7543888126313665003, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}

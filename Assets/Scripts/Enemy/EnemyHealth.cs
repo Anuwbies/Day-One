@@ -3,6 +3,8 @@ using System;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public static event Action<EnemyHealth> AnyEnemyDied;
+
     [Header("Type")]
     public DamageTarget damageTarget = DamageTarget.Enemy;
 
@@ -88,6 +90,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0f)
         {
             currentHealth = 0f;
+            AnyEnemyDied?.Invoke(this);
             OnDeath?.Invoke();
         }
     }

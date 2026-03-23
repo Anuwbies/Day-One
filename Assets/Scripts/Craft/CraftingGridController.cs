@@ -288,15 +288,7 @@ public class CraftingGridController : MonoBehaviour
         if (data == null || data.worldPrefab == null)
             return;
 
-        Vector3 baseOrigin =
-            (inventoryUI.dropOrigin != null
-                ? inventoryUI.dropOrigin.position
-                : Vector3.zero)
-            + new Vector3(
-                inventoryUI.dropOriginOffset.x,
-                inventoryUI.dropOriginOffset.y,
-                0f
-            );
+        Vector3 baseOrigin = inventoryUI.GetWorldDropOriginPosition();
 
         Vector2 randomUnit = Random.insideUnitCircle;
         Vector2 randomOffset = new Vector2(

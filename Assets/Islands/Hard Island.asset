@@ -22,7 +22,7 @@ MonoBehaviour:
   description: This Island is Hard.
   startingItems: []
   objectives:
-  - objectiveTitle: Slay 20 enemies
+  - objectiveTitle: Slay x20 enemies
     type: 2
     isMainObjective: 1
     targetAmount: 20

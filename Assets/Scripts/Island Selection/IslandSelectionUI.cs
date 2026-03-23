@@ -45,6 +45,9 @@ public class IslandSelectionUI : MonoBehaviour
     private IslandData currentSelectedIsland;
     private Dictionary<GameObject, Coroutine> activeTransitions = new Dictionary<GameObject, Coroutine>();
 
+    public IslandData CurrentSelectedIsland => currentSelectedIsland;
+    public event System.Action<IslandData> SelectedIslandChanged;
+
     private void Start()
     {
         if (islandDatabase == null)
@@ -184,6 +187,8 @@ public class IslandSelectionUI : MonoBehaviour
                 t.textWrappingMode = TextWrappingModes.NoWrap;
             }
         }, "Just survive");
+
+        SelectedIslandChanged?.Invoke(currentSelectedIsland);
 
         Debug.Log($"Selected Island: {island.islandName}");
     }

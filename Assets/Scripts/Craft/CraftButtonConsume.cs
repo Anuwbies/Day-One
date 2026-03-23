@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class CraftButtonConsume : MonoBehaviour
 {
+    public static System.Action<ItemData, int> AnyItemCrafted;
+
     public CraftingGridController craftingGrid;
 
     private Button button;
@@ -56,6 +58,7 @@ public class CraftButtonConsume : MonoBehaviour
 
         ConsumeIngredientSet(set);
         GiveResult(recipe);
+        NotifyCraftCompleted(recipe);
 
         craftingGrid.UpdateResultPreview();
         return true;
@@ -174,5 +177,13 @@ public class CraftButtonConsume : MonoBehaviour
         }
 
         inventoryUI.inventory.OnInventoryChanged?.Invoke();
+    }
+
+    private void NotifyCraftCompleted(CraftingRecipe recipe)
+    {
+        if (recipe == null)
+            return;
+
+        AnyItemCrafted?.Invoke(recipe.resultItem, Mathf.Max(1, recipe.resultAmount));
     }
 }

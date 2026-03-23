@@ -15,6 +15,7 @@ public enum InventoryUIType
 public class InventoryUI : MonoBehaviour
 {
     private static readonly List<InventoryUI> Instances = new();
+    private const string DefaultPlayerTag = "Player";
 
     [Header("Open / Close")]
     [SerializeField] private bool allowKeyboardToggle = true;
@@ -56,6 +57,28 @@ public class InventoryUI : MonoBehaviour
     public bool AllowKeyboardToggle => allowKeyboardToggle;
     public InventoryUIType UIType => uiType;
     public bool ConsumeClickThisFrame { get; private set; }
+
+    public static InventoryUI FindBestUIForInventory(PlayerInventory targetInventory)
+    {
+        if (targetInventory == null)
+            return null;
+
+        InventoryUI fallback = null;
+
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui == null || ui.inventory != targetInventory)
+                continue;
+
+            if (fallback == null)
+                fallback = ui;
+
+            if (ui.uiType != InventoryUIType.InventoryAndWoodenChest)
+                return ui;
+        }
+
+        return fallback;
+    }
 
     private bool UsesCraftPanel =>
         uiType == InventoryUIType.InventoryAndPlayerCraft ||
@@ -459,9 +482,7 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        Vector3 baseOrigin =
-            (dropOrigin != null ? dropOrigin.position : Vector3.zero) +
-            new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
+        Vector3 baseOrigin = GetWorldDropOriginPosition();
 
         Vector2 randomUnit = UnityEngine.Random.insideUnitCircle;
         Vector2 randomOffset = new Vector2(
@@ -484,6 +505,20 @@ public class InventoryUI : MonoBehaviour
 
         inventory.items[slotIndex] = null;
         inventory.OnInventoryChanged?.Invoke();
+    }
+
+    public Vector3 GetWorldDropOriginPosition()
+    {
+        Vector3 offset = new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
+
+        if (dropOrigin != null)
+            return dropOrigin.position + offset;
+
+        Transform playerTransform = ResolvePlayerDropTransform();
+        if (playerTransform != null)
+            return playerTransform.position + offset;
+
+        return offset;
     }
 
     public void TryMergeOrSwap(int fromIndex, int toIndex)
@@ -774,12 +809,7 @@ public class InventoryUI : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (dropOrigin == null)
-            return;
-
-        Vector3 center =
-            dropOrigin.position +
-            new Vector3(dropOriginOffset.x, dropOriginOffset.y, 0f);
+        Vector3 center = GetWorldDropOriginPosition();
 
         Gizmos.color = Color.yellow;
 
@@ -801,5 +831,45 @@ public class InventoryUI : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(center, 0.05f);
+    }
+
+    private Transform ResolvePlayerDropTransform()
+    {
+        Transform taggedInventoryTransform =
+            FindTaggedTransformInHierarchy(inventory != null ? inventory.transform : null, DefaultPlayerTag);
+        if (taggedInventoryTransform != null)
+            return taggedInventoryTransform;
+
+        PlayerInventory[] inventories =
+            UnityEngine.Object.FindObjectsByType<PlayerInventory>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        for (int i = 0; i < inventories.Length; i++)
+        {
+            PlayerInventory candidate = inventories[i];
+            if (candidate == null || candidate is ChestInventory)
+                continue;
+
+            Transform taggedCandidateTransform =
+                FindTaggedTransformInHierarchy(candidate.transform, DefaultPlayerTag);
+            if (taggedCandidateTransform != null)
+                return taggedCandidateTransform;
+        }
+
+        return inventory != null ? inventory.transform : null;
+    }
+
+    private static Transform FindTaggedTransformInHierarchy(Transform target, string tagName)
+    {
+        Transform current = target;
+
+        while (current != null)
+        {
+            if (current.gameObject.tag == tagName)
+                return current;
+
+            current = current.parent;
+        }
+
+        return null;
     }
 }

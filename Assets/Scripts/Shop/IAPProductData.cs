@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -15,6 +16,7 @@ public enum ProductType
 public enum RewardType
 {
     ItemData,   // Uses the Survival ItemData
+    Diamonds,   // Uses the local DiamondCurrency
     Currency,   // Virtual currency (Diamonds, Coins)
     Skin,       // Unlockable content
     Other       // Badges, Remove Ads, etc.
@@ -51,10 +53,10 @@ public class IAPProductData : ScriptableObject
         public ItemData item;
 
         [Header("Option B: Custom Reward")]
-        [Tooltip("ID used for Currency or Skins (e.g., 'Diamonds', 'Skin_Blue'). Ignored if using ItemData.")]
+        [Tooltip("ID used for Currency or Skins (e.g., 'Coins', 'Skin_Blue'). Ignored for ItemData and Diamonds.")]
         public string customId;
 
-        [Tooltip("Visual icon for custom rewards (since they have no ItemData).")]
+        [Tooltip("Visual icon for custom rewards (since they have no ItemData). You can also use this for Diamonds.")]
         public Sprite customIcon;
 
         [Header("Amount")]
@@ -77,7 +79,26 @@ public class IAPProductData : ScriptableObject
             {
                 return item.itemName;
             }
+
+            if (IsDiamondReward())
+            {
+                return "Diamonds";
+            }
+
             return customId;
+        }
+
+        public bool IsDiamondReward()
+        {
+            if (type == RewardType.Diamonds)
+            {
+                return true;
+            }
+
+            return type == RewardType.Currency &&
+                   !string.IsNullOrWhiteSpace(customId) &&
+                   (string.Equals(customId, "Diamond", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(customId, "Diamonds", StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -33,6 +33,12 @@ namespace Survival.Shop
         [Tooltip("The container (e.g., Grid Layout Group) where product items will be spawned.")]
         public Transform productContainer;
 
+        [Header("Reward Delivery")]
+        [Tooltip("Optional. If empty, the shop will try to find the player's inventory when a purchase succeeds.")]
+        public PlayerInventory playerInventory;
+        [SerializeField] private bool autoFindPlayerInventory = true;
+        [SerializeField] private string playerTag = "Player";
+
         [Header("Selection Styling")]
         public Color normalColor = Color.white;
         public Color selectedColor = Color.yellow;
@@ -299,6 +305,7 @@ namespace Survival.Shop
                 await ThirdwebTransaction.WaitForTransactionReceipt(ThirdwebManager.Instance.Client, chainId, txHash);
 
                 Debug.Log($"<color=green>[Shop] Purchase Successful! Transaction Hash: {txHash}</color>");
+                GrantProductRewards(data);
 
                 // Refresh the wallet UI
                 if (WalletConnect.Instance != null)
@@ -320,6 +327,128 @@ namespace Survival.Shop
                 }
                 buyBtn.interactable = true;
             }
+        }
+
+        private void GrantProductRewards(IAPProductData data)
+        {
+            if (data == null || data.itemsToGive == null || data.itemsToGive.Count == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < data.itemsToGive.Count; i++)
+            {
+                GrantReward(data, data.itemsToGive[i]);
+            }
+        }
+
+        private void GrantReward(IAPProductData productData, IAPProductData.ItemEntry reward)
+        {
+            int quantity = Mathf.Max(0, reward.quantity);
+            if (quantity <= 0)
+            {
+                return;
+            }
+
+            if (reward.type == RewardType.ItemData)
+            {
+                if (reward.item == null)
+                {
+                    Debug.LogWarning($"[Shop] Product '{productData.displayName}' has an item reward with no ItemData assigned.");
+                    return;
+                }
+
+                PlayerInventory inventory = ResolvePlayerInventory();
+                if (inventory == null)
+                {
+                    Debug.LogWarning($"[Shop] Purchase '{productData.displayName}' succeeded, but no player inventory was found to receive '{reward.item.itemName}'.");
+                    return;
+                }
+
+                bool addedAll = inventory.AddItem(reward.item, quantity);
+                if (!addedAll)
+                {
+                    Debug.LogWarning($"[Shop] Purchase '{productData.displayName}' could not fit the full reward '{reward.item.itemName} x{quantity}' in the player's inventory.");
+                }
+
+                return;
+            }
+
+            if (reward.IsDiamondReward())
+            {
+                if (DiamondCurrency.Instance == null)
+                {
+                    Debug.LogWarning($"[Shop] Purchase '{productData.displayName}' succeeded, but no DiamondCurrency instance is active to receive '{quantity}' diamonds.");
+                    return;
+                }
+
+                DiamondCurrency.Instance.AddDiamonds(quantity);
+                return;
+            }
+
+            Debug.Log($"[Shop] Reward '{reward.GetName()}' from '{productData.displayName}' is not applied automatically yet.");
+        }
+
+        private PlayerInventory ResolvePlayerInventory()
+        {
+            if (playerInventory != null && !(playerInventory is ChestInventory))
+            {
+                return playerInventory;
+            }
+
+            if (!autoFindPlayerInventory)
+            {
+                return playerInventory;
+            }
+
+            PlayerInventory[] inventories =
+                FindObjectsByType<PlayerInventory>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+            PlayerInventory fallback = null;
+
+            for (int i = 0; i < inventories.Length; i++)
+            {
+                PlayerInventory candidate = inventories[i];
+                if (candidate == null || candidate is ChestInventory)
+                {
+                    continue;
+                }
+
+                if (fallback == null)
+                {
+                    fallback = candidate;
+                }
+
+                if (IsOnTaggedPlayerHierarchy(candidate.transform))
+                {
+                    playerInventory = candidate;
+                    return playerInventory;
+                }
+            }
+
+            playerInventory = fallback;
+            return playerInventory;
+        }
+
+        private bool IsOnTaggedPlayerHierarchy(Transform target)
+        {
+            if (string.IsNullOrWhiteSpace(playerTag))
+            {
+                return false;
+            }
+
+            Transform current = target;
+            while (current != null)
+            {
+                if (current.CompareTag(playerTag))
+                {
+                    return true;
+                }
+
+                current = current.parent;
+            }
+
+            return false;
         }
     }
 }

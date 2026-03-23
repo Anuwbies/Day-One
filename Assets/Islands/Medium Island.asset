@@ -24,9 +24,9 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
     amount: 1
   objectives:
-  - objectiveTitle: Survive for 10 days
+  - objectiveTitle: Survive until day 2
     type: 0
     isMainObjective: 1
-    targetAmount: 10
+    targetAmount: 2
     targetItem: {fileID: 0}
     enemyPrefab: {fileID: 0}

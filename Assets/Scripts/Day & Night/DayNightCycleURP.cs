@@ -4,6 +4,7 @@ using TMPro;
 
 public class DayNightCycleURP : MonoBehaviour
 {
+    public static event System.Action<int> AnyDayChanged;
     [Header("Save System")]
     [Tooltip("If true, time passes between scenes. Uncheck this for gameplay scenes if you want them to always start fresh.")]
     public bool enableTimeTransfer = true;
@@ -51,6 +52,8 @@ public class DayNightCycleURP : MonoBehaviour
     [Header("Runtime State")]
     public bool isPaused = false;
 
+    public int CurrentDay => currentDay;
+
     private void Start()
     {
         timeMultiplier = 24f / (dayLengthInMinutes * 60f);
@@ -83,6 +86,7 @@ public class DayNightCycleURP : MonoBehaviour
         TimeTransfer.HasData = false;
         timeOfDay = 8f; // Reset to morning (or your preferred start time)
         currentDay = 1;
+        NotifyDayChanged();
         UpdateLighting(); // Apply immediately
         UpdateUI();
     }
@@ -94,6 +98,7 @@ public class DayNightCycleURP : MonoBehaviour
         {
             timeOfDay -= 24f;
             currentDay++;
+            NotifyDayChanged();
         }
     }
 
@@ -155,5 +160,10 @@ public class DayNightCycleURP : MonoBehaviour
 
         if (moonIcon != null)
             moonIcon.SetActive(!isDay);
+    }
+
+    private void NotifyDayChanged()
+    {
+        AnyDayChanged?.Invoke(currentDay);
     }
 }

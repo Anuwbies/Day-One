@@ -35,12 +35,16 @@ public class HotbarSlotDragDrop : MonoBehaviour,
         if (hotbarSlot == null)
             hotbarSlot = GetComponent<HotbarSlot>();
 
-        inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
+        ResolveInventoryUI();
 
         ResetState();
     }
 
-    private void OnEnable() => ResetState();
+    private void OnEnable()
+    {
+        ResolveInventoryUI();
+        ResetState();
+    }
     private void OnDisable() => ResetState();
 
     private void ResetState()
@@ -64,6 +68,7 @@ public class HotbarSlotDragDrop : MonoBehaviour,
     public void OnBeginDrag(PointerEventData eventData)
     {
         ResetState();
+        ResolveInventoryUI();
 
         if (hotbarSlot.currentSlot == null ||
             hotbarSlot.currentSlot.item == null)
@@ -186,10 +191,28 @@ public class HotbarSlotDragDrop : MonoBehaviour,
     // =========================
     private void DropToWorld()
     {
+        ResolveInventoryUI();
+
         if (inventoryUI == null)
             return;
 
         inventoryUI.DropItemFromSlot(hotbarSlot.slotIndex);
+    }
+
+    private void ResolveInventoryUI()
+    {
+        PlayerInventory targetInventory =
+            hotbarSlot != null && hotbarSlot.hotbarUI != null
+                ? hotbarSlot.hotbarUI.playerInventory
+                : null;
+
+        if (inventoryUI != null && inventoryUI.inventory == targetInventory)
+            return;
+
+        inventoryUI = InventoryUI.FindBestUIForInventory(targetInventory);
+
+        if (inventoryUI == null)
+            inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
     }
 
     // =========================
