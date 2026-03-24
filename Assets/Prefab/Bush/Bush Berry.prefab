@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: -0.02
+  sortYOffset: -0.05
   offset: 0
   alwaysBehindPlayer: 0
   alwaysBehindParent: 0
@@ -523,14 +523,15 @@ MonoBehaviour:
   bushSpriteRenderer: {fileID: 7576664894999527176}
   berrySpriteRenderer: {fileID: 5169976203714572877}
   berryItem: {fileID: 11400000, guid: ee0749f970d1fad4286629ab09cd86a6, type: 2}
-  minHarvestAmount: 4
+  minHarvestAmount: 2
   maxHarvestAmount: 5
   berrySprite: {fileID: -2299106688592153529, guid: fbfa31d950bf3f14e978218779028778, type: 3}
   berrySortOrderOffset: 1
   berrySpawnAreaOffset: {x: 0, y: -0.01}
   berrySpawnAreaSize: {x: 0.45, y: 0.3}
-  minRegrowTimeMinutes: 1.5
-  maxRegrowTimeMinutes: 3
+  berryGrowthStartScale: 0.2
+  minRegrowTimeMinutes: 10
+  maxRegrowTimeMinutes: 20
   destroyedDropOffset: {x: 0, y: 0}
   destroyedDropRadiusXY: {x: 0.35, y: 0.2}
   targetTag: Player
@@ -562,7 +563,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 399864479095886942}
@@ -752,8 +753,8 @@ Transform:
   m_GameObject: {fileID: 6966473086063772123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0004, y: -0.0187, z: 0}
-  m_LocalScale: {x: 1.0851456, y: 0.9308378, z: 1}
+  m_LocalPosition: {x: -0.00448, y: -0.0289, z: 0}
+  m_LocalScale: {x: 1.2755587, y: 1.058344, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2887812359435367704}

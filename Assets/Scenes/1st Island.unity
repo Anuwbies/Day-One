@@ -430822,18 +430822,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1241968786}
     m_Modifications:
-    - target: {fileID: 948847057564720740, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: sortYOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 948847057564720740, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: alwaysBehindPlayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688932269286112229, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3231220778586024692, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -172.38
@@ -430874,50 +430862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3556841896998054444, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_Size.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3556841896998054444, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_Size.y
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1610856
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0182
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6694563523718730621, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7046376547242490892, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
       propertyPath: m_Name
       value: Small Rock
       objectReference: {fileID: 0}
-    - target: {fileID: 9006680080616915768, guid: 7c3d47b3de2bfba42bb3d172db65cb28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 6529909481953654932, guid: 342e9030bb8b0e54faa710f0a68581d1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -446141,10 +446089,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaf Bed
       objectReference: {fileID: 0}
-    - target: {fileID: 7458398749602016829, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7889623016721681155, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.067
@@ -447840,6 +447784,22 @@ PrefabInstance:
     - target: {fileID: 6223527947749130064, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873773173813349172, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3243188
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873773173813349172, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0661701
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873773173813349172, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0034
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873773173813349172, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0387
       objectReference: {fileID: 0}
     - target: {fileID: 8550293837513835946, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
       propertyPath: m_IsActive
@@ -474834,30 +474794,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush Berry
       objectReference: {fileID: 0}
-    - target: {fileID: 2887812359435367704, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2887812359435367704, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2887812359435367704, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2887812359435367704, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145082167715938201, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_Name
-      value: Berry
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147570870986336739, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6221208638096496864, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.393
@@ -474899,68 +474835,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berryItem
-      value: 
-      objectReference: {fileID: 11400000, guid: ee0749f970d1fad4286629ab09cd86a6, type: 2}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpacing.x
-      value: -0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpacing.y
-      value: -0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: maxHarvestAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
       propertyPath: minHarvestAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteSize.x
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteSize.y
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpritesPerRow
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteOffset.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpawnAreaSize.x
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpawnAreaSize.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteSpacing.x
-      value: -0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpriteSpacing.y
-      value: -0.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpawnAreaOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477500325771521683, guid: b5473c0ab54b59549bd7867c6372877b, type: 3}
-      propertyPath: berrySpawnAreaOffset.y
-      value: -0.01
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

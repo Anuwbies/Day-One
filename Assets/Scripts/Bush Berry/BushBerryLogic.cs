@@ -38,6 +38,7 @@ public class BushBerryLogic : MonoBehaviour
     [SerializeField] private Vector2 berrySpawnAreaOffset = new Vector2(0.02f, 0.03f);
     [FormerlySerializedAs("berrySpriteSize")]
     [SerializeField] private Vector2 berrySpawnAreaSize = new Vector2(0.18f, 0.12f);
+    [SerializeField] private float berryGrowthStartScale = 0.2f;
     [Header("Regrow Settings")]
     [SerializeField] private float minRegrowTimeMinutes = 0.5f;
     [SerializeField] private float maxRegrowTimeMinutes = 1.5f;
@@ -58,10 +59,13 @@ public class BushBerryLogic : MonoBehaviour
     private PlayerInventory playerInventory;
     private bool hasBerries = true;
     private float regrowTimer;
+    private float regrowDuration;
     private bool isRegrowing;
     private int currentHarvestAmount;
+    private int pendingHarvestAmount;
     private Quaternion berryTemplateLocalRotation = Quaternion.identity;
     private Vector3 berryTemplateLocalScale = Vector3.one;
+    private bool berryTemplateStateCached;
 
     private void Start()
     {
@@ -84,7 +88,7 @@ public class BushBerryLogic : MonoBehaviour
             harvestButton.onClick.AddListener(HarvestBerry);
         }
 
-        CacheBerryTemplateState();
+        CacheBerryTemplateState(true);
         SetCurrentHarvestAmount(hasBerries ? GetRandomHarvestAmount() : 0);
         UpdateBushVisuals();
         SyncBerryRendererSorting();
@@ -117,9 +121,13 @@ public class BushBerryLogic : MonoBehaviour
         {
             hasBerries = true;
             isRegrowing = false;
-            SetCurrentHarvestAmount(GetRandomHarvestAmount());
+            SetCurrentHarvestAmount(Mathf.Max(1, pendingHarvestAmount));
+            pendingHarvestAmount = 0;
             UpdateBushVisuals();
+            return;
         }
+
+        UpdateBushVisuals();
     }
 
     private void LateUpdate()
@@ -230,8 +238,10 @@ public class BushBerryLogic : MonoBehaviour
     {
         float minTimeMinutes = Mathf.Max(0f, minRegrowTimeMinutes);
         float maxTimeMinutes = Mathf.Max(minTimeMinutes, maxRegrowTimeMinutes);
-        regrowTimer = Random.Range(minTimeMinutes, maxTimeMinutes) * 60f;
+        regrowDuration = Random.Range(minTimeMinutes, maxTimeMinutes) * 60f;
+        regrowTimer = regrowDuration;
         isRegrowing = true;
+        pendingHarvestAmount = GetRandomHarvestAmount();
     }
 
     private void DropBerriesIfGrown()
@@ -277,7 +287,7 @@ public class BushBerryLogic : MonoBehaviour
 
     private void UpdateBushVisuals()
     {
-        int visibleBerryCount = hasBerries ? Mathf.Clamp(currentHarvestAmount, 0, GetMaxBerryVisualCount()) : 0;
+        int visibleBerryCount = GetVisibleBerryCount();
         EnsureBerryRenderers(visibleBerryCount);
         UpdateBerryRendererTransforms(visibleBerryCount);
 
@@ -345,15 +355,21 @@ public class BushBerryLogic : MonoBehaviour
         return Mathf.Max(1, maxHarvestAmount);
     }
 
-    private void CacheBerryTemplateState()
+    private void CacheBerryTemplateState(bool force = false)
     {
         if (berrySpriteRenderer == null)
         {
             return;
         }
 
+        if (berryTemplateStateCached && !force)
+        {
+            return;
+        }
+
         berryTemplateLocalRotation = berrySpriteRenderer.transform.localRotation;
         berryTemplateLocalScale = berrySpriteRenderer.transform.localScale;
+        berryTemplateStateCached = true;
     }
 
     private void EnsureBerryRenderers(int visibleBerryCount)
@@ -466,6 +482,7 @@ public class BushBerryLogic : MonoBehaviour
         }
 
         Vector3 anchorLocalPosition = new Vector3(berrySpawnAreaOffset.x, berrySpawnAreaOffset.y, 0f);
+        float berryGrowthScale = GetCurrentBerryGrowthScale();
 
         for (int i = 0; i < berryRenderers.Count; i++)
         {
@@ -476,7 +493,7 @@ public class BushBerryLogic : MonoBehaviour
             }
 
             renderer.transform.localRotation = berryTemplateLocalRotation;
-            renderer.transform.localScale = berryTemplateLocalScale;
+            renderer.transform.localScale = berryTemplateLocalScale * berryGrowthScale;
             renderer.transform.localPosition = anchorLocalPosition + GetBerryLocalOffset(i);
         }
     }
@@ -485,6 +502,49 @@ public class BushBerryLogic : MonoBehaviour
     {
         currentHarvestAmount = Mathf.Clamp(amount, 0, GetMaxBerryVisualCount());
         RebuildBerryLocalOffsets(currentHarvestAmount);
+    }
+
+    private int GetVisibleBerryCount()
+    {
+        if (hasBerries)
+        {
+            return Mathf.Clamp(currentHarvestAmount, 0, GetMaxBerryVisualCount());
+        }
+
+        if (isRegrowing && GetBerryRegrowVisualProgress() > 0f)
+        {
+            return Mathf.Clamp(pendingHarvestAmount, 0, GetMaxBerryVisualCount());
+        }
+
+        return 0;
+    }
+
+    private float GetCurrentBerryGrowthScale()
+    {
+        if (hasBerries)
+        {
+            return 1f;
+        }
+
+        if (!isRegrowing)
+        {
+            return 0f;
+        }
+
+        float startScale = Mathf.Clamp01(berryGrowthStartScale);
+        return Mathf.Lerp(startScale, 1f, GetBerryRegrowVisualProgress());
+    }
+
+    private float GetBerryRegrowVisualProgress()
+    {
+        if (!isRegrowing)
+        {
+            return hasBerries ? 1f : 0f;
+        }
+
+        float duration = Mathf.Max(0.0001f, regrowDuration);
+        float regrowProgress = 1f - Mathf.Clamp01(regrowTimer / duration);
+        return Mathf.Clamp01((regrowProgress - 0.5f) / 0.5f);
     }
 
     private void RebuildBerryLocalOffsets(int berryCount)
@@ -969,9 +1029,19 @@ public class BushBerryLogic : MonoBehaviour
 
     private int GetBerryGizmoPreviewCount()
     {
-        if (Application.isPlaying && hasBerries)
+        if (Application.isPlaying)
         {
-            return Mathf.Clamp(currentHarvestAmount, 1, GetMaxBerryVisualCount());
+            if (hasBerries)
+            {
+                return Mathf.Clamp(currentHarvestAmount, 1, GetMaxBerryVisualCount());
+            }
+
+            if (isRegrowing && GetBerryRegrowVisualProgress() > 0f)
+            {
+                return Mathf.Clamp(pendingHarvestAmount, 1, GetMaxBerryVisualCount());
+            }
+
+            return 0;
         }
 
         return GetMaxBerryVisualCount();
