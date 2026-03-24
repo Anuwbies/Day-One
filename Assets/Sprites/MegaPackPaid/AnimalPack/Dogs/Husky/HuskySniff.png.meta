@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 81fe31addeef55047a22a052b46ba117
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2852275159147281204
+    second: HuskySniff_0
+  - first:
+      213: 3149689464920351199
+    second: HuskySniff_1
+  - first:
+      213: -2873346232588324978
+    second: HuskySniff_2
+  - first:
+      213: 1130935581233249102
+    second: HuskySniff_3
+  - first:
+      213: 733142241645719905
+    second: HuskySniff_4
+  - first:
+      213: 267014978013875595
+    second: HuskySniff_5
+  - first:
+      213: 6056062350253008984
+    second: HuskySniff_6
+  - first:
+      213: -6811285662497495128
+    second: HuskySniff_7
+  - first:
+      213: 1608898694332659815
+    second: HuskySniff_8
+  - first:
+      213: -8130431165748496373
+    second: HuskySniff_9
+  - first:
+      213: 2864783197433611481
+    second: HuskySniff_10
+  - first:
+      213: -7966815105884063078
+    second: HuskySniff_11
+  - first:
+      213: 4989328056125942859
+    second: HuskySniff_12
+  - first:
+      213: 5311140620149957289
+    second: HuskySniff_13
+  - first:
+      213: -5802030472997021339
+    second: HuskySniff_14
+  - first:
+      213: -3693376748796912233
+    second: HuskySniff_15
+  - first:
+      213: 7166218772527886294
+    second: HuskySniff_16
+  - first:
+      213: -6416011910036846907
+    second: HuskySniff_17
+  - first:
+      213: -537118627020614070
+    second: HuskySniff_18
+  - first:
+      213: 4519375732621982229
+    second: HuskySniff_19
+  - first:
+      213: 2691308476563291011
+    second: HuskySniff_20
+  - first:
+      213: -685466052740886005
+    second: HuskySniff_21
+  - first:
+      213: -8089556456508654282
+    second: HuskySniff_22
+  - first:
+      213: 8505972096926880354
+    second: HuskySniff_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HuskySniff_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc40b51dadeaa68d0800000000000000
+      internalID: -2852275159147281204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 49
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd12e5d61e1f5bb20800000000000000
+      internalID: 3149689464920351199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 49
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fadd933d2df18d0800000000000000
+      internalID: -2873346232588324978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 51
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bf14f4be3e1bf00800000000000000
+      internalID: 1130935581233249102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 51
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16170230cf4ac2a00800000000000000
+      internalID: 733142241645719905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8dc93235b0a4b300800000000000000
+      internalID: 267014978013875595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_6
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 47
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858a2740f947b0450800000000000000
+      internalID: 6056062350253008984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_7
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a7202717c37971a0800000000000000
+      internalID: -6811285662497495128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_8
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768b94396d4f35610800000000000000
+      internalID: 1608898694332659815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_9
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08bbce7ee7ea2f80800000000000000
+      internalID: -8130431165748496373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_10
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4c989c321c1c720800000000000000
+      internalID: 2864783197433611481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_11
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a70960fdf207190800000000000000
+      internalID: -7966815105884063078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_12
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ce645be67ad3540800000000000000
+      internalID: 4989328056125942859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_13
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2af202146f4b940800000000000000
+      internalID: 5311140620149957289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_14
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5695509760c0b7fa0800000000000000
+      internalID: -5802030472997021339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_15
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79dd5425a6d7ebcc0800000000000000
+      internalID: -3693376748796912233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_16
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfa24f5106837360800000000000000
+      internalID: 7166218772527886294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_17
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6049b492fb5f6a0800000000000000
+      internalID: -6416011910036846907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_18
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46d03a5475cb88f0800000000000000
+      internalID: -537118627020614070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_19
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a347db84c08be30800000000000000
+      internalID: 4519375732621982229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_20
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b7d8edcc2795520800000000000000
+      internalID: 2691308476563291011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_21
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b025accb14cbc76f0800000000000000
+      internalID: -685466052740886005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_22
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d755b534f1cbf80800000000000000
+      internalID: -8089556456508654282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HuskySniff_23
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 0
+        width: 47
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26216ba3e884b0670800000000000000
+      internalID: 8505972096926880354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HuskySniff_0: -2852275159147281204
+      HuskySniff_1: 3149689464920351199
+      HuskySniff_10: 2864783197433611481
+      HuskySniff_11: -7966815105884063078
+      HuskySniff_12: 4989328056125942859
+      HuskySniff_13: 5311140620149957289
+      HuskySniff_14: -5802030472997021339
+      HuskySniff_15: -3693376748796912233
+      HuskySniff_16: 7166218772527886294
+      HuskySniff_17: -6416011910036846907
+      HuskySniff_18: -537118627020614070
+      HuskySniff_19: 4519375732621982229
+      HuskySniff_2: -2873346232588324978
+      HuskySniff_20: 2691308476563291011
+      HuskySniff_21: -685466052740886005
+      HuskySniff_22: -8089556456508654282
+      HuskySniff_23: 8505972096926880354
+      HuskySniff_3: 1130935581233249102
+      HuskySniff_4: 733142241645719905
+      HuskySniff_5: 267014978013875595
+      HuskySniff_6: 6056062350253008984
+      HuskySniff_7: -6811285662497495128
+      HuskySniff_8: 1608898694332659815
+      HuskySniff_9: -8130431165748496373
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

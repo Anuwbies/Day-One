@@ -7,11 +7,12 @@ public class EnemyController : MonoBehaviour
     {
         Passive,        // Never attacks, flees when hit
         Aggressive,     // Attacks when player is close
-        Retaliatory     // Attacks only when hit
+        Retaliatory,    // Attacks only when hit
+        FleeOnSight     // Flees when the player is close
     }
 
     [Header("AI Settings")]
-    [Tooltip("Passive: Flees when hit.\nAggressive: Attacks when in range.\nRetaliatory: Attacks when hit.")]
+    [Tooltip("Passive: Flees when hit.\nAggressive: Attacks when in range.\nRetaliatory: Attacks when hit.\nFleeOnSight: Flees when the player enters range.")]
     public AIBehavior behavior = AIBehavior.Aggressive;
 
     [Header("Speed Settings")]
@@ -37,7 +38,7 @@ public class EnemyController : MonoBehaviour
     public bool enableFlip = true;
 
     [Header("Ranges")]
-    [Tooltip("Detection range (X, Y) for Aggressive behavior.")]
+    [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
 
     [Tooltip("Disengage range (X, Y) where enemy stops chasing (or stops fleeing).")]
@@ -47,7 +48,7 @@ public class EnemyController : MonoBehaviour
     public Vector2 stoppingDistance = new Vector2(1.5f, 1.5f);
 
     [Header("References")]
-    [Tooltip("Assign the Player's Collider here.")]
+    [Tooltip("Assign the Player's Collider here. If left empty, it will auto-detect a valid player body collider.")]
     public Collider2D playerCollider;
     [Tooltip("Assign the Enemy's Collider here (optional, will auto-detect).")]
     public Collider2D ownCollider;
@@ -111,13 +112,7 @@ public class EnemyController : MonoBehaviour
             enemyHealth.OnDamageTaken += HandleDamageTaken;
         }
 
-        // Auto-find player collider if not assigned
-        if (playerCollider == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-                playerCollider = playerObj.GetComponent<Collider2D>();
-        }
+        TryAssignPlayerCollider();
     }
 
     private void OnDestroy()
@@ -130,6 +125,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (playerCollider == null)
+        {
+            TryAssignPlayerCollider();
+        }
+
         if (playerCollider == null || enemyHealth.IsDead) return;
 
         // Use centers of colliders for interaction logic
@@ -139,7 +139,7 @@ public class EnemyController : MonoBehaviour
         // 1. Check triggers to START aggression
         if (!IsAggroed)
         {
-            if (behavior == AIBehavior.Aggressive)
+            if (behavior == AIBehavior.Aggressive || behavior == AIBehavior.FleeOnSight)
             {
                 // Check if player is inside the detection ellipse
                 if (IsInEllipticalRange(playerPos, myPos, detectionRange))
@@ -207,7 +207,9 @@ public class EnemyController : MonoBehaviour
     private void HandleDamageTaken()
     {
         // Trigger aggression/action state for Retaliatory (Chase) and Passive (Flee)
-        if (behavior == AIBehavior.Retaliatory || behavior == AIBehavior.Passive)
+        if (behavior == AIBehavior.Retaliatory ||
+            behavior == AIBehavior.Passive ||
+            behavior == AIBehavior.FleeOnSight)
         {
             IsAggroed = true;
         }
@@ -301,7 +303,7 @@ public class EnemyController : MonoBehaviour
             Vector3 myCenter = ownCollider != null ? ownCollider.bounds.center : transform.position;
 
             // --- PASSIVE BEHAVIOR (FLEE) ---
-            if (behavior == AIBehavior.Passive)
+            if (behavior == AIBehavior.Passive || behavior == AIBehavior.FleeOnSight)
             {
                 if (Time.time < fleeLockTimer && lockedFleeDirection != Vector2.zero)
                 {
@@ -531,6 +533,81 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void TryAssignPlayerCollider()
+    {
+        if (playerCollider != null)
+        {
+            return;
+        }
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj == null)
+        {
+            return;
+        }
+
+        playerCollider = FindPreferredPlayerCollider(playerObj);
+    }
+
+    private Collider2D FindPreferredPlayerCollider(GameObject playerObj)
+    {
+        if (playerObj == null)
+        {
+            return null;
+        }
+
+        Collider2D rootCollider = playerObj.GetComponent<Collider2D>();
+        if (IsValidPlayerBodyCollider(rootCollider))
+        {
+            return rootCollider;
+        }
+
+        Rigidbody2D playerRb = playerObj.GetComponent<Rigidbody2D>();
+        Collider2D[] colliders = playerObj.GetComponentsInChildren<Collider2D>(true);
+
+        Collider2D triggerFallback = null;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (candidate == null || !candidate.enabled)
+            {
+                continue;
+            }
+
+            if (playerRb != null && candidate.attachedRigidbody == playerRb && !candidate.isTrigger)
+            {
+                return candidate;
+            }
+
+            if (!candidate.isTrigger && triggerFallback == null)
+            {
+                triggerFallback = candidate;
+            }
+        }
+
+        if (triggerFallback != null)
+        {
+            return triggerFallback;
+        }
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (candidate != null && candidate.enabled)
+            {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    private bool IsValidPlayerBodyCollider(Collider2D candidate)
+    {
+        return candidate != null && candidate.enabled && !candidate.isTrigger;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Vector3 drawCenter = transform.position;
@@ -547,7 +624,7 @@ public class EnemyController : MonoBehaviour
 
         DrawEllipse(drawCenter, disengageRange, Color.red);
 
-        if (behavior == AIBehavior.Aggressive)
+        if (behavior == AIBehavior.Aggressive || behavior == AIBehavior.FleeOnSight)
         {
             DrawEllipse(drawCenter, detectionRange, Color.yellow);
         }

@@ -1,0 +1,3419 @@
+fileFormatVersion: 2
+guid: 193c27100589ee54996bc34b62dc0939
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3497877710270290502
+    second: AllCatsBlack_0
+  - first:
+      213: 6178499832731928099
+    second: AllCatsBlack_1
+  - first:
+      213: -7430125417560219836
+    second: AllCatsBlack_2
+  - first:
+      213: 5007336453395336327
+    second: AllCatsBlack_3
+  - first:
+      213: 5293432750202576817
+    second: AllCatsBlack_4
+  - first:
+      213: 7895233035678695841
+    second: AllCatsBlack_5
+  - first:
+      213: -3515005557835275985
+    second: AllCatsBlack_6
+  - first:
+      213: 5086315698001621653
+    second: AllCatsBlack_7
+  - first:
+      213: 1069767626891988215
+    second: AllCatsBlack_8
+  - first:
+      213: 2817110605846665027
+    second: AllCatsBlack_9
+  - first:
+      213: -8909582912500756506
+    second: AllCatsBlack_10
+  - first:
+      213: -5087627488467281051
+    second: AllCatsBlack_11
+  - first:
+      213: -1669573716181769354
+    second: AllCatsBlack_12
+  - first:
+      213: -8707017960786137680
+    second: AllCatsBlack_13
+  - first:
+      213: -2593077570610169110
+    second: AllCatsBlack_14
+  - first:
+      213: -2691985658423125705
+    second: AllCatsBlack_15
+  - first:
+      213: 5530836284127330587
+    second: AllCatsBlack_16
+  - first:
+      213: 1328185636847974209
+    second: AllCatsBlack_17
+  - first:
+      213: 6034437203303065118
+    second: AllCatsBlack_18
+  - first:
+      213: 7097147177705139438
+    second: AllCatsBlack_19
+  - first:
+      213: -3947409952269288259
+    second: AllCatsBlack_20
+  - first:
+      213: 3453166311413080965
+    second: AllCatsBlack_21
+  - first:
+      213: -8278294784727161882
+    second: AllCatsBlack_22
+  - first:
+      213: -4814377953121959584
+    second: AllCatsBlack_23
+  - first:
+      213: 604613931293416937
+    second: AllCatsBlack_24
+  - first:
+      213: -8365704118887754263
+    second: AllCatsBlack_25
+  - first:
+      213: -2147627343694294677
+    second: AllCatsBlack_26
+  - first:
+      213: 1961993647194454692
+    second: AllCatsBlack_27
+  - first:
+      213: -6717848618659824918
+    second: AllCatsBlack_28
+  - first:
+      213: 6948185405173457499
+    second: AllCatsBlack_29
+  - first:
+      213: 2793927753575626594
+    second: AllCatsBlack_30
+  - first:
+      213: 6087099498115753863
+    second: AllCatsBlack_31
+  - first:
+      213: 118389888743001640
+    second: AllCatsBlack_32
+  - first:
+      213: -5938514102031766741
+    second: AllCatsBlack_33
+  - first:
+      213: -5005193808278699089
+    second: AllCatsBlack_34
+  - first:
+      213: 4478023413382670497
+    second: AllCatsBlack_35
+  - first:
+      213: -9172047554881887605
+    second: AllCatsBlack_36
+  - first:
+      213: 3772457464438182870
+    second: AllCatsBlack_37
+  - first:
+      213: -4263102734003805937
+    second: AllCatsBlack_38
+  - first:
+      213: -6095614874651095839
+    second: AllCatsBlack_39
+  - first:
+      213: -4277482783135627024
+    second: AllCatsBlack_40
+  - first:
+      213: -906638077340197415
+    second: AllCatsBlack_41
+  - first:
+      213: -3457738645757812660
+    second: AllCatsBlack_42
+  - first:
+      213: 6708955502723321803
+    second: AllCatsBlack_43
+  - first:
+      213: -1029893943834469809
+    second: AllCatsBlack_44
+  - first:
+      213: -8334565864997511765
+    second: AllCatsBlack_45
+  - first:
+      213: -6595245805455946908
+    second: AllCatsBlack_46
+  - first:
+      213: 3390315603847202451
+    second: AllCatsBlack_47
+  - first:
+      213: -4998380448012585040
+    second: AllCatsBlack_48
+  - first:
+      213: -8520701172291612920
+    second: AllCatsBlack_49
+  - first:
+      213: 7909388745061863910
+    second: AllCatsBlack_50
+  - first:
+      213: -2109189800120500457
+    second: AllCatsBlack_51
+  - first:
+      213: 7227428281869232115
+    second: AllCatsBlack_52
+  - first:
+      213: -8510020099708586400
+    second: AllCatsBlack_53
+  - first:
+      213: 4696218107106552092
+    second: AllCatsBlack_54
+  - first:
+      213: -4984336795891222720
+    second: AllCatsBlack_55
+  - first:
+      213: -4084574763418720379
+    second: AllCatsBlack_56
+  - first:
+      213: 4053543546353175018
+    second: AllCatsBlack_57
+  - first:
+      213: 6491211120674137311
+    second: AllCatsBlack_58
+  - first:
+      213: -7626637788363949570
+    second: AllCatsBlack_59
+  - first:
+      213: 8146360143497865814
+    second: AllCatsBlack_60
+  - first:
+      213: -6581558914348283165
+    second: AllCatsBlack_61
+  - first:
+      213: -5066684817213190598
+    second: AllCatsBlack_62
+  - first:
+      213: -6464828855326561411
+    second: AllCatsBlack_63
+  - first:
+      213: -4895312952945822127
+    second: AllCatsBlack_64
+  - first:
+      213: 4942966203342703603
+    second: AllCatsBlack_65
+  - first:
+      213: 7144431101578950600
+    second: AllCatsBlack_66
+  - first:
+      213: -5592698468888337776
+    second: AllCatsBlack_67
+  - first:
+      213: 8987957750970380329
+    second: AllCatsBlack_68
+  - first:
+      213: 8809929830029439802
+    second: AllCatsBlack_69
+  - first:
+      213: 1588568397810816842
+    second: AllCatsBlack_70
+  - first:
+      213: 7302710645379050199
+    second: AllCatsBlack_71
+  - first:
+      213: 1570893083921722591
+    second: AllCatsBlack_72
+  - first:
+      213: -8297349265273228756
+    second: AllCatsBlack_73
+  - first:
+      213: -5445570081822697045
+    second: AllCatsBlack_74
+  - first:
+      213: 7570661999972715703
+    second: AllCatsBlack_75
+  - first:
+      213: -3382144173916243252
+    second: AllCatsBlack_76
+  - first:
+      213: 9186705883104958005
+    second: AllCatsBlack_77
+  - first:
+      213: 4883563741607782515
+    second: AllCatsBlack_78
+  - first:
+      213: 9076316340590489603
+    second: AllCatsBlack_79
+  - first:
+      213: -508109662580350456
+    second: AllCatsBlack_80
+  - first:
+      213: 641768347797954686
+    second: AllCatsBlack_81
+  - first:
+      213: -6150161737232389954
+    second: AllCatsBlack_82
+  - first:
+      213: -3560130705423500822
+    second: AllCatsBlack_83
+  - first:
+      213: 1755820862337022252
+    second: AllCatsBlack_84
+  - first:
+      213: 4697178545793964008
+    second: AllCatsBlack_85
+  - first:
+      213: -1720740601192154462
+    second: AllCatsBlack_86
+  - first:
+      213: 3275601454971662103
+    second: AllCatsBlack_87
+  - first:
+      213: -4684452489450930406
+    second: AllCatsBlack_88
+  - first:
+      213: -6380808793638109573
+    second: AllCatsBlack_89
+  - first:
+      213: -2005357270358532727
+    second: AllCatsBlack_90
+  - first:
+      213: 5953979132869629737
+    second: AllCatsBlack_91
+  - first:
+      213: 5685655467032999787
+    second: AllCatsBlack_92
+  - first:
+      213: 6637558495418261900
+    second: AllCatsBlack_93
+  - first:
+      213: 7418874746541276345
+    second: AllCatsBlack_94
+  - first:
+      213: 9209722528568279924
+    second: AllCatsBlack_95
+  - first:
+      213: -5111355367339182267
+    second: AllCatsBlack_96
+  - first:
+      213: -8510370646855475529
+    second: AllCatsBlack_97
+  - first:
+      213: -4769811440797514150
+    second: AllCatsBlack_98
+  - first:
+      213: 6613891309774272060
+    second: AllCatsBlack_99
+  - first:
+      213: 8547244178678639466
+    second: AllCatsBlack_100
+  - first:
+      213: 7480521527123339676
+    second: AllCatsBlack_101
+  - first:
+      213: -3330803992515252914
+    second: AllCatsBlack_102
+  - first:
+      213: -3068382471586342614
+    second: AllCatsBlack_103
+  - first:
+      213: 8357475150287088274
+    second: AllCatsBlack_104
+  - first:
+      213: -8240649670439608338
+    second: AllCatsBlack_105
+  - first:
+      213: 3791015861890700346
+    second: AllCatsBlack_106
+  - first:
+      213: -7945659863977456090
+    second: AllCatsBlack_107
+  - first:
+      213: 6630107524564116402
+    second: AllCatsBlack_108
+  - first:
+      213: -3937450568398985983
+    second: AllCatsBlack_109
+  - first:
+      213: 246837221500479870
+    second: AllCatsBlack_110
+  - first:
+      213: 6080978111274589247
+    second: AllCatsBlack_111
+  - first:
+      213: 3503286475291644857
+    second: AllCatsBlack_112
+  - first:
+      213: -6929471335246822021
+    second: AllCatsBlack_113
+  - first:
+      213: -457950269324985815
+    second: AllCatsBlack_114
+  - first:
+      213: 5997805017441248250
+    second: AllCatsBlack_115
+  - first:
+      213: 5003162068305782328
+    second: AllCatsBlack_116
+  - first:
+      213: -6073706738069924428
+    second: AllCatsBlack_117
+  - first:
+      213: -8786236376771745558
+    second: AllCatsBlack_118
+  - first:
+      213: -8969546182779751225
+    second: AllCatsBlack_119
+  - first:
+      213: -3336146311691878484
+    second: AllCatsBlack_120
+  - first:
+      213: 6351535668798351377
+    second: AllCatsBlack_121
+  - first:
+      213: -5915858379615467854
+    second: AllCatsBlack_122
+  - first:
+      213: -1726878140074975729
+    second: AllCatsBlack_123
+  - first:
+      213: 6797974438500981125
+    second: AllCatsBlack_124
+  - first:
+      213: -8948449866960025098
+    second: AllCatsBlack_125
+  - first:
+      213: 316437082981914544
+    second: AllCatsBlack_126
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AllCatsBlack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1151
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ada64be35fa8030800000000000000
+      internalID: 3497877710270290502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1151
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3260ccedcd07eb550800000000000000
+      internalID: 6178499832731928099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1151
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fd8b99c44e2e890800000000000000
+      internalID: -7430125417560219836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1151
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c4e7f69f1ad7540800000000000000
+      internalID: 5007336453395336327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1151
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf5e3e5a0d067940800000000000000
+      internalID: 5293432750202576817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1151
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1ce8e7d90819d60800000000000000
+      internalID: 7895233035678695841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2164b58111383fc0800000000000000
+      internalID: -3515005557835275985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1087
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59231eacd29369640800000000000000
+      internalID: 5086315698001621653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc0c112df398de00800000000000000
+      internalID: 1069767626891988215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1026
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347d97a9b23681720800000000000000
+      internalID: 2817110605846665027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 959
+        width: 61
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef808bcb8dca5480800000000000000
+      internalID: -8909582912500756506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_11
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b156031cd1569b0800000000000000
+      internalID: -5087627488467281051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_12
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 998
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67328a80d8b74d8e0800000000000000
+      internalID: -1669573716181769354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_13
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd6562eb457a2780800000000000000
+      internalID: -8707017960786137680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea7fb030b9830cd0800000000000000
+      internalID: -2593077570610169110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_15
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 959
+        width: 62
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7395e317e4524aad0800000000000000
+      internalID: -2691985658423125705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11404afb4a71cc40800000000000000
+      internalID: 5530836284127330587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1477918bcc9ae6210800000000000000
+      internalID: 1328185636847974209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16e7422aa0aeb350800000000000000
+      internalID: 6034437203303065118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_19
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eece7cd71c12e7260800000000000000
+      internalID: 7097147177705139438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_20
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcb52c009bf739c0800000000000000
+      internalID: -3947409952269288259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5836f1ee67c1cef20800000000000000
+      internalID: 3453166311413080965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_22
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e36e5ae0c69d1d80800000000000000
+      internalID: -8278294784727161882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_23
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06181b162c4ef2db0800000000000000
+      internalID: -4814377953121959584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_24
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed1ff8ca25046800800000000000000
+      internalID: 604613931293416937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_25
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e55ca16d6c07eb80800000000000000
+      internalID: -8365704118887754263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b619f2d3f481232e0800000000000000
+      internalID: -2147627343694294677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 838
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa3998b3d66a3b10800000000000000
+      internalID: 1961993647194454692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 837
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeabee5264865c2a0800000000000000
+      internalID: -6717848618659824918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 837
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52eaec10d9ec6060800000000000000
+      internalID: 6948185405173457499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_30
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 836
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267faff2d7606c620800000000000000
+      internalID: 2793927753575626594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_31
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 836
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787e5a12eb8b97450800000000000000
+      internalID: 6087099498115753863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_32
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 837
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e468ff9fa94a100800000000000000
+      internalID: 118389888743001640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bafb643e8269da0800000000000000
+      internalID: -5938514102031766741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_34
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3409100caf98ab0800000000000000
+      internalID: -5005193808278699089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 784
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a86e82a192252e30800000000000000
+      internalID: 4478023413382670497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_36
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82664c285756b080800000000000000
+      internalID: -9172047554881887605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_37
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3db1a93167a5430800000000000000
+      internalID: 3772457464438182870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_38
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 768
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01e4ba76aa66d4c0800000000000000
+      internalID: -4263102734003805937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_39
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 767
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec85d44196086ba0800000000000000
+      internalID: -6095614874651095839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_40
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f80a52621453a4c0800000000000000
+      internalID: -4277482783135627024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_41
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 767
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd5b44e879fa63f0800000000000000
+      internalID: -906638077340197415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_42
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4027758505a300d0800000000000000
+      internalID: -3457738645757812660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_43
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 769
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfc9b1fb7ffa1d50800000000000000
+      internalID: 6708955502723321803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_44
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 772
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a9b692ae415b1f0800000000000000
+      internalID: -1029893943834469809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_45
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 703
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad1ab3118ca55c80800000000000000
+      internalID: -8334565864997511765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 703
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bc96f02eaf874a0800000000000000
+      internalID: -6595245805455946908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_47
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 703
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396c6cb3412dc0f20800000000000000
+      internalID: 3390315603847202451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_48
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7b3ff077f22aab0800000000000000
+      internalID: -4998380448012585040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_49
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80fcd4cad6360c980800000000000000
+      internalID: -8520701172291612920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_50
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e192eb682bc3cd60800000000000000
+      internalID: 7909388745061863910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_51
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fb0ff3d07aab2e0800000000000000
+      internalID: -2109189800120500457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_52
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f76d64dabbfc4460800000000000000
+      internalID: 7227428281869232115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_53
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0667f6daec556e980800000000000000
+      internalID: -8510020099708586400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_54
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19e7dd9c715c2140800000000000000
+      internalID: 4696218107106552092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_55
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047beff971414dab0800000000000000
+      internalID: -4984336795891222720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_56
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587e6e7c4eca057c0800000000000000
+      internalID: -4084574763418720379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_57
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 642
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae945f9f064114830800000000000000
+      internalID: 4053543546353175018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_58
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4e8d15f1a651a50800000000000000
+      internalID: 6491211120674137311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_59
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef9fef1d65db82690800000000000000
+      internalID: -7626637788363949570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_60
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65a2795a36fad0170800000000000000
+      internalID: 8146360143497865814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_61
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea07f9b90b99a4a0800000000000000
+      internalID: -6581558914348283165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_62
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e8421d0058fa9b0800000000000000
+      internalID: -5066684817213190598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_63
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ba09088605846a0800000000000000
+      internalID: -6464828855326561411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_64
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156bb474eca501cb0800000000000000
+      internalID: -4895312952945822127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_65
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fbc00fa291f89440800000000000000
+      internalID: 4942966203342703603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_66
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7bddbeb3e162360800000000000000
+      internalID: 7144431101578950600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_67
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0922a0abf5eb262b0800000000000000
+      internalID: -5592698468888337776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_68
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920feca44f3abbc70800000000000000
+      internalID: 8987957750970380329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_69
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33b50fd088234a70800000000000000
+      internalID: 8809929830029439802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_70
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47dcec8a8abb0610800000000000000
+      internalID: 1588568397810816842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_71
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7da284bf3a0785560800000000000000
+      internalID: 7302710645379050199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_72
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdca547dfeeecc510800000000000000
+      internalID: 1570893083921722591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_73
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c227a02fdc4e9dc80800000000000000
+      internalID: -8297349265273228756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_74
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba99679ccd27d64b0800000000000000
+      internalID: -5445570081822697045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_75
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc0ce65af4601960800000000000000
+      internalID: 7570661999972715703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_76
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccab09e0bc53011d0800000000000000
+      internalID: -3382144173916243252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_77
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5365672d35cbd7f70800000000000000
+      internalID: 9186705883104958005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_78
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37862884957e5c340800000000000000
+      internalID: 4883563741607782515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_79
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30038f59f9d85fd70800000000000000
+      internalID: 9076316340590489603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_80
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80264f634f4d2f8f0800000000000000
+      internalID: -508109662580350456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_81
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70269e79e408e800800000000000000
+      internalID: 641768347797954686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_82
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb860152c7c36aaa0800000000000000
+      internalID: -6150161737232389954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_83
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9754d5cffd79ec0800000000000000
+      internalID: -3560130705423500822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_84
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2971d485cded5810800000000000000
+      internalID: 1755820862337022252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_85
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e792ac200bbf2140800000000000000
+      internalID: 4697178545793964008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_86
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa79534a83be18e0800000000000000
+      internalID: -1720740601192154462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_87
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 383
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fa65d1b26457d20800000000000000
+      internalID: 3275601454971662103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_88
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f3517b74b7dfeb0800000000000000
+      internalID: -4684452489450930406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_89
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ef28b8530d277a0800000000000000
+      internalID: -6380808793638109573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_90
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d588cff2a8b24e0800000000000000
+      internalID: -2005357270358532727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_91
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92758cec978c0a250800000000000000
+      internalID: 5953979132869629737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_92
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6772cbf58187ee40800000000000000
+      internalID: 5685655467032999787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_93
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c812847c8485d1c50800000000000000
+      internalID: 6637558495418261900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_94
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc75bc664325f660800000000000000
+      internalID: 7418874746541276345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_95
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 319
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473893338d18fcf70800000000000000
+      internalID: 9209722528568279924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_96
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 319
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54736f0ef51d019b0800000000000000
+      internalID: -5111355367339182267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_97
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 255
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be944f8cf615e980800000000000000
+      internalID: -8510370646855475529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_98
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a568ba124c93ecdb0800000000000000
+      internalID: -4769811440797514150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_99
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 255
+        width: 48
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c367326ba1349cb50800000000000000
+      internalID: 6613891309774272060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_100
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b6aa69b49ed9670800000000000000
+      internalID: 8547244178678639466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_101
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 197
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9969d602b620d760800000000000000
+      internalID: 7480521527123339676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_102
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 197
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4deca98a6b96c1d0800000000000000
+      internalID: -3330803992515252914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_103
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 197
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a299f0a266aea65d0800000000000000
+      internalID: -3068382471586342614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_104
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 197
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a24009e57bbf370800000000000000
+      internalID: 8357475150287088274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_105
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefd10b19c453ad80800000000000000
+      internalID: -8240649670439608338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_106
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34ddd937d46c9430800000000000000
+      internalID: 3791015861890700346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_107
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 133
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e8b8d93785bb190800000000000000
+      internalID: -7945659863977456090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_108
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 133
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3e9407aafd20c50800000000000000
+      internalID: 6630107524564116402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_109
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 133
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1052bedc19d5b59c0800000000000000
+      internalID: -3937450568398985983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_110
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 133
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7961e82521fc6300800000000000000
+      internalID: 246837221500479870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_111
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 133
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c9271bf59f36450800000000000000
+      internalID: 6080978111274589247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_112
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 70
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b35032fc7c2e9030800000000000000
+      internalID: 3503286475291644857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_113
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b758c55d88295df90800000000000000
+      internalID: -6929471335246822021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_114
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 69
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92af61808a805a9f0800000000000000
+      internalID: -457950269324985815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_115
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 68
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af324a8b2eb7c3350800000000000000
+      internalID: 5997805017441248250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_116
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 68
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836231ba46dce6540800000000000000
+      internalID: 5003162068305782328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_117
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 69
+        width: 50
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5127fc6ebd5bba0800000000000000
+      internalID: -6073706738069924428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_118
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 69
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8a7e91194011680800000000000000
+      internalID: -8786236376771745558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_119
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 69
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4b3faf445c58380800000000000000
+      internalID: -8969546182779751225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_120
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf30ecea90a3b1d0800000000000000
+      internalID: -3336146311691878484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_121
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118e2f4f900352850800000000000000
+      internalID: 6351535668798351377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_122
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b68085b526a6eda0800000000000000
+      internalID: -5915858379615467854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_123
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e91722b75e808e0800000000000000
+      internalID: -1726878140074975729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_124
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 5
+        width: 51
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589590f0cb1475e50800000000000000
+      internalID: 6797974438500981125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_125
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 5
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9c475c148b0d380800000000000000
+      internalID: -8948449866960025098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsBlack_126
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7d5e4b9d5346400800000000000000
+      internalID: 316437082981914544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AllCatsBlack_0: 3497877710270290502
+      AllCatsBlack_1: 6178499832731928099
+      AllCatsBlack_10: -8909582912500756506
+      AllCatsBlack_100: 8547244178678639466
+      AllCatsBlack_101: 7480521527123339676
+      AllCatsBlack_102: -3330803992515252914
+      AllCatsBlack_103: -3068382471586342614
+      AllCatsBlack_104: 8357475150287088274
+      AllCatsBlack_105: -8240649670439608338
+      AllCatsBlack_106: 3791015861890700346
+      AllCatsBlack_107: -7945659863977456090
+      AllCatsBlack_108: 6630107524564116402
+      AllCatsBlack_109: -3937450568398985983
+      AllCatsBlack_11: -5087627488467281051
+      AllCatsBlack_110: 246837221500479870
+      AllCatsBlack_111: 6080978111274589247
+      AllCatsBlack_112: 3503286475291644857
+      AllCatsBlack_113: -6929471335246822021
+      AllCatsBlack_114: -457950269324985815
+      AllCatsBlack_115: 5997805017441248250
+      AllCatsBlack_116: 5003162068305782328
+      AllCatsBlack_117: -6073706738069924428
+      AllCatsBlack_118: -8786236376771745558
+      AllCatsBlack_119: -8969546182779751225
+      AllCatsBlack_12: -1669573716181769354
+      AllCatsBlack_120: -3336146311691878484
+      AllCatsBlack_121: 6351535668798351377
+      AllCatsBlack_122: -5915858379615467854
+      AllCatsBlack_123: -1726878140074975729
+      AllCatsBlack_124: 6797974438500981125
+      AllCatsBlack_125: -8948449866960025098
+      AllCatsBlack_126: 316437082981914544
+      AllCatsBlack_13: -8707017960786137680
+      AllCatsBlack_14: -2593077570610169110
+      AllCatsBlack_15: -2691985658423125705
+      AllCatsBlack_16: 5530836284127330587
+      AllCatsBlack_17: 1328185636847974209
+      AllCatsBlack_18: 6034437203303065118
+      AllCatsBlack_19: 7097147177705139438
+      AllCatsBlack_2: -7430125417560219836
+      AllCatsBlack_20: -3947409952269288259
+      AllCatsBlack_21: 3453166311413080965
+      AllCatsBlack_22: -8278294784727161882
+      AllCatsBlack_23: -4814377953121959584
+      AllCatsBlack_24: 604613931293416937
+      AllCatsBlack_25: -8365704118887754263
+      AllCatsBlack_26: -2147627343694294677
+      AllCatsBlack_27: 1961993647194454692
+      AllCatsBlack_28: -6717848618659824918
+      AllCatsBlack_29: 6948185405173457499
+      AllCatsBlack_3: 5007336453395336327
+      AllCatsBlack_30: 2793927753575626594
+      AllCatsBlack_31: 6087099498115753863
+      AllCatsBlack_32: 118389888743001640
+      AllCatsBlack_33: -5938514102031766741
+      AllCatsBlack_34: -5005193808278699089
+      AllCatsBlack_35: 4478023413382670497
+      AllCatsBlack_36: -9172047554881887605
+      AllCatsBlack_37: 3772457464438182870
+      AllCatsBlack_38: -4263102734003805937
+      AllCatsBlack_39: -6095614874651095839
+      AllCatsBlack_4: 5293432750202576817
+      AllCatsBlack_40: -4277482783135627024
+      AllCatsBlack_41: -906638077340197415
+      AllCatsBlack_42: -3457738645757812660
+      AllCatsBlack_43: 6708955502723321803
+      AllCatsBlack_44: -1029893943834469809
+      AllCatsBlack_45: -8334565864997511765
+      AllCatsBlack_46: -6595245805455946908
+      AllCatsBlack_47: 3390315603847202451
+      AllCatsBlack_48: -4998380448012585040
+      AllCatsBlack_49: -8520701172291612920
+      AllCatsBlack_5: 7895233035678695841
+      AllCatsBlack_50: 7909388745061863910
+      AllCatsBlack_51: -2109189800120500457
+      AllCatsBlack_52: 7227428281869232115
+      AllCatsBlack_53: -8510020099708586400
+      AllCatsBlack_54: 4696218107106552092
+      AllCatsBlack_55: -4984336795891222720
+      AllCatsBlack_56: -4084574763418720379
+      AllCatsBlack_57: 4053543546353175018
+      AllCatsBlack_58: 6491211120674137311
+      AllCatsBlack_59: -7626637788363949570
+      AllCatsBlack_6: -3515005557835275985
+      AllCatsBlack_60: 8146360143497865814
+      AllCatsBlack_61: -6581558914348283165
+      AllCatsBlack_62: -5066684817213190598
+      AllCatsBlack_63: -6464828855326561411
+      AllCatsBlack_64: -4895312952945822127
+      AllCatsBlack_65: 4942966203342703603
+      AllCatsBlack_66: 7144431101578950600
+      AllCatsBlack_67: -5592698468888337776
+      AllCatsBlack_68: 8987957750970380329
+      AllCatsBlack_69: 8809929830029439802
+      AllCatsBlack_7: 5086315698001621653
+      AllCatsBlack_70: 1588568397810816842
+      AllCatsBlack_71: 7302710645379050199
+      AllCatsBlack_72: 1570893083921722591
+      AllCatsBlack_73: -8297349265273228756
+      AllCatsBlack_74: -5445570081822697045
+      AllCatsBlack_75: 7570661999972715703
+      AllCatsBlack_76: -3382144173916243252
+      AllCatsBlack_77: 9186705883104958005
+      AllCatsBlack_78: 4883563741607782515
+      AllCatsBlack_79: 9076316340590489603
+      AllCatsBlack_8: 1069767626891988215
+      AllCatsBlack_80: -508109662580350456
+      AllCatsBlack_81: 641768347797954686
+      AllCatsBlack_82: -6150161737232389954
+      AllCatsBlack_83: -3560130705423500822
+      AllCatsBlack_84: 1755820862337022252
+      AllCatsBlack_85: 4697178545793964008
+      AllCatsBlack_86: -1720740601192154462
+      AllCatsBlack_87: 3275601454971662103
+      AllCatsBlack_88: -4684452489450930406
+      AllCatsBlack_89: -6380808793638109573
+      AllCatsBlack_9: 2817110605846665027
+      AllCatsBlack_90: -2005357270358532727
+      AllCatsBlack_91: 5953979132869629737
+      AllCatsBlack_92: 5685655467032999787
+      AllCatsBlack_93: 6637558495418261900
+      AllCatsBlack_94: 7418874746541276345
+      AllCatsBlack_95: 9209722528568279924
+      AllCatsBlack_96: -5111355367339182267
+      AllCatsBlack_97: -8510370646855475529
+      AllCatsBlack_98: -4769811440797514150
+      AllCatsBlack_99: 6613891309774272060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

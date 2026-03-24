@@ -14,6 +14,10 @@ public class YSorter : MonoBehaviour
 
     public float sortYOffset = 0f;   // Sorting pivot relative to object
     public int offset = 0;
+    [Tooltip("If enabled, this renderer will always stay behind the player.")]
+    public bool alwaysBehindPlayer = false;
+    [Tooltip("If enabled, this renderer will always stay behind the nearest parent sort reference in the hierarchy.")]
+    public bool alwaysBehindParent = false;
 
     [Header("Transparency Settings")]
     public bool enableTransparency = true;
@@ -28,6 +32,8 @@ public class YSorter : MonoBehaviour
     private Transform playerTransform;
     private float targetAlpha = 1f;
     private float originalAlpha = 1f;
+    private const float PivotGizmoRadius = 0.025f;
+    private const float PlayerGizmoRadius = 0.05f;
 
     void Awake()
     {
@@ -60,7 +66,23 @@ public class YSorter : MonoBehaviour
         float pivotY = transform.position.y + sortYOffset;
         if (sr != null)
         {
-            sr.sortingOrder = Mathf.RoundToInt(-(pivotY * 100)) + offset;
+            int sortingOrder = Mathf.RoundToInt(-(pivotY * 100)) + offset;
+
+            if (alwaysBehindPlayer && playerTransform != null)
+            {
+                int playerSortingOrder = playerSR != null
+                    ? playerSR.sortingOrder
+                    : Mathf.RoundToInt(-(playerTransform.position.y * 100));
+
+                sortingOrder = Mathf.Min(sortingOrder, playerSortingOrder - 1);
+            }
+
+            if (alwaysBehindParent && TryGetParentSortingOrder(out int parentSortingOrder))
+            {
+                sortingOrder = Mathf.Min(sortingOrder, parentSortingOrder - 1);
+            }
+
+            sr.sortingOrder = sortingOrder;
         }
 
         if (enableTransparency && playerTransform != null)
@@ -114,11 +136,16 @@ public class YSorter : MonoBehaviour
     // Draw pivot gizmo
     void OnDrawGizmos()
     {
+        if (alwaysBehindPlayer)
+        {
+            return;
+        }
+
         Vector3 pivot = transform.position + new Vector3(0, sortYOffset, 0);
         
         // 1. Draw the Sorting Pivot (Yellow)
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(pivot, 0.05f);
+        Gizmos.DrawSphere(pivot, PivotGizmoRadius);
 
         if (enableTransparency && triggerAreas != null)
         {
@@ -142,7 +169,7 @@ public class YSorter : MonoBehaviour
         if (pTransform != null)
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(pTransform.position, 0.1f);
+            Gizmos.DrawWireSphere(pTransform.position, PlayerGizmoRadius);
         }
     }
 
@@ -178,5 +205,42 @@ public class YSorter : MonoBehaviour
             Gizmos.DrawLine(prevPoint, nextPoint);
             prevPoint = nextPoint;
         }
+    }
+
+    private bool TryGetParentSortingOrder(out int sortingOrder)
+    {
+        Transform current = transform.parent;
+        while (current != null)
+        {
+            YSorter parentSorter = current.GetComponent<YSorter>();
+            if (parentSorter != null)
+            {
+                sortingOrder = parentSorter.GetCurrentSortingOrder();
+                return true;
+            }
+
+            SpriteRenderer parentRenderer = current.GetComponent<SpriteRenderer>();
+            if (parentRenderer != null)
+            {
+                sortingOrder = parentRenderer.sortingOrder;
+                return true;
+            }
+
+            current = current.parent;
+        }
+
+        sortingOrder = 0;
+        return false;
+    }
+
+    private int GetCurrentSortingOrder()
+    {
+        if (sr != null)
+        {
+            return sr.sortingOrder;
+        }
+
+        float pivotY = transform.position.y + sortYOffset;
+        return Mathf.RoundToInt(-(pivotY * 100)) + offset;
     }
 }

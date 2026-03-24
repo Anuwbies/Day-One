@@ -1,0 +1,3419 @@
+fileFormatVersion: 2
+guid: bc54ee7b55188ab44a731ae57250ab09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8181594741872141162
+    second: AllCatsGreyWhite_0
+  - first:
+      213: -4424818280130131523
+    second: AllCatsGreyWhite_1
+  - first:
+      213: -2763601460287535785
+    second: AllCatsGreyWhite_2
+  - first:
+      213: 3329945599229772792
+    second: AllCatsGreyWhite_3
+  - first:
+      213: -7934501210071152115
+    second: AllCatsGreyWhite_4
+  - first:
+      213: 3061534326065854086
+    second: AllCatsGreyWhite_5
+  - first:
+      213: 2748394298693089895
+    second: AllCatsGreyWhite_6
+  - first:
+      213: -3609314766257759397
+    second: AllCatsGreyWhite_7
+  - first:
+      213: 4241436897800229231
+    second: AllCatsGreyWhite_8
+  - first:
+      213: -1881041627728575829
+    second: AllCatsGreyWhite_9
+  - first:
+      213: 692114947805816441
+    second: AllCatsGreyWhite_10
+  - first:
+      213: -4223029646396300683
+    second: AllCatsGreyWhite_11
+  - first:
+      213: -3524663878968234418
+    second: AllCatsGreyWhite_12
+  - first:
+      213: -4258419727653237702
+    second: AllCatsGreyWhite_13
+  - first:
+      213: 7897068468169100531
+    second: AllCatsGreyWhite_14
+  - first:
+      213: 4429522143395473506
+    second: AllCatsGreyWhite_15
+  - first:
+      213: 3884987866345545134
+    second: AllCatsGreyWhite_16
+  - first:
+      213: -1944767975115086164
+    second: AllCatsGreyWhite_17
+  - first:
+      213: -8739244212394363558
+    second: AllCatsGreyWhite_18
+  - first:
+      213: 1861878392193320592
+    second: AllCatsGreyWhite_19
+  - first:
+      213: -5785959859542895014
+    second: AllCatsGreyWhite_20
+  - first:
+      213: -1857742259011150150
+    second: AllCatsGreyWhite_21
+  - first:
+      213: -5498063764011625680
+    second: AllCatsGreyWhite_22
+  - first:
+      213: 1328428699255669482
+    second: AllCatsGreyWhite_23
+  - first:
+      213: 5402995623439914851
+    second: AllCatsGreyWhite_24
+  - first:
+      213: -5224954016910608690
+    second: AllCatsGreyWhite_25
+  - first:
+      213: -4070815729085682648
+    second: AllCatsGreyWhite_26
+  - first:
+      213: -5041725913507258600
+    second: AllCatsGreyWhite_27
+  - first:
+      213: -493111801324297459
+    second: AllCatsGreyWhite_28
+  - first:
+      213: -3259447243259537032
+    second: AllCatsGreyWhite_29
+  - first:
+      213: -5874827954776933995
+    second: AllCatsGreyWhite_30
+  - first:
+      213: 6487519581059641501
+    second: AllCatsGreyWhite_31
+  - first:
+      213: -4836814823102427186
+    second: AllCatsGreyWhite_32
+  - first:
+      213: -7298343557335020616
+    second: AllCatsGreyWhite_33
+  - first:
+      213: 5163834961874473153
+    second: AllCatsGreyWhite_34
+  - first:
+      213: -2125920549882618946
+    second: AllCatsGreyWhite_35
+  - first:
+      213: -5730040207389672236
+    second: AllCatsGreyWhite_36
+  - first:
+      213: -1490549063390263974
+    second: AllCatsGreyWhite_37
+  - first:
+      213: 368130618880403879
+    second: AllCatsGreyWhite_38
+  - first:
+      213: -21634510307324885
+    second: AllCatsGreyWhite_39
+  - first:
+      213: -6505975056739076000
+    second: AllCatsGreyWhite_40
+  - first:
+      213: 6824313314823379138
+    second: AllCatsGreyWhite_41
+  - first:
+      213: -1822542841857564458
+    second: AllCatsGreyWhite_42
+  - first:
+      213: -4790627189794701145
+    second: AllCatsGreyWhite_43
+  - first:
+      213: 7914825599240262723
+    second: AllCatsGreyWhite_44
+  - first:
+      213: 205080216530990835
+    second: AllCatsGreyWhite_45
+  - first:
+      213: 5914053469378398681
+    second: AllCatsGreyWhite_46
+  - first:
+      213: -2215431015943715152
+    second: AllCatsGreyWhite_47
+  - first:
+      213: -935924797410857615
+    second: AllCatsGreyWhite_48
+  - first:
+      213: 3501087386514160997
+    second: AllCatsGreyWhite_49
+  - first:
+      213: -4209956250145750395
+    second: AllCatsGreyWhite_50
+  - first:
+      213: 8052409592544221707
+    second: AllCatsGreyWhite_51
+  - first:
+      213: -4487213571594768873
+    second: AllCatsGreyWhite_52
+  - first:
+      213: -6328348614314790499
+    second: AllCatsGreyWhite_53
+  - first:
+      213: 4969003009039494187
+    second: AllCatsGreyWhite_54
+  - first:
+      213: -395994734255961763
+    second: AllCatsGreyWhite_55
+  - first:
+      213: 7835515784784968852
+    second: AllCatsGreyWhite_56
+  - first:
+      213: -3277404120819224525
+    second: AllCatsGreyWhite_57
+  - first:
+      213: 7458281158601709432
+    second: AllCatsGreyWhite_58
+  - first:
+      213: 8415637205694105229
+    second: AllCatsGreyWhite_59
+  - first:
+      213: -7292808261576330753
+    second: AllCatsGreyWhite_60
+  - first:
+      213: -982246039218027661
+    second: AllCatsGreyWhite_61
+  - first:
+      213: 1612629802642845110
+    second: AllCatsGreyWhite_62
+  - first:
+      213: 1498671459651085432
+    second: AllCatsGreyWhite_63
+  - first:
+      213: -3745548155056815514
+    second: AllCatsGreyWhite_64
+  - first:
+      213: 804823297264545763
+    second: AllCatsGreyWhite_65
+  - first:
+      213: -1117834154427623216
+    second: AllCatsGreyWhite_66
+  - first:
+      213: -7563264521666450997
+    second: AllCatsGreyWhite_67
+  - first:
+      213: 4394456448473742856
+    second: AllCatsGreyWhite_68
+  - first:
+      213: 4994328482789828306
+    second: AllCatsGreyWhite_69
+  - first:
+      213: 8855936615157106059
+    second: AllCatsGreyWhite_70
+  - first:
+      213: -199377991928913002
+    second: AllCatsGreyWhite_71
+  - first:
+      213: -742095689164897898
+    second: AllCatsGreyWhite_72
+  - first:
+      213: -6089053240086787095
+    second: AllCatsGreyWhite_73
+  - first:
+      213: 1965466145469975941
+    second: AllCatsGreyWhite_74
+  - first:
+      213: 528527430041617618
+    second: AllCatsGreyWhite_75
+  - first:
+      213: 5924872655630725369
+    second: AllCatsGreyWhite_76
+  - first:
+      213: 7341641297984775690
+    second: AllCatsGreyWhite_77
+  - first:
+      213: -2182161075801540541
+    second: AllCatsGreyWhite_78
+  - first:
+      213: 6148819400371561397
+    second: AllCatsGreyWhite_79
+  - first:
+      213: 5226754966232722997
+    second: AllCatsGreyWhite_80
+  - first:
+      213: -7392823768390048974
+    second: AllCatsGreyWhite_81
+  - first:
+      213: 4073659735904758917
+    second: AllCatsGreyWhite_82
+  - first:
+      213: -7545150659410307791
+    second: AllCatsGreyWhite_83
+  - first:
+      213: 7492393662842786075
+    second: AllCatsGreyWhite_84
+  - first:
+      213: 2255338902944763818
+    second: AllCatsGreyWhite_85
+  - first:
+      213: -4600497983056679717
+    second: AllCatsGreyWhite_86
+  - first:
+      213: 6071058502050981023
+    second: AllCatsGreyWhite_87
+  - first:
+      213: -3414331925481584740
+    second: AllCatsGreyWhite_88
+  - first:
+      213: 5484062555295889134
+    second: AllCatsGreyWhite_89
+  - first:
+      213: -4138362503664362926
+    second: AllCatsGreyWhite_90
+  - first:
+      213: -1611079974165913547
+    second: AllCatsGreyWhite_91
+  - first:
+      213: 4482648248019363816
+    second: AllCatsGreyWhite_92
+  - first:
+      213: 1449537742174563786
+    second: AllCatsGreyWhite_93
+  - first:
+      213: 6052046300587980439
+    second: AllCatsGreyWhite_94
+  - first:
+      213: 3731256098269231329
+    second: AllCatsGreyWhite_95
+  - first:
+      213: -4200779691676439603
+    second: AllCatsGreyWhite_96
+  - first:
+      213: -2626078804169933557
+    second: AllCatsGreyWhite_97
+  - first:
+      213: 7409911434066871500
+    second: AllCatsGreyWhite_98
+  - first:
+      213: -3982180040569436842
+    second: AllCatsGreyWhite_99
+  - first:
+      213: 6020884405725162556
+    second: AllCatsGreyWhite_100
+  - first:
+      213: 6145991187774140314
+    second: AllCatsGreyWhite_101
+  - first:
+      213: 8016364457837221673
+    second: AllCatsGreyWhite_102
+  - first:
+      213: 3388048609849304208
+    second: AllCatsGreyWhite_103
+  - first:
+      213: -1841918255608455906
+    second: AllCatsGreyWhite_104
+  - first:
+      213: 7160080548876312665
+    second: AllCatsGreyWhite_105
+  - first:
+      213: 2081979665100999480
+    second: AllCatsGreyWhite_106
+  - first:
+      213: -2123449366364095003
+    second: AllCatsGreyWhite_107
+  - first:
+      213: 9214383284116541951
+    second: AllCatsGreyWhite_108
+  - first:
+      213: 840259383078366635
+    second: AllCatsGreyWhite_109
+  - first:
+      213: 7791412111316782733
+    second: AllCatsGreyWhite_110
+  - first:
+      213: 5195028199578236298
+    second: AllCatsGreyWhite_111
+  - first:
+      213: -1236522811688461270
+    second: AllCatsGreyWhite_112
+  - first:
+      213: -7953159256923755762
+    second: AllCatsGreyWhite_113
+  - first:
+      213: -512252404308579276
+    second: AllCatsGreyWhite_114
+  - first:
+      213: -2909824092496719865
+    second: AllCatsGreyWhite_115
+  - first:
+      213: -3779386309494539508
+    second: AllCatsGreyWhite_116
+  - first:
+      213: -4943154880708382122
+    second: AllCatsGreyWhite_117
+  - first:
+      213: 1986393561135863990
+    second: AllCatsGreyWhite_118
+  - first:
+      213: -3880607455613676223
+    second: AllCatsGreyWhite_119
+  - first:
+      213: 3360197502488809832
+    second: AllCatsGreyWhite_120
+  - first:
+      213: 3339283083207684723
+    second: AllCatsGreyWhite_121
+  - first:
+      213: -5422616225515988724
+    second: AllCatsGreyWhite_122
+  - first:
+      213: 6204466151298547490
+    second: AllCatsGreyWhite_123
+  - first:
+      213: -2396602455982050087
+    second: AllCatsGreyWhite_124
+  - first:
+      213: 8697702356294777970
+    second: AllCatsGreyWhite_125
+  - first:
+      213: -5194825110041907467
+    second: AllCatsGreyWhite_126
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1151
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69cd1822ee2257e80800000000000000
+      internalID: -8181594741872141162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1151
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db94039c733e792c0800000000000000
+      internalID: -4424818280130131523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1151
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7558fc23d17b5a9d0800000000000000
+      internalID: -2763601460287535785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1151
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3477331e7563e20800000000000000
+      internalID: 3329945599229772792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1151
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a4dcf203df2e190800000000000000
+      internalID: -7934501210071152115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1151
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686f1d4bf31cc7a20800000000000000
+      internalID: 3061534326065854086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a7f449d02442620800000000000000
+      internalID: 2748394298693089895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1087
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5b52a2d75329edc0800000000000000
+      internalID: -3609314766257759397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f611e9ee26c9cda30800000000000000
+      internalID: 4241436897800229231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1026
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba204831b9235e5e0800000000000000
+      internalID: -1881041627728575829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 959
+        width: 61
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97624b7c0e2ea9900800000000000000
+      internalID: 692114947805816441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_11
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 572ea9249e8c465c0800000000000000
+      internalID: -4223029646396300683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_12
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 998
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ea27560e0e51fc0800000000000000
+      internalID: -3524663878968234418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_13
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c86bcd1dd07e4c0800000000000000
+      internalID: -4258419727653237702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc482c6ee5089d60800000000000000
+      internalID: 7897068468169100531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_15
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 959
+        width: 62
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26860d9bbe2d87d30800000000000000
+      internalID: 4429522143395473506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead9a3281ef3ae530800000000000000
+      internalID: 3884987866345545134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6a5b894dbc205e0800000000000000
+      internalID: -1944767975115086164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5578daf0b7f7b680800000000000000
+      internalID: -8739244212394363558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_19
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09688a57888b6d910800000000000000
+      internalID: 1861878392193320592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_20
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56d64fb92424bfa0800000000000000
+      internalID: -5785959859542895014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe98671249f736e0800000000000000
+      internalID: -1857742259011150150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_22
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033d3a9f224f2b3b0800000000000000
+      internalID: -5498063764011625680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_23
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae281981dd68f6210800000000000000
+      internalID: 1328428699255669482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_24
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 367502aa4eb4bfa40800000000000000
+      internalID: 5402995623439914851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_25
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6fa4e210c3d77b0800000000000000
+      internalID: -5224954016910608690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c66c999ae8187c0800000000000000
+      internalID: -4070815729085682648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 838
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f948e6ef0380ab0800000000000000
+      internalID: -5041725913507258600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 837
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d032387ed6d1829f0800000000000000
+      internalID: -493111801324297459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 837
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8799365600e14c2d0800000000000000
+      internalID: -3259447243259537032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_30
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 836
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5997cfee91b687ea0800000000000000
+      internalID: -5874827954776933995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_31
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 836
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d907376cfac480a50800000000000000
+      internalID: 6487519581059641501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_32
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 837
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfc2a08b8e20ecb0800000000000000
+      internalID: -4836814823102427186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb0940f33317ba90800000000000000
+      internalID: -7298343557335020616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_34
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c05545e980a9a740800000000000000
+      internalID: 5163834961874473153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 784
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb1b8306863f72e0800000000000000
+      internalID: -2125920549882618946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_36
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc35d95aceca70b0800000000000000
+      internalID: -5730040207389672236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_37
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55055c2681805be0800000000000000
+      internalID: -1490549063390263974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_38
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 768
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a9af41f8dcdb1500800000000000000
+      internalID: 368130618880403879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_39
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 767
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c0e3a078323bff0800000000000000
+      internalID: -21634510307324885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_40
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068f381f72226b5a0800000000000000
+      internalID: -6505975056739076000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_41
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 767
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c814069dc4d4be50800000000000000
+      internalID: 6824313314823379138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_42
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0262b01f605b6e0800000000000000
+      internalID: -1822542841857564458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_43
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 769
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a085f4e3f5448db0800000000000000
+      internalID: -4790627189794701145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_44
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 772
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34452eda2fb17dd60800000000000000
+      internalID: 7914825599240262723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_45
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 703
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f63ac0de5798d200800000000000000
+      internalID: 205080216530990835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 703
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d947f0eb40f21250800000000000000
+      internalID: 5914053469378398681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_47
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 703
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6ca469a353141e0800000000000000
+      internalID: -2215431015943715152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_48
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17da8d10b5de203f0800000000000000
+      internalID: -935924797410857615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_49
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56df6c0bd6c569030800000000000000
+      internalID: 3501087386514160997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_50
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5828026881b3395c0800000000000000
+      internalID: -4209956250145750395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_51
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0adb856cd7efbf60800000000000000
+      internalID: 8052409592544221707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_52
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e28c9e7073ab1c0800000000000000
+      internalID: -4487213571594768873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_53
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d917eecd6703d28a0800000000000000
+      internalID: -6328348614314790499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_54
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c65a9e8e175f440800000000000000
+      internalID: 4969003009039494187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_55
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d598fb323e4218af0800000000000000
+      internalID: -395994734255961763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_56
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49cf21887185dbc60800000000000000
+      internalID: 7835515784784968852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_57
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 642
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3303b2901525482d0800000000000000
+      internalID: -3277404120819224525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_58
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8779175b233218760800000000000000
+      internalID: 7458281158601709432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_59
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8645fb53795ac470800000000000000
+      internalID: 8415637205694105229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_60
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff175b9668dbaca90800000000000000
+      internalID: -7292808261576330753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_61
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37300667e6c5e52f0800000000000000
+      internalID: -982246039218027661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_62
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd2cbce246316610800000000000000
+      internalID: 1612629802642845110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_63
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874e48390c95cc410800000000000000
+      internalID: 1498671459651085432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_64
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66208b83cc3250cc0800000000000000
+      internalID: -3745548155056815514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_65
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef6964568e4b2b00800000000000000
+      internalID: 804823297264545763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_66
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8da8352c7ac70f0800000000000000
+      internalID: -1117834154427623216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_67
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9a1cb4df2e90790800000000000000
+      internalID: -7563264521666450997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_68
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80eb3386bde3cfc30800000000000000
+      internalID: 4394456448473742856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_69
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6ad444b4b6f4540800000000000000
+      internalID: 4994328482789828306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_70
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8580d34e6b96ea70800000000000000
+      internalID: 8855936615157106059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_71
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693eb0fc5caab3df0800000000000000
+      internalID: -199377991928913002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_72
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6914af907eb83b5f0800000000000000
+      internalID: -742095689164897898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_73
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb8f2ed6565f7ba0800000000000000
+      internalID: -6089053240086787095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_74
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d4bcabb0db64b10800000000000000
+      internalID: 1965466145469975941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_75
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d44ea9b5e4b55700800000000000000
+      internalID: 528527430041617618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_76
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f07b4af940693250800000000000000
+      internalID: 5924872655630725369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_77
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0668b2ecdfb2e560800000000000000
+      internalID: 7341641297984775690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_78
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3483a2a201867b1e0800000000000000
+      internalID: -2182161075801540541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_79
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b36d23baaef45550800000000000000
+      internalID: 6148819400371561397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_80
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e6f4203f9298840800000000000000
+      internalID: 5226754966232722997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_81
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233eb0693f9676990800000000000000
+      internalID: -7392823768390048974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_82
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c2a6652fb888830800000000000000
+      internalID: 4073659735904758917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_83
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1355b01837d3a4790800000000000000
+      internalID: -7545150659410307791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_84
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11d12707545af760800000000000000
+      internalID: 7492393662842786075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_85
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf442e68c29c4f10800000000000000
+      internalID: 2255338902944763818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_86
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc610a757fb720c0800000000000000
+      internalID: -4600497983056679717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_87
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 383
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f942d51ba8bb04450800000000000000
+      internalID: 6071058502050981023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_88
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c970564243bdd90d0800000000000000
+      internalID: -3414331925481584740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_89
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6be6696dd4b1c40800000000000000
+      internalID: 5484062555295889134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_90
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a1a499a359196c0800000000000000
+      internalID: -4138362503664362926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_91
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5306813ac4b44a9e0800000000000000
+      internalID: -1611079974165913547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_92
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7a83cd4d0953e30800000000000000
+      internalID: 4482648248019363816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_93
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd26d285eacd1410800000000000000
+      internalID: 1449537742174563786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_94
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79673c69b003df350800000000000000
+      internalID: 6052046300587980439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_95
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 319
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8f85ff6a518c330800000000000000
+      internalID: 3731256098269231329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_96
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 319
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb63f98025d3b5c0800000000000000
+      internalID: -4200779691676439603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_97
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 255
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0db44dbd3b4e8bd0800000000000000
+      internalID: -2626078804169933557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_98
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc449ac903b45d660800000000000000
+      internalID: 7409911434066871500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_99
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 255
+        width: 48
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65545320a547cb8c0800000000000000
+      internalID: -3982180040569436842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_100
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cefec877a7e8350800000000000000
+      internalID: 6020884405725162556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_101
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 197
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f65f32c62fa4550800000000000000
+      internalID: 6145991187774140314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_102
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 197
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927547b7009df3f60800000000000000
+      internalID: 8016364457837221673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_103
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 197
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 094e2df8244c40f20800000000000000
+      internalID: 3388048609849304208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_104
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 197
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d962dfa113076e0800000000000000
+      internalID: -1841918255608455906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_105
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950e4fec257bd5360800000000000000
+      internalID: 7160080548876312665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_106
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b8eef797da4ec10800000000000000
+      internalID: 2081979665100999480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_107
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 133
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edf6534d0ef782e0800000000000000
+      internalID: -2123449366364095003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_108
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 133
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1501ae6c010ef70800000000000000
+      internalID: 9214383284116541951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_109
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 133
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad239ff47339ab00800000000000000
+      internalID: 840259383078366635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_110
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 133
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e86b9d808a02c60800000000000000
+      internalID: 7791412111316782733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_111
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 133
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a857ff18f92781840800000000000000
+      internalID: 5195028199578236298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_112
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 70
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c54acdd0df6dee0800000000000000
+      internalID: -1236522811688461270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_113
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b23f02bc3b0a190800000000000000
+      internalID: -7953159256923755762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_114
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 69
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ce8ddf62d14e8f0800000000000000
+      internalID: -512252404308579276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_115
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 68
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7001cdf976a3e97d0800000000000000
+      internalID: -2909824092496719865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_116
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 68
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b7a91fc2cec8bc0800000000000000
+      internalID: -3779386309494539508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_117
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 69
+        width: 50
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65273a173d2666bb0800000000000000
+      internalID: -4943154880708382122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_118
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 69
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b850a36b66119b10800000000000000
+      internalID: 1986393561135863990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_119
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 69
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1451a675410552ac0800000000000000
+      internalID: -3880607455613676223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_120
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861100f43d1d1ae20800000000000000
+      internalID: 3360197502488809832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_121
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372b01b9544875e20800000000000000
+      internalID: 3339283083207684723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_122
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0999dce54ffeb4b0800000000000000
+      internalID: -5422616225515988724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_123
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22fb5198711ba1650800000000000000
+      internalID: 6204466151298547490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_124
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 5
+        width: 51
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d47c5793ce8dbed0800000000000000
+      internalID: -2396602455982050087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_125
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 5
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c370de53274b870800000000000000
+      internalID: 8697702356294777970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGreyWhite_126
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe2ca5f51648e7b0800000000000000
+      internalID: -5194825110041907467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AllCatsGreyWhite_0: -8181594741872141162
+      AllCatsGreyWhite_1: -4424818280130131523
+      AllCatsGreyWhite_10: 692114947805816441
+      AllCatsGreyWhite_100: 6020884405725162556
+      AllCatsGreyWhite_101: 6145991187774140314
+      AllCatsGreyWhite_102: 8016364457837221673
+      AllCatsGreyWhite_103: 3388048609849304208
+      AllCatsGreyWhite_104: -1841918255608455906
+      AllCatsGreyWhite_105: 7160080548876312665
+      AllCatsGreyWhite_106: 2081979665100999480
+      AllCatsGreyWhite_107: -2123449366364095003
+      AllCatsGreyWhite_108: 9214383284116541951
+      AllCatsGreyWhite_109: 840259383078366635
+      AllCatsGreyWhite_11: -4223029646396300683
+      AllCatsGreyWhite_110: 7791412111316782733
+      AllCatsGreyWhite_111: 5195028199578236298
+      AllCatsGreyWhite_112: -1236522811688461270
+      AllCatsGreyWhite_113: -7953159256923755762
+      AllCatsGreyWhite_114: -512252404308579276
+      AllCatsGreyWhite_115: -2909824092496719865
+      AllCatsGreyWhite_116: -3779386309494539508
+      AllCatsGreyWhite_117: -4943154880708382122
+      AllCatsGreyWhite_118: 1986393561135863990
+      AllCatsGreyWhite_119: -3880607455613676223
+      AllCatsGreyWhite_12: -3524663878968234418
+      AllCatsGreyWhite_120: 3360197502488809832
+      AllCatsGreyWhite_121: 3339283083207684723
+      AllCatsGreyWhite_122: -5422616225515988724
+      AllCatsGreyWhite_123: 6204466151298547490
+      AllCatsGreyWhite_124: -2396602455982050087
+      AllCatsGreyWhite_125: 8697702356294777970
+      AllCatsGreyWhite_126: -5194825110041907467
+      AllCatsGreyWhite_13: -4258419727653237702
+      AllCatsGreyWhite_14: 7897068468169100531
+      AllCatsGreyWhite_15: 4429522143395473506
+      AllCatsGreyWhite_16: 3884987866345545134
+      AllCatsGreyWhite_17: -1944767975115086164
+      AllCatsGreyWhite_18: -8739244212394363558
+      AllCatsGreyWhite_19: 1861878392193320592
+      AllCatsGreyWhite_2: -2763601460287535785
+      AllCatsGreyWhite_20: -5785959859542895014
+      AllCatsGreyWhite_21: -1857742259011150150
+      AllCatsGreyWhite_22: -5498063764011625680
+      AllCatsGreyWhite_23: 1328428699255669482
+      AllCatsGreyWhite_24: 5402995623439914851
+      AllCatsGreyWhite_25: -5224954016910608690
+      AllCatsGreyWhite_26: -4070815729085682648
+      AllCatsGreyWhite_27: -5041725913507258600
+      AllCatsGreyWhite_28: -493111801324297459
+      AllCatsGreyWhite_29: -3259447243259537032
+      AllCatsGreyWhite_3: 3329945599229772792
+      AllCatsGreyWhite_30: -5874827954776933995
+      AllCatsGreyWhite_31: 6487519581059641501
+      AllCatsGreyWhite_32: -4836814823102427186
+      AllCatsGreyWhite_33: -7298343557335020616
+      AllCatsGreyWhite_34: 5163834961874473153
+      AllCatsGreyWhite_35: -2125920549882618946
+      AllCatsGreyWhite_36: -5730040207389672236
+      AllCatsGreyWhite_37: -1490549063390263974
+      AllCatsGreyWhite_38: 368130618880403879
+      AllCatsGreyWhite_39: -21634510307324885
+      AllCatsGreyWhite_4: -7934501210071152115
+      AllCatsGreyWhite_40: -6505975056739076000
+      AllCatsGreyWhite_41: 6824313314823379138
+      AllCatsGreyWhite_42: -1822542841857564458
+      AllCatsGreyWhite_43: -4790627189794701145
+      AllCatsGreyWhite_44: 7914825599240262723
+      AllCatsGreyWhite_45: 205080216530990835
+      AllCatsGreyWhite_46: 5914053469378398681
+      AllCatsGreyWhite_47: -2215431015943715152
+      AllCatsGreyWhite_48: -935924797410857615
+      AllCatsGreyWhite_49: 3501087386514160997
+      AllCatsGreyWhite_5: 3061534326065854086
+      AllCatsGreyWhite_50: -4209956250145750395
+      AllCatsGreyWhite_51: 8052409592544221707
+      AllCatsGreyWhite_52: -4487213571594768873
+      AllCatsGreyWhite_53: -6328348614314790499
+      AllCatsGreyWhite_54: 4969003009039494187
+      AllCatsGreyWhite_55: -395994734255961763
+      AllCatsGreyWhite_56: 7835515784784968852
+      AllCatsGreyWhite_57: -3277404120819224525
+      AllCatsGreyWhite_58: 7458281158601709432
+      AllCatsGreyWhite_59: 8415637205694105229
+      AllCatsGreyWhite_6: 2748394298693089895
+      AllCatsGreyWhite_60: -7292808261576330753
+      AllCatsGreyWhite_61: -982246039218027661
+      AllCatsGreyWhite_62: 1612629802642845110
+      AllCatsGreyWhite_63: 1498671459651085432
+      AllCatsGreyWhite_64: -3745548155056815514
+      AllCatsGreyWhite_65: 804823297264545763
+      AllCatsGreyWhite_66: -1117834154427623216
+      AllCatsGreyWhite_67: -7563264521666450997
+      AllCatsGreyWhite_68: 4394456448473742856
+      AllCatsGreyWhite_69: 4994328482789828306
+      AllCatsGreyWhite_7: -3609314766257759397
+      AllCatsGreyWhite_70: 8855936615157106059
+      AllCatsGreyWhite_71: -199377991928913002
+      AllCatsGreyWhite_72: -742095689164897898
+      AllCatsGreyWhite_73: -6089053240086787095
+      AllCatsGreyWhite_74: 1965466145469975941
+      AllCatsGreyWhite_75: 528527430041617618
+      AllCatsGreyWhite_76: 5924872655630725369
+      AllCatsGreyWhite_77: 7341641297984775690
+      AllCatsGreyWhite_78: -2182161075801540541
+      AllCatsGreyWhite_79: 6148819400371561397
+      AllCatsGreyWhite_8: 4241436897800229231
+      AllCatsGreyWhite_80: 5226754966232722997
+      AllCatsGreyWhite_81: -7392823768390048974
+      AllCatsGreyWhite_82: 4073659735904758917
+      AllCatsGreyWhite_83: -7545150659410307791
+      AllCatsGreyWhite_84: 7492393662842786075
+      AllCatsGreyWhite_85: 2255338902944763818
+      AllCatsGreyWhite_86: -4600497983056679717
+      AllCatsGreyWhite_87: 6071058502050981023
+      AllCatsGreyWhite_88: -3414331925481584740
+      AllCatsGreyWhite_89: 5484062555295889134
+      AllCatsGreyWhite_9: -1881041627728575829
+      AllCatsGreyWhite_90: -4138362503664362926
+      AllCatsGreyWhite_91: -1611079974165913547
+      AllCatsGreyWhite_92: 4482648248019363816
+      AllCatsGreyWhite_93: 1449537742174563786
+      AllCatsGreyWhite_94: 6052046300587980439
+      AllCatsGreyWhite_95: 3731256098269231329
+      AllCatsGreyWhite_96: -4200779691676439603
+      AllCatsGreyWhite_97: -2626078804169933557
+      AllCatsGreyWhite_98: 7409911434066871500
+      AllCatsGreyWhite_99: -3982180040569436842
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

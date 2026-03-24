@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 2341c97251cc3d74d951b90d641cc096
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6158174289953374088
+    second: AllFoxTogether_0
+  - first:
+      213: 8188263916086536611
+    second: AllFoxTogether_1
+  - first:
+      213: -1235663019771903412
+    second: AllFoxTogether_2
+  - first:
+      213: 5734211729925759644
+    second: AllFoxTogether_3
+  - first:
+      213: 686821691007480543
+    second: AllFoxTogether_4
+  - first:
+      213: 9010775025950578759
+    second: AllFoxTogether_5
+  - first:
+      213: 9032153853300946108
+    second: AllFoxTogether_6
+  - first:
+      213: -2753783839871703725
+    second: AllFoxTogether_7
+  - first:
+      213: 8568981288535441454
+    second: AllFoxTogether_8
+  - first:
+      213: 5384493868067445947
+    second: AllFoxTogether_9
+  - first:
+      213: -5675268177821746326
+    second: AllFoxTogether_10
+  - first:
+      213: -1100787252154357132
+    second: AllFoxTogether_11
+  - first:
+      213: 5167741186775023968
+    second: AllFoxTogether_12
+  - first:
+      213: -6644259071201258523
+    second: AllFoxTogether_13
+  - first:
+      213: 211322209796056792
+    second: AllFoxTogether_14
+  - first:
+      213: -4509250258189339121
+    second: AllFoxTogether_15
+  - first:
+      213: 3657234333743325344
+    second: AllFoxTogether_16
+  - first:
+      213: 3529691408954071088
+    second: AllFoxTogether_17
+  - first:
+      213: 4614896833906636869
+    second: AllFoxTogether_18
+  - first:
+      213: -132287916782554624
+    second: AllFoxTogether_19
+  - first:
+      213: 4663155701187532809
+    second: AllFoxTogether_20
+  - first:
+      213: 4205630641851608318
+    second: AllFoxTogether_21
+  - first:
+      213: -8193809038539134410
+    second: AllFoxTogether_22
+  - first:
+      213: 4876539946430841478
+    second: AllFoxTogether_23
+  - first:
+      213: 8915525644578224053
+    second: AllFoxTogether_24
+  - first:
+      213: -5541739111025075600
+    second: AllFoxTogether_25
+  - first:
+      213: -7588901293648405286
+    second: AllFoxTogether_26
+  - first:
+      213: -876728168355085457
+    second: AllFoxTogether_27
+  - first:
+      213: 8127646632100300472
+    second: AllFoxTogether_28
+  - first:
+      213: 1406494539271382175
+    second: AllFoxTogether_29
+  - first:
+      213: 1418854134801377880
+    second: AllFoxTogether_30
+  - first:
+      213: 9066236482264590628
+    second: AllFoxTogether_31
+  - first:
+      213: -8727312579847225834
+    second: AllFoxTogether_32
+  - first:
+      213: 3454242891084735230
+    second: AllFoxTogether_33
+  - first:
+      213: -7811005851262262172
+    second: AllFoxTogether_34
+  - first:
+      213: 3740954143264863120
+    second: AllFoxTogether_35
+  - first:
+      213: 355873617234898353
+    second: AllFoxTogether_36
+  - first:
+      213: 5718627699313953685
+    second: AllFoxTogether_37
+  - first:
+      213: -3816148469032904329
+    second: AllFoxTogether_38
+  - first:
+      213: 3110907450447062455
+    second: AllFoxTogether_39
+  - first:
+      213: -9050061944419457470
+    second: AllFoxTogether_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AllFoxTogether_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 223
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870c2665c15c98aa0800000000000000
+      internalID: -6158174289953374088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 223
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9ac7df5ae82a170800000000000000
+      internalID: 8188263916086536611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 223
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42c864c70b0adee0800000000000000
+      internalID: -1235663019771903412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 223
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c926a1def23049f40800000000000000
+      internalID: 5734211729925759644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 223
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2b88460b4188900800000000000000
+      internalID: 686821691007480543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 224
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748debc1524bc0d70800000000000000
+      internalID: 9010775025950578759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 223
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb4bdae3318a85d70800000000000000
+      internalID: 9032153853300946108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 223
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3556c34103898c9d0800000000000000
+      internalID: -2753783839871703725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 191
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20cf1ed4132be670800000000000000
+      internalID: 8568981288535441454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 192
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbcdd6d05a099ba40800000000000000
+      internalID: 5384493868067445947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 191
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b3bdf39a56d31b0800000000000000
+      internalID: -5675268177821746326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_11
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 191
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47aaf0e83d739b0f0800000000000000
+      internalID: -1100787252154357132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 159
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06181e0ca3187b740800000000000000
+      internalID: 5167741186775023968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 159
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3d169d399dac3a0800000000000000
+      internalID: -6644259071201258523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 159
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d66b002e64cee200800000000000000
+      internalID: 211322209796056792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 159
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06394df7cceb61c0800000000000000
+      internalID: -4509250258189339121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 159
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0222bef3b11c230800000000000000
+      internalID: 3657234333743325344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_17
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 127
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0389475a2abfbf030800000000000000
+      internalID: 3529691408954071088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_18
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548741c38386b0040800000000000000
+      internalID: 4614896833906636869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002791037d40a2ef0800000000000000
+      internalID: -132287916782554624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_20
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908de9d576bd6b040800000000000000
+      internalID: 4663155701187532809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_21
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 95
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc201059c66d5a30800000000000000
+      internalID: 4205630641851608318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_22
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 95
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a6d74971eb94e80800000000000000
+      internalID: -8193809038539134410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 95
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68243088e33fca340800000000000000
+      internalID: 4876539946430841478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_24
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 95
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b778f6565f4abb70800000000000000
+      internalID: 8915525644578224053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_25
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 63
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a1671d3a9c713b0800000000000000
+      internalID: -5541739111025075600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_26
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 63
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc959c2b7ecea690800000000000000
+      internalID: -7588901293648405286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_27
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 31
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63cd90406c35d3f0800000000000000
+      internalID: -876728168355085457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_28
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 31
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b60d3ebc833bc070800000000000000
+      internalID: 8127646632100300472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_29
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 31
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f942ccfd45fd48310800000000000000
+      internalID: 1406494539271382175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_30
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 31
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a2ee47158c0b310800000000000000
+      internalID: 1418854134801377880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_31
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 429611fab0eb1dd70800000000000000
+      internalID: 9066236482264590628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_32
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e786aa27b52e680800000000000000
+      internalID: -8727312579847225834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_33
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2260bab9fefef20800000000000000
+      internalID: 3454242891084735230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_34
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 4
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464e301109bb99390800000000000000
+      internalID: -7811005851262262172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 6
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093f35e09f98ae330800000000000000
+      internalID: 3740954143264863120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_36
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 3
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd283c5b2150f400800000000000000
+      internalID: 355873617234898353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_37
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b415c0895ac5f40800000000000000
+      internalID: 5718627699313953685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_38
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779942daf215a0bc0800000000000000
+      internalID: -3816148469032904329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_39
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5630908d92c2b20800000000000000
+      internalID: 3110907450447062455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllFoxTogether_40
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246e89f5c98b76280800000000000000
+      internalID: -9050061944419457470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AllFoxTogether_0: -6158174289953374088
+      AllFoxTogether_1: 8188263916086536611
+      AllFoxTogether_10: -5675268177821746326
+      AllFoxTogether_11: -1100787252154357132
+      AllFoxTogether_12: 5167741186775023968
+      AllFoxTogether_13: -6644259071201258523
+      AllFoxTogether_14: 211322209796056792
+      AllFoxTogether_15: -4509250258189339121
+      AllFoxTogether_16: 3657234333743325344
+      AllFoxTogether_17: 3529691408954071088
+      AllFoxTogether_18: 4614896833906636869
+      AllFoxTogether_19: -132287916782554624
+      AllFoxTogether_2: -1235663019771903412
+      AllFoxTogether_20: 4663155701187532809
+      AllFoxTogether_21: 4205630641851608318
+      AllFoxTogether_22: -8193809038539134410
+      AllFoxTogether_23: 4876539946430841478
+      AllFoxTogether_24: 8915525644578224053
+      AllFoxTogether_25: -5541739111025075600
+      AllFoxTogether_26: -7588901293648405286
+      AllFoxTogether_27: -876728168355085457
+      AllFoxTogether_28: 8127646632100300472
+      AllFoxTogether_29: 1406494539271382175
+      AllFoxTogether_3: 5734211729925759644
+      AllFoxTogether_30: 1418854134801377880
+      AllFoxTogether_31: 9066236482264590628
+      AllFoxTogether_32: -8727312579847225834
+      AllFoxTogether_33: 3454242891084735230
+      AllFoxTogether_34: -7811005851262262172
+      AllFoxTogether_35: 3740954143264863120
+      AllFoxTogether_36: 355873617234898353
+      AllFoxTogether_37: 5718627699313953685
+      AllFoxTogether_38: -3816148469032904329
+      AllFoxTogether_39: 3110907450447062455
+      AllFoxTogether_4: 686821691007480543
+      AllFoxTogether_40: -9050061944419457470
+      AllFoxTogether_5: 9010775025950578759
+      AllFoxTogether_6: 9032153853300946108
+      AllFoxTogether_7: -2753783839871703725
+      AllFoxTogether_8: 8568981288535441454
+      AllFoxTogether_9: 5384493868067445947
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

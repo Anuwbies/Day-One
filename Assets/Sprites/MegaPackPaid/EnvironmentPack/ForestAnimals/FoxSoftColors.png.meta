@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 66d652078ab9d724d91eb0d7c85ce3e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6765518351394863475
+    second: FoxSoftColors_0
+  - first:
+      213: -6644121006376696247
+    second: FoxSoftColors_1
+  - first:
+      213: 5981455584105977322
+    second: FoxSoftColors_2
+  - first:
+      213: 6492761922908993593
+    second: FoxSoftColors_3
+  - first:
+      213: 7630401558423043450
+    second: FoxSoftColors_4
+  - first:
+      213: -2809157710774530198
+    second: FoxSoftColors_5
+  - first:
+      213: -2187286613217269928
+    second: FoxSoftColors_6
+  - first:
+      213: -4485991044737969633
+    second: FoxSoftColors_7
+  - first:
+      213: -7197843601443254320
+    second: FoxSoftColors_8
+  - first:
+      213: 4809771345384336939
+    second: FoxSoftColors_9
+  - first:
+      213: 2461963935293495023
+    second: FoxSoftColors_10
+  - first:
+      213: 7383470124785762202
+    second: FoxSoftColors_11
+  - first:
+      213: 7605352821981370903
+    second: FoxSoftColors_12
+  - first:
+      213: -2810504391607796340
+    second: FoxSoftColors_13
+  - first:
+      213: 2495455176732634533
+    second: FoxSoftColors_14
+  - first:
+      213: 4123578506581880858
+    second: FoxSoftColors_15
+  - first:
+      213: -5113625851737747555
+    second: FoxSoftColors_16
+  - first:
+      213: 4889737411737004023
+    second: FoxSoftColors_17
+  - first:
+      213: 7676068328779087197
+    second: FoxSoftColors_18
+  - first:
+      213: -2182680390839172449
+    second: FoxSoftColors_19
+  - first:
+      213: 1622678571328128077
+    second: FoxSoftColors_20
+  - first:
+      213: 5515736341692430222
+    second: FoxSoftColors_21
+  - first:
+      213: -1877768522818353686
+    second: FoxSoftColors_22
+  - first:
+      213: 8372747346381228140
+    second: FoxSoftColors_23
+  - first:
+      213: 6950408915165838086
+    second: FoxSoftColors_24
+  - first:
+      213: 6413990278700486289
+    second: FoxSoftColors_25
+  - first:
+      213: 3059003555379384288
+    second: FoxSoftColors_26
+  - first:
+      213: -8024278656921596959
+    second: FoxSoftColors_27
+  - first:
+      213: 4944495407409414296
+    second: FoxSoftColors_28
+  - first:
+      213: -971129008178684187
+    second: FoxSoftColors_29
+  - first:
+      213: -609587781082178841
+    second: FoxSoftColors_30
+  - first:
+      213: -8806103125152996898
+    second: FoxSoftColors_31
+  - first:
+      213: 6657514984599314517
+    second: FoxSoftColors_32
+  - first:
+      213: -2264434135949739606
+    second: FoxSoftColors_33
+  - first:
+      213: 6018116016299798093
+    second: FoxSoftColors_34
+  - first:
+      213: -7657624874075420621
+    second: FoxSoftColors_35
+  - first:
+      213: -2167424934364164482
+    second: FoxSoftColors_36
+  - first:
+      213: 5289102173095753977
+    second: FoxSoftColors_37
+  - first:
+      213: -1786663572968193732
+    second: FoxSoftColors_38
+  - first:
+      213: -8478894634275321195
+    second: FoxSoftColors_39
+  - first:
+      213: -3829307445415762597
+    second: FoxSoftColors_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FoxSoftColors_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 223
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8609b797ec0c12a0800000000000000
+      internalID: -6765518351394863475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 223
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946c43295275bc3a0800000000000000
+      internalID: -6644121006376696247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 223
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae5d962a926620350800000000000000
+      internalID: 5981455584105977322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 223
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9383c2a919cea1a50800000000000000
+      internalID: 6492761922908993593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 223
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d746f2ac1a4e960800000000000000
+      internalID: 7630401558423043450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 224
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f0c3312fdd309d0800000000000000
+      internalID: -2809157710774530198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 223
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857a73df96235a1e0800000000000000
+      internalID: -2187286613217269928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 223
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f125fc0a9ee8eb1c0800000000000000
+      internalID: -4485991044737969633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 191
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df082b516f1c1c90800000000000000
+      internalID: -7197843601443254320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 192
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e6c7c2e8dbfb240800000000000000
+      internalID: 4809771345384336939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 191
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6ddf4b727aa2220800000000000000
+      internalID: 2461963935293495023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_11
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 191
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f709d85fa577660800000000000000
+      internalID: 7383470124785762202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 159
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ad6b1c814ab8960800000000000000
+      internalID: 7605352821981370903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 159
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dba8285251ff8d0800000000000000
+      internalID: -2810504391607796340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 159
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5adee020343a1a220800000000000000
+      internalID: 2495455176732634533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 159
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a10bf38ddc4e93930800000000000000
+      internalID: 4123578506581880858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 159
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fcae88160c809b0800000000000000
+      internalID: -5113625851737747555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_17
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 127
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7a58fd446dbd340800000000000000
+      internalID: 4889737411737004023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_18
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5df088b97fd68a60800000000000000
+      internalID: 7676068328779087197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9202d5bfbf85b1e0800000000000000
+      internalID: -2182680390839172449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_20
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 127
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44c6a43099e48610800000000000000
+      internalID: 1622678571328128077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_21
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 95
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e873a49aaf4db8c40800000000000000
+      internalID: 5515736341692430222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_22
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 95
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae580033a73d0f5e0800000000000000
+      internalID: -1877768522818353686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 95
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68c52fc959f13470800000000000000
+      internalID: 8372747346381228140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_24
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 95
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bfa206510d47060800000000000000
+      internalID: 6950408915165838086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_25
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 63
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e40cafc22130950800000000000000
+      internalID: 6413990278700486289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_26
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 63
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef8b0db683c37a20800000000000000
+      internalID: 3059003555379384288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_27
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 31
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb8073731904a090800000000000000
+      internalID: -8024278656921596959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_28
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 31
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890403040606e9440800000000000000
+      internalID: 4944495407409414296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_29
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 31
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee9e64ff4bd582f0800000000000000
+      internalID: -971129008178684187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_30
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 31
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea9d21942f4a87f0800000000000000
+      internalID: -609587781082178841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_31
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed16cc94ddf6ac580800000000000000
+      internalID: -8806103125152996898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_32
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550e1effa9e346c50800000000000000
+      internalID: 6657514984599314517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_33
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9727d962d1390e0800000000000000
+      internalID: -2264434135949739606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_34
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 4
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e63a8a1a4a48350800000000000000
+      internalID: 6018116016299798093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 6
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3380a85bfb6aab590800000000000000
+      internalID: -7657624874075420621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_36
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 3
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e46e57182cbe1e0800000000000000
+      internalID: -2167424934364164482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_37
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f87e10576aa66940800000000000000
+      internalID: 5289102173095753977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_38
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31c91052fe7437e0800000000000000
+      internalID: -1786663572968193732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_39
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59acd04d04ae45a80800000000000000
+      internalID: -8478894634275321195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoxSoftColors_40
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b552c3cba219bdac0800000000000000
+      internalID: -3829307445415762597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FoxSoftColors_0: -6765518351394863475
+      FoxSoftColors_1: -6644121006376696247
+      FoxSoftColors_10: 2461963935293495023
+      FoxSoftColors_11: 7383470124785762202
+      FoxSoftColors_12: 7605352821981370903
+      FoxSoftColors_13: -2810504391607796340
+      FoxSoftColors_14: 2495455176732634533
+      FoxSoftColors_15: 4123578506581880858
+      FoxSoftColors_16: -5113625851737747555
+      FoxSoftColors_17: 4889737411737004023
+      FoxSoftColors_18: 7676068328779087197
+      FoxSoftColors_19: -2182680390839172449
+      FoxSoftColors_2: 5981455584105977322
+      FoxSoftColors_20: 1622678571328128077
+      FoxSoftColors_21: 5515736341692430222
+      FoxSoftColors_22: -1877768522818353686
+      FoxSoftColors_23: 8372747346381228140
+      FoxSoftColors_24: 6950408915165838086
+      FoxSoftColors_25: 6413990278700486289
+      FoxSoftColors_26: 3059003555379384288
+      FoxSoftColors_27: -8024278656921596959
+      FoxSoftColors_28: 4944495407409414296
+      FoxSoftColors_29: -971129008178684187
+      FoxSoftColors_3: 6492761922908993593
+      FoxSoftColors_30: -609587781082178841
+      FoxSoftColors_31: -8806103125152996898
+      FoxSoftColors_32: 6657514984599314517
+      FoxSoftColors_33: -2264434135949739606
+      FoxSoftColors_34: 6018116016299798093
+      FoxSoftColors_35: -7657624874075420621
+      FoxSoftColors_36: -2167424934364164482
+      FoxSoftColors_37: 5289102173095753977
+      FoxSoftColors_38: -1786663572968193732
+      FoxSoftColors_39: -8478894634275321195
+      FoxSoftColors_4: 7630401558423043450
+      FoxSoftColors_40: -3829307445415762597
+      FoxSoftColors_5: -2809157710774530198
+      FoxSoftColors_6: -2187286613217269928
+      FoxSoftColors_7: -4485991044737969633
+      FoxSoftColors_8: -7197843601443254320
+      FoxSoftColors_9: 4809771345384336939
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: f4a0b5324c2c9a24b9e2e0964eba0406
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1767216733735416139
+    second: SniffDog_0
+  - first:
+      213: 331152251211860356
+    second: SniffDog_1
+  - first:
+      213: 2854001891180969014
+    second: SniffDog_2
+  - first:
+      213: -4910677485152324763
+    second: SniffDog_3
+  - first:
+      213: 781387955169730019
+    second: SniffDog_4
+  - first:
+      213: -8286485881364735699
+    second: SniffDog_5
+  - first:
+      213: -7964726719929726173
+    second: SniffDog_6
+  - first:
+      213: -2073262091479287952
+    second: SniffDog_7
+  - first:
+      213: -8889573104100014270
+    second: SniffDog_8
+  - first:
+      213: 9108914040731814797
+    second: SniffDog_9
+  - first:
+      213: -1397451730523410199
+    second: SniffDog_10
+  - first:
+      213: 930927724785780067
+    second: SniffDog_11
+  - first:
+      213: -8150544808990335283
+    second: SniffDog_12
+  - first:
+      213: 6705146526258677318
+    second: SniffDog_13
+  - first:
+      213: 6584290162571522318
+    second: SniffDog_14
+  - first:
+      213: -1565391591501146197
+    second: SniffDog_15
+  - first:
+      213: -7693395261271690656
+    second: SniffDog_16
+  - first:
+      213: -4822925582112703670
+    second: SniffDog_17
+  - first:
+      213: 1058206381837900010
+    second: SniffDog_18
+  - first:
+      213: 8183979530371051487
+    second: SniffDog_19
+  - first:
+      213: -2337942215891364946
+    second: SniffDog_20
+  - first:
+      213: -3434042535676131442
+    second: SniffDog_21
+  - first:
+      213: -8434336470739393243
+    second: SniffDog_22
+  - first:
+      213: 2253126879878991059
+    second: SniffDog_23
+  - first:
+      213: -2467675465460413281
+    second: SniffDog_24
+  - first:
+      213: -9188362279985597381
+    second: SniffDog_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SniffDog_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41fc67914a668810800000000000000
+      internalID: 1767216733735416139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 489cd0cc73d789400800000000000000
+      internalID: 331152251211860356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 53
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c722059937b9720800000000000000
+      internalID: 2854001891180969014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_3
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 50
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563bcfa58d4c9dbb0800000000000000
+      internalID: -4910677485152324763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed19ab843c08da00800000000000000
+      internalID: 781387955169730019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 0
+        width: 52
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2917fc9efc700d80800000000000000
+      internalID: -8286485881364735699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 0
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32bc6854f3b977190800000000000000
+      internalID: -7964726719929726173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 0
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077f717cc1b4a33e0800000000000000
+      internalID: -2073262091479287952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_8
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247804d5c54e1a480800000000000000
+      internalID: -8889573104100014270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_9
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b43671f0d596e70800000000000000
+      internalID: 9108914040731814797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_10
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0b56b1e014b9ce0800000000000000
+      internalID: -1397451730523410199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_11
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3654b6b55d15bec00800000000000000
+      internalID: 930927724785780067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_12
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce1a3efda273ee80800000000000000
+      internalID: -8150544808990335283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_13
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646c7908d377d0d50800000000000000
+      internalID: 6705146526258677318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_14
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01bc2e8409106b50800000000000000
+      internalID: 6584290162571522318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_15
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 0
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7d03e24ac964ae0800000000000000
+      internalID: -1565391591501146197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_16
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0623a3f65c19b3590800000000000000
+      internalID: -7693395261271690656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_17
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b370c6cb6811db0800000000000000
+      internalID: -4822925582112703670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_18
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8df7009118fae00800000000000000
+      internalID: 1058206381837900010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_19
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfa5d4b506539170800000000000000
+      internalID: 8183979530371051487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_20
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3d76c01f5fd8fd0800000000000000
+      internalID: -2337942215891364946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_21
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8741751284d750d0800000000000000
+      internalID: -3434042535676131442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_22
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525e479baa733fa80800000000000000
+      internalID: -8434336470739393243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_23
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc421da5f6b44f10800000000000000
+      internalID: 2253126879878991059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_24
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c094c0d3e01cdd0800000000000000
+      internalID: -2467675465460413281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SniffDog_25
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 0
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b343cd930316c7080800000000000000
+      internalID: -9188362279985597381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SniffDog_0: 1767216733735416139
+      SniffDog_1: 331152251211860356
+      SniffDog_10: -1397451730523410199
+      SniffDog_11: 930927724785780067
+      SniffDog_12: -8150544808990335283
+      SniffDog_13: 6705146526258677318
+      SniffDog_14: 6584290162571522318
+      SniffDog_15: -1565391591501146197
+      SniffDog_16: -7693395261271690656
+      SniffDog_17: -4822925582112703670
+      SniffDog_18: 1058206381837900010
+      SniffDog_19: 8183979530371051487
+      SniffDog_2: 2854001891180969014
+      SniffDog_20: -2337942215891364946
+      SniffDog_21: -3434042535676131442
+      SniffDog_22: -8434336470739393243
+      SniffDog_23: 2253126879878991059
+      SniffDog_24: -2467675465460413281
+      SniffDog_25: -9188362279985597381
+      SniffDog_3: -4910677485152324763
+      SniffDog_4: 781387955169730019
+      SniffDog_5: -8286485881364735699
+      SniffDog_6: -7964726719929726173
+      SniffDog_7: -2073262091479287952
+      SniffDog_8: -8889573104100014270
+      SniffDog_9: 9108914040731814797
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

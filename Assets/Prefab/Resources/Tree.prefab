@@ -66,8 +66,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04943234, y: -1.496843}
-  m_Size: {x: 1.227021, y: 0.2814598}
+  m_Offset: {x: 0.01642646, y: -0.87264013}
+  m_Size: {x: 0.40723115, y: 0.13430955}
   m_Direction: 1
 --- !u!1 &3790869253395073509
 GameObject:
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 475674409
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1191206276308023645, guid: 48402e9fbce8088418f7bb959a43013a, type: 3}
+  m_Sprite: {fileID: -2491691827723158987, guid: 39a56e7e024efb341a8b6a35b5de4823, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,19 +202,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: -1.495
+  sortYOffset: -0.91
   offset: 0
+  alwaysBehindPlayer: 0
+  alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas:
   - name: Leaf
-    offset: {x: -0.08, y: 0.7}
-    size: {x: 3.6, y: 2.57}
+    offset: {x: -0.03, y: 0.16}
+    size: {x: 1.33, y: 1.61}
     cornerRadius: 2
   - name: Trunk
-    offset: {x: -0.12, y: -0.98}
-    size: {x: 1.08, y: 0.9}
+    offset: {x: 0.014, y: -0.74}
+    size: {x: 0.35, y: 0.4}
     cornerRadius: 0
 --- !u!114 &7115681388999882825
 MonoBehaviour:
@@ -279,10 +281,10 @@ MonoBehaviour:
   - prefab: {fileID: 4719200396125063612, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
     minAmount: 1
     maxAmount: 4
-  xOffset: -0.06
-  yOffset: -1.49
-  dropRadius: {x: 2, y: 0.65}
-  deadZoneRadius: {x: 1, y: 0.325}
+  xOffset: 0.014
+  yOffset: -0.875
+  dropRadius: {x: 0.5, y: 0.25}
+  deadZoneRadius: {x: 0.25, y: 0.125}
   destroyOnLoot: 0
   destroyDelay: 0
 --- !u!1001 &5611454350552812344
@@ -326,6 +328,14 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -355,11 +365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.08
+      value: 0.033
       objectReference: {fileID: 0}
     - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.87
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 2481226475411567335, guid: 896c36ac50c8b564bbeb2ab686720913, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

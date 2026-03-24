@@ -1,0 +1,6695 @@
+fileFormatVersion: 2
+guid: 518d65019fe277c45a1110117b9d3b7a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4018743946247484679
+    second: Retro_0
+  - first:
+      213: 6325784148927397076
+    second: Retro_1
+  - first:
+      213: -558715606456033181
+    second: Retro_2
+  - first:
+      213: -6213383281874993784
+    second: Retro_3
+  - first:
+      213: -5837928853304841039
+    second: Retro_4
+  - first:
+      213: -1392226292265421363
+    second: Retro_5
+  - first:
+      213: 4542668181048339894
+    second: Retro_6
+  - first:
+      213: 1002130993426012513
+    second: Retro_7
+  - first:
+      213: -4731045288367886262
+    second: Retro_8
+  - first:
+      213: 5459029328283347904
+    second: Retro_9
+  - first:
+      213: 3243773211902722690
+    second: Retro_10
+  - first:
+      213: -746967186657255926
+    second: Retro_11
+  - first:
+      213: 4429289116480374270
+    second: Retro_12
+  - first:
+      213: 775514486707723809
+    second: Retro_13
+  - first:
+      213: 8954440544747398117
+    second: Retro_14
+  - first:
+      213: -2824664208479346636
+    second: Retro_15
+  - first:
+      213: 2388670800511801562
+    second: Retro_16
+  - first:
+      213: 4642067290733692219
+    second: Retro_17
+  - first:
+      213: 2919598311820966441
+    second: Retro_18
+  - first:
+      213: -1016976473405761269
+    second: Retro_19
+  - first:
+      213: 4549261596319552812
+    second: Retro_20
+  - first:
+      213: 3944894722105872056
+    second: Retro_21
+  - first:
+      213: -2612223103480263930
+    second: Retro_22
+  - first:
+      213: 8924233145755597001
+    second: Retro_23
+  - first:
+      213: 1831348314338931075
+    second: Retro_24
+  - first:
+      213: -7819578263240655986
+    second: Retro_25
+  - first:
+      213: -5354475367170166681
+    second: Retro_26
+  - first:
+      213: 4404408721549387369
+    second: Retro_27
+  - first:
+      213: -7236897789970761418
+    second: Retro_28
+  - first:
+      213: -7943882480276187645
+    second: Retro_29
+  - first:
+      213: -5622613955828787769
+    second: Retro_30
+  - first:
+      213: 8089683062430830298
+    second: Retro_31
+  - first:
+      213: -3617994753297030689
+    second: Retro_32
+  - first:
+      213: -5479190133710235506
+    second: Retro_33
+  - first:
+      213: -7934199890159121761
+    second: Retro_34
+  - first:
+      213: -7605354910919927217
+    second: Retro_35
+  - first:
+      213: -3780441828852099667
+    second: Retro_36
+  - first:
+      213: -5688701867495130446
+    second: Retro_37
+  - first:
+      213: -345301783067053335
+    second: Retro_38
+  - first:
+      213: 567133400854718237
+    second: Retro_39
+  - first:
+      213: 8298452685725605904
+    second: Retro_40
+  - first:
+      213: -3887584131684116236
+    second: Retro_41
+  - first:
+      213: 569653086409591158
+    second: Retro_42
+  - first:
+      213: 6405783105674102933
+    second: Retro_43
+  - first:
+      213: -2545809629675971140
+    second: Retro_44
+  - first:
+      213: -2703953903674088377
+    second: Retro_45
+  - first:
+      213: -8820764805554715078
+    second: Retro_46
+  - first:
+      213: 2158135368774544423
+    second: Retro_47
+  - first:
+      213: -7381560959144028574
+    second: Retro_48
+  - first:
+      213: -3008249689808877663
+    second: Retro_49
+  - first:
+      213: -8789718024039595280
+    second: Retro_50
+  - first:
+      213: 1851619977111842631
+    second: Retro_51
+  - first:
+      213: 3282425666672744737
+    second: Retro_52
+  - first:
+      213: 7621057497547174667
+    second: Retro_53
+  - first:
+      213: 2597723021311689884
+    second: Retro_54
+  - first:
+      213: 400161299656631589
+    second: Retro_55
+  - first:
+      213: -2434226566828867576
+    second: Retro_56
+  - first:
+      213: -1886706422371272593
+    second: Retro_57
+  - first:
+      213: -1303619705183861104
+    second: Retro_58
+  - first:
+      213: -5953204366641367015
+    second: Retro_59
+  - first:
+      213: -219215155299889610
+    second: Retro_60
+  - first:
+      213: 883570931403667072
+    second: Retro_61
+  - first:
+      213: -2923026870828236289
+    second: Retro_62
+  - first:
+      213: 4954689415602889562
+    second: Retro_63
+  - first:
+      213: -5305889601746821740
+    second: Retro_64
+  - first:
+      213: -8435405373196305257
+    second: Retro_65
+  - first:
+      213: 5536728705894357651
+    second: Retro_66
+  - first:
+      213: -6684630488139210513
+    second: Retro_67
+  - first:
+      213: -5702914486152893190
+    second: Retro_68
+  - first:
+      213: -1572181631960273146
+    second: Retro_69
+  - first:
+      213: 7231838495262956715
+    second: Retro_70
+  - first:
+      213: -7838518855024878247
+    second: Retro_71
+  - first:
+      213: -3193963552883246142
+    second: Retro_72
+  - first:
+      213: 6180207923963042867
+    second: Retro_73
+  - first:
+      213: -542801726950503609
+    second: Retro_74
+  - first:
+      213: -2875416648678550111
+    second: Retro_75
+  - first:
+      213: -531511311351254150
+    second: Retro_76
+  - first:
+      213: -6154894539238736113
+    second: Retro_77
+  - first:
+      213: 8409188197227279749
+    second: Retro_78
+  - first:
+      213: -6361225803014346895
+    second: Retro_79
+  - first:
+      213: 4871098132582125022
+    second: Retro_80
+  - first:
+      213: 2041795911490842262
+    second: Retro_81
+  - first:
+      213: 2480123853989427062
+    second: Retro_82
+  - first:
+      213: -3391237819993652766
+    second: Retro_83
+  - first:
+      213: -608755761736686432
+    second: Retro_84
+  - first:
+      213: 3838991814800153011
+    second: Retro_85
+  - first:
+      213: -7346717836500117170
+    second: Retro_86
+  - first:
+      213: -5622285826631804915
+    second: Retro_87
+  - first:
+      213: -2183177169114821490
+    second: Retro_88
+  - first:
+      213: 1194738528072413565
+    second: Retro_89
+  - first:
+      213: -2617327884959281572
+    second: Retro_90
+  - first:
+      213: 5998573685384550562
+    second: Retro_91
+  - first:
+      213: 8319891468819439330
+    second: Retro_92
+  - first:
+      213: -1102614132878283037
+    second: Retro_93
+  - first:
+      213: -5177832237571322154
+    second: Retro_94
+  - first:
+      213: 1839603957692064760
+    second: Retro_95
+  - first:
+      213: 2570420424821948462
+    second: Retro_96
+  - first:
+      213: 124303468760780509
+    second: Retro_97
+  - first:
+      213: -2827282355810639470
+    second: Retro_98
+  - first:
+      213: -5950785492094007660
+    second: Retro_99
+  - first:
+      213: 3992611914065987454
+    second: Retro_100
+  - first:
+      213: -5192711196608715816
+    second: Retro_101
+  - first:
+      213: -2287654304622962899
+    second: Retro_102
+  - first:
+      213: 3606743451468683708
+    second: Retro_103
+  - first:
+      213: 329521410691091789
+    second: Retro_104
+  - first:
+      213: -8124552824295892172
+    second: Retro_105
+  - first:
+      213: -4418781548160483809
+    second: Retro_106
+  - first:
+      213: 2413146106533820583
+    second: Retro_107
+  - first:
+      213: -6649841487774397624
+    second: Retro_108
+  - first:
+      213: -1705447978391671342
+    second: Retro_109
+  - first:
+      213: 4280034546610580330
+    second: Retro_110
+  - first:
+      213: -4254975241658456398
+    second: Retro_111
+  - first:
+      213: -3921605855726338111
+    second: Retro_112
+  - first:
+      213: 8419901989425421242
+    second: Retro_113
+  - first:
+      213: -8651036189284004257
+    second: Retro_114
+  - first:
+      213: 834648146480538051
+    second: Retro_115
+  - first:
+      213: -1321198056121293531
+    second: Retro_116
+  - first:
+      213: -4569231912202191688
+    second: Retro_117
+  - first:
+      213: -2938969826881138854
+    second: Retro_118
+  - first:
+      213: -4930849215317871680
+    second: Retro_119
+  - first:
+      213: 5308044138314563162
+    second: Retro_120
+  - first:
+      213: -3705906703240708755
+    second: Retro_121
+  - first:
+      213: 7732840888329726543
+    second: Retro_122
+  - first:
+      213: -2413696145135481988
+    second: Retro_123
+  - first:
+      213: 6324328732000004030
+    second: Retro_124
+  - first:
+      213: -835288098322070791
+    second: Retro_125
+  - first:
+      213: 6409994904827751422
+    second: Retro_126
+  - first:
+      213: 2057081938871445029
+    second: Retro_127
+  - first:
+      213: 6779815834818969907
+    second: Retro_128
+  - first:
+      213: 6365144843313608462
+    second: Retro_129
+  - first:
+      213: 3033144080939372494
+    second: Retro_130
+  - first:
+      213: 2839741643515129586
+    second: Retro_131
+  - first:
+      213: 2055427266754075667
+    second: Retro_132
+  - first:
+      213: 6807106085465316729
+    second: Retro_133
+  - first:
+      213: -4079686056757028040
+    second: Retro_134
+  - first:
+      213: 1559109704165032939
+    second: Retro_135
+  - first:
+      213: -3818295246314478362
+    second: Retro_136
+  - first:
+      213: 2965149584092196380
+    second: Retro_137
+  - first:
+      213: -4384162272498948043
+    second: Retro_138
+  - first:
+      213: -6603673627863057525
+    second: Retro_139
+  - first:
+      213: 3875918281053708840
+    second: Retro_140
+  - first:
+      213: -7252697067928664952
+    second: Retro_141
+  - first:
+      213: 7103671060473303626
+    second: Retro_142
+  - first:
+      213: -5961375257880863724
+    second: Retro_143
+  - first:
+      213: -4983562970002616714
+    second: Retro_144
+  - first:
+      213: -7524641045906364651
+    second: Retro_145
+  - first:
+      213: -3415777871803157685
+    second: Retro_146
+  - first:
+      213: 3820354424015091587
+    second: Retro_147
+  - first:
+      213: -1680433292446534556
+    second: Retro_148
+  - first:
+      213: -3993591327070895222
+    second: Retro_149
+  - first:
+      213: -5663077415818039465
+    second: Retro_150
+  - first:
+      213: -8703341882542813961
+    second: Retro_151
+  - first:
+      213: -8587668279246650426
+    second: Retro_152
+  - first:
+      213: -7052483600681617563
+    second: Retro_153
+  - first:
+      213: -9084263222351890818
+    second: Retro_154
+  - first:
+      213: -7703569401173112910
+    second: Retro_155
+  - first:
+      213: 3369071996515523370
+    second: Retro_156
+  - first:
+      213: 7880384098460576261
+    second: Retro_157
+  - first:
+      213: -5016497007087946221
+    second: Retro_158
+  - first:
+      213: 7528609871628677097
+    second: Retro_159
+  - first:
+      213: -3564728195572833614
+    second: Retro_160
+  - first:
+      213: -5648502858230569644
+    second: Retro_161
+  - first:
+      213: 8936141631521506867
+    second: Retro_162
+  - first:
+      213: -8333614371303173990
+    second: Retro_163
+  - first:
+      213: -878549385107624100
+    second: Retro_164
+  - first:
+      213: -446666551890178089
+    second: Retro_165
+  - first:
+      213: 4506505135630590962
+    second: Retro_166
+  - first:
+      213: 9017486982075203249
+    second: Retro_167
+  - first:
+      213: -3828521222766667478
+    second: Retro_168
+  - first:
+      213: 7358335935893907228
+    second: Retro_169
+  - first:
+      213: -4460158072778856303
+    second: Retro_170
+  - first:
+      213: -4935893360946032849
+    second: Retro_171
+  - first:
+      213: 7543894509607721184
+    second: Retro_172
+  - first:
+      213: -2175420138403545745
+    second: Retro_173
+  - first:
+      213: 4645965936266075587
+    second: Retro_174
+  - first:
+      213: 7399796938210276102
+    second: Retro_175
+  - first:
+      213: 3328842994886980169
+    second: Retro_176
+  - first:
+      213: -8782881347153426372
+    second: Retro_177
+  - first:
+      213: 4034866005742874108
+    second: Retro_178
+  - first:
+      213: -731167984333954211
+    second: Retro_179
+  - first:
+      213: 6644108196480102699
+    second: Retro_180
+  - first:
+      213: 2541567126361872372
+    second: Retro_181
+  - first:
+      213: 3385522266342614019
+    second: Retro_182
+  - first:
+      213: -4519541132610438058
+    second: Retro_183
+  - first:
+      213: -853156801778312715
+    second: Retro_184
+  - first:
+      213: -5086485061808398732
+    second: Retro_185
+  - first:
+      213: 8318242952491633293
+    second: Retro_186
+  - first:
+      213: 1278273251443483546
+    second: Retro_187
+  - first:
+      213: 5745153738151484447
+    second: Retro_188
+  - first:
+      213: 7042292108679168311
+    second: Retro_189
+  - first:
+      213: 2934537353113477515
+    second: Retro_190
+  - first:
+      213: 8517224858257807886
+    second: Retro_191
+  - first:
+      213: -6495021371853960610
+    second: Retro_192
+  - first:
+      213: -2571420767319728731
+    second: Retro_193
+  - first:
+      213: -5692987830098922232
+    second: Retro_194
+  - first:
+      213: -6179377976846380698
+    second: Retro_195
+  - first:
+      213: -8913656867833128122
+    second: Retro_196
+  - first:
+      213: -8523416364134331766
+    second: Retro_197
+  - first:
+      213: -4878811757457314213
+    second: Retro_198
+  - first:
+      213: -2926300060637756483
+    second: Retro_199
+  - first:
+      213: -4196719216852748941
+    second: Retro_200
+  - first:
+      213: 7280631281654419805
+    second: Retro_201
+  - first:
+      213: -5714546472917188662
+    second: Retro_202
+  - first:
+      213: 2006982804974051
+    second: Retro_203
+  - first:
+      213: 578731708685992117
+    second: Retro_204
+  - first:
+      213: 2715920696536892296
+    second: Retro_205
+  - first:
+      213: 3645393567486563706
+    second: Retro_206
+  - first:
+      213: 8265720834065648552
+    second: Retro_207
+  - first:
+      213: 8136081211601498032
+    second: Retro_208
+  - first:
+      213: -3305613484454135909
+    second: Retro_209
+  - first:
+      213: 4763710600941891227
+    second: Retro_210
+  - first:
+      213: -1095534604275727801
+    second: Retro_211
+  - first:
+      213: 4124361483904537582
+    second: Retro_212
+  - first:
+      213: -6767673846957408335
+    second: Retro_213
+  - first:
+      213: 7812300859022726549
+    second: Retro_214
+  - first:
+      213: -8305396572356666190
+    second: Retro_215
+  - first:
+      213: 78061484403166139
+    second: Retro_216
+  - first:
+      213: -2252731558976138875
+    second: Retro_217
+  - first:
+      213: 2716640604021676013
+    second: Retro_218
+  - first:
+      213: 3898262688629241019
+    second: Retro_219
+  - first:
+      213: 2454200718465050928
+    second: Retro_220
+  - first:
+      213: -4398692228005003265
+    second: Retro_221
+  - first:
+      213: 9125160656687156786
+    second: Retro_222
+  - first:
+      213: -1456456654862042752
+    second: Retro_223
+  - first:
+      213: -7758813489670249801
+    second: Retro_224
+  - first:
+      213: -6389398058511247004
+    second: Retro_225
+  - first:
+      213: 4881426619237096374
+    second: Retro_226
+  - first:
+      213: 359255007866848473
+    second: Retro_227
+  - first:
+      213: -2790908413232828823
+    second: Retro_228
+  - first:
+      213: -1445724785511294280
+    second: Retro_229
+  - first:
+      213: -7434602546199661254
+    second: Retro_230
+  - first:
+      213: -4031531825741596354
+    second: Retro_231
+  - first:
+      213: 2315530594196291956
+    second: Retro_232
+  - first:
+      213: 8511545997501086894
+    second: Retro_233
+  - first:
+      213: 547397132930241235
+    second: Retro_234
+  - first:
+      213: -5260776208302118881
+    second: Retro_235
+  - first:
+      213: 852565404688974170
+    second: Retro_236
+  - first:
+      213: -1874438928572458399
+    second: Retro_237
+  - first:
+      213: -8387559311239832454
+    second: Retro_238
+  - first:
+      213: 3010017541406257098
+    second: Retro_239
+  - first:
+      213: -4383015611010941638
+    second: Retro_240
+  - first:
+      213: 3384131783697418041
+    second: Retro_241
+  - first:
+      213: 8639791148698889139
+    second: Retro_242
+  - first:
+      213: 4565816032466693097
+    second: Retro_243
+  - first:
+      213: -7977908085554767047
+    second: Retro_244
+  - first:
+      213: -4449425470200051461
+    second: Retro_245
+  - first:
+      213: 707022985672273001
+    second: Retro_246
+  - first:
+      213: 4547168699060186799
+    second: Retro_247
+  - first:
+      213: -5619868383627701969
+    second: Retro_248
+  - first:
+      213: 1916577327600619775
+    second: Retro_249
+  - first:
+      213: -3024431577442314795
+    second: Retro_250
+  - first:
+      213: 5651136839546432981
+    second: Retro_251
+  - first:
+      213: 7923581362184849430
+    second: Retro_252
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Retro_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 403
+        width: 79
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9facaa05cad8a38c0800000000000000
+      internalID: -4018743946247484679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 401
+        width: 92
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc3d920b23b9c750800000000000000
+      internalID: 6325784148927397076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 402
+        width: 92
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360a8babd1b0f38f0800000000000000
+      internalID: -558715606456033181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88d7d7633d0a5c9a0800000000000000
+      internalID: -6213383281874993784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bce2ca73a28bfea0800000000000000
+      internalID: -5837928853304841039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 416
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc57f824091ddace0800000000000000
+      internalID: -1392226292265421363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd2bdf74acca0f30800000000000000
+      internalID: 4542668181048339894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169119934d848ed00800000000000000
+      internalID: 1002130993426012513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 416
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40fb8a5063f75eb0800000000000000
+      internalID: -4731045288367886262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 416
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cba4ca304e52cb40800000000000000
+      internalID: 5459029328283347904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_10
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 400
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282c36bcc82340d20800000000000000
+      internalID: 3243773211902722690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_11
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 416
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0edb642d4d32a5f0800000000000000
+      internalID: -746967186657255926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 416
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef5015bebfef77d30800000000000000
+      internalID: 4429289116480374270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_13
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 400
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e126a115e23ca00800000000000000
+      internalID: 775514486707723809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_14
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 416
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e326089b30944c70800000000000000
+      internalID: 8954440544747398117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_15
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43024db3ed6ccc8d0800000000000000
+      internalID: -2824664208479346636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_16
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad89ad5ff63462120800000000000000
+      internalID: 2388670800511801562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3544af2b9feb6040800000000000000
+      internalID: 4642067290733692219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_18
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a3be6223f748820800000000000000
+      internalID: 2919598311820966441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 400
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0958bd1949f2e1f0800000000000000
+      internalID: -1016976473405761269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2514fe9159322f30800000000000000
+      internalID: 4549261596319552812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 400
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be0f6b49d41fb630800000000000000
+      internalID: 3944894722105872056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 384
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b8df27de48fbbd0800000000000000
+      internalID: -2612223103480263930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_23
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 400
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c8778173ce39db70800000000000000
+      internalID: 8924233145755597001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_24
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 384
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381be28c6914a6910800000000000000
+      internalID: 1831348314338931075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_25
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 400
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bbc2edff64b7390800000000000000
+      internalID: -7819578263240655986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 371
+        width: 79
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7603e35d50511b5b0800000000000000
+      internalID: -5354475367170166681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_27
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 369
+        width: 92
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966659d856a9f1d30800000000000000
+      internalID: 4404408721549387369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_28
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 369
+        width: 92
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639bbf08dcf519b90800000000000000
+      internalID: -7236897789970761418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 384
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30650b109f8a1c190800000000000000
+      internalID: -7943882480276187645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_30
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 384
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5dba5a56678f1b0800000000000000
+      internalID: -5622613955828787769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_31
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 384
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade0fa162e3544070800000000000000
+      internalID: 8089683062430830298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_32
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 384
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd1e08ad0fc4acdc0800000000000000
+      internalID: -3617994753297030689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_33
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8850677a9106f3b0800000000000000
+      internalID: -5479190133710235506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_34
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a4f12bc3f04e190800000000000000
+      internalID: -7934199890159121761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_35
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a58dfd00a547690800000000000000
+      internalID: -7605354910919927217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_36
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 370
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da51e31bf2c298bc0800000000000000
+      internalID: -3780441828852099667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_37
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 370
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2baf9d2aacbad01b0800000000000000
+      internalID: -5688701867495130446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_38
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 370
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2baf79bdd353bf0800000000000000
+      internalID: -345301783067053335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_39
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 370
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d176432c2dcded700800000000000000
+      internalID: 567133400854718237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_40
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 010af0620c60a2370800000000000000
+      internalID: 8298452685725605904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_41
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 370
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8d58c54d68c0ac0800000000000000
+      internalID: -3887584131684116236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67906a4c670d7e700800000000000000
+      internalID: 569653086409591158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_43
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 370
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59847e99bc9e5e850800000000000000
+      internalID: 6405783105674102933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_44
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 354
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd156d41a77bacd0800000000000000
+      internalID: -2545809629675971140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_45
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 354
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 744a9723040a97ad0800000000000000
+      internalID: -2703953903674088377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_46
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 353
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36c4adc429569580800000000000000
+      internalID: -8820764805554715078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_47
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 353
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c63010fac33fd10800000000000000
+      internalID: 2158135368774544423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_48
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 354
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2661456ba6d6f8990800000000000000
+      internalID: -7381560959144028574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_49
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 354
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7434378dc8046d0800000000000000
+      internalID: -3008249689808877663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_50
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 354
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2854de606a40680800000000000000
+      internalID: -8789718024039595280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_51
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 354
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74fa4c21f8642b910800000000000000
+      internalID: 1851619977111842631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 354
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12957a7b0c48d8d20800000000000000
+      internalID: 3282425666672744737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_53
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 354
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b03702a7a6f63c960800000000000000
+      internalID: 7621057497547174667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 354
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9443261357fc0420800000000000000
+      internalID: 2597723021311689884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_55
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 354
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52564e6f498ad8500800000000000000
+      internalID: 400161299656631589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_56
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 343
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800c855a5d3e73ed0800000000000000
+      internalID: -2434226566828867576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_57
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 343
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f68bc1b418211d5e0800000000000000
+      internalID: -1886706422371272593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_58
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 239
+        width: 89
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0960156f8cc98ede0800000000000000
+      internalID: -1303619705183861104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_59
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 239
+        width: 89
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91879038b28f16da0800000000000000
+      internalID: -5953204366641367015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_60
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 338
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ec7fa4af035fcf0800000000000000
+      internalID: -219215155299889610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_61
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 338
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0863d2ca413134c00800000000000000
+      internalID: 883570931403667072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_62
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 339
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff18c5f3c825f67d0800000000000000
+      internalID: -2923026870828236289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_63
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 339
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a53e56db5c792c440800000000000000
+      internalID: 4954689415602889562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_64
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 338
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d117ed481bd56b0800000000000000
+      internalID: -5305889601746821740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_65
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 338
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c763a718b6fea80800000000000000
+      internalID: -8435405373196305257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_66
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 336
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a9a845c6966dc40800000000000000
+      internalID: 5536728705894357651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_67
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 336
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe067bbdcfb6b33a0800000000000000
+      internalID: -6684630488139210513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_68
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 338
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc6d6c7d7d2bd0b0800000000000000
+      internalID: -5702914486152893190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_69
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 338
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f2d90b22d7e2ae0800000000000000
+      internalID: -1572181631960273146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 338
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bacd427abc6ac5460800000000000000
+      internalID: 7231838495262956715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_71
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 338
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d5a01b1acf73390800000000000000
+      internalID: -7838518855024878247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_72
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 321
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb79dc2213cca3d0800000000000000
+      internalID: -3193963552883246142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_73
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 305
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c1fd9dc5284c550800000000000000
+      internalID: 6180207923963042867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_74
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 289
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b85a984b49778f0800000000000000
+      internalID: -542801726950503609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_75
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 321
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5554aeac77818d0800000000000000
+      internalID: -2875416648678550111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_76
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 305
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a737ec44741bf98f0800000000000000
+      internalID: -531511311351254150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_77
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 289
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ffeaec60c659aa0800000000000000
+      internalID: -6154894539238736113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_78
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 320
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585b3219c1073b470800000000000000
+      internalID: 8409188197227279749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_79
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 306
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177e74bd5d268b7a0800000000000000
+      internalID: -6361225803014346895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_80
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 288
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd40a281fd999340800000000000000
+      internalID: 4871098132582125022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_81
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 320
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ea148409ae55c10800000000000000
+      internalID: 2041795911490842262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_82
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 306
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6773304418b2b6220800000000000000
+      internalID: 2480123853989427062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_83
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 288
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e188669b27efe0d0800000000000000
+      internalID: -3391237819993652766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_84
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 291
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a466ba2cd34d87f0800000000000000
+      internalID: -608755761736686432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_85
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 307
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b99bc837b6d64530800000000000000
+      internalID: 3838991814800153011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_86
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 291
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4952626d073b0a90800000000000000
+      internalID: -7346717836500117170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_87
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08d5ed24d0a9f1b0800000000000000
+      internalID: -5622285826631804915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_88
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c0b218eebc3b1e0800000000000000
+      internalID: -2183177169114821490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_89
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71ba3d7c50949010800000000000000
+      internalID: 1194738528072413565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_90
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e0744e7226dabd0800000000000000
+      internalID: -2617327884959281572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_91
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a81a5c2cf63f3350800000000000000
+      internalID: 5998573685384550562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_92
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee19c0d531367370800000000000000
+      internalID: 8319891468819439330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_93
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eee67db94ab2b0f0800000000000000
+      internalID: -1102614132878283037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_94
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6decef46305a428b0800000000000000
+      internalID: -5177832237571322154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_95
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 225
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f363a98d06978910800000000000000
+      internalID: 1839603957692064760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_96
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 94
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20cbe8f1c7fba320800000000000000
+      internalID: 2570420424821948462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_97
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 311
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddec5d3a85d99b100800000000000000
+      internalID: 124303468760780509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_98
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 311
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2916d2e4da973c8d0800000000000000
+      internalID: -2827282355810639470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_99
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 273
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4964031af109a6da0800000000000000
+      internalID: -5950785492094007660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_100
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 273
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7745efc16b986730800000000000000
+      internalID: 3992611914065987454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_101
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 274
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3a1f8cda8cfe7b0800000000000000
+      internalID: -5192711196608715816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_102
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 274
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d271e0cc78e9040e0800000000000000
+      internalID: -2287654304622962899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_103
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 255
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9d1cc4f0abd0230800000000000000
+      internalID: 3606743451468683708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 255
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4dc0262af1b29400800000000000000
+      internalID: 329521410691091789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_105
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 226
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b52f4804acf3f80800000000000000
+      internalID: -8124552824295892172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_106
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 228
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ef7d9f7955da2c0800000000000000
+      internalID: -4418781548160483809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_107
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8b01739973d7120800000000000000
+      internalID: 2413146106533820583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_108
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 209
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b4d84366407b3a0800000000000000
+      internalID: -6649841487774397624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_109
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd6e0979180558e0800000000000000
+      internalID: -1705447978391671342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_110
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 210
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6baf195ebcb56b30800000000000000
+      internalID: 4280034546610580330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_111
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6add0cf8a43f4c0800000000000000
+      internalID: -4254975241658456398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_112
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 210
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cff6547048a399c0800000000000000
+      internalID: -3921605855726338111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_113
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 175
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb9e43bf3089d470800000000000000
+      internalID: 8419901989425421242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_114
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 188
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e8da6cb6851f780800000000000000
+      internalID: -8651036189284004257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_115
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 177
+        width: 90
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c1296b2114459b00800000000000000
+      internalID: 834648146480538051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_116
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 145
+        width: 66
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52524f23e592aade0800000000000000
+      internalID: -1321198056121293531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_117
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 175
+        width: 89
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc3fc0e8c3d690c0800000000000000
+      internalID: -4569231912202191688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_118
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f8827838ea637d0800000000000000
+      internalID: -2938969826881138854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_119
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3f6ff63ca129bb0800000000000000
+      internalID: -4930849215317871680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_120
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e75544506f9a940800000000000000
+      internalID: 5308044138314563162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_121
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d3996fc79f19cc0800000000000000
+      internalID: -3705906703240708755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_122
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a628d41d1905b60800000000000000
+      internalID: 7732840888329726543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_123
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b4871f424d08ed0800000000000000
+      internalID: -2413696145135481988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_124
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 180
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb728a9597784c750800000000000000
+      internalID: 6324328732000004030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_125
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 178
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2c66e66e57864f0800000000000000
+      internalID: -835288098322070791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_126
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 179
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb62528760e4f850800000000000000
+      internalID: 6409994904827751422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_127
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 177
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 526ed40ef193c8c10800000000000000
+      internalID: 2057081938871445029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_128
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 180
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33104fca49eb61e50800000000000000
+      internalID: 6779815834818969907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_129
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 178
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07fd91d289855850800000000000000
+      internalID: 6365144843313608462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 177
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf48f8a874e71a20800000000000000
+      internalID: 3033144080939372494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_131
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe6a9baaf9c86720800000000000000
+      internalID: 2839741643515129586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_132
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c57808538568c10800000000000000
+      internalID: 2055427266754075667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_133
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d5f8c4be2b77e50800000000000000
+      internalID: 6807106085465316729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_134
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b12ef752b0267c0800000000000000
+      internalID: -4079686056757028040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_135
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be30f92f30213a510800000000000000
+      internalID: 1559109704165032939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_136
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e4ecd324b0b20bc0800000000000000
+      internalID: -3818295246314478362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_137
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e66b136d3562920800000000000000
+      internalID: 2965149584092196380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_138
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 538e70634a35823c0800000000000000
+      internalID: -4384162272498948043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_139
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b7b9eb2d90b54a0800000000000000
+      internalID: -6603673627863057525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_140
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82226a024270ac530800000000000000
+      internalID: 3875918281053708840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_141
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8844892717e395b90800000000000000
+      internalID: -7252697067928664952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_142
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42dbb0513f459260800000000000000
+      internalID: 7103671060473303626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_143
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 115
+        width: 90
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c5535a9c0f44da0800000000000000
+      internalID: -5961375257880863724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_144
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e043102e3d6dab0800000000000000
+      internalID: -4983562970002616714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_145
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5176d6406da139790800000000000000
+      internalID: -7524641045906364651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_146
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4378878f18b890d0800000000000000
+      internalID: -3415777871803157685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_147
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387f2878b10a40530800000000000000
+      internalID: 3820354424015091587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_148
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464fbf6e2d6eda8e0800000000000000
+      internalID: -1680433292446534556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_149
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83cbd3d8d9e398c0800000000000000
+      internalID: -3993591327070895222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_150
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75fe0a63815b861b0800000000000000
+      internalID: -5663077415818039465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_151
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc814c8ba4873780800000000000000
+      internalID: -8703341882542813961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_152
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c30d9e033972d880800000000000000
+      internalID: -8587668279246650426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_153
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567ba15e78b802e90800000000000000
+      internalID: -7052483600681617563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_154
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76f191dab63ee180800000000000000
+      internalID: -9084263222351890818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_155
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b70284e17c671590800000000000000
+      internalID: -7703569401173112910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_156
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b1607712951ce20800000000000000
+      internalID: 3369071996515523370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_157
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a2162e59fbc5d60800000000000000
+      internalID: 7880384098460576261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_158
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31676b3fc82d16ab0800000000000000
+      internalID: -5016497007087946221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_159
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef2dea3acefa7860800000000000000
+      internalID: 7528609871628677097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_160
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 94
+        width: 81
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2ef06c79a878ec0800000000000000
+      internalID: -3564728195572833614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_161
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4556366d39c7c91b0800000000000000
+      internalID: -5648502858230569644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_162
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3364b69d77d830c70800000000000000
+      internalID: 8936141631521506867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_163
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a905267f1ed095c80800000000000000
+      internalID: -8333614371303173990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_164
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 33
+        width: 89
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5fa50f2df3cec3f0800000000000000
+      internalID: -878549385107624100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_165
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df8989332f1dc9f0800000000000000
+      internalID: -446666551890178089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_166
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 83
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f32cbb5b825a8e30800000000000000
+      internalID: 4506505135630590962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_167
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 82
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be3d4d22ac842d70800000000000000
+      internalID: 9017486982075203249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_168
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 81
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a29d2f57b3c5edac0800000000000000
+      internalID: -3828521222766667478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_169
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17a2fc2c8f0e1660800000000000000
+      internalID: 7358335935893907228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_170
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 83
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198eced1dd55a12c0800000000000000
+      internalID: -4460158072778856303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_171
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 82
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f4a93c32f208bb0800000000000000
+      internalID: -4935893360946032849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_172
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 81
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e81034561c41b860800000000000000
+      internalID: 7543894509607721184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_173
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 83
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6db935f8ea5fc1e0800000000000000
+      internalID: -2175420138403545745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_174
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 84
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd54b55769c97040800000000000000
+      internalID: 4645965936266075587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_175
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 83
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603fb080c1c51b660800000000000000
+      internalID: 7399796938210276102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_176
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 82
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942394f111d623e20800000000000000
+      internalID: 3328842994886980169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_177
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 83
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38048ec2ffec1680800000000000000
+      internalID: -8782881347153426372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_178
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 84
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd6a9c2149bef730800000000000000
+      internalID: 4034866005742874108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_179
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 83
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53e2a6979e5ad5f0800000000000000
+      internalID: -731167984333954211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_180
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 82
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b213574e33d943c50800000000000000
+      internalID: 6644108196480102699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_181
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 66
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f71c9be5d5754320800000000000000
+      internalID: 2541567126361872372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_182
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304e680609acbfe20800000000000000
+      internalID: 3385522266342614019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_183
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 65
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cfcf2194d5741c0800000000000000
+      internalID: -4519541132610438058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_184
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f99b44b86af824f0800000000000000
+      internalID: -853156801778312715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_185
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 66
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e549f19cc2969b0800000000000000
+      internalID: -5086485061808398732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_186
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8a09a2b4e5507370800000000000000
+      internalID: 8318242952491633293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_187
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 65
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a932c26efb65db110800000000000000
+      internalID: 1278273251443483546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_188
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cd68eb2e2eabf40800000000000000
+      internalID: 5745153738151484447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_189
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731cb567c5f3bb160800000000000000
+      internalID: 7042292108679168311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_190
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 67
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81a170cc2299b820800000000000000
+      internalID: 2934537353113477515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_191
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a5594e1e2433670800000000000000
+      internalID: 8517224858257807886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_192
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 51
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a0312797c0dd5a0800000000000000
+      internalID: -6495021371853960610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_193
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad58d3af6a705cd0800000000000000
+      internalID: -2571420767319728731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_194
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 67
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805f4543bb17ef0b0800000000000000
+      internalID: -5692987830098922232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_195
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661133548707e3aa0800000000000000
+      internalID: -6179377976846380698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_196
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 51
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64bd5172e445c4480800000000000000
+      internalID: -8913656867833128122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_197
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 53
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a850fc9fdb6b980800000000000000
+      internalID: -8523416364134331766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_198
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ee1ce3e8afa4cb0800000000000000
+      internalID: -4878811757457314213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_199
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db38b7b5991b367d0800000000000000
+      internalID: -2926300060637756483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_200
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 50
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375bf618b1242c5c0800000000000000
+      internalID: -4196719216852748941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_201
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 53
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51db93839ff90560800000000000000
+      internalID: 7280631281654419805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_202
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf3f45824ad1b0b0800000000000000
+      internalID: -5714546472917188662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_203
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e929291751270000800000000000000
+      internalID: 2006982804974051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_204
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 50
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0cb7c3c61180800800000000000000
+      internalID: 578731708685992117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_205
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 49
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8838633eb73e0b520800000000000000
+      internalID: 2715920696536892296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_206
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 49
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75d780b22a079230800000000000000
+      internalID: 3645393567486563706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_207
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 49
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab470f0e4db5b270800000000000000
+      internalID: 8265720834065648552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_208
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 49
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfac3151ca29e070800000000000000
+      internalID: 8136081211601498032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_209
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 34
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97be5ebc0a1022d0800000000000000
+      internalID: -3305613484454135909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_210
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 35
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e67e56d891c1240800000000000000
+      internalID: 4763710600941891227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_211
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 34
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7424ff0f411ebc0f0800000000000000
+      internalID: -1095534604275727801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_212
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3de65faecac3930800000000000000
+      internalID: 4124361483904537582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_213
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 34
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bff66c2e746412a0800000000000000
+      internalID: -6767673846957408335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_214
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 35
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595578c6d3eda6c60800000000000000
+      internalID: 7812300859022726549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_215
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 34
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc1fe142dd4dbc80800000000000000
+      internalID: -8305396572356666190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_216
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb8d78a184551100800000000000000
+      internalID: 78061484403166139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_217
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5815ae42590bcb0e0800000000000000
+      internalID: -2252731558976138875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_218
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 36
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de75d196c3273b520800000000000000
+      internalID: 2716640604021676013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_219
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 35
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4b7ece249691630800000000000000
+      internalID: 3898262688629241019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_220
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 34
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0392e9fec821f0220800000000000000
+      internalID: 2454200718465050928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_221
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff7d7159b4b4f2c0800000000000000
+      internalID: -4398692228005003265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_222
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 36
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e4534254513ae70800000000000000
+      internalID: 9125160656687156786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_223
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 35
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 089b1389360a9cbe0800000000000000
+      internalID: -1456456654862042752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_224
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 34
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b222b53d38235490800000000000000
+      internalID: -7758813489670249801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_225
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 18
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469ddd9715c4457a0800000000000000
+      internalID: -6389398058511247004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_226
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb53c4b5af4eb340800000000000000
+      internalID: 4881426619237096374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_227
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d40fa7b6845cf400800000000000000
+      internalID: 359255007866848473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_228
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 18
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96eab94c593b449d0800000000000000
+      internalID: -2790908413232828823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_229
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 18
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba1f94a7f0cfebe0800000000000000
+      internalID: -1445724785511294280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_230
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 18
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35fd8bdf5cf2d890800000000000000
+      internalID: -7434602546199661254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_231
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e397df91a2f1d08c0800000000000000
+      internalID: -4031531825741596354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_232
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 18
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4718e95aeca622020800000000000000
+      internalID: 2315530594196291956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_233
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac33761df51f1670800000000000000
+      internalID: 8511545997501086894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_234
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 19
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2df5bcaceb89700800000000000000
+      internalID: 547397132930241235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_235
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18635d49e7fdf6b0800000000000000
+      internalID: -5260776208302118881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_236
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51064ee7bbe4db00800000000000000
+      internalID: 852565404688974170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_237
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a5645c9b7acf5e0800000000000000
+      internalID: -1874438928572458399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_238
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 19
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c9701ee37699b80800000000000000
+      internalID: -8387559311239832454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_239
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfe633910bb5c920800000000000000
+      internalID: 3010017541406257098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_240
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 3
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d73b426866c23c0800000000000000
+      internalID: -4383015611010941638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_241
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937c4686de9d6fe20800000000000000
+      internalID: 3384131783697418041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_242
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bbe2cf2644b6e770800000000000000
+      internalID: 8639791148698889139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_243
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ebe5f4ad790d5f30800000000000000
+      internalID: 4565816032466693097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_244
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 2
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b9acd6dd6c84190800000000000000
+      internalID: -7977908085554767047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_245
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf88622eb177042c0800000000000000
+      internalID: -4449425470200051461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_246
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c2805d8a9dfc900800000000000000
+      internalID: 707022985672273001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_247
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faee14107d9ca1f30800000000000000
+      internalID: 4547168699060186799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_248
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f211c6dfa773202b0800000000000000
+      internalID: -5619868383627701969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_249
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff0d33cccec099a10800000000000000
+      internalID: 1916577327600619775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_250
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d59313218f0706d0800000000000000
+      internalID: -3024431577442314795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_251
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dde94ab30fdc6e40800000000000000
+      internalID: 5651136839546432981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro_252
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6180fe9944736fd60800000000000000
+      internalID: 7923581362184849430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Retro_0: -4018743946247484679
+      Retro_1: 6325784148927397076
+      Retro_10: 3243773211902722690
+      Retro_100: 3992611914065987454
+      Retro_101: -5192711196608715816
+      Retro_102: -2287654304622962899
+      Retro_103: 3606743451468683708
+      Retro_104: 329521410691091789
+      Retro_105: -8124552824295892172
+      Retro_106: -4418781548160483809
+      Retro_107: 2413146106533820583
+      Retro_108: -6649841487774397624
+      Retro_109: -1705447978391671342
+      Retro_11: -746967186657255926
+      Retro_110: 4280034546610580330
+      Retro_111: -4254975241658456398
+      Retro_112: -3921605855726338111
+      Retro_113: 8419901989425421242
+      Retro_114: -8651036189284004257
+      Retro_115: 834648146480538051
+      Retro_116: -1321198056121293531
+      Retro_117: -4569231912202191688
+      Retro_118: -2938969826881138854
+      Retro_119: -4930849215317871680
+      Retro_12: 4429289116480374270
+      Retro_120: 5308044138314563162
+      Retro_121: -3705906703240708755
+      Retro_122: 7732840888329726543
+      Retro_123: -2413696145135481988
+      Retro_124: 6324328732000004030
+      Retro_125: -835288098322070791
+      Retro_126: 6409994904827751422
+      Retro_127: 2057081938871445029
+      Retro_128: 6779815834818969907
+      Retro_129: 6365144843313608462
+      Retro_13: 775514486707723809
+      Retro_130: 3033144080939372494
+      Retro_131: 2839741643515129586
+      Retro_132: 2055427266754075667
+      Retro_133: 6807106085465316729
+      Retro_134: -4079686056757028040
+      Retro_135: 1559109704165032939
+      Retro_136: -3818295246314478362
+      Retro_137: 2965149584092196380
+      Retro_138: -4384162272498948043
+      Retro_139: -6603673627863057525
+      Retro_14: 8954440544747398117
+      Retro_140: 3875918281053708840
+      Retro_141: -7252697067928664952
+      Retro_142: 7103671060473303626
+      Retro_143: -5961375257880863724
+      Retro_144: -4983562970002616714
+      Retro_145: -7524641045906364651
+      Retro_146: -3415777871803157685
+      Retro_147: 3820354424015091587
+      Retro_148: -1680433292446534556
+      Retro_149: -3993591327070895222
+      Retro_15: -2824664208479346636
+      Retro_150: -5663077415818039465
+      Retro_151: -8703341882542813961
+      Retro_152: -8587668279246650426
+      Retro_153: -7052483600681617563
+      Retro_154: -9084263222351890818
+      Retro_155: -7703569401173112910
+      Retro_156: 3369071996515523370
+      Retro_157: 7880384098460576261
+      Retro_158: -5016497007087946221
+      Retro_159: 7528609871628677097
+      Retro_16: 2388670800511801562
+      Retro_160: -3564728195572833614
+      Retro_161: -5648502858230569644
+      Retro_162: 8936141631521506867
+      Retro_163: -8333614371303173990
+      Retro_164: -878549385107624100
+      Retro_165: -446666551890178089
+      Retro_166: 4506505135630590962
+      Retro_167: 9017486982075203249
+      Retro_168: -3828521222766667478
+      Retro_169: 7358335935893907228
+      Retro_17: 4642067290733692219
+      Retro_170: -4460158072778856303
+      Retro_171: -4935893360946032849
+      Retro_172: 7543894509607721184
+      Retro_173: -2175420138403545745
+      Retro_174: 4645965936266075587
+      Retro_175: 7399796938210276102
+      Retro_176: 3328842994886980169
+      Retro_177: -8782881347153426372
+      Retro_178: 4034866005742874108
+      Retro_179: -731167984333954211
+      Retro_18: 2919598311820966441
+      Retro_180: 6644108196480102699
+      Retro_181: 2541567126361872372
+      Retro_182: 3385522266342614019
+      Retro_183: -4519541132610438058
+      Retro_184: -853156801778312715
+      Retro_185: -5086485061808398732
+      Retro_186: 8318242952491633293
+      Retro_187: 1278273251443483546
+      Retro_188: 5745153738151484447
+      Retro_189: 7042292108679168311
+      Retro_19: -1016976473405761269
+      Retro_190: 2934537353113477515
+      Retro_191: 8517224858257807886
+      Retro_192: -6495021371853960610
+      Retro_193: -2571420767319728731
+      Retro_194: -5692987830098922232
+      Retro_195: -6179377976846380698
+      Retro_196: -8913656867833128122
+      Retro_197: -8523416364134331766
+      Retro_198: -4878811757457314213
+      Retro_199: -2926300060637756483
+      Retro_2: -558715606456033181
+      Retro_20: 4549261596319552812
+      Retro_200: -4196719216852748941
+      Retro_201: 7280631281654419805
+      Retro_202: -5714546472917188662
+      Retro_203: 2006982804974051
+      Retro_204: 578731708685992117
+      Retro_205: 2715920696536892296
+      Retro_206: 3645393567486563706
+      Retro_207: 8265720834065648552
+      Retro_208: 8136081211601498032
+      Retro_209: -3305613484454135909
+      Retro_21: 3944894722105872056
+      Retro_210: 4763710600941891227
+      Retro_211: -1095534604275727801
+      Retro_212: 4124361483904537582
+      Retro_213: -6767673846957408335
+      Retro_214: 7812300859022726549
+      Retro_215: -8305396572356666190
+      Retro_216: 78061484403166139
+      Retro_217: -2252731558976138875
+      Retro_218: 2716640604021676013
+      Retro_219: 3898262688629241019
+      Retro_22: -2612223103480263930
+      Retro_220: 2454200718465050928
+      Retro_221: -4398692228005003265
+      Retro_222: 9125160656687156786
+      Retro_223: -1456456654862042752
+      Retro_224: -7758813489670249801
+      Retro_225: -6389398058511247004
+      Retro_226: 4881426619237096374
+      Retro_227: 359255007866848473
+      Retro_228: -2790908413232828823
+      Retro_229: -1445724785511294280
+      Retro_23: 8924233145755597001
+      Retro_230: -7434602546199661254
+      Retro_231: -4031531825741596354
+      Retro_232: 2315530594196291956
+      Retro_233: 8511545997501086894
+      Retro_234: 547397132930241235
+      Retro_235: -5260776208302118881
+      Retro_236: 852565404688974170
+      Retro_237: -1874438928572458399
+      Retro_238: -8387559311239832454
+      Retro_239: 3010017541406257098
+      Retro_24: 1831348314338931075
+      Retro_240: -4383015611010941638
+      Retro_241: 3384131783697418041
+      Retro_242: 8639791148698889139
+      Retro_243: 4565816032466693097
+      Retro_244: -7977908085554767047
+      Retro_245: -4449425470200051461
+      Retro_246: 707022985672273001
+      Retro_247: 4547168699060186799
+      Retro_248: -5619868383627701969
+      Retro_249: 1916577327600619775
+      Retro_25: -7819578263240655986
+      Retro_250: -3024431577442314795
+      Retro_251: 5651136839546432981
+      Retro_252: 7923581362184849430
+      Retro_26: -5354475367170166681
+      Retro_27: 4404408721549387369
+      Retro_28: -7236897789970761418
+      Retro_29: -7943882480276187645
+      Retro_3: -6213383281874993784
+      Retro_30: -5622613955828787769
+      Retro_31: 8089683062430830298
+      Retro_32: -3617994753297030689
+      Retro_33: -5479190133710235506
+      Retro_34: -7934199890159121761
+      Retro_35: -7605354910919927217
+      Retro_36: -3780441828852099667
+      Retro_37: -5688701867495130446
+      Retro_38: -345301783067053335
+      Retro_39: 567133400854718237
+      Retro_4: -5837928853304841039
+      Retro_40: 8298452685725605904
+      Retro_41: -3887584131684116236
+      Retro_42: 569653086409591158
+      Retro_43: 6405783105674102933
+      Retro_44: -2545809629675971140
+      Retro_45: -2703953903674088377
+      Retro_46: -8820764805554715078
+      Retro_47: 2158135368774544423
+      Retro_48: -7381560959144028574
+      Retro_49: -3008249689808877663
+      Retro_5: -1392226292265421363
+      Retro_50: -8789718024039595280
+      Retro_51: 1851619977111842631
+      Retro_52: 3282425666672744737
+      Retro_53: 7621057497547174667
+      Retro_54: 2597723021311689884
+      Retro_55: 400161299656631589
+      Retro_56: -2434226566828867576
+      Retro_57: -1886706422371272593
+      Retro_58: -1303619705183861104
+      Retro_59: -5953204366641367015
+      Retro_6: 4542668181048339894
+      Retro_60: -219215155299889610
+      Retro_61: 883570931403667072
+      Retro_62: -2923026870828236289
+      Retro_63: 4954689415602889562
+      Retro_64: -5305889601746821740
+      Retro_65: -8435405373196305257
+      Retro_66: 5536728705894357651
+      Retro_67: -6684630488139210513
+      Retro_68: -5702914486152893190
+      Retro_69: -1572181631960273146
+      Retro_7: 1002130993426012513
+      Retro_70: 7231838495262956715
+      Retro_71: -7838518855024878247
+      Retro_72: -3193963552883246142
+      Retro_73: 6180207923963042867
+      Retro_74: -542801726950503609
+      Retro_75: -2875416648678550111
+      Retro_76: -531511311351254150
+      Retro_77: -6154894539238736113
+      Retro_78: 8409188197227279749
+      Retro_79: -6361225803014346895
+      Retro_8: -4731045288367886262
+      Retro_80: 4871098132582125022
+      Retro_81: 2041795911490842262
+      Retro_82: 2480123853989427062
+      Retro_83: -3391237819993652766
+      Retro_84: -608755761736686432
+      Retro_85: 3838991814800153011
+      Retro_86: -7346717836500117170
+      Retro_87: -5622285826631804915
+      Retro_88: -2183177169114821490
+      Retro_89: 1194738528072413565
+      Retro_9: 5459029328283347904
+      Retro_90: -2617327884959281572
+      Retro_91: 5998573685384550562
+      Retro_92: 8319891468819439330
+      Retro_93: -1102614132878283037
+      Retro_94: -5177832237571322154
+      Retro_95: 1839603957692064760
+      Retro_96: 2570420424821948462
+      Retro_97: 124303468760780509
+      Retro_98: -2827282355810639470
+      Retro_99: -5950785492094007660
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

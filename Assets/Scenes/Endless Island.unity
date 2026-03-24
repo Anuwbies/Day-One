@@ -80564,9 +80564,15 @@ MonoBehaviour:
   islandSelectionUI: {fileID: 0}
   islandOverride: {fileID: 0}
   useIslandSessionData: 1
+  panelRoot: {fileID: 0}
+  panelCanvasGroup: {fileID: 0}
   taskParent: {fileID: 1095351950}
   taskItemPrefab: {fileID: 1206732528}
+  taskCountText: {fileID: 0}
+  footerItems: []
+  preserveDirectChildButtons: 1
   rebuildOnEnable: 1
+  toggleContentOnPanelClick: 1
 --- !u!1 &1141216924
 GameObject:
   m_ObjectHideFlags: 0

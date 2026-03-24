@@ -6,6 +6,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class LeafBedLogic : MonoBehaviour
 {
+    private const float PositionGizmoRadius = 0.05f;
+    private const float HeadDirectionGizmoLength = 0.1f;
+
     [Header("References")]
     [Tooltip("Drag the child object with the range Trigger Collider here.")]
     [SerializeField] private Collider2D rangeTrigger;
@@ -225,15 +228,15 @@ public class LeafBedLogic : MonoBehaviour
     {
         // 1. Sleep Position (Cyan)
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position + sleepOffset, 0.2f);
+        Gizmos.DrawWireSphere(transform.position + sleepOffset, PositionGizmoRadius);
         
         // Draw a small line indicating the "head" direction (90 deg rotation)
-        Vector3 headDir = Quaternion.Euler(0, 0, 90f) * Vector3.up * 0.4f;
+        Vector3 headDir = Quaternion.Euler(0, 0, 90f) * Vector3.up * HeadDirectionGizmoLength;
         Gizmos.DrawRay(transform.position + sleepOffset, headDir);
 
         // 2. Wake Up Position (Yellow)
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + wakeUpOffset, 0.2f);
+        Gizmos.DrawWireSphere(transform.position + wakeUpOffset, PositionGizmoRadius);
         Gizmos.DrawLine(transform.position + sleepOffset, transform.position + wakeUpOffset);
     }
 

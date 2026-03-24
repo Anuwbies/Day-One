@@ -26,6 +26,7 @@ public class EnemyAttack : MonoBehaviour
     [Header("References")]
     [Tooltip("The collider representing the enemy's weapon/attack area.")]
     public Collider2D attackCollider;
+    [Tooltip("Assign the Player's Collider here. If left empty, it will auto-detect a valid player body collider.")]
     public Collider2D playerCollider;
     [Tooltip("The collider used to calculate the center of the enemy (body).")]
     public Collider2D ownCollider;
@@ -41,6 +42,7 @@ public class EnemyAttack : MonoBehaviour
 
     // Physics check requirements
     private ContactFilter2D playerFilter;
+    private Collider2D configuredPlayerCollider;
     private Collider2D[] overlapResults = new Collider2D[5]; // Increased buffer size
 
     // Track targets hit during the current swing to prevent multi-hits
@@ -58,21 +60,7 @@ public class EnemyAttack : MonoBehaviour
         if (attackCollider != null)
             attackCollider.enabled = false;
 
-        // Auto-find player if not assigned
-        if (playerCollider == null)
-        {
-            GameObject p = GameObject.FindGameObjectWithTag("Player");
-            if (p != null) playerCollider = p.GetComponent<Collider2D>();
-        }
-
-        // Setup filter to only detect the player layer, but allow triggers
-        if (playerCollider != null)
-        {
-            playerFilter = new ContactFilter2D();
-            playerFilter.useTriggers = true; // Important: Allow detecting trigger colliders
-            playerFilter.useLayerMask = true;
-            playerFilter.layerMask = LayerMask.GetMask(LayerMask.LayerToName(playerCollider.gameObject.layer));
-        }
+        TryAssignPlayerCollider();
 
         // Initialize offsets if array is empty (failsafe)
         if (directionalOffsets.Length != 8)
@@ -85,13 +73,24 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
+        if (playerCollider == null)
+        {
+            TryAssignPlayerCollider();
+        }
+
         if (playerCollider == null) return;
+
+        if (configuredPlayerCollider != playerCollider)
+        {
+            ConfigurePlayerFilter(playerCollider);
+        }
 
         // 1. Check Behavior and Aggro State
         if (enemyController != null)
         {
-            // Don't attack if purely Passive (fleeing logic)
-            if (enemyController.behavior == EnemyController.AIBehavior.Passive)
+            // Don't attack if this behavior only flees from the player
+            if (enemyController.behavior == EnemyController.AIBehavior.Passive ||
+                enemyController.behavior == EnemyController.AIBehavior.FleeOnSight)
                 return;
 
             // Don't attack if not currently aggroed (e.g., Retaliatory enemy that hasn't been hit)
@@ -222,6 +221,112 @@ public class EnemyAttack : MonoBehaviour
             enemyController.enabled = true;
 
         isAttacking = false; // Unlock direction
+    }
+
+    private void TryAssignPlayerCollider()
+    {
+        if (playerCollider != null)
+        {
+            if (configuredPlayerCollider != playerCollider)
+            {
+                ConfigurePlayerFilter(playerCollider);
+            }
+
+            return;
+        }
+
+        if (enemyController != null && enemyController.playerCollider != null)
+        {
+            playerCollider = enemyController.playerCollider;
+            ConfigurePlayerFilter(playerCollider);
+            return;
+        }
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj == null)
+        {
+            return;
+        }
+
+        playerCollider = FindPreferredPlayerCollider(playerObj);
+        if (playerCollider != null)
+        {
+            ConfigurePlayerFilter(playerCollider);
+        }
+    }
+
+    private Collider2D FindPreferredPlayerCollider(GameObject playerObj)
+    {
+        if (playerObj == null)
+        {
+            return null;
+        }
+
+        Collider2D rootCollider = playerObj.GetComponent<Collider2D>();
+        if (IsValidPlayerBodyCollider(rootCollider))
+        {
+            return rootCollider;
+        }
+
+        Rigidbody2D playerRb = playerObj.GetComponent<Rigidbody2D>();
+        Collider2D[] colliders = playerObj.GetComponentsInChildren<Collider2D>(true);
+        Collider2D triggerFallback = null;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (candidate == null || !candidate.enabled)
+            {
+                continue;
+            }
+
+            if (playerRb != null && candidate.attachedRigidbody == playerRb && !candidate.isTrigger)
+            {
+                return candidate;
+            }
+
+            if (!candidate.isTrigger && triggerFallback == null)
+            {
+                triggerFallback = candidate;
+            }
+        }
+
+        if (triggerFallback != null)
+        {
+            return triggerFallback;
+        }
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (candidate != null && candidate.enabled)
+            {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    private bool IsValidPlayerBodyCollider(Collider2D candidate)
+    {
+        return candidate != null && candidate.enabled && !candidate.isTrigger;
+    }
+
+    private void ConfigurePlayerFilter(Collider2D targetCollider)
+    {
+        if (targetCollider == null)
+        {
+            configuredPlayerCollider = null;
+            playerFilter = default;
+            return;
+        }
+
+        playerFilter = new ContactFilter2D();
+        playerFilter.useTriggers = true;
+        playerFilter.useLayerMask = true;
+        playerFilter.layerMask = LayerMask.GetMask(LayerMask.LayerToName(targetCollider.gameObject.layer));
+        configuredPlayerCollider = targetCollider;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

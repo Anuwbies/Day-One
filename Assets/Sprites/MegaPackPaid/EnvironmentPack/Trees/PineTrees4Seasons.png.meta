@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: f284ed5cde280d447b16685ee07d6534
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4987060001933260448
+    second: PineTrees4Seasons_0
+  - first:
+      213: -4303090280393905223
+    second: PineTrees4Seasons_1
+  - first:
+      213: -3482834225316591051
+    second: PineTrees4Seasons_2
+  - first:
+      213: 3570977925695258081
+    second: PineTrees4Seasons_3
+  - first:
+      213: 3817258594285222185
+    second: PineTrees4Seasons_4
+  - first:
+      213: -9146978463444824318
+    second: PineTrees4Seasons_5
+  - first:
+      213: -7896283564729177065
+    second: PineTrees4Seasons_6
+  - first:
+      213: -3599757906543220520
+    second: PineTrees4Seasons_7
+  - first:
+      213: 5215494910735629749
+    second: PineTrees4Seasons_8
+  - first:
+      213: 8075424358215537270
+    second: PineTrees4Seasons_9
+  - first:
+      213: -2399989902952125203
+    second: PineTrees4Seasons_10
+  - first:
+      213: -4403664622576780228
+    second: PineTrees4Seasons_11
+  - first:
+      213: -4619402352750373931
+    second: PineTrees4Seasons_12
+  - first:
+      213: 6293520432595097772
+    second: PineTrees4Seasons_13
+  - first:
+      213: -861066338806711477
+    second: PineTrees4Seasons_14
+  - first:
+      213: 1870522421841516794
+    second: PineTrees4Seasons_15
+  - first:
+      213: -1736468038963814202
+    second: PineTrees4Seasons_16
+  - first:
+      213: 8601754379437483636
+    second: PineTrees4Seasons_17
+  - first:
+      213: -80490145184908721
+    second: PineTrees4Seasons_18
+  - first:
+      213: -1913758717895193092
+    second: PineTrees4Seasons_19
+  - first:
+      213: -1525457813870475413
+    second: PineTrees4Seasons_20
+  - first:
+      213: -2658543251085688785
+    second: PineTrees4Seasons_21
+  - first:
+      213: -2677619174456087510
+    second: PineTrees4Seasons_22
+  - first:
+      213: 6456472554184453513
+    second: PineTrees4Seasons_23
+  - first:
+      213: 7165863754278232470
+    second: PineTrees4Seasons_24
+  - first:
+      213: -1475979133835072419
+    second: PineTrees4Seasons_25
+  - first:
+      213: -6666595278588850210
+    second: PineTrees4Seasons_26
+  - first:
+      213: 5631824629231344400
+    second: PineTrees4Seasons_27
+  - first:
+      213: -4813629614746104484
+    second: PineTrees4Seasons_28
+  - first:
+      213: -328450238749433013
+    second: PineTrees4Seasons_29
+  - first:
+      213: -7477079326369837770
+    second: PineTrees4Seasons_30
+  - first:
+      213: 5163168892707338609
+    second: PineTrees4Seasons_31
+  - first:
+      213: -3340256432404620355
+    second: PineTrees4Seasons_32
+  - first:
+      213: 8168695892862378891
+    second: PineTrees4Seasons_33
+  - first:
+      213: -9109597805891529160
+    second: PineTrees4Seasons_34
+  - first:
+      213: 6117827128210503366
+    second: PineTrees4Seasons_35
+  - first:
+      213: 3622383161199638551
+    second: PineTrees4Seasons_36
+  - first:
+      213: -7403787573583447392
+    second: PineTrees4Seasons_37
+  - first:
+      213: -2168594244269533610
+    second: PineTrees4Seasons_38
+  - first:
+      213: -5327427356602166317
+    second: PineTrees4Seasons_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PineTrees4Seasons_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 512
+        width: 32
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a67ac036a8953540800000000000000
+      internalID: 4987060001933260448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 512
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb6fa0503a5844c0800000000000000
+      internalID: -4303090280393905223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 512
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a8e6499bc7aafc0800000000000000
+      internalID: -3482834225316591051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_3
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 512
+        width: 49
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edb3d9e089ae8130800000000000000
+      internalID: 3570977925695258081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_4
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 512
+        width: 49
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9297d208770a9f430800000000000000
+      internalID: 3817258594285222185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_5
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 512
+        width: 44
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f093edc876f0180800000000000000
+      internalID: -9146978463444824318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_6
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 512
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cef862fe3ca6290800000000000000
+      internalID: -7896283564729177065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_7
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 512
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8661f91471b0ec0800000000000000
+      internalID: -3599757906543220520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_8
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 384
+        width: 32
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd314a0df8216840800000000000000
+      internalID: 5215494910735629749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_9
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 384
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67259f91baba11070800000000000000
+      internalID: 8075424358215537270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_10
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 384
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deca30226e581bed0800000000000000
+      internalID: -2399989902952125203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_11
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 384
+        width: 49
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c3b5d7b5a03e2c0800000000000000
+      internalID: -4403664622576780228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_12
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 384
+        width: 49
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3d5b9e80694efb0800000000000000
+      internalID: -4619402352750373931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_13
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 384
+        width: 44
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca85e7b2d73175750800000000000000
+      internalID: 6293520432595097772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_14
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 384
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b316b1ab0ec04f0800000000000000
+      internalID: -861066338806711477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_15
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 384
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af854427b3e65f910800000000000000
+      internalID: 1870522421841516794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 256
+        width: 32
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c02ebdc483d6e7e0800000000000000
+      internalID: -1736468038963814202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_17
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 256
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4762887b8029f5770800000000000000
+      internalID: 8601754379437483636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_18
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 256
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a7550b3aa02eef0800000000000000
+      internalID: -80490145184908721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_19
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 256
+        width: 49
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfdcc0ae596f075e0800000000000000
+      internalID: -1913758717895193092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_20
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 256
+        width: 49
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b670864533c74dae0800000000000000
+      internalID: -1525457813870475413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_21
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 256
+        width: 44
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20860baff4fa1bd0800000000000000
+      internalID: -2658543251085688785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_22
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 256
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c25c62c8f27dad0800000000000000
+      internalID: -2677619174456087510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_23
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 256
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d2936849ff99950800000000000000
+      internalID: 6456472554184453513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_24
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 128
+        width: 32
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691e99e3e13427360800000000000000
+      internalID: 7165863754278232470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_25
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 128
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c2fdf3cc4448be0800000000000000
+      internalID: -1475979133835072419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_26
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 128
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf4a6e4aee7b73a0800000000000000
+      internalID: -6666595278588850210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_27
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 128
+        width: 49
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b51ae59a2482e40800000000000000
+      internalID: 5631824629231344400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_28
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 128
+        width: 49
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d02cc7e5d823db0800000000000000
+      internalID: -4813629614746104484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_29
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 128
+        width: 44
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43a2f08f3c117bf0800000000000000
+      internalID: -328450238749433013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_30
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 128
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d0f4ac7f31c3890800000000000000
+      internalID: -7477079326369837770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_31
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 128
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179fa2590c247a740800000000000000
+      internalID: 5163168892707338609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_32
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 32
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb1fcfd87605a1d0800000000000000
+      internalID: -3340256432404620355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_33
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83214c82a90d5170800000000000000
+      internalID: 8168695892862378891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_34
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 0
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836582d6f05349180800000000000000
+      internalID: -9109597805891529160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_35
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 0
+        width: 49
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c63c360c53e6e450800000000000000
+      internalID: 6117827128210503366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_36
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 49
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71839abfa4a454230800000000000000
+      internalID: 3622383161199638551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_37
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 0
+        width: 44
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa7b14cd66704990800000000000000
+      internalID: -7403787573583447392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_38
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 39
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6569b58460b97e1e0800000000000000
+      internalID: -2168594244269533610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PineTrees4Seasons_39
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 90
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3970b8b0d2116b0800000000000000
+      internalID: -5327427356602166317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PineTrees4Seasons_0: 4987060001933260448
+      PineTrees4Seasons_1: -4303090280393905223
+      PineTrees4Seasons_10: -2399989902952125203
+      PineTrees4Seasons_11: -4403664622576780228
+      PineTrees4Seasons_12: -4619402352750373931
+      PineTrees4Seasons_13: 6293520432595097772
+      PineTrees4Seasons_14: -861066338806711477
+      PineTrees4Seasons_15: 1870522421841516794
+      PineTrees4Seasons_16: -1736468038963814202
+      PineTrees4Seasons_17: 8601754379437483636
+      PineTrees4Seasons_18: -80490145184908721
+      PineTrees4Seasons_19: -1913758717895193092
+      PineTrees4Seasons_2: -3482834225316591051
+      PineTrees4Seasons_20: -1525457813870475413
+      PineTrees4Seasons_21: -2658543251085688785
+      PineTrees4Seasons_22: -2677619174456087510
+      PineTrees4Seasons_23: 6456472554184453513
+      PineTrees4Seasons_24: 7165863754278232470
+      PineTrees4Seasons_25: -1475979133835072419
+      PineTrees4Seasons_26: -6666595278588850210
+      PineTrees4Seasons_27: 5631824629231344400
+      PineTrees4Seasons_28: -4813629614746104484
+      PineTrees4Seasons_29: -328450238749433013
+      PineTrees4Seasons_3: 3570977925695258081
+      PineTrees4Seasons_30: -7477079326369837770
+      PineTrees4Seasons_31: 5163168892707338609
+      PineTrees4Seasons_32: -3340256432404620355
+      PineTrees4Seasons_33: 8168695892862378891
+      PineTrees4Seasons_34: -9109597805891529160
+      PineTrees4Seasons_35: 6117827128210503366
+      PineTrees4Seasons_36: 3622383161199638551
+      PineTrees4Seasons_37: -7403787573583447392
+      PineTrees4Seasons_38: -2168594244269533610
+      PineTrees4Seasons_39: -5327427356602166317
+      PineTrees4Seasons_4: 3817258594285222185
+      PineTrees4Seasons_5: -9146978463444824318
+      PineTrees4Seasons_6: -7896283564729177065
+      PineTrees4Seasons_7: -3599757906543220520
+      PineTrees4Seasons_8: 5215494910735629749
+      PineTrees4Seasons_9: 8075424358215537270
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

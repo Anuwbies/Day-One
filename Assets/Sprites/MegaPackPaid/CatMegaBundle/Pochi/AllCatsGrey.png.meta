@@ -1,0 +1,3419 @@
+fileFormatVersion: 2
+guid: f30d66f10ebbd7346b7c1a9a47f4903e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -985033425067400129
+    second: AllCatsGrey_0
+  - first:
+      213: -6992780382170547566
+    second: AllCatsGrey_1
+  - first:
+      213: 732594609679012625
+    second: AllCatsGrey_2
+  - first:
+      213: 2396446745029029989
+    second: AllCatsGrey_3
+  - first:
+      213: -2945424664683759235
+    second: AllCatsGrey_4
+  - first:
+      213: -543282557064255001
+    second: AllCatsGrey_5
+  - first:
+      213: -5341407751133825082
+    second: AllCatsGrey_6
+  - first:
+      213: -8573796480059996483
+    second: AllCatsGrey_7
+  - first:
+      213: -9057893706715315981
+    second: AllCatsGrey_8
+  - first:
+      213: 6543484314859594965
+    second: AllCatsGrey_9
+  - first:
+      213: 7601755280064486566
+    second: AllCatsGrey_10
+  - first:
+      213: 4048525706544333223
+    second: AllCatsGrey_11
+  - first:
+      213: -8845394599243211612
+    second: AllCatsGrey_12
+  - first:
+      213: -258115331327798096
+    second: AllCatsGrey_13
+  - first:
+      213: -8242548796394790161
+    second: AllCatsGrey_14
+  - first:
+      213: -272914826945520687
+    second: AllCatsGrey_15
+  - first:
+      213: 8827593079136962893
+    second: AllCatsGrey_16
+  - first:
+      213: -3802992535539098509
+    second: AllCatsGrey_17
+  - first:
+      213: -1830439638155595841
+    second: AllCatsGrey_18
+  - first:
+      213: -3620433874941724337
+    second: AllCatsGrey_19
+  - first:
+      213: 7945696246285316254
+    second: AllCatsGrey_20
+  - first:
+      213: 3195458531137221635
+    second: AllCatsGrey_21
+  - first:
+      213: 328225509723527151
+    second: AllCatsGrey_22
+  - first:
+      213: -5976320588638078006
+    second: AllCatsGrey_23
+  - first:
+      213: 6435067002991653195
+    second: AllCatsGrey_24
+  - first:
+      213: 207783066640440784
+    second: AllCatsGrey_25
+  - first:
+      213: 994664744040220591
+    second: AllCatsGrey_26
+  - first:
+      213: 4793172391964950314
+    second: AllCatsGrey_27
+  - first:
+      213: -6076623082724409096
+    second: AllCatsGrey_28
+  - first:
+      213: -3948072134211292949
+    second: AllCatsGrey_29
+  - first:
+      213: 460845549368202367
+    second: AllCatsGrey_30
+  - first:
+      213: -239419644269529524
+    second: AllCatsGrey_31
+  - first:
+      213: 1390941786447814979
+    second: AllCatsGrey_32
+  - first:
+      213: 7924062041637393491
+    second: AllCatsGrey_33
+  - first:
+      213: 457961299975450209
+    second: AllCatsGrey_34
+  - first:
+      213: -4780355224757152784
+    second: AllCatsGrey_35
+  - first:
+      213: 8919433224216498385
+    second: AllCatsGrey_36
+  - first:
+      213: 4928234897193031352
+    second: AllCatsGrey_37
+  - first:
+      213: -6816049751564736647
+    second: AllCatsGrey_38
+  - first:
+      213: 7336100285369468535
+    second: AllCatsGrey_39
+  - first:
+      213: -6281156226150384500
+    second: AllCatsGrey_40
+  - first:
+      213: 8560037746248986932
+    second: AllCatsGrey_41
+  - first:
+      213: -3889144599713424595
+    second: AllCatsGrey_42
+  - first:
+      213: -6015261786251604597
+    second: AllCatsGrey_43
+  - first:
+      213: 478085857609967429
+    second: AllCatsGrey_44
+  - first:
+      213: 4342265141867772657
+    second: AllCatsGrey_45
+  - first:
+      213: 8472309862073036091
+    second: AllCatsGrey_46
+  - first:
+      213: -6974303838029852617
+    second: AllCatsGrey_47
+  - first:
+      213: -2290159821526665659
+    second: AllCatsGrey_48
+  - first:
+      213: -3173452021543933957
+    second: AllCatsGrey_49
+  - first:
+      213: -7510629422238978698
+    second: AllCatsGrey_50
+  - first:
+      213: 1527178481452235504
+    second: AllCatsGrey_51
+  - first:
+      213: 134956717256779275
+    second: AllCatsGrey_52
+  - first:
+      213: -8002584581055598229
+    second: AllCatsGrey_53
+  - first:
+      213: -6834404893451046985
+    second: AllCatsGrey_54
+  - first:
+      213: 5739710552223685394
+    second: AllCatsGrey_55
+  - first:
+      213: -2323800438698708700
+    second: AllCatsGrey_56
+  - first:
+      213: -6419224185244159819
+    second: AllCatsGrey_57
+  - first:
+      213: 6246659723068047969
+    second: AllCatsGrey_58
+  - first:
+      213: -5948787431510033950
+    second: AllCatsGrey_59
+  - first:
+      213: 552727290293649090
+    second: AllCatsGrey_60
+  - first:
+      213: 214809809434077532
+    second: AllCatsGrey_61
+  - first:
+      213: -3489757992778626989
+    second: AllCatsGrey_62
+  - first:
+      213: 168789466988825645
+    second: AllCatsGrey_63
+  - first:
+      213: -882412805571629302
+    second: AllCatsGrey_64
+  - first:
+      213: 5459910434252578671
+    second: AllCatsGrey_65
+  - first:
+      213: -1373933360629370529
+    second: AllCatsGrey_66
+  - first:
+      213: -809903733613364968
+    second: AllCatsGrey_67
+  - first:
+      213: 5092522401855879954
+    second: AllCatsGrey_68
+  - first:
+      213: 5820139425380454438
+    second: AllCatsGrey_69
+  - first:
+      213: -2129186738057072269
+    second: AllCatsGrey_70
+  - first:
+      213: 8101187271339695298
+    second: AllCatsGrey_71
+  - first:
+      213: 4635608210814733808
+    second: AllCatsGrey_72
+  - first:
+      213: -4021117675252689990
+    second: AllCatsGrey_73
+  - first:
+      213: -8299078998922653087
+    second: AllCatsGrey_74
+  - first:
+      213: -372680310882827743
+    second: AllCatsGrey_75
+  - first:
+      213: 5580611840688306597
+    second: AllCatsGrey_76
+  - first:
+      213: -8822168436414032388
+    second: AllCatsGrey_77
+  - first:
+      213: -1773458561376776330
+    second: AllCatsGrey_78
+  - first:
+      213: -306552652753621458
+    second: AllCatsGrey_79
+  - first:
+      213: 9112255732173532637
+    second: AllCatsGrey_80
+  - first:
+      213: -7751304378041596466
+    second: AllCatsGrey_81
+  - first:
+      213: 8509754078403183961
+    second: AllCatsGrey_82
+  - first:
+      213: -3482063464249066000
+    second: AllCatsGrey_83
+  - first:
+      213: -8239670539496312863
+    second: AllCatsGrey_84
+  - first:
+      213: -4974150614658891601
+    second: AllCatsGrey_85
+  - first:
+      213: -3364437567526281335
+    second: AllCatsGrey_86
+  - first:
+      213: -7022739540585859666
+    second: AllCatsGrey_87
+  - first:
+      213: 1250246939551762713
+    second: AllCatsGrey_88
+  - first:
+      213: -4433230109109498411
+    second: AllCatsGrey_89
+  - first:
+      213: -8626525533072569556
+    second: AllCatsGrey_90
+  - first:
+      213: 1146507442870520386
+    second: AllCatsGrey_91
+  - first:
+      213: 994825013254394178
+    second: AllCatsGrey_92
+  - first:
+      213: 8166539153190382163
+    second: AllCatsGrey_93
+  - first:
+      213: -6999107333058261204
+    second: AllCatsGrey_94
+  - first:
+      213: 4814288339222955473
+    second: AllCatsGrey_95
+  - first:
+      213: 4115239886164514000
+    second: AllCatsGrey_96
+  - first:
+      213: -4776857187599449682
+    second: AllCatsGrey_97
+  - first:
+      213: -3380607200960319161
+    second: AllCatsGrey_98
+  - first:
+      213: -8930463205499227904
+    second: AllCatsGrey_99
+  - first:
+      213: 4695127918646917483
+    second: AllCatsGrey_100
+  - first:
+      213: 5423847602837407958
+    second: AllCatsGrey_101
+  - first:
+      213: 8720194072215285280
+    second: AllCatsGrey_102
+  - first:
+      213: 8453382579088230644
+    second: AllCatsGrey_103
+  - first:
+      213: -4400469679657846044
+    second: AllCatsGrey_104
+  - first:
+      213: 5983070950598066917
+    second: AllCatsGrey_105
+  - first:
+      213: 5891456054439731893
+    second: AllCatsGrey_106
+  - first:
+      213: -8981074801443698501
+    second: AllCatsGrey_107
+  - first:
+      213: -7607221127936260528
+    second: AllCatsGrey_108
+  - first:
+      213: -4143395578961419531
+    second: AllCatsGrey_109
+  - first:
+      213: -3927203638148823940
+    second: AllCatsGrey_110
+  - first:
+      213: -3292222260437225520
+    second: AllCatsGrey_111
+  - first:
+      213: 7295394153967629097
+    second: AllCatsGrey_112
+  - first:
+      213: -2095005022943088916
+    second: AllCatsGrey_113
+  - first:
+      213: -4123894145109031861
+    second: AllCatsGrey_114
+  - first:
+      213: 7308270277419086625
+    second: AllCatsGrey_115
+  - first:
+      213: 387784860006340745
+    second: AllCatsGrey_116
+  - first:
+      213: 2294075444282591767
+    second: AllCatsGrey_117
+  - first:
+      213: -4124877306087570865
+    second: AllCatsGrey_118
+  - first:
+      213: 4450503210766248628
+    second: AllCatsGrey_119
+  - first:
+      213: 1194576020620281899
+    second: AllCatsGrey_120
+  - first:
+      213: 3403340012777665299
+    second: AllCatsGrey_121
+  - first:
+      213: -6455845222566894294
+    second: AllCatsGrey_122
+  - first:
+      213: 7540453171944075202
+    second: AllCatsGrey_123
+  - first:
+      213: 978769848753900338
+    second: AllCatsGrey_124
+  - first:
+      213: -4089514547876096249
+    second: AllCatsGrey_125
+  - first:
+      213: 5711977367444051860
+    second: AllCatsGrey_126
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AllCatsGrey_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1151
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34a8fe91557452f0800000000000000
+      internalID: -985033425067400129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1151
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a7760ba47a4fe90800000000000000
+      internalID: -6992780382170547566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1151
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11398428ae2ba2a00800000000000000
+      internalID: 732594609679012625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1151
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560b8902e93e14120800000000000000
+      internalID: 2396446745029029989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1151
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79b9dc7fdfbf17d0800000000000000
+      internalID: -2945424664683759235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1151
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9e48d846fd578f0800000000000000
+      internalID: -543282557064255001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7762943f18fd5b0800000000000000
+      internalID: -5341407751133825082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1087
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6878df681c30980800000000000000
+      internalID: -8573796480059996483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1087
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0ccfd1aa5eb4280800000000000000
+      internalID: -9057893706715315981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1026
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4eb84c0502fca50800000000000000
+      internalID: 6543484314859594965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 959
+        width: 61
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac91b1c62cde7960800000000000000
+      internalID: 7601755280064486566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_11
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1cc9a1ea04f2830800000000000000
+      internalID: 4048525706544333223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_12
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 998
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac13f51a78de3580800000000000000
+      internalID: -8845394599243211612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_13
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 998
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4df15497dfa6cf0800000000000000
+      internalID: -258115331327798096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2a0136a859c9d80800000000000000
+      internalID: -8242548796394790161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_15
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 959
+        width: 62
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db99fd2969663cf0800000000000000
+      internalID: -272914826945520687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 959
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49c7a78229e18a70800000000000000
+      internalID: 8827593079136962893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37cdab3207e093bc0800000000000000
+      internalID: -3802992535539098509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbfe0f0e8d8f896e0800000000000000
+      internalID: -1830439638155595841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_19
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49be479292a1cdc0800000000000000
+      internalID: -3620433874941724337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_20
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90bdfc43a8c44e60800000000000000
+      internalID: 7945696246285316254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304fce29a9c885c20800000000000000
+      internalID: 3195458531137221635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_22
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7da41bc571e8400800000000000000
+      internalID: 328225509723527151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_23
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbbf5aa618df0da0800000000000000
+      internalID: -5976320588638078006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_24
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41b7234853fd4950800000000000000
+      internalID: 6435067002991653195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_25
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ddd175299132e200800000000000000
+      internalID: 207783066640440784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 897
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa74f139052cdcd00800000000000000
+      internalID: 994664744040220591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 838
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2fb74a25e4c48240800000000000000
+      internalID: 4793172391964950314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 837
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0c548608f7baba0800000000000000
+      internalID: -6076623082724409096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 837
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0b7bccf41a539c0800000000000000
+      internalID: -3948072134211292949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_30
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 836
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f745962e590456600800000000000000
+      internalID: 460845549368202367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_31
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 836
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46701f1a196dacf0800000000000000
+      internalID: -239419644269529524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_32
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 837
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341287c6f2e9d4310800000000000000
+      internalID: 1390941786447814979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35414f1817ce7fd60800000000000000
+      internalID: 7924062041637393491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_34
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ea9ed30610b5600800000000000000
+      internalID: 457961299975450209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 784
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3da202044c8adb0800000000000000
+      internalID: -4780355224757152784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_36
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 779
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0dd3f924138cb70800000000000000
+      internalID: 8919433224216498385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_37
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 774
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6dfd0378b946440800000000000000
+      internalID: 4928234897193031352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_38
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 768
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977289a2dd68861a0800000000000000
+      internalID: -6816049751564736647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_39
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 767
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776c61a57501fc560800000000000000
+      internalID: 7336100285369468535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_40
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cb299f0b9d4d8a0800000000000000
+      internalID: -6281156226150384500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_41
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 767
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4313b192afc5bc670800000000000000
+      internalID: 8560037746248986932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_42
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 767
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bd3f5979bf60ac0800000000000000
+      internalID: -3889144599713424595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_43
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 769
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8dcd7f864f758ca0800000000000000
+      internalID: -6015261786251604597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_44
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 772
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547eaf2fd8082a600800000000000000
+      internalID: 478085857609967429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_45
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 703
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1faf695e323d24c30800000000000000
+      internalID: 4342265141867772657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 703
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3de6eb6ee0b39570800000000000000
+      internalID: 8472309862073036091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_47
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 703
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730569a5c9b463f90800000000000000
+      internalID: -6974303838029852617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_48
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546f70fa6c7b730e0800000000000000
+      internalID: -2290159821526665659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_49
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7e0283332a5f3d0800000000000000
+      internalID: -3173452021543933957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_50
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d29df5552e4c790800000000000000
+      internalID: -7510629422238978698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_51
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fab49fccb0a13510800000000000000
+      internalID: 1527178481452235504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_52
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06a4285b667fd100800000000000000
+      internalID: 134956717256779275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_53
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61b92919bb11f090800000000000000
+      internalID: -8002584581055598229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_54
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bfa8aaa5f05721a0800000000000000
+      internalID: -6834404893451046985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_55
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b9ad2465c87af40800000000000000
+      internalID: 5739710552223685394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_56
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 703
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421777220d330cfd0800000000000000
+      internalID: -2323800438698708700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_57
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 642
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0fce03d955ae6a0800000000000000
+      internalID: -6419224185244159819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_58
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16206320ce790b650800000000000000
+      internalID: 6246659723068047969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_59
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9398c5959a17da0800000000000000
+      internalID: -5948787431510033950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_60
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cefd93ca8eaba700800000000000000
+      internalID: 552727290293649090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_61
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59669132682bf200800000000000000
+      internalID: 214809809434077532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_62
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35889585893e19fc0800000000000000
+      internalID: -3489757992778626989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_63
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 642
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c42bd3029a75200800000000000000
+      internalID: 168789466988825645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_64
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 642
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0fa5a28a3a01c3f0800000000000000
+      internalID: -882412805571629302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_65
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 642
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fd213bc9f75cb40800000000000000
+      internalID: 5459910434252578671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_66
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 642
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51b0ae43eeceece0800000000000000
+      internalID: -1373933360629370529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_67
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81976b768d4a2c4f0800000000000000
+      internalID: -809903733613364968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_68
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 578
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bb655a4264ca640800000000000000
+      internalID: 5092522401855879954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_69
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6205c0198f945c050800000000000000
+      internalID: 5820139425380454438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_70
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371b2a151fb9372e0800000000000000
+      internalID: -2129186738057072269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_71
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc5e1fb6e23d6070800000000000000
+      internalID: 8101187271339695298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_72
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd0f737b1df45040800000000000000
+      internalID: 4635608210814733808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_73
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3d48677ce1238c0800000000000000
+      internalID: -4021117675252689990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_74
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1629f42fe9fb3dc80800000000000000
+      internalID: -8299078998922653087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_75
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1220c075b39f3daf0800000000000000
+      internalID: -372680310882827743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_76
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 578
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9b099d6e0527d40800000000000000
+      internalID: 5580611840688306597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_77
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 578
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5d0e68c8c519580800000000000000
+      internalID: -8822168436414032388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_78
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 578
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f0349a5d86367e0800000000000000
+      internalID: -1773458561376776330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_79
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2eaaab8cf7eebbf0800000000000000
+      internalID: -306552652753621458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_80
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd68b24f4c357e70800000000000000
+      internalID: 9112255732173532637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_81
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 511
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec586e08cb5dd6490800000000000000
+      internalID: -7751304378041596466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_82
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 511
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95547296f38b81670800000000000000
+      internalID: 8509754078403183961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_83
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd71106ab93dafc0800000000000000
+      internalID: -3482063464249066000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_84
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef221bcc4fc6ad80800000000000000
+      internalID: -8239670539496312863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_85
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 447
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa047f1ce5448fab0800000000000000
+      internalID: -4974150614658891601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_86
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 447
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fdd9e9bdd1f41d0800000000000000
+      internalID: -3364437567526281335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_87
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 383
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea53a4d88973a8e90800000000000000
+      internalID: -7022739540585859666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_88
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9198089a7f4c95110800000000000000
+      internalID: 1250246939551762713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_89
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd46fa34b00a72c0800000000000000
+      internalID: -4433230109109498411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_90
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b4f53abbc684880800000000000000
+      internalID: -8626525533072569556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_91
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a83a0e17639ef00800000000000000
+      internalID: 1146507442870520386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_92
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 383
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24193b824145ecd00800000000000000
+      internalID: 994825013254394178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_93
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 383
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a6b367710655170800000000000000
+      internalID: 8166539153190382163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_94
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 383
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f0b34a6fc2ede90800000000000000
+      internalID: -6999107333058261204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_95
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 319
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d580b1ccb9cfc240800000000000000
+      internalID: 4814288339222955473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_96
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 319
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4da5c7fd44c1930800000000000000
+      internalID: 4115239886164514000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_97
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 255
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea10d5e52b135bdb0800000000000000
+      internalID: -4776857187599449682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_98
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741f1a579aba511d0800000000000000
+      internalID: -3380607200960319161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_99
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 255
+        width: 48
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001b58cb70f901480800000000000000
+      internalID: -8930463205499227904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_100
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 255
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69f7f557f1782140800000000000000
+      internalID: 4695127918646917483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_101
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 197
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d84af278a0654b40800000000000000
+      internalID: 5423847602837407958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_102
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 197
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02eebde9e4a540970800000000000000
+      internalID: 8720194072215285280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_103
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 197
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f88701faa2705570800000000000000
+      internalID: 8453382579088230644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_104
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 197
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eafd1b14246ee2c0800000000000000
+      internalID: -4400469679657846044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_105
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e24b547453280350800000000000000
+      internalID: 5983070950598066917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_106
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 193
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b264b63118a2c150800000000000000
+      internalID: 5891456054439731893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_107
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 133
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb88cb64d00dc5380800000000000000
+      internalID: -8981074801443698501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_108
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 133
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056438d50b8bd6690800000000000000
+      internalID: -7607221127936260528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_109
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 133
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2a4107ca3bf76c0800000000000000
+      internalID: -4143395578961419531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_110
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 133
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c74848b2915cf79c0800000000000000
+      internalID: -3927203638148823940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_111
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 133
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df610d0c4daf42d0800000000000000
+      internalID: -3292222260437225520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_112
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 70
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 923b3b394527e3560800000000000000
+      internalID: 7295394153967629097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_113
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee61dc080c0de2e0800000000000000
+      internalID: -2095005022943088916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_114
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 69
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b448675df1cf4c6c0800000000000000
+      internalID: -4123894145109031861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_115
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 68
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1233c10b8113c6560800000000000000
+      internalID: 7308270277419086625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_116
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 68
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988d3fd8640b16500800000000000000
+      internalID: 387784860006340745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_117
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 69
+        width: 50
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a0968467136df10800000000000000
+      internalID: 2294075444282591767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_118
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 69
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f428494d1fd71c6c0800000000000000
+      internalID: -4124877306087570865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_119
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 69
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba2575271d53cd30800000000000000
+      internalID: 4450503210766248628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_120
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b288546cf8cf39010800000000000000
+      internalID: 1194576020620281899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_121
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3137c7fb5b71b3f20800000000000000
+      internalID: 3403340012777665299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_122
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 5
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a256fff79fa3866a0800000000000000
+      internalID: -6455845222566894294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_123
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cfa137753215a860800000000000000
+      internalID: 7540453171944075202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_124
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 5
+        width: 51
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bc6dfddf9459d00800000000000000
+      internalID: 978769848753900338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_125
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 5
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7079d069f202f37c0800000000000000
+      internalID: -4089514547876096249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AllCatsGrey_126
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 5
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497d29ff625054f40800000000000000
+      internalID: 5711977367444051860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AllCatsGrey_0: -985033425067400129
+      AllCatsGrey_1: -6992780382170547566
+      AllCatsGrey_10: 7601755280064486566
+      AllCatsGrey_100: 4695127918646917483
+      AllCatsGrey_101: 5423847602837407958
+      AllCatsGrey_102: 8720194072215285280
+      AllCatsGrey_103: 8453382579088230644
+      AllCatsGrey_104: -4400469679657846044
+      AllCatsGrey_105: 5983070950598066917
+      AllCatsGrey_106: 5891456054439731893
+      AllCatsGrey_107: -8981074801443698501
+      AllCatsGrey_108: -7607221127936260528
+      AllCatsGrey_109: -4143395578961419531
+      AllCatsGrey_11: 4048525706544333223
+      AllCatsGrey_110: -3927203638148823940
+      AllCatsGrey_111: -3292222260437225520
+      AllCatsGrey_112: 7295394153967629097
+      AllCatsGrey_113: -2095005022943088916
+      AllCatsGrey_114: -4123894145109031861
+      AllCatsGrey_115: 7308270277419086625
+      AllCatsGrey_116: 387784860006340745
+      AllCatsGrey_117: 2294075444282591767
+      AllCatsGrey_118: -4124877306087570865
+      AllCatsGrey_119: 4450503210766248628
+      AllCatsGrey_12: -8845394599243211612
+      AllCatsGrey_120: 1194576020620281899
+      AllCatsGrey_121: 3403340012777665299
+      AllCatsGrey_122: -6455845222566894294
+      AllCatsGrey_123: 7540453171944075202
+      AllCatsGrey_124: 978769848753900338
+      AllCatsGrey_125: -4089514547876096249
+      AllCatsGrey_126: 5711977367444051860
+      AllCatsGrey_13: -258115331327798096
+      AllCatsGrey_14: -8242548796394790161
+      AllCatsGrey_15: -272914826945520687
+      AllCatsGrey_16: 8827593079136962893
+      AllCatsGrey_17: -3802992535539098509
+      AllCatsGrey_18: -1830439638155595841
+      AllCatsGrey_19: -3620433874941724337
+      AllCatsGrey_2: 732594609679012625
+      AllCatsGrey_20: 7945696246285316254
+      AllCatsGrey_21: 3195458531137221635
+      AllCatsGrey_22: 328225509723527151
+      AllCatsGrey_23: -5976320588638078006
+      AllCatsGrey_24: 6435067002991653195
+      AllCatsGrey_25: 207783066640440784
+      AllCatsGrey_26: 994664744040220591
+      AllCatsGrey_27: 4793172391964950314
+      AllCatsGrey_28: -6076623082724409096
+      AllCatsGrey_29: -3948072134211292949
+      AllCatsGrey_3: 2396446745029029989
+      AllCatsGrey_30: 460845549368202367
+      AllCatsGrey_31: -239419644269529524
+      AllCatsGrey_32: 1390941786447814979
+      AllCatsGrey_33: 7924062041637393491
+      AllCatsGrey_34: 457961299975450209
+      AllCatsGrey_35: -4780355224757152784
+      AllCatsGrey_36: 8919433224216498385
+      AllCatsGrey_37: 4928234897193031352
+      AllCatsGrey_38: -6816049751564736647
+      AllCatsGrey_39: 7336100285369468535
+      AllCatsGrey_4: -2945424664683759235
+      AllCatsGrey_40: -6281156226150384500
+      AllCatsGrey_41: 8560037746248986932
+      AllCatsGrey_42: -3889144599713424595
+      AllCatsGrey_43: -6015261786251604597
+      AllCatsGrey_44: 478085857609967429
+      AllCatsGrey_45: 4342265141867772657
+      AllCatsGrey_46: 8472309862073036091
+      AllCatsGrey_47: -6974303838029852617
+      AllCatsGrey_48: -2290159821526665659
+      AllCatsGrey_49: -3173452021543933957
+      AllCatsGrey_5: -543282557064255001
+      AllCatsGrey_50: -7510629422238978698
+      AllCatsGrey_51: 1527178481452235504
+      AllCatsGrey_52: 134956717256779275
+      AllCatsGrey_53: -8002584581055598229
+      AllCatsGrey_54: -6834404893451046985
+      AllCatsGrey_55: 5739710552223685394
+      AllCatsGrey_56: -2323800438698708700
+      AllCatsGrey_57: -6419224185244159819
+      AllCatsGrey_58: 6246659723068047969
+      AllCatsGrey_59: -5948787431510033950
+      AllCatsGrey_6: -5341407751133825082
+      AllCatsGrey_60: 552727290293649090
+      AllCatsGrey_61: 214809809434077532
+      AllCatsGrey_62: -3489757992778626989
+      AllCatsGrey_63: 168789466988825645
+      AllCatsGrey_64: -882412805571629302
+      AllCatsGrey_65: 5459910434252578671
+      AllCatsGrey_66: -1373933360629370529
+      AllCatsGrey_67: -809903733613364968
+      AllCatsGrey_68: 5092522401855879954
+      AllCatsGrey_69: 5820139425380454438
+      AllCatsGrey_7: -8573796480059996483
+      AllCatsGrey_70: -2129186738057072269
+      AllCatsGrey_71: 8101187271339695298
+      AllCatsGrey_72: 4635608210814733808
+      AllCatsGrey_73: -4021117675252689990
+      AllCatsGrey_74: -8299078998922653087
+      AllCatsGrey_75: -372680310882827743
+      AllCatsGrey_76: 5580611840688306597
+      AllCatsGrey_77: -8822168436414032388
+      AllCatsGrey_78: -1773458561376776330
+      AllCatsGrey_79: -306552652753621458
+      AllCatsGrey_8: -9057893706715315981
+      AllCatsGrey_80: 9112255732173532637
+      AllCatsGrey_81: -7751304378041596466
+      AllCatsGrey_82: 8509754078403183961
+      AllCatsGrey_83: -3482063464249066000
+      AllCatsGrey_84: -8239670539496312863
+      AllCatsGrey_85: -4974150614658891601
+      AllCatsGrey_86: -3364437567526281335
+      AllCatsGrey_87: -7022739540585859666
+      AllCatsGrey_88: 1250246939551762713
+      AllCatsGrey_89: -4433230109109498411
+      AllCatsGrey_9: 6543484314859594965
+      AllCatsGrey_90: -8626525533072569556
+      AllCatsGrey_91: 1146507442870520386
+      AllCatsGrey_92: 994825013254394178
+      AllCatsGrey_93: 8166539153190382163
+      AllCatsGrey_94: -6999107333058261204
+      AllCatsGrey_95: 4814288339222955473
+      AllCatsGrey_96: 4115239886164514000
+      AllCatsGrey_97: -4776857187599449682
+      AllCatsGrey_98: -3380607200960319161
+      AllCatsGrey_99: -8930463205499227904
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 414e62c5d08cf3a4d96bcd207f35813f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3209198315571354690
+    second: BunnyToyBalls_0
+  - first:
+      213: 3961053072328280252
+    second: BunnyToyBalls_1
+  - first:
+      213: -5734870722882777035
+    second: BunnyToyBalls_2
+  - first:
+      213: -1658661166060741683
+    second: BunnyToyBalls_3
+  - first:
+      213: 6154866128886490455
+    second: BunnyToyBalls_4
+  - first:
+      213: 8866183177894572902
+    second: BunnyToyBalls_5
+  - first:
+      213: 7182081837907726299
+    second: BunnyToyBalls_6
+  - first:
+      213: 770880736609789354
+    second: BunnyToyBalls_7
+  - first:
+      213: -6484694047062156058
+    second: BunnyToyBalls_8
+  - first:
+      213: -1156587524579410026
+    second: BunnyToyBalls_9
+  - first:
+      213: -412122549489468432
+    second: BunnyToyBalls_10
+  - first:
+      213: -6497474560392384064
+    second: BunnyToyBalls_11
+  - first:
+      213: -9056931922843601075
+    second: BunnyToyBalls_12
+  - first:
+      213: 8429745495056685719
+    second: BunnyToyBalls_13
+  - first:
+      213: -679847471039667966
+    second: BunnyToyBalls_14
+  - first:
+      213: 2558480749770456118
+    second: BunnyToyBalls_15
+  - first:
+      213: -8942174793018431710
+    second: BunnyToyBalls_16
+  - first:
+      213: -4037573171343884643
+    second: BunnyToyBalls_17
+  - first:
+      213: -1401916896902448872
+    second: BunnyToyBalls_18
+  - first:
+      213: -9135795973370534820
+    second: BunnyToyBalls_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BunnyToyBalls_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 47
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb366929223a673d0800000000000000
+      internalID: -3209198315571354690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 51
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8c89068cc78f630800000000000000
+      internalID: 3961053072328280252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 56
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530d8c15675a960b0800000000000000
+      internalID: -5734870722882777035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 40
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcbd63a15704bf8e0800000000000000
+      internalID: -1658661166060741683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 47
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755ec54622a7a6550800000000000000
+      internalID: 6154866128886490455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 47
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66333ff00a20b0b70800000000000000
+      internalID: 8866183177894572902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 31
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf46481161eba360800000000000000
+      internalID: 7182081837907726299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_7
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa561d512f7b2ba00800000000000000
+      internalID: 770880736609789354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 31
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec15cf1f1db106a0800000000000000
+      internalID: -6484694047062156058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_9
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 31
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69fbbc536c9f2ffe0800000000000000
+      internalID: -1156587524579410026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 15
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb70c989b8d74af0800000000000000
+      internalID: -412122549489468432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_11
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 19
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1bcaaff4554d5a0800000000000000
+      internalID: -6497474560392384064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_12
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 24
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47f200e6605f4280800000000000000
+      internalID: -9056931922843601075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_13
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 8
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a9dc37dd87cf470800000000000000
+      internalID: 8429745495056685719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_14
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 15
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201ab3bb352b096f0800000000000000
+      internalID: -679847471039667966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_15
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 15
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c3ebebfac818320800000000000000
+      internalID: 2558480749770456118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2272fa6476307e380800000000000000
+      internalID: -8942174793018431710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_17
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e7667b798a7f7c0800000000000000
+      internalID: -4037573171343884643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_18
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819f28b82046b8ce0800000000000000
+      internalID: -1401916896902448872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyToyBalls_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c542eca37f1273180800000000000000
+      internalID: -9135795973370534820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BunnyToyBalls_0: -3209198315571354690
+      BunnyToyBalls_1: 3961053072328280252
+      BunnyToyBalls_10: -412122549489468432
+      BunnyToyBalls_11: -6497474560392384064
+      BunnyToyBalls_12: -9056931922843601075
+      BunnyToyBalls_13: 8429745495056685719
+      BunnyToyBalls_14: -679847471039667966
+      BunnyToyBalls_15: 2558480749770456118
+      BunnyToyBalls_16: -8942174793018431710
+      BunnyToyBalls_17: -4037573171343884643
+      BunnyToyBalls_18: -1401916896902448872
+      BunnyToyBalls_19: -9135795973370534820
+      BunnyToyBalls_2: -5734870722882777035
+      BunnyToyBalls_3: -1658661166060741683
+      BunnyToyBalls_4: 6154866128886490455
+      BunnyToyBalls_5: 8866183177894572902
+      BunnyToyBalls_6: 7182081837907726299
+      BunnyToyBalls_7: 770880736609789354
+      BunnyToyBalls_8: -6484694047062156058
+      BunnyToyBalls_9: -1156587524579410026
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

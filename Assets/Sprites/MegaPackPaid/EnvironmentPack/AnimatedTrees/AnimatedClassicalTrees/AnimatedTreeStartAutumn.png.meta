@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: b4555a0db4e060e49998a21b6f88849c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8277447216219686935
+    second: AnimatedTreeStartAutumn_0
+  - first:
+      213: 5927033194767395378
+    second: AnimatedTreeStartAutumn_1
+  - first:
+      213: 7469597636334332041
+    second: AnimatedTreeStartAutumn_2
+  - first:
+      213: 177030916299389865
+    second: AnimatedTreeStartAutumn_3
+  - first:
+      213: 7585060266939581362
+    second: AnimatedTreeStartAutumn_4
+  - first:
+      213: 8231365901378032914
+    second: AnimatedTreeStartAutumn_5
+  - first:
+      213: 4251543829216396844
+    second: AnimatedTreeStartAutumn_6
+  - first:
+      213: -6152842215641981718
+    second: AnimatedTreeStartAutumn_7
+  - first:
+      213: 1755536184357205326
+    second: AnimatedTreeStartAutumn_8
+  - first:
+      213: -8041189674006422939
+    second: AnimatedTreeStartAutumn_9
+  - first:
+      213: -3502689367553879652
+    second: AnimatedTreeStartAutumn_10
+  - first:
+      213: 8140733657665757098
+    second: AnimatedTreeStartAutumn_11
+  - first:
+      213: 6377413864616970166
+    second: AnimatedTreeStartAutumn_12
+  - first:
+      213: 8057324646320179800
+    second: AnimatedTreeStartAutumn_13
+  - first:
+      213: 3655742846988716767
+    second: AnimatedTreeStartAutumn_14
+  - first:
+      213: -4706449217161569820
+    second: AnimatedTreeStartAutumn_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71802d923666fd270800000000000000
+      internalID: 8277447216219686935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a2f02b94d014250800000000000000
+      internalID: 5927033194767395378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9882ec0897759a760800000000000000
+      internalID: 7469597636334332041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab79403ea0f47200800000000000000
+      internalID: 177030916299389865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b30dda102c834960800000000000000
+      internalID: 7585060266939581362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21596e7fcafab3270800000000000000
+      internalID: 8231365901378032914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_6
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2682774694800b30800000000000000
+      internalID: 4251543829216396844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aecd1a1aa96bc9aa0800000000000000
+      internalID: -6152842215641981718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_8
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45b4f2cbdaec5810800000000000000
+      internalID: 1755536184357205326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ade457894f76090800000000000000
+      internalID: -8041189674006422939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91d9680492f36fc0800000000000000
+      internalID: -3502689367553879652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_11
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aafdb345122b9f070800000000000000
+      internalID: 8140733657665757098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b74522fe10218850800000000000000
+      internalID: 6377413864616970166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_13
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a0ae7831e51df60800000000000000
+      internalID: 8057324646320179800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_14
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda00f810cecbb230800000000000000
+      internalID: 3655742846988716767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedTreeStartAutumn_15
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e95ba17f555faeb0800000000000000
+      internalID: -4706449217161569820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AnimatedTreeStartAutumn_0: 8277447216219686935
+      AnimatedTreeStartAutumn_1: 5927033194767395378
+      AnimatedTreeStartAutumn_10: -3502689367553879652
+      AnimatedTreeStartAutumn_11: 8140733657665757098
+      AnimatedTreeStartAutumn_12: 6377413864616970166
+      AnimatedTreeStartAutumn_13: 8057324646320179800
+      AnimatedTreeStartAutumn_14: 3655742846988716767
+      AnimatedTreeStartAutumn_15: -4706449217161569820
+      AnimatedTreeStartAutumn_2: 7469597636334332041
+      AnimatedTreeStartAutumn_3: 177030916299389865
+      AnimatedTreeStartAutumn_4: 7585060266939581362
+      AnimatedTreeStartAutumn_5: 8231365901378032914
+      AnimatedTreeStartAutumn_6: 4251543829216396844
+      AnimatedTreeStartAutumn_7: -6152842215641981718
+      AnimatedTreeStartAutumn_8: 1755536184357205326
+      AnimatedTreeStartAutumn_9: -8041189674006422939
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

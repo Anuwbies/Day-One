@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e715134fa428784b80e102643f9f54b, type: 3}
+  m_Name: Blue Berry
+  m_EditorClassIdentifier: 
+  itemName: Blue Berry
+  icon: {fileID: -2299106688592153529, guid: fbfa31d950bf3f14e978218779028778, type: 3}
+  worldPrefab: {fileID: 5546016461706263705, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+  snapToGrid: 0
+  gridWidth: 1
+  gridHeight: 1
+  stackable: 1
+  maxStack: 64
+  canPlace: 0
+  canEat: 1
+  canDestroy: 1
+  canDrop: 1
+  canSplit: 1
+  healthRestore: 5
+  hungerRestore: 5
+  thirstRestore: 5
+  energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 0
+  damageToRock: 0

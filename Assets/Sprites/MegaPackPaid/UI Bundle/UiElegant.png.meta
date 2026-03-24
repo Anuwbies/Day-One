@@ -1,0 +1,6903 @@
+fileFormatVersion: 2
+guid: 8a419ced2bf4a984f976d0a81573c8ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 312697680466427221
+    second: UiElegant_0
+  - first:
+      213: -3220794024474725531
+    second: UiElegant_1
+  - first:
+      213: -1044180005938002899
+    second: UiElegant_2
+  - first:
+      213: 8692173133445216672
+    second: UiElegant_3
+  - first:
+      213: -814315199849576408
+    second: UiElegant_4
+  - first:
+      213: -5088291284004487901
+    second: UiElegant_5
+  - first:
+      213: -7178525340789580879
+    second: UiElegant_6
+  - first:
+      213: -3040579443975167854
+    second: UiElegant_7
+  - first:
+      213: -5414484529840638883
+    second: UiElegant_8
+  - first:
+      213: -1506775294656527447
+    second: UiElegant_9
+  - first:
+      213: 9029109484282565317
+    second: UiElegant_10
+  - first:
+      213: 6794981400258481948
+    second: UiElegant_11
+  - first:
+      213: -1927701750213473173
+    second: UiElegant_12
+  - first:
+      213: -842948825700670996
+    second: UiElegant_13
+  - first:
+      213: 2582405017424753083
+    second: UiElegant_14
+  - first:
+      213: 5441757209762963320
+    second: UiElegant_15
+  - first:
+      213: -1350542321564222163
+    second: UiElegant_16
+  - first:
+      213: -2701709663279963976
+    second: UiElegant_17
+  - first:
+      213: -8549625557193231710
+    second: UiElegant_18
+  - first:
+      213: -1235912546343759116
+    second: UiElegant_19
+  - first:
+      213: 7054118592182476404
+    second: UiElegant_20
+  - first:
+      213: 8048607041053430027
+    second: UiElegant_21
+  - first:
+      213: 8451680532337356257
+    second: UiElegant_22
+  - first:
+      213: -1119434687529794630
+    second: UiElegant_23
+  - first:
+      213: 8300736085886219077
+    second: UiElegant_24
+  - first:
+      213: 1446414017665488906
+    second: UiElegant_25
+  - first:
+      213: -6638261111036871365
+    second: UiElegant_26
+  - first:
+      213: -1262744474915235171
+    second: UiElegant_27
+  - first:
+      213: -352017742652016973
+    second: UiElegant_28
+  - first:
+      213: 5837692201379252649
+    second: UiElegant_29
+  - first:
+      213: 4881510179024090449
+    second: UiElegant_30
+  - first:
+      213: 614194252769606178
+    second: UiElegant_31
+  - first:
+      213: 473966532850494650
+    second: UiElegant_32
+  - first:
+      213: 5687792397494401186
+    second: UiElegant_33
+  - first:
+      213: 2588246938976898096
+    second: UiElegant_34
+  - first:
+      213: 541636617706054691
+    second: UiElegant_35
+  - first:
+      213: -3745547611646970750
+    second: UiElegant_36
+  - first:
+      213: 5241572912318030203
+    second: UiElegant_37
+  - first:
+      213: -6193295209361457421
+    second: UiElegant_38
+  - first:
+      213: 2329254341124263895
+    second: UiElegant_39
+  - first:
+      213: 7818107670378526363
+    second: UiElegant_40
+  - first:
+      213: 2043515523110573032
+    second: UiElegant_41
+  - first:
+      213: 6459695660031191525
+    second: UiElegant_42
+  - first:
+      213: 8301999133344272896
+    second: UiElegant_43
+  - first:
+      213: 7144423924243618461
+    second: UiElegant_44
+  - first:
+      213: 1677884040575866885
+    second: UiElegant_45
+  - first:
+      213: -2912453457236072378
+    second: UiElegant_46
+  - first:
+      213: -4770817204959397281
+    second: UiElegant_47
+  - first:
+      213: 5539758098441072788
+    second: UiElegant_48
+  - first:
+      213: -7162451660102892084
+    second: UiElegant_49
+  - first:
+      213: -6997392971019295481
+    second: UiElegant_50
+  - first:
+      213: -6339590369015686422
+    second: UiElegant_51
+  - first:
+      213: 5332149491959352301
+    second: UiElegant_52
+  - first:
+      213: -562032067946440037
+    second: UiElegant_53
+  - first:
+      213: -1748529073788376032
+    second: UiElegant_54
+  - first:
+      213: 8922586418104520029
+    second: UiElegant_55
+  - first:
+      213: -6290413352144541699
+    second: UiElegant_56
+  - first:
+      213: -432098998136426437
+    second: UiElegant_57
+  - first:
+      213: 4967465111101349470
+    second: UiElegant_58
+  - first:
+      213: -3422300353901698241
+    second: UiElegant_59
+  - first:
+      213: 8511060077063227653
+    second: UiElegant_60
+  - first:
+      213: -7699632003544069018
+    second: UiElegant_61
+  - first:
+      213: 8369216390263803442
+    second: UiElegant_62
+  - first:
+      213: 5628963280264982411
+    second: UiElegant_63
+  - first:
+      213: 5007692099769347223
+    second: UiElegant_64
+  - first:
+      213: -8706960803520284978
+    second: UiElegant_65
+  - first:
+      213: 1332537114731165519
+    second: UiElegant_66
+  - first:
+      213: 6832635355430255728
+    second: UiElegant_67
+  - first:
+      213: 353279336786636893
+    second: UiElegant_68
+  - first:
+      213: 8566636066622659580
+    second: UiElegant_69
+  - first:
+      213: 9021107741158239786
+    second: UiElegant_70
+  - first:
+      213: 6902830461625114972
+    second: UiElegant_71
+  - first:
+      213: 3494500490669405298
+    second: UiElegant_72
+  - first:
+      213: -4412896582961143375
+    second: UiElegant_73
+  - first:
+      213: -7640692274317411054
+    second: UiElegant_74
+  - first:
+      213: 5390656041610969414
+    second: UiElegant_75
+  - first:
+      213: 41657651412224717
+    second: UiElegant_76
+  - first:
+      213: 7687989262396392771
+    second: UiElegant_77
+  - first:
+      213: 2124888419132377879
+    second: UiElegant_78
+  - first:
+      213: 6095609272938145216
+    second: UiElegant_79
+  - first:
+      213: -739214183563517520
+    second: UiElegant_80
+  - first:
+      213: 5906413502907978334
+    second: UiElegant_81
+  - first:
+      213: -5012246994401556922
+    second: UiElegant_82
+  - first:
+      213: -9162116831492633956
+    second: UiElegant_83
+  - first:
+      213: -8673512839849046224
+    second: UiElegant_84
+  - first:
+      213: 2101834150878522199
+    second: UiElegant_85
+  - first:
+      213: -6539799418744432118
+    second: UiElegant_86
+  - first:
+      213: -1470812646384765613
+    second: UiElegant_87
+  - first:
+      213: -5163933013963873883
+    second: UiElegant_88
+  - first:
+      213: 1194117546461359465
+    second: UiElegant_89
+  - first:
+      213: -1889939554715727245
+    second: UiElegant_90
+  - first:
+      213: 518624779002149194
+    second: UiElegant_91
+  - first:
+      213: 3062239429076507857
+    second: UiElegant_92
+  - first:
+      213: 7561471835535301852
+    second: UiElegant_93
+  - first:
+      213: -4999025607356259809
+    second: UiElegant_94
+  - first:
+      213: 6813686550962481443
+    second: UiElegant_95
+  - first:
+      213: 2869726545601341978
+    second: UiElegant_96
+  - first:
+      213: -7405279077755654307
+    second: UiElegant_97
+  - first:
+      213: -3053650289568189569
+    second: UiElegant_98
+  - first:
+      213: 6588951447629686811
+    second: UiElegant_99
+  - first:
+      213: 6684392525215604598
+    second: UiElegant_100
+  - first:
+      213: 157802181231579298
+    second: UiElegant_101
+  - first:
+      213: 7630257911551071281
+    second: UiElegant_102
+  - first:
+      213: 4558405246326659475
+    second: UiElegant_103
+  - first:
+      213: -1710307696673814765
+    second: UiElegant_104
+  - first:
+      213: 1565725665372314023
+    second: UiElegant_105
+  - first:
+      213: 7911869342538894345
+    second: UiElegant_106
+  - first:
+      213: -3839251327676973416
+    second: UiElegant_107
+  - first:
+      213: 554898119068472790
+    second: UiElegant_108
+  - first:
+      213: 3727760075465264235
+    second: UiElegant_109
+  - first:
+      213: -6265790003435923402
+    second: UiElegant_110
+  - first:
+      213: -2211498872440968215
+    second: UiElegant_111
+  - first:
+      213: 4612756316060152179
+    second: UiElegant_112
+  - first:
+      213: 7415153915444927716
+    second: UiElegant_113
+  - first:
+      213: 1923630273542048600
+    second: UiElegant_114
+  - first:
+      213: 6033094370895921287
+    second: UiElegant_115
+  - first:
+      213: 256284381651112335
+    second: UiElegant_116
+  - first:
+      213: 1534676514833276130
+    second: UiElegant_117
+  - first:
+      213: 3285072662849025640
+    second: UiElegant_118
+  - first:
+      213: -7388845114784036686
+    second: UiElegant_119
+  - first:
+      213: 8327774325156118316
+    second: UiElegant_120
+  - first:
+      213: 2187036622281826286
+    second: UiElegant_121
+  - first:
+      213: -2532045030468791681
+    second: UiElegant_122
+  - first:
+      213: -9076262525347852802
+    second: UiElegant_123
+  - first:
+      213: 3944779940218463338
+    second: UiElegant_124
+  - first:
+      213: 7312140199963497086
+    second: UiElegant_125
+  - first:
+      213: -7511897941390875477
+    second: UiElegant_126
+  - first:
+      213: 1495659035337299987
+    second: UiElegant_127
+  - first:
+      213: -4255322033447866953
+    second: UiElegant_128
+  - first:
+      213: -5907773376936675585
+    second: UiElegant_129
+  - first:
+      213: 1807326433008657527
+    second: UiElegant_130
+  - first:
+      213: 3012452642163658446
+    second: UiElegant_131
+  - first:
+      213: 2683538598138505687
+    second: UiElegant_132
+  - first:
+      213: 4035979406371646916
+    second: UiElegant_133
+  - first:
+      213: 7538190109427087657
+    second: UiElegant_134
+  - first:
+      213: 1207236935035656867
+    second: UiElegant_135
+  - first:
+      213: 5496352694569031176
+    second: UiElegant_136
+  - first:
+      213: 8025687569021444443
+    second: UiElegant_137
+  - first:
+      213: 1202377868386986020
+    second: UiElegant_138
+  - first:
+      213: 1386982563863943294
+    second: UiElegant_139
+  - first:
+      213: -6148342072022254169
+    second: UiElegant_140
+  - first:
+      213: 7727114002115742673
+    second: UiElegant_141
+  - first:
+      213: -222703211459333551
+    second: UiElegant_142
+  - first:
+      213: 1721466308608824755
+    second: UiElegant_143
+  - first:
+      213: -8458117982118040449
+    second: UiElegant_144
+  - first:
+      213: -9043816597179411781
+    second: UiElegant_145
+  - first:
+      213: -6316164673579499193
+    second: UiElegant_146
+  - first:
+      213: 2093681884960138757
+    second: UiElegant_147
+  - first:
+      213: 4097912968107875705
+    second: UiElegant_148
+  - first:
+      213: -1687770213581653456
+    second: UiElegant_149
+  - first:
+      213: -5617184254898462776
+    second: UiElegant_150
+  - first:
+      213: -6785030402716263635
+    second: UiElegant_151
+  - first:
+      213: -7230216945870008021
+    second: UiElegant_152
+  - first:
+      213: -5955059326957473716
+    second: UiElegant_153
+  - first:
+      213: 3956317756855622460
+    second: UiElegant_154
+  - first:
+      213: -5846723604838935813
+    second: UiElegant_155
+  - first:
+      213: 3272820165111828191
+    second: UiElegant_156
+  - first:
+      213: -1520628648823893427
+    second: UiElegant_157
+  - first:
+      213: -4282205860998685984
+    second: UiElegant_158
+  - first:
+      213: -7234750154234962658
+    second: UiElegant_159
+  - first:
+      213: -6661610136408444567
+    second: UiElegant_160
+  - first:
+      213: -8932399862464814594
+    second: UiElegant_161
+  - first:
+      213: -7120993073130642318
+    second: UiElegant_162
+  - first:
+      213: 515854867262749542
+    second: UiElegant_163
+  - first:
+      213: -2781781111439587025
+    second: UiElegant_164
+  - first:
+      213: -3452077429988062017
+    second: UiElegant_165
+  - first:
+      213: -4293354887811849654
+    second: UiElegant_166
+  - first:
+      213: -344080573542930433
+    second: UiElegant_167
+  - first:
+      213: -649730550218157121
+    second: UiElegant_168
+  - first:
+      213: -7530424775195478379
+    second: UiElegant_169
+  - first:
+      213: 6416638664348007999
+    second: UiElegant_170
+  - first:
+      213: -6187188041619053279
+    second: UiElegant_171
+  - first:
+      213: 7920889094422804760
+    second: UiElegant_172
+  - first:
+      213: 7281537220780689949
+    second: UiElegant_173
+  - first:
+      213: 17092612841598043
+    second: UiElegant_174
+  - first:
+      213: 5205733927442008207
+    second: UiElegant_175
+  - first:
+      213: 86539392665729667
+    second: UiElegant_176
+  - first:
+      213: -374102066666223990
+    second: UiElegant_177
+  - first:
+      213: -3441186375344874299
+    second: UiElegant_178
+  - first:
+      213: -1478495928344182154
+    second: UiElegant_179
+  - first:
+      213: 6331466723791268469
+    second: UiElegant_180
+  - first:
+      213: 5968642926522141865
+    second: UiElegant_181
+  - first:
+      213: 3005825734747463032
+    second: UiElegant_182
+  - first:
+      213: 3361021031680318989
+    second: UiElegant_183
+  - first:
+      213: 8270839571745701903
+    second: UiElegant_184
+  - first:
+      213: 1973876086217262211
+    second: UiElegant_185
+  - first:
+      213: -2704343589650767920
+    second: UiElegant_186
+  - first:
+      213: -2747347357405322317
+    second: UiElegant_187
+  - first:
+      213: -3184737767167692490
+    second: UiElegant_188
+  - first:
+      213: 713090213377130287
+    second: UiElegant_189
+  - first:
+      213: 3192425678649230787
+    second: UiElegant_190
+  - first:
+      213: -1599698560941648387
+    second: UiElegant_191
+  - first:
+      213: -3178355520344744270
+    second: UiElegant_192
+  - first:
+      213: 2070920684705279510
+    second: UiElegant_193
+  - first:
+      213: 1021914684947005669
+    second: UiElegant_194
+  - first:
+      213: -6506649303315050605
+    second: UiElegant_195
+  - first:
+      213: 215250326807196029
+    second: UiElegant_196
+  - first:
+      213: 7698105423828200615
+    second: UiElegant_197
+  - first:
+      213: -6080621346740857279
+    second: UiElegant_198
+  - first:
+      213: -3234880655196688339
+    second: UiElegant_199
+  - first:
+      213: -7969018953928876548
+    second: UiElegant_200
+  - first:
+      213: 1628775216954398738
+    second: UiElegant_201
+  - first:
+      213: 5176101614022003553
+    second: UiElegant_202
+  - first:
+      213: 6556215279721671817
+    second: UiElegant_203
+  - first:
+      213: 6809076824860057507
+    second: UiElegant_204
+  - first:
+      213: -5660958026041679817
+    second: UiElegant_205
+  - first:
+      213: 2576455362143869285
+    second: UiElegant_206
+  - first:
+      213: 5035249212078101363
+    second: UiElegant_207
+  - first:
+      213: 1969731123026485586
+    second: UiElegant_208
+  - first:
+      213: 3005374308031712859
+    second: UiElegant_209
+  - first:
+      213: 816785685565316250
+    second: UiElegant_210
+  - first:
+      213: 8226711708475641091
+    second: UiElegant_211
+  - first:
+      213: -6166253224721012910
+    second: UiElegant_212
+  - first:
+      213: 7370047141730940258
+    second: UiElegant_213
+  - first:
+      213: 8655699325870955071
+    second: UiElegant_214
+  - first:
+      213: 6392669667651181826
+    second: UiElegant_215
+  - first:
+      213: -6559861885015541968
+    second: UiElegant_216
+  - first:
+      213: -1277843515321057516
+    second: UiElegant_217
+  - first:
+      213: 2923554253884816674
+    second: UiElegant_218
+  - first:
+      213: -5366913112200311058
+    second: UiElegant_219
+  - first:
+      213: 105734263520840751
+    second: UiElegant_220
+  - first:
+      213: -2742272222770971199
+    second: UiElegant_221
+  - first:
+      213: -5202649506125931272
+    second: UiElegant_222
+  - first:
+      213: -5846137290706086898
+    second: UiElegant_223
+  - first:
+      213: -8960265793387938069
+    second: UiElegant_224
+  - first:
+      213: 6238015877782644114
+    second: UiElegant_225
+  - first:
+      213: -9004681362409178885
+    second: UiElegant_226
+  - first:
+      213: -4529108321747767861
+    second: UiElegant_227
+  - first:
+      213: 555565278942041651
+    second: UiElegant_228
+  - first:
+      213: 7549648703327700367
+    second: UiElegant_229
+  - first:
+      213: 6554995724812281231
+    second: UiElegant_230
+  - first:
+      213: 8361481663332087820
+    second: UiElegant_231
+  - first:
+      213: 2492016041012254359
+    second: UiElegant_232
+  - first:
+      213: 5712435370554409028
+    second: UiElegant_233
+  - first:
+      213: 2354750924515734661
+    second: UiElegant_234
+  - first:
+      213: 2217997785488660723
+    second: UiElegant_235
+  - first:
+      213: 849086012445871630
+    second: UiElegant_236
+  - first:
+      213: 2232867496756803230
+    second: UiElegant_237
+  - first:
+      213: 8433412665531536111
+    second: UiElegant_238
+  - first:
+      213: 8636912108803037083
+    second: UiElegant_239
+  - first:
+      213: 3920893224864274635
+    second: UiElegant_240
+  - first:
+      213: 1883765386194477495
+    second: UiElegant_241
+  - first:
+      213: -8443087027053361443
+    second: UiElegant_242
+  - first:
+      213: -5274199398348570478
+    second: UiElegant_243
+  - first:
+      213: -1291849987865184162
+    second: UiElegant_244
+  - first:
+      213: 5835488780025626341
+    second: UiElegant_245
+  - first:
+      213: -2368417504752011157
+    second: UiElegant_246
+  - first:
+      213: 8069989721782808415
+    second: UiElegant_247
+  - first:
+      213: 8213975617174256612
+    second: UiElegant_248
+  - first:
+      213: 3851394666782433767
+    second: UiElegant_249
+  - first:
+      213: -6415032410985338780
+    second: UiElegant_250
+  - first:
+      213: 307183162176156007
+    second: UiElegant_251
+  - first:
+      213: 310267078431980716
+    second: UiElegant_252
+  - first:
+      213: 6436215768244488477
+    second: UiElegant_253
+  - first:
+      213: 3449786168914752581
+    second: UiElegant_254
+  - first:
+      213: 3699990387746350773
+    second: UiElegant_255
+  - first:
+      213: -8532512166977909752
+    second: UiElegant_256
+  - first:
+      213: 5166844279668376890
+    second: UiElegant_257
+  - first:
+      213: 2387912518927290217
+    second: UiElegant_258
+  - first:
+      213: -3618745830227190638
+    second: UiElegant_259
+  - first:
+      213: 7222252629919204379
+    second: UiElegant_260
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UiElegant_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 79
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d3a4632ece65400800000000000000
+      internalID: 312697680466427221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 401
+        width: 92
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563bb7436e07d43d0800000000000000
+      internalID: -3220794024474725531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 402
+        width: 92
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24008021d35281f0800000000000000
+      internalID: -1044180005938002899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a93239696dc0a870800000000000000
+      internalID: 8692173133445216672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828c3c1e3a8f2b4f0800000000000000
+      internalID: -814315199849576408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 416
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d323f3902c269b0800000000000000
+      internalID: -5088291284004487901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbd81b6c31c06c90800000000000000
+      internalID: -7178525340789580879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290618afa11bdc5d0800000000000000
+      internalID: -3040579443975167854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 416
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54300dd103ebd4b0800000000000000
+      internalID: -5414484529840638883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 416
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3c9ad4adbd61be0800000000000000
+      internalID: -1506775294656527447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_10
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 400
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c2d5c8dc37dd4d70800000000000000
+      internalID: 9029109484282565317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_11
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 416
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f0bc9059f9c4e50800000000000000
+      internalID: 6794981400258481948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 416
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c80a9b87d6f35e0800000000000000
+      internalID: -1927701750213473173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_13
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 400
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce16748528e3d44f0800000000000000
+      internalID: -842948825700670996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_14
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 416
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1f9c16eab86d320800000000000000
+      internalID: 2582405017424753083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_15
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f97d1c951058b40800000000000000
+      internalID: 5441757209762963320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_16
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d780df9e8e14de0800000000000000
+      internalID: -1350542321564222163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 407
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b025f12069918ad0800000000000000
+      internalID: -2701709663279963976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_18
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a275e48ad0a95980800000000000000
+      internalID: -8549625557193231710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 400
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f25bb5561829dee0800000000000000
+      internalID: -1235912546343759116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ed38a3c7345e160800000000000000
+      internalID: 7054118592182476404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 400
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0192b2e57562bf60800000000000000
+      internalID: 8048607041053430027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 384
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed6d0d4aa66a4570800000000000000
+      internalID: 8451680532337356257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_23
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 400
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3498c2518f670f0800000000000000
+      internalID: -1119434687529794630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_24
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 384
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543b38dad73223370800000000000000
+      internalID: 8300736085886219077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_25
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 400
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08d819b2e1b21410800000000000000
+      internalID: 1446414017665488906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 371
+        width: 79
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d7b56c0b820e3a0800000000000000
+      internalID: -6638261111036871365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_27
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 369
+        width: 92
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a17922794d97ee0800000000000000
+      internalID: -1262744474915235171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_28
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 369
+        width: 92
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b677966ab16d1bf0800000000000000
+      internalID: -352017742652016973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 384
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a94743b026a30150800000000000000
+      internalID: 5837692201379252649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_30
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 384
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1553f2cf4ab9eb340800000000000000
+      internalID: 4881510179024090449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_31
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 384
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a3b633b6e068800800000000000000
+      internalID: 614194252769606178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_32
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 384
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc2af9ec0ed39600800000000000000
+      internalID: 473966532850494650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_33
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a832d0ec091fee40800000000000000
+      internalID: 5687792397494401186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_34
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cc5bcb0ec4be320800000000000000
+      internalID: 2588246938976898096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_35
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 375
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324a6b352a7448700800000000000000
+      internalID: 541636617706054691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_36
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 370
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284387eba44250cc0800000000000000
+      internalID: -3745547611646970750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_37
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 370
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71a60feacecdb840800000000000000
+      internalID: 5241572912318030203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_38
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 370
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3feb1e012defc0aa0800000000000000
+      internalID: -6193295209361457421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_39
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 370
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df8f3a7b7c235020800000000000000
+      internalID: 2329254341124263895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_40
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b963bac018f7f7c60800000000000000
+      internalID: 7818107670378526363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_41
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 370
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e390009a860c5c10800000000000000
+      internalID: 2043515523110573032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 370
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9aa455af275a950800000000000000
+      internalID: 6459695660031191525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_43
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 370
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0021694d930a63370800000000000000
+      internalID: 8301999133344272896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_44
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 237
+        width: 89
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ad751d4b7162360800000000000000
+      internalID: 7144423924243618461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_45
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 354
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50852d425aa094710800000000000000
+      internalID: 1677884040575866885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_46
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 354
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648e590f203e497d0800000000000000
+      internalID: -2912453457236072378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_47
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 353
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ab21a6707aacdb0800000000000000
+      internalID: -4770817204959397281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_48
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 353
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4907c2fb3ac21ec40800000000000000
+      internalID: 5539758098441072788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_49
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 354
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc509a6d92cd99c90800000000000000
+      internalID: -7162451660102892084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_50
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 354
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7056498aa2444ee90800000000000000
+      internalID: -6997392971019295481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_51
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 354
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea1551e5204508a0800000000000000
+      internalID: -6339590369015686422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_52
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 354
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb448546b99ff940800000000000000
+      internalID: 5332149491959352301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_53
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 354
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a9caddfc24338f0800000000000000
+      internalID: -562032067946440037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_54
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 354
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ca66d421afbb7e0800000000000000
+      internalID: -1748529073788376032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 354
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d48d8c21563db70800000000000000
+      internalID: 8922586418104520029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_56
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 354
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7ec0f5266f3b8a0800000000000000
+      internalID: -6290413352144541699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_57
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 343
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30b6442040e00af0800000000000000
+      internalID: -432098998136426437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_58
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 343
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e9755233bffe440800000000000000
+      internalID: 4967465111101349470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_59
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 239
+        width: 89
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33eef2d5fb8180d0800000000000000
+      internalID: -3422300353901698241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_60
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 338
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509cc5beb0c5d1670800000000000000
+      internalID: 8511060077063227653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_61
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 338
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cc687bc79652590800000000000000
+      internalID: -7699632003544069018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_62
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 339
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e0d0607fd652470800000000000000
+      internalID: 8369216390263803442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_63
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 339
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f69e5a7481e1e40800000000000000
+      internalID: 5628963280264982411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_64
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 338
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c284fce65ee7540800000000000000
+      internalID: 5007692099769347223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_65
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 338
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec67ce8d749aa2780800000000000000
+      internalID: -8706960803520284978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_66
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 336
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47339d127f1e7210800000000000000
+      internalID: 1332537114731165519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_67
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 336
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07cf138a7a562de50800000000000000
+      internalID: 6832635355430255728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_68
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 338
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5037af5fa917e400800000000000000
+      internalID: 353279336786636893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_69
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 338
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfbd7175d1ec2e670800000000000000
+      internalID: 8566636066622659580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 338
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e6348d1b9613d70800000000000000
+      internalID: 9021107741158239786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_71
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 338
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5129e96bb7cbcf50800000000000000
+      internalID: 6902830461625114972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_72
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 321
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27437cd7ea5fe7030800000000000000
+      internalID: 3494500490669405298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_73
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 305
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1e01630fd32c2c0800000000000000
+      internalID: -4412896582961143375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_74
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 289
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d3d3fcbdec6f590800000000000000
+      internalID: -7640692274317411054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_75
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 321
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6410982eb157fca40800000000000000
+      internalID: 5390656041610969414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_76
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 305
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca4a9ac96ff39000800000000000000
+      internalID: 41657651412224717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_77
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 289
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345872e508931ba60800000000000000
+      internalID: 7687989262396392771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_78
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 320
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b0ab152ce1d7d10800000000000000
+      internalID: 2124888419132377879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_79
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 306
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c52e0b7654f79450800000000000000
+      internalID: 6095609272938145216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_80
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 288
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b124c7dd98cdb5f0800000000000000
+      internalID: -739214183563517520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_81
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 320
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52966199cbc7f150800000000000000
+      internalID: 5906413502907978334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_82
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 306
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6460d242aebe07ab0800000000000000
+      internalID: -5012246994401556922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_83
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 288
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a0144e84f99d080800000000000000
+      internalID: -9162116831492633956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_84
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 291
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f0202c60e71a780800000000000000
+      internalID: -8673512839849046224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_85
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 307
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b26e336073b2d10800000000000000
+      internalID: 2101834150878522199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_86
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 291
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a9e67f317fd35a0800000000000000
+      internalID: -6539799418744432118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_87
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3557519d0bf969be0800000000000000
+      internalID: -1470812646384765613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_88
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a165c298460658b0800000000000000
+      internalID: -5163933013963873883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_89
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96de3e0f49b529010800000000000000
+      internalID: 1194117546461359465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_90
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a85320df595c5e0800000000000000
+      internalID: -1889939554715727245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_91
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a49732c1d76823700800000000000000
+      internalID: 518624779002149194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_92
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcdc4b49824f7a20800000000000000
+      internalID: 3062239429076507857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_93
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 304
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdcd330729ebfe860800000000000000
+      internalID: 7561471835535301852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_94
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 288
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12e27232b4ef9ab0800000000000000
+      internalID: -4999025607356259809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_95
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 225
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 329a9f051d31f8e50800000000000000
+      internalID: 6813686550962481443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_96
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 94
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aa319b61153d720800000000000000
+      internalID: 2869726545601341978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_97
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 311
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fedb3e9e92b3990800000000000000
+      internalID: -7405279077755654307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_98
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 311
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73f4069d314f95d0800000000000000
+      internalID: -3053650289568189569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_99
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 273
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18634e8e68a07b50800000000000000
+      internalID: 6588951447629686811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_100
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 273
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f90c4169bb3cc50800000000000000
+      internalID: 6684392525215604598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_101
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 274
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0171d6f30a03200800000000000000
+      internalID: 157802181231579298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_102
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 274
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1349d9ac42f14e960800000000000000
+      internalID: 7630257911551071281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_103
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 255
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399d3998b65b24f30800000000000000
+      internalID: 4558405246326659475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 255
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31704232634c348e0800000000000000
+      internalID: -1710307696673814765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_105
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 228
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a99a3472339ab510800000000000000
+      internalID: 1565725665372314023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_106
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 228
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c85578f3b9ccd60800000000000000
+      internalID: 7911869342538894345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_107
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89efd5a324d38bac0800000000000000
+      internalID: -3839251327676973416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_108
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 209
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5db9936e463b700800000000000000
+      internalID: 554898119068472790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_109
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c8df1c90aabb330800000000000000
+      internalID: 3727760075465264235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_110
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 210
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638120080317b09a0800000000000000
+      internalID: -6265790003435923402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_111
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 211
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ebaaf61e7d2f41e0800000000000000
+      internalID: -2211498872440968215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_112
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 210
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37174361e6dc30040800000000000000
+      internalID: 4612756316060152179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_113
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 218
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec11fce23be7e660800000000000000
+      internalID: 7415153915444927716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_114
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 200
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b49adba8b12ba10800000000000000
+      internalID: 1923630273542048600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_115
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 188
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78009a99d5bd9b350800000000000000
+      internalID: 6033094370895921287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_116
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 177
+        width: 90
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f819bc989418e8300800000000000000
+      internalID: 256284381651112335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_117
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 144
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec95cfb8244c4510800000000000000
+      internalID: 1534676514833276130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_118
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 175
+        width: 89
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866767a8e2ce69d20800000000000000
+      internalID: 3285072662849025640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_119
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8cae0148c857990800000000000000
+      internalID: -7388845114784036686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_120
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f7c8450a2329370800000000000000
+      internalID: 8327774325156118316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_121
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefd0e5783ae95e10800000000000000
+      internalID: 2187036622281826286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_122
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f725d9bc57e5cdcd0800000000000000
+      internalID: -2532045030468791681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_123
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd83704253aa0280800000000000000
+      internalID: -9076262525347852802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_124
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 193
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64eecd847caeb630800000000000000
+      internalID: 3944779940218463338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_125
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 182
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e729dae35c0f97560800000000000000
+      internalID: 7312140199963497086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_126
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 180
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4a86e3f9060c790800000000000000
+      internalID: -7511897941390875477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_127
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 178
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3181262e7f5a1c410800000000000000
+      internalID: 1495659035337299987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_128
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 179
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd627ff72f02f4c0800000000000000
+      internalID: -4255322033447866953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_129
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 177
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6fd261a6f530ea0800000000000000
+      internalID: -5907773376936675585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_130
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 180
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774a7a0b0d9e41910800000000000000
+      internalID: 1807326433008657527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_131
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 178
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece0ad6a7b16ec920800000000000000
+      internalID: 3012452642163658446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_132
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 164
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d968131328dd3520800000000000000
+      internalID: 2683538598138505687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 177
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cde295f2eda20830800000000000000
+      internalID: 4035979406371646916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_134
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 929b3c927f70d9860800000000000000
+      internalID: 7538190109427087657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_135
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa1880a897f0c010800000000000000
+      internalID: 1207236935035656867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_136
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8065c00a7a7f64c40800000000000000
+      internalID: 5496352694569031176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_137
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51aac57258f06f60800000000000000
+      internalID: 8025687569021444443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_138
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4286ff20d44bfa010800000000000000
+      internalID: 1202377868386986020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_139
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7855c41b4d8f3310800000000000000
+      internalID: 1386982563863943294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_140
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad3687f573bcaaa0800000000000000
+      internalID: -6148342072022254169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_141
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db4e03be393c3b60800000000000000
+      internalID: 7727114002115742673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_142
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152b0aeeb9cc8ecf0800000000000000
+      internalID: -222703211459333551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_143
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b59e69ac70e3e710800000000000000
+      internalID: 1721466308608824755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_144
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7ca28f128abe9a80800000000000000
+      internalID: -8458117982118040449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_145
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 160
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2d65798b8ed7280800000000000000
+      internalID: -9043816597179411781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_146
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 115
+        width: 90
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7414c60a1b97858a0800000000000000
+      internalID: -6316164673579499193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_147
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50628b1e4904e0d10800000000000000
+      internalID: 2093681884960138757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_148
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d59800226bed830800000000000000
+      internalID: 4097912968107875705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_149
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03afaf4dee5d398e0800000000000000
+      internalID: -1687770213581653456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_150
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf1cd86ea0cb02b0800000000000000
+      internalID: -5617184254898462776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_151
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b1fdf1ccab6d1a0800000000000000
+      internalID: -6785030402716263635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_152
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21986cbefb19ab90800000000000000
+      internalID: -7230216945870008021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_153
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c40b258e7116b5da0800000000000000
+      internalID: -5955059326957473716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_154
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 144
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b13f3d90aa7e630800000000000000
+      internalID: 3956317756855622460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_155
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf21fa1dbd34cdea0800000000000000
+      internalID: -5846723604838935813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_156
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdec93b99946b6d20800000000000000
+      internalID: 3272820165111828191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_157
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42d19fec44a5eae0800000000000000
+      internalID: -1520628648823893427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_158
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ead310257c8294c0800000000000000
+      internalID: -4282205860998685984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_159
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d5f1ae011099b90800000000000000
+      internalID: -7234750154234962658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_160
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961bb3b20e43d83a0800000000000000
+      internalID: -6661610136408444567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_161
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef16906a6adb90480800000000000000
+      internalID: -8932399862464814594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_162
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274e70457862d2d90800000000000000
+      internalID: -7120993073130642318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_163
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 94
+        width: 81
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b3ad6c44fa82700800000000000000
+      internalID: 515854867262749542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_164
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2980c151d02569d0800000000000000
+      internalID: -2781781111439587025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_165
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc0b680ed1c710d0800000000000000
+      internalID: -3452077429988062017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_166
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42a9490a70fa64c0800000000000000
+      internalID: -4293354887811849654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_167
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 33
+        width: 89
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff76cd79a84993bf0800000000000000
+      internalID: -344080573542930433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_168
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3178ac181bbf6f0800000000000000
+      internalID: -649730550218157121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_169
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 83
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5963caa909e8e7790800000000000000
+      internalID: -7530424775195478379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_170
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 82
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3eff705eda7c0950800000000000000
+      internalID: 6416638664348007999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_171
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 81
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12560ccd141b22aa0800000000000000
+      internalID: -6187188041619053279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_172
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819365a2aa6aced60800000000000000
+      internalID: 7920889094422804760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_173
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 83
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a0b67e5873d0560800000000000000
+      internalID: 7281537220780689949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_174
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 82
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ce4bc04a9bc3000800000000000000
+      internalID: 17092612841598043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_175
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 81
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8841640d6b7e3840800000000000000
+      internalID: 5205733927442008207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_176
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 83
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a3bee7e13733100800000000000000
+      internalID: 86539392665729667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_177
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 84
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86ce96072ceecaf0800000000000000
+      internalID: -374102066666223990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_178
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 83
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc97ab49337e30d0800000000000000
+      internalID: -3441186375344874299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_179
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 82
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6720f2d59c35b7be0800000000000000
+      internalID: -1478495928344182154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_180
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 83
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ae8c29073edd750800000000000000
+      internalID: 6331466723791268469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_181
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 84
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ac00825e11e4d250800000000000000
+      internalID: 5968642926522141865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_182
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 83
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d99588496d6b920800000000000000
+      internalID: 3005825734747463032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_183
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 82
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e1ce322deb4ae20800000000000000
+      internalID: 3361021031680318989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_184
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 71
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f00852c05cce7c270800000000000000
+      internalID: 8270839571745701903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_185
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 71
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3844e95a7dd946b10800000000000000
+      internalID: 1973876086217262211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_186
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 66
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfd24c55dd387ad0800000000000000
+      internalID: -2704343589650767920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_187
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b36f3f62267fd9d0800000000000000
+      internalID: -2747347357405322317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_188
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 65
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 631f23dcfd98dc3d0800000000000000
+      internalID: -3184737767167692490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_189
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fb62d55c765e900800000000000000
+      internalID: 713090213377130287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_190
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 66
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c509b39d36cd4c20800000000000000
+      internalID: 3192425678649230787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_191
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df59e5762aabcc9e0800000000000000
+      internalID: -1599698560941648387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_192
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 65
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be13ff6e7634e3d0800000000000000
+      internalID: -3178355520344744270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_193
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61eedd9f3636dbc10800000000000000
+      internalID: 2070920684705279510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_194
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0850bddf19e2e00800000000000000
+      internalID: 1021914684947005669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_195
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 67
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f0dddaeecb3b5a0800000000000000
+      internalID: -6506649303315050605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_196
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7131232809bcf200800000000000000
+      internalID: 215250326807196029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_197
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 51
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aca9ceb81a25da60800000000000000
+      internalID: 7698105423828200615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_198
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1469ad50a1b4d9ba0800000000000000
+      internalID: -6080621346740857279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_199
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 67
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d20f738ee256b13d0800000000000000
+      internalID: -3234880655196688339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_200
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 66
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfdd6baab7b586190800000000000000
+      internalID: -7969018953928876548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_201
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 51
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218d6812e629a9610800000000000000
+      internalID: 1628775216954398738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_202
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 53
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b8b196ef435d740800000000000000
+      internalID: 5176101614022003553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_203
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c6cc28f0b5cfa50800000000000000
+      internalID: 6556215279721671817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_204
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3afd022db43be7e50800000000000000
+      internalID: 6809076824860057507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_205
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 50
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730a3691bac3071b0800000000000000
+      internalID: -5660958026041679817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_206
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 53
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5695c30508861c320800000000000000
+      internalID: 2576455362143869285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_207
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3731b710b7cc0e540800000000000000
+      internalID: 5035249212078101363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_208
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25166033504e55b10800000000000000
+      internalID: 1969731123026485586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_209
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 50
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ec05f820c35b920800000000000000
+      internalID: 3005374308031712859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_210
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 49
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c9eb5e04ec55b00800000000000000
+      internalID: 816785685565316250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_211
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 49
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30dcc3d36b62b2270800000000000000
+      internalID: 8226711708475641091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_212
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 49
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257a561cc511d6aa0800000000000000
+      internalID: -6166253224721012910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_213
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 49
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26571c4c3daa74660800000000000000
+      internalID: 7370047141730940258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_214
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 39
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a50215da83f1870800000000000000
+      internalID: 8655699325870955071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_215
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 39
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d53c2613357b850800000000000000
+      internalID: 6392669667651181826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_216
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 34
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03736080f50b6f4a0800000000000000
+      internalID: -6559861885015541968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_217
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 35
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f70c6d710344ee0800000000000000
+      internalID: -1277843515321057516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_218
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 34
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22df260ba1d829820800000000000000
+      internalID: 2923554253884816674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_219
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee0ae6a5f4e485b0800000000000000
+      internalID: -5366913112200311058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_220
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 34
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c4fb1a0c4a77100800000000000000
+      internalID: 105734263520840751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_221
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 35
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdb05c41fd71f9d0800000000000000
+      internalID: -2742272222770971199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_222
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 34
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc9088c6d97cc7b0800000000000000
+      internalID: -5202649506125931272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_223
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e049c47bb195edea0800000000000000
+      internalID: -5846137290706086898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_224
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee37040cbdb6a380800000000000000
+      internalID: -8960265793387938069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_225
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 36
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2952b72f362e19650800000000000000
+      internalID: 6238015877782644114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_226
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 35
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8350e7202f80380800000000000000
+      internalID: -9004681362409178885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_227
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 34
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd65f44aff5521c0800000000000000
+      internalID: -4529108321747767861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_228
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 35
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33691ec7da3c5b700800000000000000
+      internalID: 555565278942041651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_229
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 36
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8506d4fe7db5c860800000000000000
+      internalID: 7549648703327700367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_230
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 35
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85e3a1c1e508fa50800000000000000
+      internalID: 6554995724812281231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_231
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 34
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08f9d29543f90470800000000000000
+      internalID: 8361481663332087820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_232
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 18
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7965c13d26b659220800000000000000
+      internalID: 2492016041012254359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_233
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440c54824b5a64f40800000000000000
+      internalID: 5712435370554409028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_234
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58478466d71cda020800000000000000
+      internalID: 2354750924515734661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_235
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 18
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f897a40c39e7ce10800000000000000
+      internalID: 2217997785488660723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_236
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 18
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ec69bca3f88cb00800000000000000
+      internalID: 849086012445871630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_237
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 18
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9674b6782dbcfe10800000000000000
+      internalID: 2232867496756803230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_238
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2994d1320890570800000000000000
+      internalID: 8433412665531536111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_239
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 18
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9799797dc97cd770800000000000000
+      internalID: 8636912108803037083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_240
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8554e3d9fc96630800000000000000
+      internalID: 3920893224864274635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_241
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 19
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b16c4c53aa742a10800000000000000
+      internalID: 1883765386194477495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_242
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd686c0151124da80800000000000000
+      internalID: -8443087027053361443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_243
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290cad257974ec6b0800000000000000
+      internalID: -5274199398348570478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_244
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58f332d74d621ee0800000000000000
+      internalID: -1291849987865184162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_245
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 19
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee7430b022dbf050800000000000000
+      internalID: 5835488780025626341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_246
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68707de3d0b12fd0800000000000000
+      internalID: -2368417504752011157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_247
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 3
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5feae335ec5eff60800000000000000
+      internalID: 8069989721782808415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_248
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 15
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb3467ed47edf170800000000000000
+      internalID: 8213975617174256612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_249
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e1a66b3b07e27530800000000000000
+      internalID: 3851394666782433767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_250
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468e990b20a39f6a0800000000000000
+      internalID: -6415032410985338780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_251
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 761bd7e5575534400800000000000000
+      internalID: 307183162176156007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_252
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 2
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cacbf63934a4e4400800000000000000
+      internalID: 310267078431980716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_253
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d190bf30428025950800000000000000
+      internalID: 6436215768244488477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_254
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 544383d2e3a10ef20800000000000000
+      internalID: 3449786168914752581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_255
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b62bfd77a1095330800000000000000
+      internalID: 3699990387746350773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_256
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c459d246d669980800000000000000
+      internalID: -8532512166977909752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_257
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35846b4f7154b740800000000000000
+      internalID: 5166844279668376890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_258
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f8e55c8c1932120800000000000000
+      internalID: 2387912518927290217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_259
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29cd1e027d1a7cdc0800000000000000
+      internalID: -3618745830227190638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiElegant_260
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14077470889a3460800000000000000
+      internalID: 7222252629919204379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UiElegant_0: 312697680466427221
+      UiElegant_1: -3220794024474725531
+      UiElegant_10: 9029109484282565317
+      UiElegant_100: 6684392525215604598
+      UiElegant_101: 157802181231579298
+      UiElegant_102: 7630257911551071281
+      UiElegant_103: 4558405246326659475
+      UiElegant_104: -1710307696673814765
+      UiElegant_105: 1565725665372314023
+      UiElegant_106: 7911869342538894345
+      UiElegant_107: -3839251327676973416
+      UiElegant_108: 554898119068472790
+      UiElegant_109: 3727760075465264235
+      UiElegant_11: 6794981400258481948
+      UiElegant_110: -6265790003435923402
+      UiElegant_111: -2211498872440968215
+      UiElegant_112: 4612756316060152179
+      UiElegant_113: 7415153915444927716
+      UiElegant_114: 1923630273542048600
+      UiElegant_115: 6033094370895921287
+      UiElegant_116: 256284381651112335
+      UiElegant_117: 1534676514833276130
+      UiElegant_118: 3285072662849025640
+      UiElegant_119: -7388845114784036686
+      UiElegant_12: -1927701750213473173
+      UiElegant_120: 8327774325156118316
+      UiElegant_121: 2187036622281826286
+      UiElegant_122: -2532045030468791681
+      UiElegant_123: -9076262525347852802
+      UiElegant_124: 3944779940218463338
+      UiElegant_125: 7312140199963497086
+      UiElegant_126: -7511897941390875477
+      UiElegant_127: 1495659035337299987
+      UiElegant_128: -4255322033447866953
+      UiElegant_129: -5907773376936675585
+      UiElegant_13: -842948825700670996
+      UiElegant_130: 1807326433008657527
+      UiElegant_131: 3012452642163658446
+      UiElegant_132: 2683538598138505687
+      UiElegant_133: 4035979406371646916
+      UiElegant_134: 7538190109427087657
+      UiElegant_135: 1207236935035656867
+      UiElegant_136: 5496352694569031176
+      UiElegant_137: 8025687569021444443
+      UiElegant_138: 1202377868386986020
+      UiElegant_139: 1386982563863943294
+      UiElegant_14: 2582405017424753083
+      UiElegant_140: -6148342072022254169
+      UiElegant_141: 7727114002115742673
+      UiElegant_142: -222703211459333551
+      UiElegant_143: 1721466308608824755
+      UiElegant_144: -8458117982118040449
+      UiElegant_145: -9043816597179411781
+      UiElegant_146: -6316164673579499193
+      UiElegant_147: 2093681884960138757
+      UiElegant_148: 4097912968107875705
+      UiElegant_149: -1687770213581653456
+      UiElegant_15: 5441757209762963320
+      UiElegant_150: -5617184254898462776
+      UiElegant_151: -6785030402716263635
+      UiElegant_152: -7230216945870008021
+      UiElegant_153: -5955059326957473716
+      UiElegant_154: 3956317756855622460
+      UiElegant_155: -5846723604838935813
+      UiElegant_156: 3272820165111828191
+      UiElegant_157: -1520628648823893427
+      UiElegant_158: -4282205860998685984
+      UiElegant_159: -7234750154234962658
+      UiElegant_16: -1350542321564222163
+      UiElegant_160: -6661610136408444567
+      UiElegant_161: -8932399862464814594
+      UiElegant_162: -7120993073130642318
+      UiElegant_163: 515854867262749542
+      UiElegant_164: -2781781111439587025
+      UiElegant_165: -3452077429988062017
+      UiElegant_166: -4293354887811849654
+      UiElegant_167: -344080573542930433
+      UiElegant_168: -649730550218157121
+      UiElegant_169: -7530424775195478379
+      UiElegant_17: -2701709663279963976
+      UiElegant_170: 6416638664348007999
+      UiElegant_171: -6187188041619053279
+      UiElegant_172: 7920889094422804760
+      UiElegant_173: 7281537220780689949
+      UiElegant_174: 17092612841598043
+      UiElegant_175: 5205733927442008207
+      UiElegant_176: 86539392665729667
+      UiElegant_177: -374102066666223990
+      UiElegant_178: -3441186375344874299
+      UiElegant_179: -1478495928344182154
+      UiElegant_18: -8549625557193231710
+      UiElegant_180: 6331466723791268469
+      UiElegant_181: 5968642926522141865
+      UiElegant_182: 3005825734747463032
+      UiElegant_183: 3361021031680318989
+      UiElegant_184: 8270839571745701903
+      UiElegant_185: 1973876086217262211
+      UiElegant_186: -2704343589650767920
+      UiElegant_187: -2747347357405322317
+      UiElegant_188: -3184737767167692490
+      UiElegant_189: 713090213377130287
+      UiElegant_19: -1235912546343759116
+      UiElegant_190: 3192425678649230787
+      UiElegant_191: -1599698560941648387
+      UiElegant_192: -3178355520344744270
+      UiElegant_193: 2070920684705279510
+      UiElegant_194: 1021914684947005669
+      UiElegant_195: -6506649303315050605
+      UiElegant_196: 215250326807196029
+      UiElegant_197: 7698105423828200615
+      UiElegant_198: -6080621346740857279
+      UiElegant_199: -3234880655196688339
+      UiElegant_2: -1044180005938002899
+      UiElegant_20: 7054118592182476404
+      UiElegant_200: -7969018953928876548
+      UiElegant_201: 1628775216954398738
+      UiElegant_202: 5176101614022003553
+      UiElegant_203: 6556215279721671817
+      UiElegant_204: 6809076824860057507
+      UiElegant_205: -5660958026041679817
+      UiElegant_206: 2576455362143869285
+      UiElegant_207: 5035249212078101363
+      UiElegant_208: 1969731123026485586
+      UiElegant_209: 3005374308031712859
+      UiElegant_21: 8048607041053430027
+      UiElegant_210: 816785685565316250
+      UiElegant_211: 8226711708475641091
+      UiElegant_212: -6166253224721012910
+      UiElegant_213: 7370047141730940258
+      UiElegant_214: 8655699325870955071
+      UiElegant_215: 6392669667651181826
+      UiElegant_216: -6559861885015541968
+      UiElegant_217: -1277843515321057516
+      UiElegant_218: 2923554253884816674
+      UiElegant_219: -5366913112200311058
+      UiElegant_22: 8451680532337356257
+      UiElegant_220: 105734263520840751
+      UiElegant_221: -2742272222770971199
+      UiElegant_222: -5202649506125931272
+      UiElegant_223: -5846137290706086898
+      UiElegant_224: -8960265793387938069
+      UiElegant_225: 6238015877782644114
+      UiElegant_226: -9004681362409178885
+      UiElegant_227: -4529108321747767861
+      UiElegant_228: 555565278942041651
+      UiElegant_229: 7549648703327700367
+      UiElegant_23: -1119434687529794630
+      UiElegant_230: 6554995724812281231
+      UiElegant_231: 8361481663332087820
+      UiElegant_232: 2492016041012254359
+      UiElegant_233: 5712435370554409028
+      UiElegant_234: 2354750924515734661
+      UiElegant_235: 2217997785488660723
+      UiElegant_236: 849086012445871630
+      UiElegant_237: 2232867496756803230
+      UiElegant_238: 8433412665531536111
+      UiElegant_239: 8636912108803037083
+      UiElegant_24: 8300736085886219077
+      UiElegant_240: 3920893224864274635
+      UiElegant_241: 1883765386194477495
+      UiElegant_242: -8443087027053361443
+      UiElegant_243: -5274199398348570478
+      UiElegant_244: -1291849987865184162
+      UiElegant_245: 5835488780025626341
+      UiElegant_246: -2368417504752011157
+      UiElegant_247: 8069989721782808415
+      UiElegant_248: 8213975617174256612
+      UiElegant_249: 3851394666782433767
+      UiElegant_25: 1446414017665488906
+      UiElegant_250: -6415032410985338780
+      UiElegant_251: 307183162176156007
+      UiElegant_252: 310267078431980716
+      UiElegant_253: 6436215768244488477
+      UiElegant_254: 3449786168914752581
+      UiElegant_255: 3699990387746350773
+      UiElegant_256: -8532512166977909752
+      UiElegant_257: 5166844279668376890
+      UiElegant_258: 2387912518927290217
+      UiElegant_259: -3618745830227190638
+      UiElegant_26: -6638261111036871365
+      UiElegant_260: 7222252629919204379
+      UiElegant_27: -1262744474915235171
+      UiElegant_28: -352017742652016973
+      UiElegant_29: 5837692201379252649
+      UiElegant_3: 8692173133445216672
+      UiElegant_30: 4881510179024090449
+      UiElegant_31: 614194252769606178
+      UiElegant_32: 473966532850494650
+      UiElegant_33: 5687792397494401186
+      UiElegant_34: 2588246938976898096
+      UiElegant_35: 541636617706054691
+      UiElegant_36: -3745547611646970750
+      UiElegant_37: 5241572912318030203
+      UiElegant_38: -6193295209361457421
+      UiElegant_39: 2329254341124263895
+      UiElegant_4: -814315199849576408
+      UiElegant_40: 7818107670378526363
+      UiElegant_41: 2043515523110573032
+      UiElegant_42: 6459695660031191525
+      UiElegant_43: 8301999133344272896
+      UiElegant_44: 7144423924243618461
+      UiElegant_45: 1677884040575866885
+      UiElegant_46: -2912453457236072378
+      UiElegant_47: -4770817204959397281
+      UiElegant_48: 5539758098441072788
+      UiElegant_49: -7162451660102892084
+      UiElegant_5: -5088291284004487901
+      UiElegant_50: -6997392971019295481
+      UiElegant_51: -6339590369015686422
+      UiElegant_52: 5332149491959352301
+      UiElegant_53: -562032067946440037
+      UiElegant_54: -1748529073788376032
+      UiElegant_55: 8922586418104520029
+      UiElegant_56: -6290413352144541699
+      UiElegant_57: -432098998136426437
+      UiElegant_58: 4967465111101349470
+      UiElegant_59: -3422300353901698241
+      UiElegant_6: -7178525340789580879
+      UiElegant_60: 8511060077063227653
+      UiElegant_61: -7699632003544069018
+      UiElegant_62: 8369216390263803442
+      UiElegant_63: 5628963280264982411
+      UiElegant_64: 5007692099769347223
+      UiElegant_65: -8706960803520284978
+      UiElegant_66: 1332537114731165519
+      UiElegant_67: 6832635355430255728
+      UiElegant_68: 353279336786636893
+      UiElegant_69: 8566636066622659580
+      UiElegant_7: -3040579443975167854
+      UiElegant_70: 9021107741158239786
+      UiElegant_71: 6902830461625114972
+      UiElegant_72: 3494500490669405298
+      UiElegant_73: -4412896582961143375
+      UiElegant_74: -7640692274317411054
+      UiElegant_75: 5390656041610969414
+      UiElegant_76: 41657651412224717
+      UiElegant_77: 7687989262396392771
+      UiElegant_78: 2124888419132377879
+      UiElegant_79: 6095609272938145216
+      UiElegant_8: -5414484529840638883
+      UiElegant_80: -739214183563517520
+      UiElegant_81: 5906413502907978334
+      UiElegant_82: -5012246994401556922
+      UiElegant_83: -9162116831492633956
+      UiElegant_84: -8673512839849046224
+      UiElegant_85: 2101834150878522199
+      UiElegant_86: -6539799418744432118
+      UiElegant_87: -1470812646384765613
+      UiElegant_88: -5163933013963873883
+      UiElegant_89: 1194117546461359465
+      UiElegant_9: -1506775294656527447
+      UiElegant_90: -1889939554715727245
+      UiElegant_91: 518624779002149194
+      UiElegant_92: 3062239429076507857
+      UiElegant_93: 7561471835535301852
+      UiElegant_94: -4999025607356259809
+      UiElegant_95: 6813686550962481443
+      UiElegant_96: 2869726545601341978
+      UiElegant_97: -7405279077755654307
+      UiElegant_98: -3053650289568189569
+      UiElegant_99: 6588951447629686811
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

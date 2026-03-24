@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: b57e2d9992a000e4bacee0411e012b18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9142268335983221243
+    second: PoplarTrees_0
+  - first:
+      213: -3468989908935459920
+    second: PoplarTrees_1
+  - first:
+      213: -3752178562421675360
+    second: PoplarTrees_2
+  - first:
+      213: -7249106316411483490
+    second: PoplarTrees_3
+  - first:
+      213: 820816800271197377
+    second: PoplarTrees_4
+  - first:
+      213: 5741622497190460456
+    second: PoplarTrees_5
+  - first:
+      213: 4950819920341490516
+    second: PoplarTrees_6
+  - first:
+      213: -2789130897890875964
+    second: PoplarTrees_7
+  - first:
+      213: 3128510661327237226
+    second: PoplarTrees_8
+  - first:
+      213: 192414724711518437
+    second: PoplarTrees_9
+  - first:
+      213: -5067222728204380238
+    second: PoplarTrees_10
+  - first:
+      213: 4725016256740316352
+    second: PoplarTrees_11
+  - first:
+      213: 1861271832727463160
+    second: PoplarTrees_12
+  - first:
+      213: 3563214011188595819
+    second: PoplarTrees_13
+  - first:
+      213: 6912596752095726216
+    second: PoplarTrees_14
+  - first:
+      213: 4440617325024226513
+    second: PoplarTrees_15
+  - first:
+      213: 4999104954323582415
+    second: PoplarTrees_16
+  - first:
+      213: -6332021489182545759
+    second: PoplarTrees_17
+  - first:
+      213: 321454138929727676
+    second: PoplarTrees_18
+  - first:
+      213: 3992517407787928420
+    second: PoplarTrees_19
+  - first:
+      213: -3081358475600951908
+    second: PoplarTrees_20
+  - first:
+      213: 6185400995294870256
+    second: PoplarTrees_21
+  - first:
+      213: -2404527480281571111
+    second: PoplarTrees_22
+  - first:
+      213: -778822371896394558
+    second: PoplarTrees_23
+  - first:
+      213: 1511991688281996102
+    second: PoplarTrees_24
+  - first:
+      213: -741089929977102027
+    second: PoplarTrees_25
+  - first:
+      213: 4273966660339562400
+    second: PoplarTrees_26
+  - first:
+      213: -825809954091634333
+    second: PoplarTrees_27
+  - first:
+      213: -4202621804271511792
+    second: PoplarTrees_28
+  - first:
+      213: 4848673447093976053
+    second: PoplarTrees_29
+  - first:
+      213: -4888079702501434590
+    second: PoplarTrees_30
+  - first:
+      213: -8761073709515303480
+    second: PoplarTrees_31
+  - first:
+      213: -161386849680834748
+    second: PoplarTrees_32
+  - first:
+      213: -3462088211326521801
+    second: PoplarTrees_33
+  - first:
+      213: 1893470079417198091
+    second: PoplarTrees_34
+  - first:
+      213: 8005908898645806822
+    second: PoplarTrees_35
+  - first:
+      213: -1429001173570791298
+    second: PoplarTrees_36
+  - first:
+      213: -4494326630969392376
+    second: PoplarTrees_37
+  - first:
+      213: 1469268096806990707
+    second: PoplarTrees_38
+  - first:
+      213: 7557759894847129103
+    second: PoplarTrees_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PoplarTrees_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 512
+        width: 59
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9d49f1d9cdfde70800000000000000
+      internalID: 9142268335983221243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 512
+        width: 52
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbbc7cae0cabdfc0800000000000000
+      internalID: -3468989908935459920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 512
+        width: 112
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa25053a759debc0800000000000000
+      internalID: -3752178562421675360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 512
+        width: 113
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ac04f6630066b90800000000000000
+      internalID: -7249106316411483490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_4
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 512
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c466dde780246b00800000000000000
+      internalID: 820816800271197377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 512
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82cbd63ad375eaf40800000000000000
+      internalID: 5741622497190460456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_6
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 512
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45bd1eaac78d4b440800000000000000
+      internalID: 4950819920341490516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_7
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 512
+        width: 62
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5e52fc9340b49d0800000000000000
+      internalID: -2789130897890875964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 59
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60be64fed3ba6b20800000000000000
+      internalID: 3128510661327237226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 384
+        width: 52
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e01cf33c289ba200800000000000000
+      internalID: 192414724711518437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_10
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 384
+        width: 112
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b79797a6cb9da9b0800000000000000
+      internalID: -5067222728204380238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_11
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 384
+        width: 113
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4d3f45041a29140800000000000000
+      internalID: 4725016256740316352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_12
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 384
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f42924ded094d910800000000000000
+      internalID: 1861271832727463160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_13
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 384
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c4793b344137130800000000000000
+      internalID: 3563214011188595819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_14
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 384
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a4f2c1f1a7eef50800000000000000
+      internalID: 6912596752095726216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_15
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 384
+        width: 62
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dca3810eed30ad30800000000000000
+      internalID: 4440617325024226513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 256
+        width: 59
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd3a553873606540800000000000000
+      internalID: 4999104954323582415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_17
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 256
+        width: 52
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8622b01042028a0800000000000000
+      internalID: -6332021489182545759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_18
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 256
+        width: 112
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb84c7216d8067400800000000000000
+      internalID: 321454138929727676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_19
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 256
+        width: 113
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b43cadd65486730800000000000000
+      internalID: 3992517407787928420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_20
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 256
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c958a2ccac0dc35d0800000000000000
+      internalID: -3081358475600951908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_21
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 256
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0faf5edfe65f6d550800000000000000
+      internalID: 6185400995294870256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_22
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 256
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0e6251ff661aed0800000000000000
+      internalID: -2404527480281571111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_23
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 256
+        width: 62
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ccfcfbdd211135f0800000000000000
+      internalID: -778822371896394558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_24
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 128
+        width: 59
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b346bfd6cabf410800000000000000
+      internalID: 1511991688281996102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 128
+        width: 52
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531881992ae17b5f0800000000000000
+      internalID: -741089929977102027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_26
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 128
+        width: 112
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7f66b780e205b30800000000000000
+      internalID: 4273966660339562400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_27
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 128
+        width: 113
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361f26ad8322a84f0800000000000000
+      internalID: -825809954091634333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_28
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 128
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017d5174cb94da5c0800000000000000
+      internalID: -4202621804271511792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_29
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 128
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fbb7ed8fc2f94340800000000000000
+      internalID: 4848673447093976053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_30
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 128
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bda92a86d0a2cb0800000000000000
+      internalID: -4888079702501434590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_31
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 128
+        width: 62
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5935d11e96a6680800000000000000
+      internalID: -8761073709515303480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_32
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 59
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fba59e383a2cdf0800000000000000
+      internalID: -161386849680834748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_33
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 52
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ea0de5d1134ffc0800000000000000
+      internalID: -3462088211326521801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_34
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 112
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b062e745105f64a10800000000000000
+      internalID: 1893470079417198091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_35
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 0
+        width: 113
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee0ce7e9b3ba1f60800000000000000
+      internalID: 8005908898645806822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_36
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 0
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7852b9f00b2b2ce0800000000000000
+      internalID: -1429001173570791298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_37
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 59
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803cd78bdb1f0a1c0800000000000000
+      internalID: -4494326630969392376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_38
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 0
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373befdac83e36410800000000000000
+      internalID: 1469268096806990707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoplarTrees_39
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 0
+        width: 62
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f068e06e49e82e860800000000000000
+      internalID: 7557759894847129103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PoplarTrees_0: 9142268335983221243
+      PoplarTrees_1: -3468989908935459920
+      PoplarTrees_10: -5067222728204380238
+      PoplarTrees_11: 4725016256740316352
+      PoplarTrees_12: 1861271832727463160
+      PoplarTrees_13: 3563214011188595819
+      PoplarTrees_14: 6912596752095726216
+      PoplarTrees_15: 4440617325024226513
+      PoplarTrees_16: 4999104954323582415
+      PoplarTrees_17: -6332021489182545759
+      PoplarTrees_18: 321454138929727676
+      PoplarTrees_19: 3992517407787928420
+      PoplarTrees_2: -3752178562421675360
+      PoplarTrees_20: -3081358475600951908
+      PoplarTrees_21: 6185400995294870256
+      PoplarTrees_22: -2404527480281571111
+      PoplarTrees_23: -778822371896394558
+      PoplarTrees_24: 1511991688281996102
+      PoplarTrees_25: -741089929977102027
+      PoplarTrees_26: 4273966660339562400
+      PoplarTrees_27: -825809954091634333
+      PoplarTrees_28: -4202621804271511792
+      PoplarTrees_29: 4848673447093976053
+      PoplarTrees_3: -7249106316411483490
+      PoplarTrees_30: -4888079702501434590
+      PoplarTrees_31: -8761073709515303480
+      PoplarTrees_32: -161386849680834748
+      PoplarTrees_33: -3462088211326521801
+      PoplarTrees_34: 1893470079417198091
+      PoplarTrees_35: 8005908898645806822
+      PoplarTrees_36: -1429001173570791298
+      PoplarTrees_37: -4494326630969392376
+      PoplarTrees_38: 1469268096806990707
+      PoplarTrees_39: 7557759894847129103
+      PoplarTrees_4: 820816800271197377
+      PoplarTrees_5: 5741622497190460456
+      PoplarTrees_6: 4950819920341490516
+      PoplarTrees_7: -2789130897890875964
+      PoplarTrees_8: 3128510661327237226
+      PoplarTrees_9: 192414724711518437
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

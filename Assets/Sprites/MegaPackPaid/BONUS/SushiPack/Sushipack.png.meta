@@ -1,0 +1,1001 @@
+fileFormatVersion: 2
+guid: caf06d75074b2a948bb3da6a050a6902
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -320636123603979650
+    second: Sushipack_0
+  - first:
+      213: -2642243381383312232
+    second: Sushipack_1
+  - first:
+      213: -172082656473644276
+    second: Sushipack_2
+  - first:
+      213: -6864264365747311819
+    second: Sushipack_3
+  - first:
+      213: 850409066480455996
+    second: Sushipack_4
+  - first:
+      213: -6256659250492063737
+    second: Sushipack_5
+  - first:
+      213: -4924107719675437221
+    second: Sushipack_6
+  - first:
+      213: 836235314619799691
+    second: Sushipack_7
+  - first:
+      213: -4494866593002310863
+    second: Sushipack_8
+  - first:
+      213: 6047676005150425059
+    second: Sushipack_9
+  - first:
+      213: 2895301494225551911
+    second: Sushipack_10
+  - first:
+      213: -5030092797552807709
+    second: Sushipack_11
+  - first:
+      213: -3364193608336278695
+    second: Sushipack_12
+  - first:
+      213: 4791361935837948236
+    second: Sushipack_13
+  - first:
+      213: 8224166714530921778
+    second: Sushipack_14
+  - first:
+      213: -50225173492462599
+    second: Sushipack_15
+  - first:
+      213: -535200718744543210
+    second: Sushipack_16
+  - first:
+      213: -8572605622774619865
+    second: Sushipack_17
+  - first:
+      213: -3302247606005485197
+    second: Sushipack_18
+  - first:
+      213: 7554409629959163358
+    second: Sushipack_19
+  - first:
+      213: 814806381397737291
+    second: Sushipack_20
+  - first:
+      213: -7313300627505355460
+    second: Sushipack_21
+  - first:
+      213: 2193009847425323894
+    second: Sushipack_22
+  - first:
+      213: 8078664838672631285
+    second: Sushipack_23
+  - first:
+      213: -8824368725032407529
+    second: Sushipack_24
+  - first:
+      213: -4454469557877742554
+    second: Sushipack_25
+  - first:
+      213: -6050427218676100566
+    second: Sushipack_26
+  - first:
+      213: -1407904476595324274
+    second: Sushipack_27
+  - first:
+      213: -7733549464669006526
+    second: Sushipack_28
+  - first:
+      213: 5589277325308918007
+    second: Sushipack_29
+  - first:
+      213: -5724852188506694326
+    second: Sushipack_30
+  - first:
+      213: 7493811056378911265
+    second: Sushipack_31
+  - first:
+      213: -2305502789110606960
+    second: Sushipack_32
+  - first:
+      213: -6477170486416241181
+    second: Sushipack_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sushipack_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 292
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e723d66f42fdc8bf0800000000000000
+      internalID: -320636123603979650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 292
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c4582d4add45bd0800000000000000
+      internalID: -2642243381383312232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 293
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0302e45cb3ac9df0800000000000000
+      internalID: -172082656473644276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 292
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b62438deb3db0a0800000000000000
+      internalID: -6864264365747311819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 294
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31d6515a824dcb00800000000000000
+      internalID: 850409066480455996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 294
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70042c59f81eb29a0800000000000000
+      internalID: -6256659250492063737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 293
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f9cf43e1e0aabb0800000000000000
+      internalID: -4924107719675437221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 294
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88dc8c8697ea9b00800000000000000
+      internalID: 836235314619799691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 259
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133b35306a60f91c0800000000000000
+      internalID: -4494866593002310863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 260
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eff4a3e849ade350800000000000000
+      internalID: 6047676005150425059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 263
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722c8f87e5d2e2820800000000000000
+      internalID: 2895301494225551911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 261
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e03d9e4045813ab0800000000000000
+      internalID: -5030092797552807709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 262
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bf97bccbbff41d0800000000000000
+      internalID: -3364193608336278695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 262
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49e2ff7b465e7240800000000000000
+      internalID: 4791361935837948236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_14
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 259
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23df439ad0c122270800000000000000
+      internalID: 8224166714530921778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_15
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 261
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb033788709d4ff0800000000000000
+      internalID: -50225173492462599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 227
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610a2bb28c59298f0800000000000000
+      internalID: -535200718744543210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_17
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 226
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721a00f0b9cf70980800000000000000
+      internalID: -8572605622774619865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_18
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 230
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371b8a36c4f0c22d0800000000000000
+      internalID: -3302247606005485197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_19
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 228
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd81819887a6d860800000000000000
+      internalID: 7554409629959163358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_20
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 231
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ffeeb3616ce4b00800000000000000
+      internalID: 814806381397737291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_21
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 231
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35e6e9a3dfe18a90800000000000000
+      internalID: -7313300627505355460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_22
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 229
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67358b056d22f6e10800000000000000
+      internalID: 2193009847425323894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_23
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 196
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f545804ede2d1070800000000000000
+      internalID: 8078664838672631285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_24
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 196
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e6069e56b898580800000000000000
+      internalID: -8824368725032407529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_25
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 197
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624e7e3b98b8e22c0800000000000000
+      internalID: -4454469557877742554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_26
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 196
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22d47b4080980ca0800000000000000
+      internalID: -6050427218676100566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_27
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 198
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a7ad2865e167ce0800000000000000
+      internalID: -1407904476595324274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_28
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 163
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245dd796cb9eca490800000000000000
+      internalID: -7733549464669006526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_29
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 162
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8fe263d1a119d40800000000000000
+      internalID: 5589277325308918007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_30
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 161
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4dd070244d3d80b0800000000000000
+      internalID: -5724852188506694326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_31
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 161
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a1c5da37d5ff760800000000000000
+      internalID: 7493811056378911265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_32
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 178
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093d36aad653100e0800000000000000
+      internalID: -2305502789110606960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sushipack_33
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 71
+        width: 149
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed048792c77c16a0800000000000000
+      internalID: -6477170486416241181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sushipack_0: -320636123603979650
+      Sushipack_1: -2642243381383312232
+      Sushipack_10: 2895301494225551911
+      Sushipack_11: -5030092797552807709
+      Sushipack_12: -3364193608336278695
+      Sushipack_13: 4791361935837948236
+      Sushipack_14: 8224166714530921778
+      Sushipack_15: -50225173492462599
+      Sushipack_16: -535200718744543210
+      Sushipack_17: -8572605622774619865
+      Sushipack_18: -3302247606005485197
+      Sushipack_19: 7554409629959163358
+      Sushipack_2: -172082656473644276
+      Sushipack_20: 814806381397737291
+      Sushipack_21: -7313300627505355460
+      Sushipack_22: 2193009847425323894
+      Sushipack_23: 8078664838672631285
+      Sushipack_24: -8824368725032407529
+      Sushipack_25: -4454469557877742554
+      Sushipack_26: -6050427218676100566
+      Sushipack_27: -1407904476595324274
+      Sushipack_28: -7733549464669006526
+      Sushipack_29: 5589277325308918007
+      Sushipack_3: -6864264365747311819
+      Sushipack_30: -5724852188506694326
+      Sushipack_31: 7493811056378911265
+      Sushipack_32: -2305502789110606960
+      Sushipack_33: -6477170486416241181
+      Sushipack_4: 850409066480455996
+      Sushipack_5: -6256659250492063737
+      Sushipack_6: -4924107719675437221
+      Sushipack_7: 836235314619799691
+      Sushipack_8: -4494866593002310863
+      Sushipack_9: 6047676005150425059
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

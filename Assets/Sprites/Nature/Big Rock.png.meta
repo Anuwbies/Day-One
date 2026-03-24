@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 52686648f89052f4db6913370742e08b
+guid: 2760a88d1eaad65469bd09c56ff9eb64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -754943529143132514
-    second: Big Rock_0
+      213: 7050584551464558742
+    second: Rock5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Big Rock_0
+      name: Rock5_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 14
         y: 0
-        width: 256
-        height: 256
+        width: 96
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 11c7b8e1291a5e84d9a6df0867f19e85
-      internalID: -754943529143132514
+      spriteID: 690e6e04b45b8d160800000000000000
+      internalID: 7050584551464558742
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 900906b974dd450489eb3e355868c9a6
+    spriteID: e5f575d5e47cc71458e18c7ebc0166d4
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Big Rock_0: -754943529143132514
+      Rock5_0: 7050584551464558742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

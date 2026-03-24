@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 00db14092c969e243aad338c0f49417a
+guid: 9fff172ce75dd4841a68d2d3ddbc838f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7907951331658488048
-    second: Stick_0
+      213: -9089942890027373399
+    second: 26ac1df6-77ad-4d8a-b8d0-b8d82f4858b5-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,11 +47,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,7 +76,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -103,20 +103,20 @@ TextureImporter:
       name: Stick_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 64
+        x: 146
+        y: 180
+        width: 300
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0172b677920514290800000000000000
-      internalID: -7907951331658488048
+      spriteID: bcf14df22322b5d48b6313bf90043476
+      internalID: -927099420
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: beaded1b69af008478ec79ba5e75250c
+    spriteID: 396be52c10ef1df4c8d20018512d81b0
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stick_0: -7907951331658488048
+      Stick_0: -927099420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

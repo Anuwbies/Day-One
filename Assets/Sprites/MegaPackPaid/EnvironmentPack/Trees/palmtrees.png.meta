@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 6326d8abea7818f49b7b306188f926a4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8097917109874407613
+    second: palmtrees_0
+  - first:
+      213: 4009822217147843775
+    second: palmtrees_1
+  - first:
+      213: 7688573586905698959
+    second: palmtrees_2
+  - first:
+      213: -8911283446433449301
+    second: palmtrees_3
+  - first:
+      213: -7311251944815665355
+    second: palmtrees_4
+  - first:
+      213: 5245624623543288731
+    second: palmtrees_5
+  - first:
+      213: -3331692887995485657
+    second: palmtrees_6
+  - first:
+      213: -3173358003658549795
+    second: palmtrees_7
+  - first:
+      213: -9059666045680165019
+    second: palmtrees_8
+  - first:
+      213: 1214074554599651779
+    second: palmtrees_9
+  - first:
+      213: 3124881609933676957
+    second: palmtrees_10
+  - first:
+      213: -7137198525700406790
+    second: palmtrees_11
+  - first:
+      213: 3599242639551155993
+    second: palmtrees_12
+  - first:
+      213: 6514611423681009713
+    second: palmtrees_13
+  - first:
+      213: -5419628125382444130
+    second: palmtrees_14
+  - first:
+      213: 5521530411484044295
+    second: palmtrees_15
+  - first:
+      213: 4649276149061512749
+    second: palmtrees_16
+  - first:
+      213: 8810280980314172805
+    second: palmtrees_17
+  - first:
+      213: 3363753790785432616
+    second: palmtrees_18
+  - first:
+      213: 8807309337223330121
+    second: palmtrees_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: palmtrees_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 402
+        width: 69
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347c06d0b4b6e9f80800000000000000
+      internalID: -8097917109874407613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 402
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb40191cf00c5a730800000000000000
+      internalID: 4009822217147843775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 402
+        width: 68
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8217f401fc43ba60800000000000000
+      internalID: 7688573586905698959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 402
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baaf3826be2c45480800000000000000
+      internalID: -8911283446433449301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_4
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 402
+        width: 67
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53fd0e5c717398a90800000000000000
+      internalID: -7311251944815665355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_5
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 282
+        width: 69
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9307577dc33cc840800000000000000
+      internalID: 5245624623543288731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 282
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722755e68f273c1d0800000000000000
+      internalID: -3331692887995485657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_7
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 282
+        width: 68
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd51ac675b7f5f3d0800000000000000
+      internalID: -3173358003658549795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_8
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 282
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56fd09b4bb9954280800000000000000
+      internalID: -9059666045680165019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_9
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 282
+        width: 67
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9b0cdff5249d010800000000000000
+      internalID: 1214074554599651779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 166
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d916f35944fcd5b20800000000000000
+      internalID: 3124881609933676957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_11
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 166
+        width: 70
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af18f2061c393fc90800000000000000
+      internalID: -7137198525700406790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_12
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 166
+        width: 68
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fc2ee6c1413f130800000000000000
+      internalID: 3599242639551155993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_13
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 166
+        width: 65
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138553ee29c886a50800000000000000
+      internalID: 6514611423681009713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_14
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 165
+        width: 61
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bfcd33fec99c4b0800000000000000
+      internalID: -5419628125382444130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 46
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70cd509a7aa60ac40800000000000000
+      internalID: 5521530411484044295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_16
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 46
+        width: 70
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ee18f460c858040800000000000000
+      internalID: 4649276149061512749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_17
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 46
+        width: 68
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58da10b6fd7644a70800000000000000
+      internalID: 8810280980314172805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_18
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 46
+        width: 65
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ca3a330447eae20800000000000000
+      internalID: 3363753790785432616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtrees_19
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 45
+        width: 61
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9497d28dd29d93a70800000000000000
+      internalID: 8807309337223330121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      palmtrees_0: -8097917109874407613
+      palmtrees_1: 4009822217147843775
+      palmtrees_10: 3124881609933676957
+      palmtrees_11: -7137198525700406790
+      palmtrees_12: 3599242639551155993
+      palmtrees_13: 6514611423681009713
+      palmtrees_14: -5419628125382444130
+      palmtrees_15: 5521530411484044295
+      palmtrees_16: 4649276149061512749
+      palmtrees_17: 8810280980314172805
+      palmtrees_18: 3363753790785432616
+      palmtrees_19: 8807309337223330121
+      palmtrees_2: 7688573586905698959
+      palmtrees_3: -8911283446433449301
+      palmtrees_4: -7311251944815665355
+      palmtrees_5: 5245624623543288731
+      palmtrees_6: -3331692887995485657
+      palmtrees_7: -3173358003658549795
+      palmtrees_8: -9059666045680165019
+      palmtrees_9: 1214074554599651779
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

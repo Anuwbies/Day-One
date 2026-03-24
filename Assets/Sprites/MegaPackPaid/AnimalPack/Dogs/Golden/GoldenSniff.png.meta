@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 2f49c56491500ef48afe56e5cd7b183b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3671497292933202814
+    second: GoldenSniff_0
+  - first:
+      213: -5077629047905682845
+    second: GoldenSniff_1
+  - first:
+      213: 2510420395579056620
+    second: GoldenSniff_2
+  - first:
+      213: 6547220270032026367
+    second: GoldenSniff_3
+  - first:
+      213: -4976040261621649480
+    second: GoldenSniff_4
+  - first:
+      213: -2902581664308629056
+    second: GoldenSniff_5
+  - first:
+      213: -3967223597295706712
+    second: GoldenSniff_6
+  - first:
+      213: -1000543073368478655
+    second: GoldenSniff_7
+  - first:
+      213: -1754016372154678940
+    second: GoldenSniff_8
+  - first:
+      213: 3471801494364568750
+    second: GoldenSniff_9
+  - first:
+      213: 1144964793997076462
+    second: GoldenSniff_10
+  - first:
+      213: 1120085258394598032
+    second: GoldenSniff_11
+  - first:
+      213: 6140797223284954601
+    second: GoldenSniff_12
+  - first:
+      213: 6575600438963800602
+    second: GoldenSniff_13
+  - first:
+      213: -2632138341313249169
+    second: GoldenSniff_14
+  - first:
+      213: -5208897164957077681
+    second: GoldenSniff_15
+  - first:
+      213: -665373587017559425
+    second: GoldenSniff_16
+  - first:
+      213: 1610532962427594125
+    second: GoldenSniff_17
+  - first:
+      213: 993656072428373412
+    second: GoldenSniff_18
+  - first:
+      213: -3761627742900197733
+    second: GoldenSniff_19
+  - first:
+      213: -7367574630245061542
+    second: GoldenSniff_20
+  - first:
+      213: 7231850849429121938
+    second: GoldenSniff_21
+  - first:
+      213: 8381485867641315435
+    second: GoldenSniff_22
+  - first:
+      213: -5114387672990771847
+    second: GoldenSniff_23
+  - first:
+      213: 3423553966533828582
+    second: GoldenSniff_24
+  - first:
+      213: 1716307377774342329
+    second: GoldenSniff_25
+  - first:
+      213: -3920689990956149904
+    second: GoldenSniff_26
+  - first:
+      213: 99038068159189900
+    second: GoldenSniff_27
+  - first:
+      213: -7829208869276691637
+    second: GoldenSniff_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoldenSniff_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 47
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c78ec1aa83c0dc0800000000000000
+      internalID: -3671497292933202814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 47
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a706a8843a889b0800000000000000
+      internalID: -5077629047905682845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 49
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1a26b8c0ec6d220800000000000000
+      internalID: 2510420395579056620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 51
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffafe7d95266cda50800000000000000
+      internalID: 6547220270032026367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bfeff90fbd81fab0800000000000000
+      internalID: -4976040261621649480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_5
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 0
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c17257da55f7b7d0800000000000000
+      internalID: -2902581664308629056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_6
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 0
+        width: 51
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad54a2582791f8c0800000000000000
+      internalID: -3967223597295706712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_7
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ce469306b5d12f0800000000000000
+      internalID: -1000543073368478655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4614087176b78a7e0800000000000000
+      internalID: -1754016372154678940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_9
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac354290115e2030800000000000000
+      internalID: 3471801494364568750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee72682f96bb3ef00800000000000000
+      internalID: 1144964793997076462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_11
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09af2c8ab975b8f00800000000000000
+      internalID: 1120085258394598032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_12
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5da9b0a8e783550800000000000000
+      internalID: 6140797223284954601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_13
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1a075d92c9314b50800000000000000
+      internalID: 6575600438963800602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_14
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 0
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60865ecf14c87bd0800000000000000
+      internalID: -2632138341313249169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_15
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fa13b50a746b7b0800000000000000
+      internalID: -5208897164957077681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_16
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7214e67f3e14c6f0800000000000000
+      internalID: -665373587017559425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_17
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85ed844233c95610800000000000000
+      internalID: 1610532962427594125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_18
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5c00aeeec2acd00800000000000000
+      internalID: 993656072428373412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_19
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b96ed2f6f730ccbc0800000000000000
+      internalID: -3761627742900197733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_20
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c201ca8ed11c990800000000000000
+      internalID: -7367574630245061542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_21
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b64d41802bc5460800000000000000
+      internalID: 7231850849429121938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_22
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b60a7b65df4015470800000000000000
+      internalID: 8381485867641315435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_23
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9759fb3328b0609b0800000000000000
+      internalID: -5114387672990771847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_24
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efd0ac9138e28f20800000000000000
+      internalID: 3423553966533828582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_25
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b03f99777c81d710800000000000000
+      internalID: 1716307377774342329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_26
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 0
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07311a6d939e699c0800000000000000
+      internalID: -3920689990956149904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_27
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 0
+        width: 51
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c839ed7299adf5100800000000000000
+      internalID: 99038068159189900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldenSniff_28
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 0
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43dc6aa300195390800000000000000
+      internalID: -7829208869276691637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GoldenSniff_0: -3671497292933202814
+      GoldenSniff_1: -5077629047905682845
+      GoldenSniff_10: 1144964793997076462
+      GoldenSniff_11: 1120085258394598032
+      GoldenSniff_12: 6140797223284954601
+      GoldenSniff_13: 6575600438963800602
+      GoldenSniff_14: -2632138341313249169
+      GoldenSniff_15: -5208897164957077681
+      GoldenSniff_16: -665373587017559425
+      GoldenSniff_17: 1610532962427594125
+      GoldenSniff_18: 993656072428373412
+      GoldenSniff_19: -3761627742900197733
+      GoldenSniff_2: 2510420395579056620
+      GoldenSniff_20: -7367574630245061542
+      GoldenSniff_21: 7231850849429121938
+      GoldenSniff_22: 8381485867641315435
+      GoldenSniff_23: -5114387672990771847
+      GoldenSniff_24: 3423553966533828582
+      GoldenSniff_25: 1716307377774342329
+      GoldenSniff_26: -3920689990956149904
+      GoldenSniff_27: 99038068159189900
+      GoldenSniff_28: -7829208869276691637
+      GoldenSniff_3: 6547220270032026367
+      GoldenSniff_4: -4976040261621649480
+      GoldenSniff_5: -2902581664308629056
+      GoldenSniff_6: -3967223597295706712
+      GoldenSniff_7: -1000543073368478655
+      GoldenSniff_8: -1754016372154678940
+      GoldenSniff_9: 3471801494364568750
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
