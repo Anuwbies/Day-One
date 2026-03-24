@@ -260,10 +260,10 @@ GameObject:
   - component: {fileID: 9032514562180423594}
   - component: {fileID: 4350472880120648111}
   - component: {fileID: 1530141095482744543}
-  - component: {fileID: 5937430366837119836}
   - component: {fileID: 3894916957351263121}
   - component: {fileID: 1563993233541091182}
   - component: {fileID: 7441284595493441364}
+  - component: {fileID: 5937430366837119836}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -412,32 +412,6 @@ MonoBehaviour:
   hideDelay: 5
   smoothTransition: 1
   transitionSpeed: 10
---- !u!114 &5937430366837119836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7543888126313665003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ccbde4eef1f7084498d5187e83c98bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behavior: 2
-  patrolSpeed: 0.5
-  chaseSpeed: 0.8
-  fleeSpeed: 1
-  patrolRange: {x: 5, y: 2}
-  waitTime: 6
-  resetPatrolAfterAggro: 0
-  enableRotation: 0
-  enableFlip: 1
-  detectionRange: {x: 5, y: 2}
-  disengageRange: {x: 7, y: 3.5}
-  stoppingDistance: {x: 1, y: 0.5}
-  playerCollider: {fileID: 0}
-  ownCollider: {fileID: 3351694068055821671}
 --- !u!114 &3894916957351263121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +427,7 @@ MonoBehaviour:
   sortYOffset: -0.23
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
@@ -479,8 +454,8 @@ MonoBehaviour:
     maxAmount: 3
   xOffset: 0
   yOffset: -0.18
-  dropRadius: {x: 1.5, y: 0.75}
-  deadZoneRadius: {x: 0.25, y: 0.125}
+  dropRadius: {x: 0.5, y: 0.25}
+  deadZoneRadius: {x: 0, y: 0}
   destroyOnLoot: 1
   destroyDelay: 0
 --- !u!114 &7441284595493441364
@@ -512,6 +487,32 @@ MonoBehaviour:
   - {x: 0, y: -0.1}
   - {x: 0.25, y: -0.1}
   attackCollider: {fileID: 6244558745614437885}
+  playerCollider: {fileID: 0}
+  ownCollider: {fileID: 3351694068055821671}
+--- !u!114 &5937430366837119836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543888126313665003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccbde4eef1f7084498d5187e83c98bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior: 1
+  patrolSpeed: 0.5
+  chaseSpeed: 0.8
+  fleeSpeed: 1
+  patrolRange: {x: 5, y: 2.5}
+  waitTime: 6
+  resetPatrolAfterAggro: 0
+  enableRotation: 0
+  enableFlip: 1
+  detectionRange: {x: 3, y: 1.5}
+  disengageRange: {x: 4, y: 2}
+  stoppingDistance: {x: 0.3, y: 0.15}
   playerCollider: {fileID: 0}
   ownCollider: {fileID: 3351694068055821671}
 --- !u!1001 &6440804972902668276

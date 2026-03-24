@@ -417,8 +417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: 0.2
+  sortYOffset: 0
   offset: 0
+  alwaysBehindPlayer: 1
+  alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
@@ -556,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-  amount: 64
+  amount: 1
   hintCanvas: {fileID: 3058054798513989411}
 --- !u!114 &5733178445260704277
 MonoBehaviour:
@@ -570,8 +572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a586ce1c1c273e4593db8d9bd0c9a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortYOffset: -0.09
+  sortYOffset: -0.04
   offset: 0
+  alwaysBehindPlayer: 0
+  alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10

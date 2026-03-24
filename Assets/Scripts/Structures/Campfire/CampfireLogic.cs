@@ -12,7 +12,8 @@ public class CampfireLogic : MonoBehaviour
     [Tooltip("Drag the child object with the range Trigger Collider here.")]
     [SerializeField] private Collider2D rangeTrigger;
     
-    [SerializeField] private GameObject interactionCanvas;
+    [SerializeField] private GameObject timePanel;
+    [SerializeField] private GameObject logButtonPanel;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Button addLogButton;
     [SerializeField] private ItemData logItemData;
@@ -85,17 +86,10 @@ public class CampfireLogic : MonoBehaviour
     private void OnDisable()
     {
         AllCampfires.Remove(this);
-        
-        // Clean up UI state if the object is disabled
-        if (playerCollidersInRange.Count > 0)
-        {
-            playerCollidersInRange.Clear();
-            if (interactionCanvas != null)
-            {
-                interactionCanvas.SetActive(false);
-            }
-            playerInventory = null;
-        }
+        UnbindPlayerInventory();
+        UnbindAddLogButton();
+        playerCollidersInRange.Clear();
+        SetInteractionPanelsActive(false);
     }
 
     public void ConsumeTime(float seconds)
@@ -111,6 +105,8 @@ public class CampfireLogic : MonoBehaviour
 
     private void Awake()
     {
+        ResolveUIReferences();
+        ConfigureAddLogButton();
         InitializeLight();
         ConfigureLight();
     }
@@ -232,20 +228,20 @@ public class CampfireLogic : MonoBehaviour
 
     private void Start()
     {
+        // Check for EventSystem as it is required for UI interactions
+        if (UnityEngine.EventSystems.EventSystem.current == null)
+        {
+            Debug.LogError($"[Campfire] '{name}' No EventSystem found in scene! UI buttons will not work. Please add an EventSystem to your scene.");
+        }
+
         // Setup Rigidbody2D to ensure it's static and doesn't interfere with physics
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
         rb.simulated = true;
 
-        if (interactionCanvas != null)
-        {
-            interactionCanvas.SetActive(false);
-        }
+        SetInteractionPanelsActive(false);
 
-        if (addLogButton != null)
-        {
-            addLogButton.onClick.AddListener(AddLog);
-        }
+        ConfigureAddLogButton();
 
         // Initialize with starting logs
         currentLogs = startingLogs;
@@ -264,7 +260,7 @@ public class CampfireLogic : MonoBehaviour
         }
 
         // Always update UI if the canvas is active to show ticking seconds
-        if (interactionCanvas != null && interactionCanvas.activeSelf)
+        if (AreInteractionPanelsVisible())
         {
             UpdateUI();
         }
@@ -277,7 +273,7 @@ public class CampfireLogic : MonoBehaviour
             UpdateVisuals();
             
             // If the UI wasn't updated above, update it now to reflect log count change
-            if (interactionCanvas == null || !interactionCanvas.activeSelf)
+            if (!AreInteractionPanelsVisible())
             {
                 UpdateUI();
             }
@@ -299,13 +295,35 @@ public class CampfireLogic : MonoBehaviour
 
     public void AddLog()
     {
+        Debug.Log(
+            $"[Campfire] AddLog invoked on '{name}'. burnTime={burnTime}, currentLogs={currentLogs}, " +
+            $"playerInventory={(playerInventory != null ? playerInventory.name : "null")}, " +
+            $"logItem={(logItemData != null ? logItemData.itemName : "null")}");
+
         // Check if we have room for at least some fuel. 
         // We cap it at maxLogs * timePerLog.
-        if (burnTime >= maxLogs * timePerLog) return;
+        if (burnTime >= maxLogs * timePerLog)
+        {
+            Debug.Log($"[Campfire] '{name}' is already full. No log added.");
+            return;
+        }
+
+        if (playerInventory == null)
+        {
+            BindPlayerInventory(ResolvePreferredPlayerInventory());
+            Debug.Log(
+                $"[Campfire] '{name}' resolved player inventory to " +
+                $"{(playerInventory != null ? playerInventory.name : "null")}.");
+        }
 
         if (playerInventory != null && logItemData != null)
         {
-            if (playerInventory.HasItem(logItemData, 1))
+            bool hasLog = playerInventory.HasItem(logItemData, 1);
+            Debug.Log(
+                $"[Campfire] '{name}' checking for '{logItemData.itemName}' in " +
+                $"'{playerInventory.name}': hasLog={hasLog}.");
+
+            if (hasLog)
             {
                 playerInventory.RemoveItem(logItemData, 1);
                 
@@ -315,6 +333,11 @@ public class CampfireLogic : MonoBehaviour
                 
                 UpdateVisuals();
                 UpdateUI();
+                Debug.Log($"[Campfire] '{name}' added one log successfully. burnTime={burnTime}, currentLogs={currentLogs}.");
+            }
+            else
+            {
+                Debug.Log($"[Campfire] '{name}' could not add a log because the player does not have '{logItemData.itemName}'.");
             }
         }
         else if (logItemData == null)
@@ -325,6 +348,11 @@ public class CampfireLogic : MonoBehaviour
             
             UpdateVisuals();
             UpdateUI();
+            Debug.Log($"[Campfire] '{name}' added a test log because no ItemData is assigned.");
+        }
+        else
+        {
+            Debug.Log($"[Campfire] '{name}' could not add a log because playerInventory is null.");
         }
     }
 
@@ -343,24 +371,33 @@ public class CampfireLogic : MonoBehaviour
 
     private void UpdateUI()
     {
+        // Try to recover references if they go missing
+        if (addLogButton == null || timeText == null)
+        {
+            ResolveUIReferences();
+        }
+
+        if (playerInventory == null && playerCollidersInRange.Count > 0)
+        {
+            BindPlayerInventory(ResolvePreferredPlayerInventory());
+        }
+
         if (timeText != null)
         {
             int minutes = Mathf.FloorToInt(burnTime / 60);
             int seconds = Mathf.FloorToInt(burnTime % 60);
-            timeText.text = string.Format("{0}:{1:00}\n{2}/{3}", minutes, seconds, currentLogs, maxLogs);
+            string logDisplay = currentLogs >= maxLogs ? "Max" : string.Format("{0}/{1}", currentLogs, maxLogs);
+            timeText.text = string.Format("{0}:{1:00}\n{2}", minutes, seconds, logDisplay);
         }
 
         if (addLogButton != null)
         {
-        // Button is interactable if we have space AND the player has a log.
-        // We use burnTime to allow "topping off" the last log.
-        bool hasSpace = burnTime < (maxLogs * timePerLog);
-        bool hasLog = playerInventory != null && logItemData != null && playerInventory.HasItem(logItemData, 1);            
-            // If logItemData is not set, we allow it for easier setup/testing
-            if (logItemData == null) hasLog = true;
-
-            addLogButton.interactable = hasSpace && hasLog;
+            bool hasSpace = burnTime < (maxLogs * timePerLog);
+            bool isInRange = playerCollidersInRange.Count > 0;
+            addLogButton.interactable = hasSpace && isInRange && HasLogAvailableForCampfire();
         }
+
+        UpdateInteractionPanelVisibility();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -368,49 +405,25 @@ public class CampfireLogic : MonoBehaviour
         // 1. If a range trigger is specified on THIS object, ensure this collision involves it
         if (rangeTrigger != null && !other.IsTouching(rangeTrigger)) return;
 
-        // 2. Check if the entering collider matches our target requirements
-        bool isTarget = false;
-        if (targetPlayerCollider != null)
-        {
-            isTarget = (other == targetPlayerCollider);
-        }
-        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
-        {
-            isTarget = true;
-        }
-
-        if (isTarget)
+        if (IsTargetPlayerCollider(other))
         {
             if (playerCollidersInRange.Add(other)) // Only proceed if this collider wasn't already tracked
             {
-                // Only initialize and show UI if this is the first collider entering
                 if (playerInventory == null)
                 {
-                    playerInventory = other.attachedRigidbody.GetComponent<PlayerInventory>();
-                    if (interactionCanvas != null)
-                    {
-                        interactionCanvas.SetActive(true);
-                    }
-                    UpdateUI();
+                    BindPlayerInventory(ResolvePlayerInventory(other));
                 }
+
+                // Force a UI refresh and reference check when opening
+                UpdateUI();
+                EnsureAddLogButtonReceivesClicks();
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // 1. Check if this collider matches our target requirements
-        bool isTarget = false;
-        if (targetPlayerCollider != null)
-        {
-            isTarget = (other == targetPlayerCollider);
-        }
-        else if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag))
-        {
-            isTarget = true;
-        }
-
-        if (isTarget)
+        if (IsTargetPlayerCollider(other))
         {
             // 2. Only decrement if the collider is actually leaving the SPECIFIC range trigger
             // (Unity fires Exit when leaving ANY trigger on this object)
@@ -421,13 +434,503 @@ public class CampfireLogic : MonoBehaviour
                 // Only hide UI if ALL colliders of the player have left the range
                 if (playerCollidersInRange.Count == 0)
                 {
-                    if (interactionCanvas != null)
-                    {
-                        interactionCanvas.SetActive(false);
-                    }
-                    playerInventory = null;
+                    SetInteractionPanelsActive(false);
+                    UnbindPlayerInventory();
                 }
             }
         }
+    }
+
+    private void HandleInventoryChanged()
+    {
+        UpdateUI();
+    }
+
+    private void ResolveUIReferences()
+    {
+        Canvas canvas = ResolveInteractionCanvas();
+        if (canvas != null)
+        {
+            // Ensure the Canvas is properly configured for raycasting
+            if (canvas.renderMode == RenderMode.WorldSpace && canvas.worldCamera == null)
+            {
+                canvas.worldCamera = Camera.main;
+            }
+
+            GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
+            if (raycaster == null)
+            {
+                raycaster = canvas.gameObject.AddComponent<GraphicRaycaster>();
+            }
+            
+            // CRITICAL: Ensure physical colliders on the campfire don't block UI clicks
+            raycaster.blockingObjects = GraphicRaycaster.BlockingObjects.None;
+            raycaster.ignoreReversedGraphics = false;
+        }
+
+        if (addLogButton == null && canvas != null)
+        {
+            addLogButton = canvas.GetComponentInChildren<Button>(true);
+        }
+
+        if (timeText == null && canvas != null)
+        {
+            TextMeshProUGUI[] textComponents = canvas.GetComponentsInChildren<TextMeshProUGUI>(true);
+            for (int i = 0; i < textComponents.Length; i++)
+            {
+                TextMeshProUGUI textComponent = textComponents[i];
+                if (textComponent == null) continue;
+
+                // Skip if it's child of the button (likely the button's own text)
+                if (addLogButton != null && textComponent.transform.IsChildOf(addLogButton.transform))
+                {
+                    continue;
+                }
+
+                timeText = textComponent;
+                break;
+            }
+        }
+
+        if (timePanel == null && timeText != null)
+        {
+            timePanel = ResolvePanelRoot(timeText.transform);
+        }
+
+        if (logButtonPanel == null && addLogButton != null)
+        {
+            logButtonPanel = ResolvePanelRoot(addLogButton.transform);
+        }
+    }
+
+    private void ConfigureAddLogButton()
+    {
+        ResolveUIReferences();
+
+        if (addLogButton == null)
+        {
+            Debug.LogWarning($"[Campfire] '{name}' has no Add Log button assigned or found in children.");
+            return;
+        }
+
+        EnsureAddLogButtonReceivesClicks();
+        
+        // Use a more robust listener setup
+        addLogButton.onClick.RemoveAllListeners();
+        addLogButton.onClick.AddListener(() => AddLog());
+    }
+
+    private void UnbindAddLogButton()
+    {
+        if (addLogButton != null)
+        {
+            addLogButton.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void EnsureAddLogButtonReceivesClicks()
+    {
+        if (addLogButton == null) return;
+
+        // Ensure the button and its GameObject are active and enabled
+        addLogButton.gameObject.SetActive(true);
+        addLogButton.enabled = true;
+
+        // Ensure the button has an Image to catch clicks
+        Image buttonImage = addLogButton.GetComponent<Image>();
+        if (buttonImage == null)
+        {
+            buttonImage = addLogButton.gameObject.AddComponent<Image>();
+            buttonImage.color = new Color(1, 1, 1, 0.01f); // Almost invisible but exists
+        }
+        buttonImage.raycastTarget = true;
+        
+        if (addLogButton.targetGraphic == null)
+        {
+            addLogButton.targetGraphic = buttonImage;
+        }
+
+        // Ensure all children graphics are ALSO raycast targets
+        Graphic[] childGraphics = addLogButton.GetComponentsInChildren<Graphic>(true);
+        for (int i = 0; i < childGraphics.Length; i++)
+        {
+            if (childGraphics[i] != null)
+            {
+                childGraphics[i].raycastTarget = true;
+            }
+        }
+
+        // Ensure no CanvasGroup is blocking interaction
+        CanvasGroup[] groups = addLogButton.GetComponentsInParent<CanvasGroup>(true);
+        foreach (var group in groups)
+        {
+            group.interactable = true;
+            group.blocksRaycasts = true;
+        }
+    }
+
+    private void SetInteractionPanelsActive(bool isActive)
+    {
+        if (timePanel != null)
+        {
+            timePanel.SetActive(isActive);
+        }
+
+        if (logButtonPanel != null && logButtonPanel != timePanel)
+        {
+            logButtonPanel.SetActive(isActive);
+        }
+    }
+
+    private void UpdateInteractionPanelVisibility()
+    {
+        bool isInRange = playerCollidersInRange.Count > 0;
+
+        if (timePanel != null)
+        {
+            timePanel.SetActive(isInRange);
+        }
+
+        if (logButtonPanel != null && logButtonPanel != timePanel)
+        {
+            logButtonPanel.SetActive(isInRange && HasLogAvailableForCampfire());
+        }
+    }
+
+    private bool HasLogAvailableForCampfire()
+    {
+        if (logItemData == null)
+        {
+            return true;
+        }
+
+        return playerInventory != null && playerInventory.HasItem(logItemData, 1);
+    }
+
+    private bool AreInteractionPanelsVisible()
+    {
+        bool timeVisible = timePanel != null && timePanel.activeSelf;
+        bool buttonVisible = logButtonPanel != null && logButtonPanel.activeSelf;
+        return timeVisible || buttonVisible;
+    }
+
+    private Canvas ResolveInteractionCanvas()
+    {
+        Canvas canvas = GetCanvasFromObject(timePanel);
+        if (canvas != null)
+        {
+            return canvas;
+        }
+
+        canvas = GetCanvasFromObject(logButtonPanel);
+        if (canvas != null)
+        {
+            return canvas;
+        }
+
+        if (timeText != null)
+        {
+            canvas = timeText.GetComponentInParent<Canvas>(true);
+            if (canvas != null)
+            {
+                return canvas;
+            }
+        }
+
+        if (addLogButton != null)
+        {
+            canvas = addLogButton.GetComponentInParent<Canvas>(true);
+            if (canvas != null)
+            {
+                return canvas;
+            }
+        }
+
+        return GetComponentInChildren<Canvas>(true);
+    }
+
+    private Canvas GetCanvasFromObject(GameObject target)
+    {
+        return target != null ? target.GetComponentInParent<Canvas>(true) : null;
+    }
+
+    private GameObject ResolvePanelRoot(Transform target)
+    {
+        if (target == null)
+        {
+            return null;
+        }
+
+        Canvas canvas = target.GetComponentInParent<Canvas>(true);
+        if (canvas == null)
+        {
+            return target.gameObject;
+        }
+
+        Transform current = target;
+        Transform panelRoot = target;
+        while (current != null && current != canvas.transform)
+        {
+            panelRoot = current;
+            current = current.parent;
+        }
+
+        return panelRoot != null ? panelRoot.gameObject : target.gameObject;
+    }
+
+    private void BindPlayerInventory(PlayerInventory inventory)
+    {
+        if (playerInventory == inventory)
+        {
+            return;
+        }
+
+        if (playerInventory != null)
+        {
+            playerInventory.OnInventoryChanged -= HandleInventoryChanged;
+        }
+
+        playerInventory = inventory;
+
+        if (playerInventory != null)
+        {
+            playerInventory.OnInventoryChanged -= HandleInventoryChanged;
+            playerInventory.OnInventoryChanged += HandleInventoryChanged;
+        }
+    }
+
+    private void UnbindPlayerInventory()
+    {
+        if (playerInventory != null)
+        {
+            playerInventory.OnInventoryChanged -= HandleInventoryChanged;
+            playerInventory = null;
+        }
+    }
+
+    private PlayerInventory ResolvePlayerInventory(Collider2D other)
+    {
+        if (other == null)
+        {
+            return ResolvePreferredPlayerInventory();
+        }
+
+        PlayerInventory resolvedInventory = GetValidPlayerInventory(other.GetComponent<PlayerInventory>());
+        if (resolvedInventory != null)
+        {
+            return resolvedInventory;
+        }
+
+        resolvedInventory = GetValidPlayerInventory(other.GetComponentInParent<PlayerInventory>());
+        if (resolvedInventory != null)
+        {
+            return resolvedInventory;
+        }
+
+        if (other.attachedRigidbody != null)
+        {
+            resolvedInventory = GetValidPlayerInventory(other.attachedRigidbody.GetComponent<PlayerInventory>());
+            if (resolvedInventory != null)
+            {
+                return resolvedInventory;
+            }
+
+            resolvedInventory = GetValidPlayerInventory(other.attachedRigidbody.GetComponentInParent<PlayerInventory>());
+            if (resolvedInventory != null)
+            {
+                return resolvedInventory;
+            }
+
+            PlayerInventory[] inventories = other.attachedRigidbody.GetComponentsInChildren<PlayerInventory>(true);
+            for (int i = 0; i < inventories.Length; i++)
+            {
+                resolvedInventory = GetValidPlayerInventory(inventories[i]);
+                if (resolvedInventory != null)
+                {
+                    return resolvedInventory;
+                }
+            }
+        }
+
+        return ResolvePreferredPlayerInventory();
+    }
+
+    private PlayerInventory ResolvePreferredPlayerInventory()
+    {
+        PlayerInventory[] inventories =
+            FindObjectsByType<PlayerInventory>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        PlayerInventory fallback = null;
+
+        for (int i = 0; i < inventories.Length; i++)
+        {
+            PlayerInventory candidate = inventories[i];
+            if (candidate == null || candidate is ChestInventory)
+            {
+                continue;
+            }
+
+            if (fallback == null)
+            {
+                fallback = candidate;
+            }
+
+            if (HasTagInHierarchy(candidate.transform, targetTag))
+            {
+                return candidate;
+            }
+        }
+
+        return fallback;
+    }
+
+    private PlayerInventory GetValidPlayerInventory(PlayerInventory candidate)
+    {
+        if (candidate == null || candidate is ChestInventory)
+        {
+            return null;
+        }
+
+        if (HasTagInHierarchy(candidate.transform, targetTag))
+        {
+            return candidate;
+        }
+
+        return candidate;
+    }
+
+    private bool IsTargetPlayerCollider(Collider2D candidate)
+    {
+        if (candidate == null)
+        {
+            return false;
+        }
+
+        if (targetPlayerCollider != null)
+        {
+            Collider2D preferredAssignedCollider = ResolvePreferredPlayerBodyCollider(targetPlayerCollider);
+            if (preferredAssignedCollider != null)
+            {
+                return candidate == preferredAssignedCollider;
+            }
+
+            return candidate == targetPlayerCollider;
+        }
+
+        Collider2D preferredCollider = ResolvePreferredPlayerBodyCollider(candidate);
+        return preferredCollider != null && candidate == preferredCollider;
+    }
+
+    private Collider2D ResolvePreferredPlayerBodyCollider(Collider2D sourceCollider)
+    {
+        if (sourceCollider == null)
+        {
+            return null;
+        }
+
+        Transform taggedTransform = FindTaggedTransformInHierarchy(sourceCollider.transform, targetTag);
+        if (taggedTransform == null && sourceCollider.attachedRigidbody != null)
+        {
+            taggedTransform = FindTaggedTransformInHierarchy(sourceCollider.attachedRigidbody.transform, targetTag);
+        }
+
+        if (taggedTransform == null)
+        {
+            return null;
+        }
+
+        return FindPreferredPlayerBodyCollider(taggedTransform.gameObject);
+    }
+
+    private Collider2D FindPreferredPlayerBodyCollider(GameObject playerObj)
+    {
+        if (playerObj == null)
+        {
+            return null;
+        }
+
+        PlayerAttack playerAttack = playerObj.GetComponentInChildren<PlayerAttack>(true);
+        Collider2D attackAreaCollider = playerAttack != null ? playerAttack.attackCollider : null;
+
+        Collider2D rootCollider = playerObj.GetComponent<Collider2D>();
+        if (IsValidPlayerBodyCollider(rootCollider, attackAreaCollider))
+        {
+            return rootCollider;
+        }
+
+        Rigidbody2D playerRb = playerObj.GetComponent<Rigidbody2D>();
+        Collider2D[] colliders = playerObj.GetComponentsInChildren<Collider2D>(true);
+        Collider2D fallback = null;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (!IsValidPlayerBodyCollider(candidate, attackAreaCollider))
+            {
+                continue;
+            }
+
+            if (playerRb != null && candidate.attachedRigidbody == playerRb)
+            {
+                return candidate;
+            }
+
+            if (fallback == null)
+            {
+                fallback = candidate;
+            }
+        }
+
+        return fallback;
+    }
+
+    private bool IsValidPlayerBodyCollider(Collider2D candidate, Collider2D attackAreaCollider)
+    {
+        return candidate != null &&
+               candidate.enabled &&
+               !candidate.isTrigger &&
+               candidate != attackAreaCollider;
+    }
+
+    private bool HasTagInHierarchy(Transform target, string tagToMatch)
+    {
+        if (target == null || string.IsNullOrWhiteSpace(tagToMatch))
+        {
+            return false;
+        }
+
+        Transform current = target;
+        while (current != null)
+        {
+            if (current.CompareTag(tagToMatch))
+            {
+                return true;
+            }
+
+            current = current.parent;
+        }
+
+        return false;
+    }
+
+    private Transform FindTaggedTransformInHierarchy(Transform target, string tagToMatch)
+    {
+        if (target == null || string.IsNullOrWhiteSpace(tagToMatch))
+        {
+            return null;
+        }
+
+        Transform current = target;
+        while (current != null)
+        {
+            if (current.CompareTag(tagToMatch))
+            {
+                return current;
+            }
+
+            current = current.parent;
+        }
+
+        return null;
     }
 }

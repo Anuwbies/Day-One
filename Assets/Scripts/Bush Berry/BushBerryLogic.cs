@@ -191,12 +191,24 @@ public class BushBerryLogic : MonoBehaviour
 
     private bool IsTargetCollider(Collider2D other)
     {
+        if (other == null)
+        {
+            return false;
+        }
+
         if (targetPlayerCollider != null)
         {
+            Collider2D preferredAssignedCollider = ResolvePreferredPlayerBodyCollider(targetPlayerCollider);
+            if (preferredAssignedCollider != null)
+            {
+                return other == preferredAssignedCollider;
+            }
+
             return other == targetPlayerCollider;
         }
 
-        return other.attachedRigidbody != null && other.attachedRigidbody.CompareTag(targetTag);
+        Collider2D preferredCollider = ResolvePreferredPlayerBodyCollider(other);
+        return preferredCollider != null && other == preferredCollider;
     }
 
     public void HarvestBerry()
@@ -1120,5 +1132,97 @@ public class BushBerryLogic : MonoBehaviour
             Mathf.Cos(angleRadians) * radius,
             Mathf.Sin(angleRadians) * radius,
             0f);
+    }
+
+    private Collider2D ResolvePreferredPlayerBodyCollider(Collider2D sourceCollider)
+    {
+        if (sourceCollider == null)
+        {
+            return null;
+        }
+
+        Transform taggedTransform = FindTaggedTransformInHierarchy(sourceCollider.transform, targetTag);
+        if (taggedTransform == null && sourceCollider.attachedRigidbody != null)
+        {
+            taggedTransform = FindTaggedTransformInHierarchy(sourceCollider.attachedRigidbody.transform, targetTag);
+        }
+
+        if (taggedTransform == null)
+        {
+            return null;
+        }
+
+        return FindPreferredPlayerBodyCollider(taggedTransform.gameObject);
+    }
+
+    private Collider2D FindPreferredPlayerBodyCollider(GameObject playerObj)
+    {
+        if (playerObj == null)
+        {
+            return null;
+        }
+
+        PlayerAttack playerAttack = playerObj.GetComponentInChildren<PlayerAttack>(true);
+        Collider2D attackAreaCollider = playerAttack != null ? playerAttack.attackCollider : null;
+
+        Collider2D rootCollider = playerObj.GetComponent<Collider2D>();
+        if (IsValidPlayerBodyCollider(rootCollider, attackAreaCollider))
+        {
+            return rootCollider;
+        }
+
+        Rigidbody2D playerRb = playerObj.GetComponent<Rigidbody2D>();
+        Collider2D[] colliders = playerObj.GetComponentsInChildren<Collider2D>(true);
+        Collider2D fallback = null;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider2D candidate = colliders[i];
+            if (!IsValidPlayerBodyCollider(candidate, attackAreaCollider))
+            {
+                continue;
+            }
+
+            if (playerRb != null && candidate.attachedRigidbody == playerRb)
+            {
+                return candidate;
+            }
+
+            if (fallback == null)
+            {
+                fallback = candidate;
+            }
+        }
+
+        return fallback;
+    }
+
+    private bool IsValidPlayerBodyCollider(Collider2D candidate, Collider2D attackAreaCollider)
+    {
+        return candidate != null &&
+               candidate.enabled &&
+               !candidate.isTrigger &&
+               candidate != attackAreaCollider;
+    }
+
+    private Transform FindTaggedTransformInHierarchy(Transform target, string tagToMatch)
+    {
+        if (target == null || string.IsNullOrWhiteSpace(tagToMatch))
+        {
+            return null;
+        }
+
+        Transform current = target;
+        while (current != null)
+        {
+            if (current.CompareTag(tagToMatch))
+            {
+                return current;
+            }
+
+            current = current.parent;
+        }
+
+        return null;
     }
 }

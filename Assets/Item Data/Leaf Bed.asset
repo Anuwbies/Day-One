@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Leaf Bed
   m_EditorClassIdentifier: 
   itemName: Leaf Bed
-  icon: {fileID: 21300000, guid: 079d279c5ff36d94d991c82f52e17746, type: 3}
+  icon: {fileID: -2225037040920076478, guid: 929d876e7046aee4c9d489d4c3e05d51, type: 3}
   worldPrefab: {fileID: 3188850598271573478, guid: 3931e9eeb3423e54a9cc09675b79b748, type: 3}
   snapToGrid: 0
   gridWidth: 1

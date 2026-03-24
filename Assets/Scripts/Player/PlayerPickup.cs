@@ -11,8 +11,11 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private float pickupInterval = 0.15f;
     private float nextPickupTime;
 
+    [Header("Pickup Hint Settings")]
+    [SerializeField] private bool showPickupHintsPermanently = false;
+    [SerializeField, Min(0)] private int maxHintsToShow = 10;
+
     private static int totalItemsPickedUp = 0;
-    private const int MaxHintsToShow = 10;
 
     // This ensures the counter resets whenever you press Play in the editor,
     // even if "Domain Reload" is disabled in Enter Play Mode settings.
@@ -25,6 +28,11 @@ public class PlayerPickup : MonoBehaviour
     private void Awake()
     {
         inventory = GetComponent<PlayerInventory>();
+    }
+
+    private bool CanShowPickupHints()
+    {
+        return showPickupHintsPermanently || totalItemsPickedUp < maxHintsToShow;
     }
 
     private void Update()
@@ -75,7 +83,7 @@ public class PlayerPickup : MonoBehaviour
             Destroy(targetItem.gameObject);
 
             // If we just hit the limit, hide hints for all other items currently in range
-            if (totalItemsPickedUp >= MaxHintsToShow)
+            if (!showPickupHintsPermanently && totalItemsPickedUp >= maxHintsToShow)
             {
                 foreach (Item item in itemsInRange)
                 {
@@ -95,7 +103,7 @@ public class PlayerPickup : MonoBehaviour
             itemsInRange.Add(item);
             
             // Only show hint if we haven't reached the tutorial limit
-            if (totalItemsPickedUp < MaxHintsToShow)
+            if (CanShowPickupHints())
             {
                 item.ToggleHint(true);
             }

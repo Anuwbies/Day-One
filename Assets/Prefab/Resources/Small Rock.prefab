@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d47dee4595519a344a9795e2a9867e47, type: 2}
-  amount: 64
+  amount: 1
   hintCanvas: {fileID: 1688932269286112229}
 --- !u!114 &4062071409290039577
 MonoBehaviour:

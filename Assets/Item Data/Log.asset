@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Log
   m_EditorClassIdentifier: 
   itemName: Log
-  icon: {fileID: 2368875588930414890, guid: 27b55c26acfebca42a3c8f4d70928f0b, type: 3}
+  icon: {fileID: 3834422581357534524, guid: 665f329e5c95c1044a5d19a527f8b560, type: 3}
   worldPrefab: {fileID: 8818045047296289060, guid: b60ef7c62b16db9469d9ebf9aa7010bc, type: 3}
+  snapToGrid: 0
+  gridWidth: 1
+  gridHeight: 1
   stackable: 1
   maxStack: 16
   canPlace: 0

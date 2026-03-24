@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   itemName: Stick
-  icon: {fileID: -7907951331658488048, guid: 00db14092c969e243aad338c0f49417a, type: 3}
+  icon: {fileID: -927099420, guid: 9fff172ce75dd4841a68d2d3ddbc838f, type: 3}
   worldPrefab: {fileID: 4719200396125063612, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
+  snapToGrid: 1
+  gridWidth: 1
+  gridHeight: 1
   stackable: 1
   maxStack: 64
   canPlace: 0

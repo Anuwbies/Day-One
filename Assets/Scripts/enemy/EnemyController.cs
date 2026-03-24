@@ -608,7 +608,34 @@ public class EnemyController : MonoBehaviour
         return candidate != null && candidate.enabled && !candidate.isTrigger;
     }
 
+    private void OnDrawGizmos()
+    {
+        DrawDetectionRangeGizmo();
+    }
+
     private void OnDrawGizmosSelected()
+    {
+        Vector3 drawCenter = GetGizmoDrawCenter();
+
+        DrawEllipse(drawCenter, disengageRange, Color.yellow);
+
+        DrawEllipse(drawCenter, stoppingDistance, Color.blue);
+
+        Vector3 patrolCenter = Application.isPlaying ? (Vector3)startPosition : drawCenter;
+        DrawEllipse(patrolCenter, patrolRange, Color.green);
+    }
+
+    private void DrawDetectionRangeGizmo()
+    {
+        if (behavior != AIBehavior.Aggressive && behavior != AIBehavior.FleeOnSight)
+        {
+            return;
+        }
+
+        DrawEllipse(GetGizmoDrawCenter(), detectionRange, Color.red);
+    }
+
+    private Vector3 GetGizmoDrawCenter()
     {
         Vector3 drawCenter = transform.position;
 
@@ -619,20 +646,13 @@ public class EnemyController : MonoBehaviour
         else
         {
             Collider2D col = GetComponent<Collider2D>();
-            if (col != null) drawCenter = col.bounds.center;
+            if (col != null)
+            {
+                drawCenter = col.bounds.center;
+            }
         }
 
-        DrawEllipse(drawCenter, disengageRange, Color.red);
-
-        if (behavior == AIBehavior.Aggressive || behavior == AIBehavior.FleeOnSight)
-        {
-            DrawEllipse(drawCenter, detectionRange, Color.yellow);
-        }
-
-        DrawEllipse(drawCenter, stoppingDistance, Color.blue);
-
-        Vector3 patrolCenter = Application.isPlaying ? (Vector3)startPosition : drawCenter;
-        DrawEllipse(patrolCenter, patrolRange, Color.green);
+        return drawCenter;
     }
 
     private void DrawEllipse(Vector3 center, Vector2 range, Color color)
