@@ -9,6 +9,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BushBerryLogic : MonoBehaviour
 {
+    private struct BerryLocalBounds
+    {
+        public Vector2 Min;
+        public Vector2 Max;
+
+        public Vector2 Size => Max - Min;
+    }
+
     private static bool isApplicationQuitting;
 
     [Header("References")]
@@ -149,10 +157,7 @@ public class BushBerryLogic : MonoBehaviour
                 playerInventory = other.attachedRigidbody.GetComponent<PlayerInventory>();
             }
 
-            if (interactionCanvas != null)
-            {
-                interactionCanvas.SetActive(true);
-            }
+            UpdateInteractionCanvasVisibility();
         }
     }
 
@@ -167,15 +172,12 @@ public class BushBerryLogic : MonoBehaviour
         {
             playerCollidersInRange.Remove(other);
 
-            if (playerCollidersInRange.Count == 0 && interactionCanvas != null)
-            {
-                interactionCanvas.SetActive(false);
-            }
-
             if (playerCollidersInRange.Count == 0)
             {
                 playerInventory = null;
             }
+
+            UpdateInteractionCanvasVisibility();
         }
     }
 
@@ -287,14 +289,27 @@ public class BushBerryLogic : MonoBehaviour
                 continue;
             }
 
-            renderer.sprite = berrySprite;
-            renderer.enabled = berrySprite != null && i < visibleBerryCount;
+            bool isVisible = berrySprite != null && i < visibleBerryCount;
+            SetBerryHierarchyVisible(renderer, isVisible);
         }
 
         if (harvestButton != null)
         {
             harvestButton.interactable = hasBerries && visibleBerryCount > 0;
         }
+
+        UpdateInteractionCanvasVisibility();
+    }
+
+    private void UpdateInteractionCanvasVisibility()
+    {
+        if (interactionCanvas == null)
+        {
+            return;
+        }
+
+        bool hasHarvestableBerries = hasBerries && currentHarvestAmount > 0;
+        interactionCanvas.SetActive(playerCollidersInRange.Count > 0 && hasHarvestableBerries);
     }
 
     private void SyncBerryRendererSorting()
@@ -304,6 +319,8 @@ public class BushBerryLogic : MonoBehaviour
             return;
         }
 
+        int berrySortingOrder = bushSpriteRenderer.sortingOrder + berrySortOrderOffset;
+
         for (int i = 0; i < berryRenderers.Count; i++)
         {
             SpriteRenderer renderer = berryRenderers[i];
@@ -312,10 +329,7 @@ public class BushBerryLogic : MonoBehaviour
                 continue;
             }
 
-            renderer.sortingLayerID = bushSpriteRenderer.sortingLayerID;
-            renderer.sortingOrder = bushSpriteRenderer.sortingOrder + berrySortOrderOffset;
-            renderer.flipX = bushSpriteRenderer.flipX;
-            renderer.flipY = bushSpriteRenderer.flipY;
+            SyncBerryHierarchySorting(renderer, berrySortingOrder);
         }
     }
 
@@ -399,6 +413,46 @@ public class BushBerryLogic : MonoBehaviour
         }
     }
 
+    private void SetBerryHierarchyVisible(SpriteRenderer rootRenderer, bool isVisible)
+    {
+        SpriteRenderer[] hierarchyRenderers = rootRenderer.GetComponentsInChildren<SpriteRenderer>(true);
+        for (int i = 0; i < hierarchyRenderers.Length; i++)
+        {
+            SpriteRenderer hierarchyRenderer = hierarchyRenderers[i];
+            if (hierarchyRenderer == null)
+            {
+                continue;
+            }
+
+            if (hierarchyRenderer == rootRenderer)
+            {
+                hierarchyRenderer.sprite = berrySprite;
+                hierarchyRenderer.enabled = isVisible;
+                continue;
+            }
+
+            hierarchyRenderer.enabled = isVisible;
+        }
+    }
+
+    private void SyncBerryHierarchySorting(SpriteRenderer rootRenderer, int berrySortingOrder)
+    {
+        SpriteRenderer[] hierarchyRenderers = rootRenderer.GetComponentsInChildren<SpriteRenderer>(true);
+        for (int i = 0; i < hierarchyRenderers.Length; i++)
+        {
+            SpriteRenderer hierarchyRenderer = hierarchyRenderers[i];
+            if (hierarchyRenderer == null)
+            {
+                continue;
+            }
+
+            hierarchyRenderer.sortingLayerID = bushSpriteRenderer.sortingLayerID;
+            hierarchyRenderer.sortingOrder = berrySortingOrder;
+            hierarchyRenderer.flipX = bushSpriteRenderer.flipX;
+            hierarchyRenderer.flipY = bushSpriteRenderer.flipY;
+        }
+    }
+
     private void UpdateBerryRendererTransforms(int visibleBerryCount)
     {
         if (berryRenderers.Count == 0)
@@ -457,7 +511,9 @@ public class BushBerryLogic : MonoBehaviour
 
     private void PopulateBerryLocalOffsets(List<Vector3> targetOffsets, int berryCount, System.Random previewRandom)
     {
-        Vector2 berryFootprint = GetBerryFootprintSize();
+        BerryLocalBounds berryBounds = GetBerryLocalBounds();
+        Vector2 berryFootprint = berryBounds.Size;
+        Vector2 capsuleSize = GetBerrySpawnCapsuleSize();
         int maxAttemptsPerBerry = 64;
 
         for (int i = 0; i < berryCount; i++)
@@ -465,11 +521,18 @@ public class BushBerryLogic : MonoBehaviour
             Vector3 candidate = Vector3.zero;
             Vector3 bestCandidate = Vector3.zero;
             float bestClearanceScore = float.MinValue;
+            bool foundAnyValidCandidate = false;
             bool foundValidPosition = false;
 
             for (int attempt = 0; attempt < maxAttemptsPerBerry; attempt++)
             {
-                candidate = GetRandomBerryLocalOffset(berryFootprint, previewRandom);
+                candidate = GetRandomBerryLocalOffset(previewRandom);
+                if (!IsBerryBoundsInsideCapsule(candidate, berryBounds, capsuleSize))
+                {
+                    continue;
+                }
+
+                foundAnyValidCandidate = true;
                 float clearanceScore = GetBerryClearanceScore(candidate, berryFootprint, targetOffsets);
                 if (clearanceScore > bestClearanceScore)
                 {
@@ -486,33 +549,90 @@ public class BushBerryLogic : MonoBehaviour
 
             if (!foundValidPosition)
             {
-                candidate = bestCandidate;
+                candidate = foundAnyValidCandidate
+                    ? bestCandidate
+                    : GetFallbackBerryLocalOffset(berryBounds, capsuleSize);
             }
 
             targetOffsets.Add(candidate);
         }
+
+        ResolveBerryOverlaps(targetOffsets, berryBounds);
     }
 
-    private Vector2 GetBerryFootprintSize()
+    private BerryLocalBounds GetBerryLocalBounds()
     {
-        Sprite previewSprite = berrySprite != null
-            ? berrySprite
-            : berrySpriteRenderer != null ? berrySpriteRenderer.sprite : null;
-
-        if (previewSprite == null)
+        if (berrySpriteRenderer == null)
         {
-            return new Vector2(0.05f, 0.05f);
+            return new BerryLocalBounds
+            {
+                Min = new Vector2(-0.025f, -0.025f),
+                Max = new Vector2(0.025f, 0.025f)
+            };
         }
 
-        Vector2 spriteSize = previewSprite.bounds.size;
-        spriteSize.x *= Mathf.Max(0.001f, Mathf.Abs(berryTemplateLocalScale.x));
-        spriteSize.y *= Mathf.Max(0.001f, Mathf.Abs(berryTemplateLocalScale.y));
-        return spriteSize;
+        SpriteRenderer[] hierarchyRenderers = berrySpriteRenderer.GetComponentsInChildren<SpriteRenderer>(true);
+        bool foundAnyBounds = false;
+        Vector2 min = Vector2.zero;
+        Vector2 max = Vector2.zero;
+
+        for (int i = 0; i < hierarchyRenderers.Length; i++)
+        {
+            SpriteRenderer hierarchyRenderer = hierarchyRenderers[i];
+            if (hierarchyRenderer == null)
+            {
+                continue;
+            }
+
+            Sprite sourceSprite = hierarchyRenderer == berrySpriteRenderer && berrySprite != null
+                ? berrySprite
+                : hierarchyRenderer.sprite;
+            if (sourceSprite == null)
+            {
+                continue;
+            }
+
+            Vector3 localCenter = berrySpriteRenderer.transform.InverseTransformPoint(hierarchyRenderer.transform.position);
+            Vector3 rendererScale = hierarchyRenderer.transform.lossyScale;
+            Vector2 spriteSize = sourceSprite.bounds.size;
+            Vector2 halfSize = new Vector2(
+                spriteSize.x * Mathf.Max(0.001f, Mathf.Abs(rendererScale.x)) * 0.5f,
+                spriteSize.y * Mathf.Max(0.001f, Mathf.Abs(rendererScale.y)) * 0.5f);
+
+            Vector2 rendererMin = (Vector2)localCenter - halfSize;
+            Vector2 rendererMax = (Vector2)localCenter + halfSize;
+
+            if (!foundAnyBounds)
+            {
+                min = rendererMin;
+                max = rendererMax;
+                foundAnyBounds = true;
+                continue;
+            }
+
+            min = Vector2.Min(min, rendererMin);
+            max = Vector2.Max(max, rendererMax);
+        }
+
+        if (!foundAnyBounds)
+        {
+            return new BerryLocalBounds
+            {
+                Min = new Vector2(-0.025f, -0.025f),
+                Max = new Vector2(0.025f, 0.025f)
+            };
+        }
+
+        return new BerryLocalBounds
+        {
+            Min = min,
+            Max = max
+        };
     }
 
-    private Vector3 GetRandomBerryLocalOffset(Vector2 berryFootprint, System.Random previewRandom)
+    private Vector3 GetRandomBerryLocalOffset(System.Random previewRandom)
     {
-        Vector2 capsuleSize = GetAvailableBerrySpawnCapsuleSize(berryFootprint);
+        Vector2 capsuleSize = GetBerrySpawnCapsuleSize();
         if (capsuleSize.x <= 0.0001f && capsuleSize.y <= 0.0001f)
         {
             return Vector3.zero;
@@ -579,11 +699,11 @@ public class BushBerryLogic : MonoBehaviour
         return bestScore;
     }
 
-    private Vector2 GetAvailableBerrySpawnCapsuleSize(Vector2 berryFootprint)
+    private Vector2 GetBerrySpawnCapsuleSize()
     {
         return new Vector2(
-            Mathf.Max(0f, berrySpawnAreaSize.x - berryFootprint.x),
-            Mathf.Max(0f, berrySpawnAreaSize.y - berryFootprint.y));
+            Mathf.Max(0f, berrySpawnAreaSize.x),
+            Mathf.Max(0f, berrySpawnAreaSize.y));
     }
 
     private float SampleBerryRandomRange(float min, float max, System.Random previewRandom)
@@ -591,6 +711,153 @@ public class BushBerryLogic : MonoBehaviour
         return previewRandom == null
             ? Random.Range(min, max)
             : Mathf.Lerp(min, max, (float)previewRandom.NextDouble());
+    }
+
+    private void ResolveBerryOverlaps(List<Vector3> offsets, BerryLocalBounds berryBounds)
+    {
+        if (offsets.Count <= 1)
+        {
+            return;
+        }
+
+        Vector2 berryFootprint = berryBounds.Size;
+        Vector2 capsuleSize = GetBerrySpawnCapsuleSize();
+        const int maxIterations = 32;
+
+        for (int iteration = 0; iteration < maxIterations; iteration++)
+        {
+            bool movedAny = false;
+
+            for (int i = 0; i < offsets.Count - 1; i++)
+            {
+                for (int j = i + 1; j < offsets.Count; j++)
+                {
+                    Vector2 a = offsets[i];
+                    Vector2 b = offsets[j];
+                    float overlapX = berryFootprint.x - Mathf.Abs(b.x - a.x);
+                    float overlapY = berryFootprint.y - Mathf.Abs(b.y - a.y);
+
+                    if (overlapX <= 0f || overlapY <= 0f)
+                    {
+                        continue;
+                    }
+
+                    Vector2 push;
+                    if (overlapX < overlapY)
+                    {
+                        float direction = Mathf.Approximately(a.x, b.x) ? (i <= j ? -1f : 1f) : Mathf.Sign(a.x - b.x);
+                        push = new Vector2(direction * ((overlapX * 0.5f) + 0.001f), 0f);
+                    }
+                    else
+                    {
+                        float direction = Mathf.Approximately(a.y, b.y) ? (i <= j ? -1f : 1f) : Mathf.Sign(a.y - b.y);
+                        push = new Vector2(0f, direction * ((overlapY * 0.5f) + 0.001f));
+                    }
+
+                    a = ClampPointToCapsule(a + push, capsuleSize, berryBounds);
+                    b = ClampPointToCapsule(b - push, capsuleSize, berryBounds);
+                    offsets[i] = new Vector3(a.x, a.y, 0f);
+                    offsets[j] = new Vector3(b.x, b.y, 0f);
+                    movedAny = true;
+                }
+            }
+
+            if (!movedAny)
+            {
+                break;
+            }
+        }
+    }
+
+    private Vector2 ClampPointToCapsule(Vector2 point, Vector2 capsuleSize, BerryLocalBounds berryBounds)
+    {
+        if (IsBerryBoundsInsideCapsule(point, berryBounds, capsuleSize))
+        {
+            return point;
+        }
+
+        if (!TryGetAnyValidBerryPoint(berryBounds, capsuleSize, out Vector2 insidePoint))
+        {
+            return Vector2.zero;
+        }
+
+        Vector2 outsidePoint = point;
+
+        for (int i = 0; i < 16; i++)
+        {
+            Vector2 middlePoint = (insidePoint + outsidePoint) * 0.5f;
+            if (IsBerryBoundsInsideCapsule(middlePoint, berryBounds, capsuleSize))
+            {
+                insidePoint = middlePoint;
+            }
+            else
+            {
+                outsidePoint = middlePoint;
+            }
+        }
+
+        return insidePoint;
+    }
+
+    private Vector3 GetFallbackBerryLocalOffset(BerryLocalBounds berryBounds, Vector2 capsuleSize)
+    {
+        if (TryGetAnyValidBerryPoint(berryBounds, capsuleSize, out Vector2 validPoint))
+        {
+            return new Vector3(validPoint.x, validPoint.y, 0f);
+        }
+
+        return Vector3.zero;
+    }
+
+    private bool TryGetAnyValidBerryPoint(BerryLocalBounds berryBounds, Vector2 capsuleSize, out Vector2 validPoint)
+    {
+        validPoint = Vector2.zero;
+        if (IsBerryBoundsInsideCapsule(validPoint, berryBounds, capsuleSize))
+        {
+            return true;
+        }
+
+        Vector2 halfSize = capsuleSize * 0.5f;
+        const int gridSteps = 8;
+
+        for (int y = 0; y <= gridSteps; y++)
+        {
+            for (int x = 0; x <= gridSteps; x++)
+            {
+                Vector2 candidate = new Vector2(
+                    Mathf.Lerp(-halfSize.x, halfSize.x, x / (float)gridSteps),
+                    Mathf.Lerp(-halfSize.y, halfSize.y, y / (float)gridSteps));
+
+                if (IsBerryBoundsInsideCapsule(candidate, berryBounds, capsuleSize))
+                {
+                    validPoint = candidate;
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsBerryBoundsInsideCapsule(Vector2 center, BerryLocalBounds berryBounds, Vector2 capsuleSize)
+    {
+        Vector2[] corners =
+        {
+            center + new Vector2(berryBounds.Min.x, berryBounds.Min.y),
+            center + new Vector2(berryBounds.Min.x, berryBounds.Max.y),
+            center + new Vector2(berryBounds.Max.x, berryBounds.Min.y),
+            center + new Vector2(berryBounds.Max.x, berryBounds.Max.y)
+        };
+
+        for (int i = 0; i < corners.Length; i++)
+        {
+            if (!IsPointInsideCapsule(corners[i], capsuleSize))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private bool IsPointInsideCapsule(Vector2 point, Vector2 capsuleSize)
