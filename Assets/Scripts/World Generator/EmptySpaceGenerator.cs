@@ -103,9 +103,8 @@ public class EmptySpaceGenerator : MonoBehaviour
         HashSet<Vector3Int> allGeneratedCells = new HashSet<Vector3Int>();
         HashSet<Vector3Int> reservedCells = new HashSet<Vector3Int>();
 
-        int actualAreaCount = random.Next(minAreaCount, maxAreaCount + 1);
-
-        for (int areaIndex = 0; areaIndex < actualAreaCount; areaIndex++)
+        // Try to generate up to maxAreaCount; it will naturally stop early if TryGenerateArea returns false (no space).
+        for (int areaIndex = 0; areaIndex < maxAreaCount; areaIndex++)
         {
             if (!TryGenerateArea(validTileCells, validTileCellSet, reservedCells, random, out HashSet<Vector3Int> areaCells))
             {
