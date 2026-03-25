@@ -6,6 +6,10 @@ public class AfterDeath : MonoBehaviour
     [SerializeField] private GameObject tombstonePrefab;
     [SerializeField] private Sprite tombstoneSprite;
     [SerializeField] private Vector3 tombstoneOffset;
+    [SerializeField] private float tombstoneFallHeight = 2.5f;
+    [SerializeField] private float tombstoneFallDuration = 0.35f;
+    [SerializeField] private float canvasEnableDelay = 1f;
+    [SerializeField] private float canvasPanelScaleDuration = 0.2f;
     [SerializeField] private Color tombstoneGizmoColor = new Color(0.7f, 0.9f, 1f, 1f);
     [SerializeField] private float tombstoneGizmoRadius = 0.2f;
 
@@ -44,16 +48,18 @@ public class AfterDeath : MonoBehaviour
 
         hasHandledDeath = true;
         SpawnTombstone();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void SpawnTombstone()
     {
-        Vector3 spawnPosition = GetTombstoneSpawnPosition();
+        Vector3 landingPosition = GetTombstoneSpawnPosition();
+        GameObject tombstone;
 
         if (tombstonePrefab != null)
         {
-            Instantiate(tombstonePrefab, spawnPosition, transform.rotation);
+            tombstone = Instantiate(tombstonePrefab, landingPosition, transform.rotation);
+            StartTombstoneFall(tombstone, landingPosition);
             return;
         }
 
@@ -63,8 +69,8 @@ public class AfterDeath : MonoBehaviour
             return;
         }
 
-        GameObject tombstone = new GameObject("Tombstone");
-        tombstone.transform.SetPositionAndRotation(spawnPosition, Quaternion.identity);
+        tombstone = new GameObject("Tombstone");
+        tombstone.transform.SetPositionAndRotation(landingPosition, Quaternion.identity);
         tombstone.transform.localScale = transform.localScale;
 
         SpriteRenderer tombstoneRenderer = tombstone.AddComponent<SpriteRenderer>();
@@ -77,6 +83,8 @@ public class AfterDeath : MonoBehaviour
             tombstoneRenderer.sortingOrder = playerSpriteRenderer.sortingOrder;
             tombstoneRenderer.color = playerSpriteRenderer.color;
         }
+
+        StartTombstoneFall(tombstone, landingPosition);
     }
 
     private Vector3 GetTombstoneSpawnPosition()
@@ -84,16 +92,41 @@ public class AfterDeath : MonoBehaviour
         return transform.position + tombstoneOffset;
     }
 
+    private Vector3 GetTombstoneDropStartPosition(Vector3 landingPosition)
+    {
+        return landingPosition + Vector3.up * Mathf.Max(0f, tombstoneFallHeight);
+    }
+
+    private void StartTombstoneFall(GameObject tombstone, Vector3 landingPosition)
+    {
+        TombstoneFallAnimator fallAnimator = tombstone.GetComponent<TombstoneFallAnimator>();
+        if (fallAnimator == null)
+        {
+            fallAnimator = tombstone.AddComponent<TombstoneFallAnimator>();
+        }
+
+        fallAnimator.BeginFall(
+            landingPosition,
+            tombstoneFallHeight,
+            tombstoneFallDuration,
+            canvasEnableDelay,
+            canvasPanelScaleDuration
+        );
+    }
+
     private void OnDrawGizmosSelected()
     {
-        Vector3 spawnPosition = GetTombstoneSpawnPosition();
+        Vector3 landingPosition = GetTombstoneSpawnPosition();
+        Vector3 dropStartPosition = GetTombstoneDropStartPosition(landingPosition);
 
         Gizmos.color = tombstoneGizmoColor;
-        Gizmos.DrawLine(transform.position, spawnPosition);
-        Gizmos.DrawWireSphere(spawnPosition, tombstoneGizmoRadius);
+        Gizmos.DrawLine(transform.position, landingPosition);
+        Gizmos.DrawLine(dropStartPosition, landingPosition);
+        Gizmos.DrawWireSphere(landingPosition, tombstoneGizmoRadius);
+        Gizmos.DrawWireCube(dropStartPosition, Vector3.one * tombstoneGizmoRadius);
 
         float crossSize = tombstoneGizmoRadius * 0.7f;
-        Gizmos.DrawLine(spawnPosition + Vector3.left * crossSize, spawnPosition + Vector3.right * crossSize);
-        Gizmos.DrawLine(spawnPosition + Vector3.up * crossSize, spawnPosition + Vector3.down * crossSize);
+        Gizmos.DrawLine(landingPosition + Vector3.left * crossSize, landingPosition + Vector3.right * crossSize);
+        Gizmos.DrawLine(landingPosition + Vector3.up * crossSize, landingPosition + Vector3.down * crossSize);
     }
 }
