@@ -350050,10 +350050,13 @@ MonoBehaviour:
   treePrefab: {fileID: 1562056728}
   generatedTreesParent: {fileID: 523188303}
   minRandomDist: 0.3
-  maxRandomDist: 8
+  maxRandomDist: 4
   treesPerTile: 2
   maxPlacementAttemptsPerTree: 4
   edgeTileMargin: 0.3
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   generateOnStart: 1
   clearBeforeGenerate: 1
 --- !u!4 &1843369623
@@ -447672,9 +447675,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -6
       objectReference: {fileID: 0}
+    - target: {fileID: 5091188505821487569, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5546016461706263705, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
       propertyPath: m_Name
       value: Blue Berry
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546016461706263705, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5575785922844138895, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
       propertyPath: m_SizeDelta.x

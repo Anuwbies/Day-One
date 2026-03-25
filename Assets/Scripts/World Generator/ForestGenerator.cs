@@ -25,10 +25,14 @@ public class ForestGenerator : MonoBehaviour
     [Min(0f)]
     [SerializeField] private float edgeTileMargin = 0f;
 
+    [Header("Obstacle Settings")]
+    [SerializeField] private LayerMask obstacleLayer = -1;
+
     [SerializeField] private bool generateOnStart = true;
     [SerializeField] private bool clearBeforeGenerate = true;
 
     private readonly List<Vector3> generatedPositions = new List<Vector3>();
+    private readonly List<Collider2D> obstacleOverlapResults = new List<Collider2D>();
     private Collider2D cachedTreeChildCollider;
 
     private void Start()
@@ -64,6 +68,7 @@ public class ForestGenerator : MonoBehaviour
             return;
         }
 
+        InitializeObstacleLayer();
         Transform spawnParent = GetOrCreateGeneratedTreesParent();
 
         if (clearBeforeGenerate)
@@ -125,6 +130,11 @@ public class ForestGenerator : MonoBehaviour
             }
 
             if (!IsFarEnoughFromExistingTrees(pivotPosition))
+            {
+                continue;
+            }
+
+            if (!IsAreaFreeFromObstacles(spawnPosition))
             {
                 continue;
             }
@@ -230,6 +240,28 @@ public class ForestGenerator : MonoBehaviour
         return true;
     }
 
+    private bool IsAreaFreeFromObstacles(Vector3 treeRootPosition)
+    {
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.useTriggers = true;
+        filter.SetLayerMask(obstacleLayer);
+
+        obstacleOverlapResults.Clear();
+        Physics2D.SyncTransforms();
+        GetObstacleOverlaps(treeRootPosition, filter, obstacleOverlapResults);
+
+        for (int i = 0; i < obstacleOverlapResults.Count; i++)
+        {
+            Collider2D hit = obstacleOverlapResults[i];
+            if (hit != null && hit.CompareTag("Obstacle"))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void RebuildGeneratedPositions(Transform spawnParent)
     {
         generatedPositions.Clear();
@@ -290,6 +322,60 @@ public class ForestGenerator : MonoBehaviour
         return cachedTreeChildCollider;
     }
 
+    private int GetObstacleOverlaps(Vector3 treeRootPosition, ContactFilter2D filter, List<Collider2D> results)
+    {
+        Collider2D childCollider = GetTreePrefabChildCollider();
+        if (childCollider == null)
+        {
+            return Physics2D.OverlapBox((Vector2)treeRootPosition, Vector2.one * 0.1f, 0f, filter, results);
+        }
+
+        if (childCollider is CircleCollider2D circleCollider)
+        {
+            Vector2 center = GetTreeChildColliderWorldCenter(circleCollider, treeRootPosition);
+            Vector3 scale = circleCollider.transform.lossyScale;
+            float radius = circleCollider.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y));
+            return Physics2D.OverlapCircle(center, radius, filter, results);
+        }
+
+        if (childCollider is BoxCollider2D boxCollider)
+        {
+            Vector2 center = GetTreeChildColliderWorldCenter(boxCollider, treeRootPosition);
+            Vector2 size = GetScaledColliderSize(boxCollider.size, boxCollider.transform);
+            float angle = boxCollider.transform.eulerAngles.z;
+            return Physics2D.OverlapBox(center, size, angle, filter, results);
+        }
+
+        if (TryGetTreeColliderBounds(treeRootPosition, out Bounds colliderBounds))
+        {
+            return Physics2D.OverlapBox(
+                (Vector2)colliderBounds.center,
+                (Vector2)colliderBounds.size,
+                0f,
+                filter,
+                results
+            );
+        }
+
+        return 0;
+    }
+
+    private Vector2 GetTreeChildColliderWorldCenter(Collider2D childCollider, Vector3 treeRootPosition)
+    {
+        Vector3 rootOffset = treeRootPosition - treePrefab.transform.position;
+        Vector3 worldCenter = childCollider.transform.TransformPoint(childCollider.offset) + rootOffset;
+        return new Vector2(worldCenter.x, worldCenter.y);
+    }
+
+    private Vector2 GetScaledColliderSize(Vector2 localSize, Transform targetTransform)
+    {
+        Vector3 scale = targetTransform.lossyScale;
+        return new Vector2(
+            Mathf.Abs(localSize.x * scale.x),
+            Mathf.Abs(localSize.y * scale.y)
+        );
+    }
+
     private bool TryGetTreeColliderBounds(Vector3 treeRootPosition, out Bounds colliderBounds)
     {
         Collider2D childCollider = GetTreePrefabChildCollider();
@@ -322,6 +408,15 @@ public class ForestGenerator : MonoBehaviour
         }
 
         return target.GetComponent<Collider2D>();
+    }
+
+    private void InitializeObstacleLayer()
+    {
+        int obstacleLayerValue = obstacleLayer.value;
+        if (obstacleLayerValue == -1 || obstacleLayerValue == 0)
+        {
+            obstacleLayer = ~(1 << 2);
+        }
     }
 
     private Transform GetOrCreateGeneratedTreesParent()
