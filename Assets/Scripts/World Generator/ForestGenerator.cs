@@ -155,16 +155,46 @@ public class ForestGenerator : MonoBehaviour
         }
     }
 
-    private bool IsInEmptySpace(Vector3 position)
+    private bool IsInEmptySpace(Vector3 treeRootPosition)
     {
         if (emptySpaceGenerators == null || emptySpaceGenerators.Count == 0)
         {
             return false;
         }
 
+        // Check if the tree has a collider to perform a bounds-based check
+        if (TryGetTreeColliderBounds(treeRootPosition, out Bounds colliderBounds))
+        {
+            // Use a small inset to avoid floating point issues at the exact edges
+            const float edgeInset = 0.01f;
+            Vector3 minPoint = colliderBounds.min + new Vector3(edgeInset, edgeInset, 0);
+            Vector3 maxPoint = colliderBounds.max - new Vector3(edgeInset, edgeInset, 0);
+
+            Vector3Int minCell = forestTilemap.WorldToCell(minPoint);
+            Vector3Int maxCell = forestTilemap.WorldToCell(maxPoint);
+
+            // Check every tile covered by the collider's bounds
+            for (int x = minCell.x; x <= maxCell.x; x++)
+            {
+                for (int y = minCell.y; y <= maxCell.y; y++)
+                {
+                    Vector3 worldPoint = forestTilemap.GetCellCenterWorld(new Vector3Int(x, y, 0));
+                    for (int i = 0; i < emptySpaceGenerators.Count; i++)
+                    {
+                        if (emptySpaceGenerators[i] != null && emptySpaceGenerators[i].ContainsWorldPoint(worldPoint))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Fallback to a single point check if no collider is found
         for (int i = 0; i < emptySpaceGenerators.Count; i++)
         {
-            if (emptySpaceGenerators[i] != null && emptySpaceGenerators[i].ContainsWorldPoint(position))
+            if (emptySpaceGenerators[i] != null && emptySpaceGenerators[i].ContainsWorldPoint(treeRootPosition))
             {
                 return true;
             }
