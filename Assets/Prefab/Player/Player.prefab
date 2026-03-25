@@ -102,9 +102,9 @@ RectTransform:
   - {fileID: 7444323849288899217}
   m_Father: {fileID: 4015777338357069085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 8.5, y: -5}
   m_SizeDelta: {x: 15, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4334783849693721949
@@ -426,6 +426,7 @@ MonoBehaviour:
   fadeAlpha: 0.4
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!114 &746832510419213260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,16 +474,19 @@ MonoBehaviour:
   Hunger: 100
   Thirst: 100
   Energy: 100
-  MaxHealth: 100
-  MaxHunger: 100
-  MaxThirst: 100
-  MaxEnergy: 100
-  hungerDecay: 1
-  thirstDecay: 1.5
-  sprintEnergyCost: 15
+  MaxHealth: 150
+  MaxHunger: 150
+  MaxThirst: 150
+  MaxEnergy: 150
+  hungerDecay: 5
+  thirstDecay: 5.7
+  sprintEnergyCost: 5
   energyRegenRate: 20
   energyRegenDelay: 2
   baseAttackDamage: 10
+  playerSpriteRenderer: {fileID: 4763697282470600238}
+  damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  damageFlashDuration: 0.12
 --- !u!114 &3526834453816086215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4015777338357069085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -609,7 +613,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.15, y: 0.25}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 17, y: 11}
   m_Pivot: {x: 0.00000006519258, y: -0.0000016056001}
 --- !u!222 &6918982086132190880
 CanvasRenderer:

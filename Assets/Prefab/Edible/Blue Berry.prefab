@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: ee0749f970d1fad4286629ab09cd86a6, type: 2}
-  amount: 64
+  amount: 1
   hintCanvas: {fileID: 2766717846915195631}
 --- !u!1 &8212774873970753740
 GameObject:

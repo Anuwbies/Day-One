@@ -432,6 +432,7 @@ MonoBehaviour:
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!114 &1563993233541091182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +513,7 @@ MonoBehaviour:
   enableFlip: 1
   detectionRange: {x: 3, y: 1.5}
   disengageRange: {x: 4, y: 2}
-  stoppingDistance: {x: 0.3, y: 0.15}
+  stoppingDistance: {x: 0.5, y: 0.25}
   playerCollider: {fileID: 0}
   ownCollider: {fileID: 3351694068055821671}
 --- !u!1001 &6440804972902668276
