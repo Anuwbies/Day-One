@@ -3869,6 +3869,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionCanvas: {fileID: 1729633577}
+  drinkButton: {fileID: 1341549815}
+  thirstRestoreAmount: 10
+  damageChancePercent: 25
+  damageAmount: 5
   targetTag: Player
   targetPlayerCollider: {fileID: 0}
 --- !u!1 &118123401
@@ -336669,6 +336673,37 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1428446710424074672, guid: 2877cb2729e685647af4dd50be6a8133, type: 3}
   m_PrefabInstance: {fileID: 2746670612509489918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &523188302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523188303}
+  m_Layer: 0
+  m_Name: Trees
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523188303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523188302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1843369623}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524505527
 GameObject:
   m_ObjectHideFlags: 0
@@ -348959,6 +348994,22 @@ Transform:
   - {fileID: 989509407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1332614420 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4763697282470600238, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+  m_PrefabInstance: {fileID: 6302474665055368718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1341549815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3113517033904493346, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+  m_PrefabInstance: {fileID: 6302474665055368718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1388027637
 GameObject:
   m_ObjectHideFlags: 0
@@ -349990,16 +350041,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843369621}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 120ab230151f0374f8b78e5911e5f92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forestTilemap: {fileID: 0}
+  forestTilemap: {fileID: 1914081958}
   treePrefab: {fileID: 1562056728}
-  minRandomDist: 1
+  generatedTreesParent: {fileID: 523188303}
+  minRandomDist: 0.3
   maxRandomDist: 8
-  treesPerTile: 1
+  treesPerTile: 2
+  maxPlacementAttemptsPerTree: 4
+  edgeTileMargin: 0.3
+  generateOnStart: 1
+  clearBeforeGenerate: 1
 --- !u!4 &1843369623
 Transform:
   m_ObjectHideFlags: 0
@@ -350012,7 +350068,8 @@ Transform:
   m_LocalPosition: {x: -23.274542, y: 5.5629387, z: -10.571533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 523188303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1855162247 stripped
@@ -430546,6 +430603,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5937430366837119836, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+      propertyPath: stoppingDistance.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5937430366837119836, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+      propertyPath: stoppingDistance.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7543888126313665003, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -457008,6 +457073,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: MaxEnergy
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: MaxHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: MaxHunger
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: MaxThirst
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: hungerDecay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: thirstDecay
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424390607189394427, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: playerSpriteRenderer
+      value: 
+      objectReference: {fileID: 1332614420}
     - target: {fileID: 3526834453816086215, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: inventoryUI
       value: 
@@ -457039,6 +457132,18 @@ PrefabInstance:
     - target: {fileID: 4045829501738645002, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763697282470600238, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763697282470600238, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763697282470600238, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8072769400692753078, guid: daa466b1c89a05f48a0bdbdeec8486ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -474732,7 +474837,6 @@ SceneRoots:
   - {fileID: 1241968786}
   - {fileID: 118123402}
   - {fileID: 1035301546}
-  - {fileID: 1843369623}
   - {fileID: 1019098589}
   - {fileID: 316025727}
   - {fileID: 1777164493203238889}
@@ -474741,3 +474845,4 @@ SceneRoots:
   - {fileID: 8519690720785049556}
   - {fileID: 9216074762643894361}
   - {fileID: 1584840763}
+  - {fileID: 1843369623}

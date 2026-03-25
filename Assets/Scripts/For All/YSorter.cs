@@ -27,6 +27,10 @@ public class YSorter : MonoBehaviour
     [Tooltip("Define multiple areas that trigger transparency when the player enters them.")]
     public TransparencyTrigger[] triggerAreas;
 
+    [Header("Gizmo Settings")]
+    [Tooltip("Show or hide the transparency trigger area gizmos in the editor.")]
+    public bool showTriggerAreaGizmos = true;
+
     private SpriteRenderer sr;
     private SpriteRenderer playerSR;
     private Transform playerTransform;
@@ -147,7 +151,7 @@ public class YSorter : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(pivot, PivotGizmoRadius);
 
-        if (enableTransparency && triggerAreas != null)
+        if (enableTransparency && showTriggerAreaGizmos && triggerAreas != null)
         {
             // 2. Draw each Trigger Area (Magenta)
             Gizmos.color = Color.magenta;

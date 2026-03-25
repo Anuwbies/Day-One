@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -26,8 +27,44 @@ public class PlayerStats : MonoBehaviour
     [Header("Combat")]
     public int baseAttackDamage = 1;
 
+    [Header("Damage Feedback")]
+    [SerializeField] private SpriteRenderer playerSpriteRenderer;
+    [SerializeField] private Color damageFlashColor = Color.red;
+    [SerializeField] private float damageFlashDuration = 0.12f;
+
     private ItemData currentItem;
     private float lastEnergyUseTime = 0f;
+    private Color defaultSpriteColor = Color.white;
+    private Coroutine damageFlashRoutine;
+
+    private void Awake()
+    {
+        if (playerSpriteRenderer == null)
+        {
+            playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        if (playerSpriteRenderer != null)
+        {
+            defaultSpriteColor = playerSpriteRenderer.color;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (damageFlashRoutine != null)
+        {
+            StopCoroutine(damageFlashRoutine);
+            damageFlashRoutine = null;
+        }
+
+        if (playerSpriteRenderer != null)
+        {
+            Color restoredColor = defaultSpriteColor;
+            restoredColor.a = playerSpriteRenderer.color.a;
+            playerSpriteRenderer.color = restoredColor;
+        }
+    }
 
     // =========================
     // HOTBAR HOOK
@@ -65,15 +102,29 @@ public class PlayerStats : MonoBehaviour
 
         if (Hunger <= 0 || Thirst <= 0)
         {
-            Health = Mathf.Clamp(Health - 5f * Time.deltaTime, 0, MaxHealth);
+            ApplyDamage(5f * Time.deltaTime, false);
         }
     }
 
     public void TakeDamage(float amount)
     {
-        Health = Mathf.Clamp(Health - amount, 0, MaxHealth);
+        ApplyDamage(amount, true);
+    }
 
-        Debug.Log($"Player took {amount} damage. Current Health: {Health}");
+    private void ApplyDamage(float amount, bool logDamage)
+    {
+        if (amount <= 0f)
+        {
+            return;
+        }
+
+        Health = Mathf.Clamp(Health - amount, 0, MaxHealth);
+        TriggerDamageFlash();
+
+        if (logDamage)
+        {
+            Debug.Log($"Player took {amount} damage. Current Health: {Health}");
+        }
 
         if (Health <= 0)
         {
@@ -134,6 +185,37 @@ public class PlayerStats : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void TriggerDamageFlash()
+    {
+        if (playerSpriteRenderer == null)
+        {
+            return;
+        }
+
+        defaultSpriteColor = new Color(defaultSpriteColor.r, defaultSpriteColor.g, defaultSpriteColor.b, playerSpriteRenderer.color.a);
+
+        if (damageFlashRoutine != null)
+        {
+            StopCoroutine(damageFlashRoutine);
+        }
+
+        damageFlashRoutine = StartCoroutine(DamageFlashRoutine());
+    }
+
+    private IEnumerator DamageFlashRoutine()
+    {
+        Color flashColor = damageFlashColor;
+        flashColor.a = playerSpriteRenderer.color.a;
+        playerSpriteRenderer.color = flashColor;
+
+        yield return new WaitForSeconds(damageFlashDuration);
+
+        Color restoredColor = defaultSpriteColor;
+        restoredColor.a = playerSpriteRenderer.color.a;
+        playerSpriteRenderer.color = restoredColor;
+        damageFlashRoutine = null;
     }
 
     private void HandleEnergyRegen()
