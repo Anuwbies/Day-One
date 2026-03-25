@@ -32,7 +32,7 @@ public class ForestGenerator : MonoBehaviour
     [SerializeField] private bool clearBeforeGenerate = true;
 
     private readonly List<Vector3> generatedPositions = new List<Vector3>();
-    private readonly List<Collider2D> obstacleOverlapResults = new List<Collider2D>();
+    private readonly List<Collider2D> overlapResults = new List<Collider2D>();
     private Collider2D cachedTreeChildCollider;
 
     private void Start()
@@ -69,6 +69,7 @@ public class ForestGenerator : MonoBehaviour
         }
 
         InitializeObstacleLayer();
+
         Transform spawnParent = GetOrCreateGeneratedTreesParent();
 
         if (clearBeforeGenerate)
@@ -150,13 +151,11 @@ public class ForestGenerator : MonoBehaviour
     {
         Vector3 cellOrigin = forestTilemap.CellToWorld(cellPosition);
         Vector3 cellSize = forestTilemap.layoutGrid.cellSize;
-        Vector3 pivotPosition = new Vector3(
+        return new Vector3(
             cellOrigin.x + Random.Range(0.15f, 0.85f) * cellSize.x,
             cellOrigin.y + Random.Range(0.15f, 0.85f) * cellSize.y,
             treePrefab.transform.position.z
         );
-
-        return pivotPosition;
     }
 
     private bool IsOnSelectedTilemap(Vector3 treeRootPosition)
@@ -230,8 +229,7 @@ public class ForestGenerator : MonoBehaviour
 
         for (int i = 0; i < generatedPositions.Count; i++)
         {
-            Vector3 existingPosition = generatedPositions[i];
-            if (Vector2.Distance(candidatePosition, existingPosition) < requiredDistance)
+            if (Vector2.Distance(candidatePosition, generatedPositions[i]) < requiredDistance)
             {
                 return false;
             }
@@ -242,17 +240,19 @@ public class ForestGenerator : MonoBehaviour
 
     private bool IsAreaFreeFromObstacles(Vector3 treeRootPosition)
     {
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.useTriggers = true;
+        ContactFilter2D filter = new ContactFilter2D
+        {
+            useTriggers = true
+        };
         filter.SetLayerMask(obstacleLayer);
 
-        obstacleOverlapResults.Clear();
+        overlapResults.Clear();
         Physics2D.SyncTransforms();
-        GetObstacleOverlaps(treeRootPosition, filter, obstacleOverlapResults);
+        GetPlacementOverlaps(treeRootPosition, filter, overlapResults);
 
-        for (int i = 0; i < obstacleOverlapResults.Count; i++)
+        for (int i = 0; i < overlapResults.Count; i++)
         {
-            Collider2D hit = obstacleOverlapResults[i];
+            Collider2D hit = overlapResults[i];
             if (hit != null && hit.CompareTag("Obstacle"))
             {
                 return false;
@@ -322,7 +322,7 @@ public class ForestGenerator : MonoBehaviour
         return cachedTreeChildCollider;
     }
 
-    private int GetObstacleOverlaps(Vector3 treeRootPosition, ContactFilter2D filter, List<Collider2D> results)
+    private int GetPlacementOverlaps(Vector3 treeRootPosition, ContactFilter2D filter, List<Collider2D> results)
     {
         Collider2D childCollider = GetTreePrefabChildCollider();
         if (childCollider == null)
