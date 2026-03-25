@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.Serialization;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
-public class StoneGenerator : MonoBehaviour
+public class BushGenerator : MonoBehaviour
 {
     private struct SpawnCell
     {
@@ -20,7 +22,7 @@ public class StoneGenerator : MonoBehaviour
     }
 
     [System.Serializable]
-    private class StonePrefabSpawnSettings
+    private class BushPrefabSpawnSettings
     {
         [SerializeField] private GameObject prefab;
 
@@ -29,13 +31,6 @@ public class StoneGenerator : MonoBehaviour
 
         [Range(0f, 100f)]
         [SerializeField] private float additionalAreaSpawnChancePercent = 20f;
-
-        public StonePrefabSpawnSettings(GameObject prefab, float tileSpawnChancePercent, float additionalAreaSpawnChancePercent)
-        {
-            this.prefab = prefab;
-            this.tileSpawnChancePercent = tileSpawnChancePercent;
-            this.additionalAreaSpawnChancePercent = additionalAreaSpawnChancePercent;
-        }
 
         public GameObject Prefab => prefab;
 
@@ -54,14 +49,11 @@ public class StoneGenerator : MonoBehaviour
     }
 
     [Header("References")]
-    [SerializeField] private Tilemap stoneTilemap;
-    [SerializeField] private Transform generatedStonesParent;
+    [SerializeField] private Tilemap bushTilemap;
+    [SerializeField] private Transform generatedBushesParent;
 
-    [FormerlySerializedAs("stonePrefabs")]
-    [SerializeField, HideInInspector] private List<GameObject> legacyStonePrefabs = new List<GameObject>();
-
-    [Header("Stone Prefabs")]
-    [SerializeField] private List<StonePrefabSpawnSettings> stonePrefabSettings = new List<StonePrefabSpawnSettings>();
+    [Header("Bush Prefabs")]
+    [SerializeField] private List<BushPrefabSpawnSettings> bushPrefabSettings = new List<BushPrefabSpawnSettings>();
 
     [Header("Generation Settings")]
     [Min(0f)]
@@ -71,13 +63,10 @@ public class StoneGenerator : MonoBehaviour
     [SerializeField] private float maxRandomDist = 8f;
 
     [Min(1)]
-    [SerializeField] private int stonesPerTile = 1;
-
-    [FormerlySerializedAs("spawnChancePercent")]
-    [SerializeField, HideInInspector] private float legacyTileSpawnChancePercent = 35f;
+    [SerializeField] private int bushesPerTile = 1;
 
     [Min(1)]
-    [SerializeField] private int maxPlacementAttemptsPerStone = 4;
+    [SerializeField] private int maxPlacementAttemptsPerBush = 4;
 
     [Min(0f)]
     [SerializeField] private float edgeTileMargin = 0f;
@@ -88,46 +77,63 @@ public class StoneGenerator : MonoBehaviour
     [Header("Additional Spawn Areas")]
     [SerializeField] private List<EmptySpaceGenerator> emptySpaceGenerators;
 
-    [FormerlySerializedAs("additionalSpawnAreaChancePercent")]
-    [SerializeField, HideInInspector] private float legacyAdditionalAreaSpawnChancePercent = 20f;
+    [Header("Blue Berry Around Bush")]
+    [SerializeField] private ItemData blueBerryItem;
+
+    [Range(0f, 100f)]
+    [SerializeField] private float blueBerrySpawnChancePercent = 25f;
+
+    [Min(1)]
+    [SerializeField] private int minBlueBerryAmount = 1;
+
+    [Min(1)]
+    [SerializeField] private int maxBlueBerryAmount = 2;
+
+    [Header("Blue Berry Fallback Drop Area")]
+    [SerializeField] private Vector2 blueBerrySpawnRadiusXY = new Vector2(0.45f, 0.2f);
 
     [SerializeField] private bool generateOnStart = true;
     [SerializeField] private bool clearBeforeGenerate = true;
 
     private readonly List<Vector3> generatedPositions = new List<Vector3>();
     private readonly List<Collider2D> overlapResults = new List<Collider2D>();
-    private readonly Dictionary<GameObject, Collider2D> cachedStoneChildColliders = new Dictionary<GameObject, Collider2D>();
-    private readonly List<StonePrefabSpawnSettings> spawnablePrefabBuffer = new List<StonePrefabSpawnSettings>();
+    private readonly Dictionary<GameObject, Collider2D> cachedBushChildColliders = new Dictionary<GameObject, Collider2D>();
+    private readonly List<BushPrefabSpawnSettings> spawnablePrefabBuffer = new List<BushPrefabSpawnSettings>();
 
     private void Start()
     {
         if (generateOnStart)
         {
-            GenerateStones();
+            GenerateBushes();
         }
     }
 
     private void OnValidate()
     {
-        cachedStoneChildColliders.Clear();
+        cachedBushChildColliders.Clear();
         minRandomDist = Mathf.Max(0f, minRandomDist);
         maxRandomDist = Mathf.Max(minRandomDist, maxRandomDist);
-        stonesPerTile = Mathf.Max(1, stonesPerTile);
-        legacyTileSpawnChancePercent = Mathf.Clamp(legacyTileSpawnChancePercent, 0f, 100f);
-        legacyAdditionalAreaSpawnChancePercent = Mathf.Clamp(legacyAdditionalAreaSpawnChancePercent, 0f, 100f);
-        maxPlacementAttemptsPerStone = Mathf.Max(1, maxPlacementAttemptsPerStone);
+        bushesPerTile = Mathf.Max(1, bushesPerTile);
+        maxPlacementAttemptsPerBush = Mathf.Max(1, maxPlacementAttemptsPerBush);
         edgeTileMargin = Mathf.Max(0f, edgeTileMargin);
-        SyncStonePrefabSettings();
+        blueBerrySpawnChancePercent = Mathf.Clamp(blueBerrySpawnChancePercent, 0f, 100f);
+        minBlueBerryAmount = Mathf.Max(1, minBlueBerryAmount);
+        maxBlueBerryAmount = Mathf.Max(minBlueBerryAmount, maxBlueBerryAmount);
+        blueBerrySpawnRadiusXY.x = Mathf.Max(0f, blueBerrySpawnRadiusXY.x);
+        blueBerrySpawnRadiusXY.y = Mathf.Max(0f, blueBerrySpawnRadiusXY.y);
+        ClampBushPrefabSettings();
+        AssignDefaultBlueBerryItem();
     }
 
-    [ContextMenu("Generate Stones")]
-    public void GenerateStones()
+    [ContextMenu("Generate Bushes")]
+    public void GenerateBushes()
     {
-        SyncStonePrefabSettings();
+        ClampBushPrefabSettings();
+        AssignDefaultBlueBerryItem();
 
-        if (!HasValidStonePrefab())
+        if (!HasValidBushPrefab())
         {
-            Debug.LogWarning($"No stone prefabs assigned for {name}.");
+            Debug.LogWarning($"No bush prefabs assigned for {name}.");
             return;
         }
 
@@ -136,15 +142,15 @@ public class StoneGenerator : MonoBehaviour
         List<SpawnCell> spawnCells = CollectSpawnCells();
         if (spawnCells.Count == 0)
         {
-            Debug.LogWarning($"No valid stone spawn cells found for {name}.");
+            Debug.LogWarning($"No valid bush spawn cells found for {name}.");
             return;
         }
 
-        Transform spawnParent = GetOrCreateGeneratedStonesParent();
+        Transform spawnParent = GetOrCreateGeneratedBushesParent();
 
         if (clearBeforeGenerate)
         {
-            ClearGeneratedStones();
+            ClearGeneratedBushes();
         }
         else
         {
@@ -158,17 +164,17 @@ public class StoneGenerator : MonoBehaviour
                 continue;
             }
 
-            for (int spawnIndex = 0; spawnIndex < stonesPerTile; spawnIndex++)
+            for (int spawnIndex = 0; spawnIndex < bushesPerTile; spawnIndex++)
             {
-                TrySpawnStoneOnCell(spawnCells[cellIndex], spawnParent, spawnablePrefabBuffer);
+                TrySpawnBushOnCell(spawnCells[cellIndex], spawnParent, spawnablePrefabBuffer);
             }
         }
     }
 
-    [ContextMenu("Clear Generated Stones")]
-    public void ClearGeneratedStones()
+    [ContextMenu("Clear Generated Bushes")]
+    public void ClearGeneratedBushes()
     {
-        Transform spawnParent = GetOrCreateGeneratedStonesParent();
+        Transform spawnParent = GetOrCreateGeneratedBushesParent();
 
         for (int i = spawnParent.childCount - 1; i >= 0; i--)
         {
@@ -186,40 +192,41 @@ public class StoneGenerator : MonoBehaviour
         generatedPositions.Clear();
     }
 
-    private void TrySpawnStoneOnCell(
+    private void TrySpawnBushOnCell(
         SpawnCell spawnCell,
         Transform spawnParent,
-        List<StonePrefabSpawnSettings> spawnablePrefabs
+        List<BushPrefabSpawnSettings> spawnablePrefabs
     )
     {
-        for (int attempt = 0; attempt < maxPlacementAttemptsPerStone; attempt++)
+        for (int attempt = 0; attempt < maxPlacementAttemptsPerBush; attempt++)
         {
-            if (!TryGetRandomStonePrefab(spawnablePrefabs, out GameObject stonePrefab))
+            if (!TryGetRandomBushPrefab(spawnablePrefabs, out GameObject bushPrefab))
             {
                 return;
             }
 
             Vector3 pivotPosition = GetRandomPivotPositionInCell(spawnCell);
-            Vector3 spawnPosition = GetStoneRootPositionFromPivot(stonePrefab, pivotPosition);
+            Vector3 spawnPosition = GetBushRootPositionFromPivot(bushPrefab, pivotPosition);
 
-            if (!IsOnSelectedSpawnArea(stonePrefab, spawnPosition, spawnCell))
+            if (!IsOnSelectedSpawnArea(bushPrefab, spawnPosition, spawnCell))
             {
                 continue;
             }
 
-            if (!IsFarEnoughFromExistingStones(pivotPosition))
+            if (!IsFarEnoughFromExistingBushes(pivotPosition))
             {
                 continue;
             }
 
-            if (!IsAreaFreeFromObstacles(stonePrefab, spawnPosition))
+            if (!IsAreaFreeFromObstacles(bushPrefab, spawnPosition))
             {
                 continue;
             }
 
-            GameObject stoneInstance = Instantiate(stonePrefab, spawnPosition, Quaternion.identity, spawnParent);
-            stoneInstance.name = stonePrefab.name;
-            generatedPositions.Add(GetStonePivotWorldPosition(stoneInstance.transform));
+            GameObject bushInstance = Instantiate(bushPrefab, spawnPosition, Quaternion.identity, spawnParent);
+            bushInstance.name = bushPrefab.name;
+            generatedPositions.Add(GetBushPivotWorldPosition(bushInstance.transform));
+            TrySpawnBlueBerryAroundBush(bushInstance.transform, spawnParent);
             return;
         }
     }
@@ -229,17 +236,17 @@ public class StoneGenerator : MonoBehaviour
         List<SpawnCell> spawnCells = new List<SpawnCell>();
         Dictionary<string, int> cellIndices = new Dictionary<string, int>();
 
-        if (stoneTilemap != null)
+        if (bushTilemap != null)
         {
-            BoundsInt bounds = stoneTilemap.cellBounds;
+            BoundsInt bounds = bushTilemap.cellBounds;
             foreach (Vector3Int cellPosition in bounds.allPositionsWithin)
             {
-                if (!stoneTilemap.HasTile(cellPosition))
+                if (!bushTilemap.HasTile(cellPosition))
                 {
                     continue;
                 }
 
-                AddSpawnCell(stoneTilemap, cellPosition, false, spawnCells, cellIndices);
+                AddSpawnCell(bushTilemap, cellPosition, false, spawnCells, cellIndices);
             }
         }
 
@@ -302,7 +309,7 @@ public class StoneGenerator : MonoBehaviour
         spawnCells.Add(new SpawnCell(spawnTilemap, cellPosition, isEmptySpaceCell));
     }
 
-    private bool IsOnSelectedSpawnArea(GameObject stonePrefab, Vector3 stoneRootPosition, SpawnCell spawnCell)
+    private bool IsOnSelectedSpawnArea(GameObject bushPrefab, Vector3 bushRootPosition, SpawnCell spawnCell)
     {
         if (spawnCell.SpawnTilemap == null)
         {
@@ -311,22 +318,22 @@ public class StoneGenerator : MonoBehaviour
 
         if (spawnCell.IsEmptySpaceCell)
         {
-            return IsInsideEmptySpace(stonePrefab, stoneRootPosition, spawnCell.SpawnTilemap);
+            return IsInsideEmptySpace(bushPrefab, bushRootPosition, spawnCell.SpawnTilemap);
         }
 
-        return IsOnSelectedTilemap(stonePrefab, stoneRootPosition, spawnCell.SpawnTilemap);
+        return IsOnSelectedTilemap(bushPrefab, bushRootPosition, spawnCell.SpawnTilemap);
     }
 
-    private bool IsInsideEmptySpace(GameObject stonePrefab, Vector3 stoneRootPosition, Tilemap sourceTilemap)
+    private bool IsInsideEmptySpace(GameObject bushPrefab, Vector3 bushRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (!TryGetBushColliderBounds(bushPrefab, bushRootPosition, out Bounds colliderBounds))
         {
-            return IsInAnyEmptySpace(stoneRootPosition);
+            return IsInAnyEmptySpace(bushRootPosition);
         }
 
         return AreBoundsCoveredByEmptySpaces(colliderBounds, sourceTilemap);
@@ -405,16 +412,16 @@ public class StoneGenerator : MonoBehaviour
         );
     }
 
-    private bool IsOnSelectedTilemap(GameObject stonePrefab, Vector3 stoneRootPosition, Tilemap sourceTilemap)
+    private bool IsOnSelectedTilemap(GameObject bushPrefab, Vector3 bushRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (!TryGetBushColliderBounds(bushPrefab, bushRootPosition, out Bounds colliderBounds))
         {
-            Vector3Int cellPosition = sourceTilemap.WorldToCell(stoneRootPosition);
+            Vector3Int cellPosition = sourceTilemap.WorldToCell(bushRootPosition);
             return sourceTilemap.HasTile(cellPosition);
         }
 
@@ -462,7 +469,7 @@ public class StoneGenerator : MonoBehaviour
         return true;
     }
 
-    private bool IsFarEnoughFromExistingStones(Vector3 candidatePosition)
+    private bool IsFarEnoughFromExistingBushes(Vector3 candidatePosition)
     {
         if (generatedPositions.Count == 0)
         {
@@ -484,7 +491,7 @@ public class StoneGenerator : MonoBehaviour
         return true;
     }
 
-    private bool IsAreaFreeFromObstacles(GameObject stonePrefab, Vector3 stoneRootPosition)
+    private bool IsAreaFreeFromObstacles(GameObject bushPrefab, Vector3 bushRootPosition)
     {
         ContactFilter2D filter = new ContactFilter2D
         {
@@ -494,7 +501,7 @@ public class StoneGenerator : MonoBehaviour
 
         overlapResults.Clear();
         Physics2D.SyncTransforms();
-        GetPlacementOverlaps(stonePrefab, stoneRootPosition, filter, overlapResults);
+        GetPlacementOverlaps(bushPrefab, bushRootPosition, filter, overlapResults);
 
         for (int i = 0; i < overlapResults.Count; i++)
         {
@@ -514,82 +521,82 @@ public class StoneGenerator : MonoBehaviour
 
         for (int i = 0; i < spawnParent.childCount; i++)
         {
-            generatedPositions.Add(GetStonePivotWorldPosition(spawnParent.GetChild(i)));
+            generatedPositions.Add(GetBushPivotWorldPosition(spawnParent.GetChild(i)));
         }
     }
 
-    private Vector3 GetStoneRootPositionFromPivot(GameObject stonePrefab, Vector3 pivotPosition)
+    private Vector3 GetBushRootPositionFromPivot(GameObject bushPrefab, Vector3 pivotPosition)
     {
-        Vector3 pivotOffset = GetStonePivotLocalOffset(stonePrefab);
+        Vector3 pivotOffset = GetBushPivotLocalOffset(bushPrefab);
         return new Vector3(
             pivotPosition.x - pivotOffset.x,
             pivotPosition.y - pivotOffset.y,
-            stonePrefab.transform.position.z
+            bushPrefab.transform.position.z
         );
     }
 
-    private Vector3 GetStonePivotWorldPosition(Transform stoneTransform)
+    private Vector3 GetBushPivotWorldPosition(Transform bushTransform)
     {
-        if (stoneTransform == null)
+        if (bushTransform == null)
         {
             return Vector3.zero;
         }
 
-        Collider2D childCollider = GetChildCollider(stoneTransform.gameObject);
+        Collider2D childCollider = GetChildCollider(bushTransform.gameObject);
         if (childCollider == null)
         {
-            return stoneTransform.position;
+            return bushTransform.position;
         }
 
         return childCollider.transform.TransformPoint(childCollider.offset);
     }
 
-    private Vector3 GetStonePivotLocalOffset(GameObject stonePrefab)
+    private Vector3 GetBushPivotLocalOffset(GameObject bushPrefab)
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetBushPrefabChildCollider(bushPrefab);
         if (childCollider == null)
         {
             return Vector3.zero;
         }
 
-        return stonePrefab.transform.InverseTransformPoint(
+        return bushPrefab.transform.InverseTransformPoint(
             childCollider.transform.TransformPoint(childCollider.offset)
         );
     }
 
-    private Collider2D GetStonePrefabChildCollider(GameObject stonePrefab)
+    private Collider2D GetBushPrefabChildCollider(GameObject bushPrefab)
     {
-        if (stonePrefab == null)
+        if (bushPrefab == null)
         {
             return null;
         }
 
-        if (cachedStoneChildColliders.TryGetValue(stonePrefab, out Collider2D cachedCollider) && cachedCollider != null)
+        if (cachedBushChildColliders.TryGetValue(bushPrefab, out Collider2D cachedCollider) && cachedCollider != null)
         {
             return cachedCollider;
         }
 
-        Collider2D foundCollider = GetChildCollider(stonePrefab);
-        cachedStoneChildColliders[stonePrefab] = foundCollider;
+        Collider2D foundCollider = GetChildCollider(bushPrefab);
+        cachedBushChildColliders[bushPrefab] = foundCollider;
         return foundCollider;
     }
 
     private int GetPlacementOverlaps(
-        GameObject stonePrefab,
-        Vector3 stoneRootPosition,
+        GameObject bushPrefab,
+        Vector3 bushRootPosition,
         ContactFilter2D filter,
         List<Collider2D> results
     )
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetBushPrefabChildCollider(bushPrefab);
         if (childCollider == null)
         {
-            return Physics2D.OverlapBox((Vector2)stoneRootPosition, Vector2.one * 0.1f, 0f, filter, results);
+            return Physics2D.OverlapBox((Vector2)bushRootPosition, Vector2.one * 0.1f, 0f, filter, results);
         }
 
         if (childCollider is CircleCollider2D circleCollider)
         {
-            Vector2 center = GetStoneChildColliderWorldCenter(stonePrefab, circleCollider, stoneRootPosition);
+            Vector2 center = GetBushChildColliderWorldCenter(bushPrefab, circleCollider, bushRootPosition);
             Vector3 scale = circleCollider.transform.lossyScale;
             float radius = circleCollider.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y));
             return Physics2D.OverlapCircle(center, radius, filter, results);
@@ -597,13 +604,13 @@ public class StoneGenerator : MonoBehaviour
 
         if (childCollider is BoxCollider2D boxCollider)
         {
-            Vector2 center = GetStoneChildColliderWorldCenter(stonePrefab, boxCollider, stoneRootPosition);
+            Vector2 center = GetBushChildColliderWorldCenter(bushPrefab, boxCollider, bushRootPosition);
             Vector2 size = GetScaledColliderSize(boxCollider.size, boxCollider.transform);
             float angle = boxCollider.transform.eulerAngles.z;
             return Physics2D.OverlapBox(center, size, angle, filter, results);
         }
 
-        if (TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (TryGetBushColliderBounds(bushPrefab, bushRootPosition, out Bounds colliderBounds))
         {
             return Physics2D.OverlapBox(
                 (Vector2)colliderBounds.center,
@@ -617,13 +624,13 @@ public class StoneGenerator : MonoBehaviour
         return 0;
     }
 
-    private Vector2 GetStoneChildColliderWorldCenter(
-        GameObject stonePrefab,
+    private Vector2 GetBushChildColliderWorldCenter(
+        GameObject bushPrefab,
         Collider2D childCollider,
-        Vector3 stoneRootPosition
+        Vector3 bushRootPosition
     )
     {
-        Vector3 rootOffset = stoneRootPosition - stonePrefab.transform.position;
+        Vector3 rootOffset = bushRootPosition - bushPrefab.transform.position;
         Vector3 worldCenter = childCollider.transform.TransformPoint(childCollider.offset) + rootOffset;
         return new Vector2(worldCenter.x, worldCenter.y);
     }
@@ -637,9 +644,9 @@ public class StoneGenerator : MonoBehaviour
         );
     }
 
-    private bool TryGetStoneColliderBounds(GameObject stonePrefab, Vector3 stoneRootPosition, out Bounds colliderBounds)
+    private bool TryGetBushColliderBounds(GameObject bushPrefab, Vector3 bushRootPosition, out Bounds colliderBounds)
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetBushPrefabChildCollider(bushPrefab);
         if (childCollider == null)
         {
             colliderBounds = default;
@@ -647,7 +654,7 @@ public class StoneGenerator : MonoBehaviour
         }
 
         colliderBounds = childCollider.bounds;
-        colliderBounds.center += stoneRootPosition - stonePrefab.transform.position;
+        colliderBounds.center += bushRootPosition - bushPrefab.transform.position;
         return colliderBounds.size.sqrMagnitude > 0f;
     }
 
@@ -671,43 +678,89 @@ public class StoneGenerator : MonoBehaviour
         return target.GetComponent<Collider2D>();
     }
 
-    private void SyncStonePrefabSettings()
+    private void TrySpawnBlueBerryAroundBush(Transform bushTransform, Transform spawnParent)
     {
-        if (stonePrefabSettings == null)
+        if (bushTransform == null
+            || blueBerryItem == null
+            || blueBerryItem.worldPrefab == null
+            || !blueBerryItem.canDrop
+            || Random.value * 100f > blueBerrySpawnChancePercent)
         {
-            stonePrefabSettings = new List<StonePrefabSpawnSettings>();
+            return;
         }
 
-        if (stonePrefabSettings.Count == 0 && legacyStonePrefabs != null && legacyStonePrefabs.Count > 0)
+        int amountToSpawn = Random.Range(minBlueBerryAmount, maxBlueBerryAmount + 1);
+        Vector3 spawnPosition = GetBlueBerrySpawnPosition(bushTransform);
+
+        GameObject berryInstance = Instantiate(blueBerryItem.worldPrefab, spawnPosition, Quaternion.identity, spawnParent);
+        berryInstance.name = blueBerryItem.worldPrefab.name;
+
+        Item worldItem = berryInstance.GetComponent<Item>();
+        if (worldItem != null)
         {
-            HashSet<GameObject> addedPrefabs = new HashSet<GameObject>();
+            worldItem.data = blueBerryItem;
+            worldItem.amount = amountToSpawn;
+        }
+    }
 
-            for (int prefabIndex = 0; prefabIndex < legacyStonePrefabs.Count; prefabIndex++)
-            {
-                GameObject legacyPrefab = legacyStonePrefabs[prefabIndex];
-                if (legacyPrefab == null || !addedPrefabs.Add(legacyPrefab))
-                {
-                    continue;
-                }
-
-                stonePrefabSettings.Add(new StonePrefabSpawnSettings(
-                    legacyPrefab,
-                    legacyTileSpawnChancePercent,
-                    legacyAdditionalAreaSpawnChancePercent
-                ));
-            }
-
-            legacyStonePrefabs.Clear();
+    private Vector3 GetBlueBerrySpawnPosition(Transform bushTransform)
+    {
+        DropLoot dropLoot = bushTransform.GetComponent<DropLoot>();
+        if (dropLoot == null)
+        {
+            dropLoot = bushTransform.GetComponentInChildren<DropLoot>(true);
         }
 
-        for (int settingIndex = 0; settingIndex < stonePrefabSettings.Count; settingIndex++)
+        if (dropLoot != null)
         {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[settingIndex];
+            Vector3 centerPosition = dropLoot.transform.position + new Vector3(dropLoot.xOffset, dropLoot.yOffset, 0f);
+            Vector2 randomOffset = GetRandomPointInAnnulus(dropLoot.deadZoneRadius, dropLoot.dropRadius);
+            return centerPosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
+        }
+
+        Vector2 fallbackOffset = GetRandomPointInAnnulus(Vector2.zero, blueBerrySpawnRadiusXY);
+        return bushTransform.position + new Vector3(fallbackOffset.x, fallbackOffset.y, 0f);
+    }
+
+    private Vector2 GetRandomPointInAnnulus(Vector2 minRadii, Vector2 maxRadii)
+    {
+        Vector2 direction = Random.insideUnitCircle.normalized;
+        if (direction == Vector2.zero)
+        {
+            direction = Vector2.up;
+        }
+
+        float t = Random.Range(0f, 1f);
+        float radiusX = Mathf.Lerp(minRadii.x, maxRadii.x, t);
+        float radiusY = Mathf.Lerp(minRadii.y, maxRadii.y, t);
+        return new Vector2(direction.x * radiusX, direction.y * radiusY);
+    }
+
+    private void ClampBushPrefabSettings()
+    {
+        if (bushPrefabSettings == null)
+        {
+            bushPrefabSettings = new List<BushPrefabSpawnSettings>();
+        }
+
+        for (int settingIndex = 0; settingIndex < bushPrefabSettings.Count; settingIndex++)
+        {
+            BushPrefabSpawnSettings settings = bushPrefabSettings[settingIndex];
             if (settings != null)
             {
                 settings.ClampValues();
             }
         }
+    }
+
+    private void AssignDefaultBlueBerryItem()
+    {
+#if UNITY_EDITOR
+        if (blueBerryItem == null)
+        {
+            blueBerryItem = AssetDatabase.LoadAssetAtPath<ItemData>("Assets/Item Data/Blue Berry.asset");
+        }
+#endif
     }
 
     private void InitializeObstacleLayer()
@@ -719,36 +772,36 @@ public class StoneGenerator : MonoBehaviour
         }
     }
 
-    private Transform GetOrCreateGeneratedStonesParent()
+    private Transform GetOrCreateGeneratedBushesParent()
     {
-        if (generatedStonesParent != null)
+        if (generatedBushesParent != null)
         {
-            return generatedStonesParent;
+            return generatedBushesParent;
         }
 
-        Transform existingChild = transform.Find("Generated Stones");
+        Transform existingChild = transform.Find("Generated Bushes");
         if (existingChild != null)
         {
-            generatedStonesParent = existingChild;
-            return generatedStonesParent;
+            generatedBushesParent = existingChild;
+            return generatedBushesParent;
         }
 
-        GameObject generatedParentObject = new GameObject("Generated Stones");
+        GameObject generatedParentObject = new GameObject("Generated Bushes");
         generatedParentObject.transform.SetParent(transform, false);
-        generatedStonesParent = generatedParentObject.transform;
-        return generatedStonesParent;
+        generatedBushesParent = generatedParentObject.transform;
+        return generatedBushesParent;
     }
 
-    private bool HasValidStonePrefab()
+    private bool HasValidBushPrefab()
     {
-        if (stonePrefabSettings == null || stonePrefabSettings.Count == 0)
+        if (bushPrefabSettings == null || bushPrefabSettings.Count == 0)
         {
             return false;
         }
 
-        for (int i = 0; i < stonePrefabSettings.Count; i++)
+        for (int i = 0; i < bushPrefabSettings.Count; i++)
         {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[i];
+            BushPrefabSpawnSettings settings = bushPrefabSettings[i];
             if (settings != null && settings.Prefab != null)
             {
                 return true;
@@ -758,12 +811,12 @@ public class StoneGenerator : MonoBehaviour
         return false;
     }
 
-    private bool TryGetRandomStonePrefab(
-        List<StonePrefabSpawnSettings> spawnablePrefabs,
-        out GameObject stonePrefab
+    private bool TryGetRandomBushPrefab(
+        List<BushPrefabSpawnSettings> spawnablePrefabs,
+        out GameObject bushPrefab
     )
     {
-        stonePrefab = null;
+        bushPrefab = null;
         if (spawnablePrefabs == null || spawnablePrefabs.Count == 0)
         {
             return false;
@@ -772,10 +825,10 @@ public class StoneGenerator : MonoBehaviour
         int startIndex = Random.Range(0, spawnablePrefabs.Count);
         for (int offset = 0; offset < spawnablePrefabs.Count; offset++)
         {
-            StonePrefabSpawnSettings settings = spawnablePrefabs[(startIndex + offset) % spawnablePrefabs.Count];
+            BushPrefabSpawnSettings settings = spawnablePrefabs[(startIndex + offset) % spawnablePrefabs.Count];
             if (settings != null && settings.Prefab != null)
             {
-                stonePrefab = settings.Prefab;
+                bushPrefab = settings.Prefab;
                 return true;
             }
         }
@@ -785,14 +838,14 @@ public class StoneGenerator : MonoBehaviour
 
     private bool TryGetSpawnablePrefabsForTile(
         SpawnCell spawnCell,
-        List<StonePrefabSpawnSettings> spawnablePrefabs
+        List<BushPrefabSpawnSettings> spawnablePrefabs
     )
     {
         spawnablePrefabs.Clear();
 
-        for (int settingIndex = 0; settingIndex < stonePrefabSettings.Count; settingIndex++)
+        for (int settingIndex = 0; settingIndex < bushPrefabSettings.Count; settingIndex++)
         {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[settingIndex];
+            BushPrefabSpawnSettings settings = bushPrefabSettings[settingIndex];
             if (settings == null || settings.Prefab == null)
             {
                 continue;

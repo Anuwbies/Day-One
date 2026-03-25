@@ -470,6 +470,7 @@ MonoBehaviour:
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!114 &1238868125817249006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,8 +530,8 @@ MonoBehaviour:
   lootTable: []
   xOffset: 0
   yOffset: -0.065
-  dropRadius: {x: 0.4, y: 0.2}
-  deadZoneRadius: {x: 0, y: 0}
+  dropRadius: {x: 0.4, y: 0.25}
+  deadZoneRadius: {x: 0.35, y: 0.2}
   destroyOnLoot: 1
   destroyDelay: 0
 --- !u!114 &7477500325771521683
@@ -850,6 +851,7 @@ MonoBehaviour:
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!1 &7435915796427680554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1029,7 @@ MonoBehaviour:
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!1 &8279914490022865486
 GameObject:
   m_ObjectHideFlags: 0

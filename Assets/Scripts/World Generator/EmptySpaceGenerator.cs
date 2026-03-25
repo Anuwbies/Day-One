@@ -59,6 +59,7 @@ public class EmptySpaceGenerator : MonoBehaviour
     [SerializeField, HideInInspector] private List<Vector3Int> generatedCells = new List<Vector3Int>();
 
     public IReadOnlyList<Vector3Int> GeneratedCells => generatedCells;
+    public Tilemap TargetTilemap => targetTilemap;
 
     private void Awake()
     {

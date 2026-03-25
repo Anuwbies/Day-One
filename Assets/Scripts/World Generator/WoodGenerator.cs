@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.Serialization;
 
-public class StoneGenerator : MonoBehaviour
+public class WoodGenerator : MonoBehaviour
 {
     private struct SpawnCell
     {
@@ -20,7 +19,7 @@ public class StoneGenerator : MonoBehaviour
     }
 
     [System.Serializable]
-    private class StonePrefabSpawnSettings
+    private class WoodPrefabSpawnSettings
     {
         [SerializeField] private GameObject prefab;
 
@@ -29,13 +28,6 @@ public class StoneGenerator : MonoBehaviour
 
         [Range(0f, 100f)]
         [SerializeField] private float additionalAreaSpawnChancePercent = 20f;
-
-        public StonePrefabSpawnSettings(GameObject prefab, float tileSpawnChancePercent, float additionalAreaSpawnChancePercent)
-        {
-            this.prefab = prefab;
-            this.tileSpawnChancePercent = tileSpawnChancePercent;
-            this.additionalAreaSpawnChancePercent = additionalAreaSpawnChancePercent;
-        }
 
         public GameObject Prefab => prefab;
 
@@ -54,14 +46,11 @@ public class StoneGenerator : MonoBehaviour
     }
 
     [Header("References")]
-    [SerializeField] private Tilemap stoneTilemap;
-    [SerializeField] private Transform generatedStonesParent;
+    [SerializeField] private Tilemap woodTilemap;
+    [SerializeField] private Transform generatedWoodsParent;
 
-    [FormerlySerializedAs("stonePrefabs")]
-    [SerializeField, HideInInspector] private List<GameObject> legacyStonePrefabs = new List<GameObject>();
-
-    [Header("Stone Prefabs")]
-    [SerializeField] private List<StonePrefabSpawnSettings> stonePrefabSettings = new List<StonePrefabSpawnSettings>();
+    [Header("Wood Prefabs")]
+    [SerializeField] private List<WoodPrefabSpawnSettings> woodPrefabSettings = new List<WoodPrefabSpawnSettings>();
 
     [Header("Generation Settings")]
     [Min(0f)]
@@ -71,13 +60,10 @@ public class StoneGenerator : MonoBehaviour
     [SerializeField] private float maxRandomDist = 8f;
 
     [Min(1)]
-    [SerializeField] private int stonesPerTile = 1;
-
-    [FormerlySerializedAs("spawnChancePercent")]
-    [SerializeField, HideInInspector] private float legacyTileSpawnChancePercent = 35f;
+    [SerializeField] private int woodsPerTile = 1;
 
     [Min(1)]
-    [SerializeField] private int maxPlacementAttemptsPerStone = 4;
+    [SerializeField] private int maxPlacementAttemptsPerWood = 4;
 
     [Min(0f)]
     [SerializeField] private float edgeTileMargin = 0f;
@@ -88,46 +74,41 @@ public class StoneGenerator : MonoBehaviour
     [Header("Additional Spawn Areas")]
     [SerializeField] private List<EmptySpaceGenerator> emptySpaceGenerators;
 
-    [FormerlySerializedAs("additionalSpawnAreaChancePercent")]
-    [SerializeField, HideInInspector] private float legacyAdditionalAreaSpawnChancePercent = 20f;
-
     [SerializeField] private bool generateOnStart = true;
     [SerializeField] private bool clearBeforeGenerate = true;
 
     private readonly List<Vector3> generatedPositions = new List<Vector3>();
     private readonly List<Collider2D> overlapResults = new List<Collider2D>();
-    private readonly Dictionary<GameObject, Collider2D> cachedStoneChildColliders = new Dictionary<GameObject, Collider2D>();
-    private readonly List<StonePrefabSpawnSettings> spawnablePrefabBuffer = new List<StonePrefabSpawnSettings>();
+    private readonly Dictionary<GameObject, Collider2D> cachedWoodChildColliders = new Dictionary<GameObject, Collider2D>();
+    private readonly List<WoodPrefabSpawnSettings> spawnablePrefabBuffer = new List<WoodPrefabSpawnSettings>();
 
     private void Start()
     {
         if (generateOnStart)
         {
-            GenerateStones();
+            GenerateWoods();
         }
     }
 
     private void OnValidate()
     {
-        cachedStoneChildColliders.Clear();
+        cachedWoodChildColliders.Clear();
         minRandomDist = Mathf.Max(0f, minRandomDist);
         maxRandomDist = Mathf.Max(minRandomDist, maxRandomDist);
-        stonesPerTile = Mathf.Max(1, stonesPerTile);
-        legacyTileSpawnChancePercent = Mathf.Clamp(legacyTileSpawnChancePercent, 0f, 100f);
-        legacyAdditionalAreaSpawnChancePercent = Mathf.Clamp(legacyAdditionalAreaSpawnChancePercent, 0f, 100f);
-        maxPlacementAttemptsPerStone = Mathf.Max(1, maxPlacementAttemptsPerStone);
+        woodsPerTile = Mathf.Max(1, woodsPerTile);
+        maxPlacementAttemptsPerWood = Mathf.Max(1, maxPlacementAttemptsPerWood);
         edgeTileMargin = Mathf.Max(0f, edgeTileMargin);
-        SyncStonePrefabSettings();
+        ClampWoodPrefabSettings();
     }
 
-    [ContextMenu("Generate Stones")]
-    public void GenerateStones()
+    [ContextMenu("Generate Woods")]
+    public void GenerateWoods()
     {
-        SyncStonePrefabSettings();
+        ClampWoodPrefabSettings();
 
-        if (!HasValidStonePrefab())
+        if (!HasValidWoodPrefab())
         {
-            Debug.LogWarning($"No stone prefabs assigned for {name}.");
+            Debug.LogWarning($"No wood prefabs assigned for {name}.");
             return;
         }
 
@@ -136,15 +117,15 @@ public class StoneGenerator : MonoBehaviour
         List<SpawnCell> spawnCells = CollectSpawnCells();
         if (spawnCells.Count == 0)
         {
-            Debug.LogWarning($"No valid stone spawn cells found for {name}.");
+            Debug.LogWarning($"No valid wood spawn cells found for {name}.");
             return;
         }
 
-        Transform spawnParent = GetOrCreateGeneratedStonesParent();
+        Transform spawnParent = GetOrCreateGeneratedWoodsParent();
 
         if (clearBeforeGenerate)
         {
-            ClearGeneratedStones();
+            ClearGeneratedWoods();
         }
         else
         {
@@ -158,17 +139,17 @@ public class StoneGenerator : MonoBehaviour
                 continue;
             }
 
-            for (int spawnIndex = 0; spawnIndex < stonesPerTile; spawnIndex++)
+            for (int spawnIndex = 0; spawnIndex < woodsPerTile; spawnIndex++)
             {
-                TrySpawnStoneOnCell(spawnCells[cellIndex], spawnParent, spawnablePrefabBuffer);
+                TrySpawnWoodOnCell(spawnCells[cellIndex], spawnParent, spawnablePrefabBuffer);
             }
         }
     }
 
-    [ContextMenu("Clear Generated Stones")]
-    public void ClearGeneratedStones()
+    [ContextMenu("Clear Generated Woods")]
+    public void ClearGeneratedWoods()
     {
-        Transform spawnParent = GetOrCreateGeneratedStonesParent();
+        Transform spawnParent = GetOrCreateGeneratedWoodsParent();
 
         for (int i = spawnParent.childCount - 1; i >= 0; i--)
         {
@@ -186,40 +167,40 @@ public class StoneGenerator : MonoBehaviour
         generatedPositions.Clear();
     }
 
-    private void TrySpawnStoneOnCell(
+    private void TrySpawnWoodOnCell(
         SpawnCell spawnCell,
         Transform spawnParent,
-        List<StonePrefabSpawnSettings> spawnablePrefabs
+        List<WoodPrefabSpawnSettings> spawnablePrefabs
     )
     {
-        for (int attempt = 0; attempt < maxPlacementAttemptsPerStone; attempt++)
+        for (int attempt = 0; attempt < maxPlacementAttemptsPerWood; attempt++)
         {
-            if (!TryGetRandomStonePrefab(spawnablePrefabs, out GameObject stonePrefab))
+            if (!TryGetRandomWoodPrefab(spawnablePrefabs, out GameObject woodPrefab))
             {
                 return;
             }
 
             Vector3 pivotPosition = GetRandomPivotPositionInCell(spawnCell);
-            Vector3 spawnPosition = GetStoneRootPositionFromPivot(stonePrefab, pivotPosition);
+            Vector3 spawnPosition = GetWoodRootPositionFromPivot(woodPrefab, pivotPosition);
 
-            if (!IsOnSelectedSpawnArea(stonePrefab, spawnPosition, spawnCell))
+            if (!IsOnSelectedSpawnArea(woodPrefab, spawnPosition, spawnCell))
             {
                 continue;
             }
 
-            if (!IsFarEnoughFromExistingStones(pivotPosition))
+            if (!IsFarEnoughFromExistingWoods(pivotPosition))
             {
                 continue;
             }
 
-            if (!IsAreaFreeFromObstacles(stonePrefab, spawnPosition))
+            if (!IsAreaFreeFromObstacles(woodPrefab, spawnPosition))
             {
                 continue;
             }
 
-            GameObject stoneInstance = Instantiate(stonePrefab, spawnPosition, Quaternion.identity, spawnParent);
-            stoneInstance.name = stonePrefab.name;
-            generatedPositions.Add(GetStonePivotWorldPosition(stoneInstance.transform));
+            GameObject woodInstance = Instantiate(woodPrefab, spawnPosition, Quaternion.identity, spawnParent);
+            woodInstance.name = woodPrefab.name;
+            generatedPositions.Add(GetWoodPivotWorldPosition(woodInstance.transform));
             return;
         }
     }
@@ -229,17 +210,17 @@ public class StoneGenerator : MonoBehaviour
         List<SpawnCell> spawnCells = new List<SpawnCell>();
         Dictionary<string, int> cellIndices = new Dictionary<string, int>();
 
-        if (stoneTilemap != null)
+        if (woodTilemap != null)
         {
-            BoundsInt bounds = stoneTilemap.cellBounds;
+            BoundsInt bounds = woodTilemap.cellBounds;
             foreach (Vector3Int cellPosition in bounds.allPositionsWithin)
             {
-                if (!stoneTilemap.HasTile(cellPosition))
+                if (!woodTilemap.HasTile(cellPosition))
                 {
                     continue;
                 }
 
-                AddSpawnCell(stoneTilemap, cellPosition, false, spawnCells, cellIndices);
+                AddSpawnCell(woodTilemap, cellPosition, false, spawnCells, cellIndices);
             }
         }
 
@@ -302,7 +283,7 @@ public class StoneGenerator : MonoBehaviour
         spawnCells.Add(new SpawnCell(spawnTilemap, cellPosition, isEmptySpaceCell));
     }
 
-    private bool IsOnSelectedSpawnArea(GameObject stonePrefab, Vector3 stoneRootPosition, SpawnCell spawnCell)
+    private bool IsOnSelectedSpawnArea(GameObject woodPrefab, Vector3 woodRootPosition, SpawnCell spawnCell)
     {
         if (spawnCell.SpawnTilemap == null)
         {
@@ -311,22 +292,22 @@ public class StoneGenerator : MonoBehaviour
 
         if (spawnCell.IsEmptySpaceCell)
         {
-            return IsInsideEmptySpace(stonePrefab, stoneRootPosition, spawnCell.SpawnTilemap);
+            return IsInsideEmptySpace(woodPrefab, woodRootPosition, spawnCell.SpawnTilemap);
         }
 
-        return IsOnSelectedTilemap(stonePrefab, stoneRootPosition, spawnCell.SpawnTilemap);
+        return IsOnSelectedTilemap(woodPrefab, woodRootPosition, spawnCell.SpawnTilemap);
     }
 
-    private bool IsInsideEmptySpace(GameObject stonePrefab, Vector3 stoneRootPosition, Tilemap sourceTilemap)
+    private bool IsInsideEmptySpace(GameObject woodPrefab, Vector3 woodRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (!TryGetWoodColliderBounds(woodPrefab, woodRootPosition, out Bounds colliderBounds))
         {
-            return IsInAnyEmptySpace(stoneRootPosition);
+            return IsInAnyEmptySpace(woodRootPosition);
         }
 
         return AreBoundsCoveredByEmptySpaces(colliderBounds, sourceTilemap);
@@ -405,16 +386,16 @@ public class StoneGenerator : MonoBehaviour
         );
     }
 
-    private bool IsOnSelectedTilemap(GameObject stonePrefab, Vector3 stoneRootPosition, Tilemap sourceTilemap)
+    private bool IsOnSelectedTilemap(GameObject woodPrefab, Vector3 woodRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (!TryGetWoodColliderBounds(woodPrefab, woodRootPosition, out Bounds colliderBounds))
         {
-            Vector3Int cellPosition = sourceTilemap.WorldToCell(stoneRootPosition);
+            Vector3Int cellPosition = sourceTilemap.WorldToCell(woodRootPosition);
             return sourceTilemap.HasTile(cellPosition);
         }
 
@@ -462,7 +443,7 @@ public class StoneGenerator : MonoBehaviour
         return true;
     }
 
-    private bool IsFarEnoughFromExistingStones(Vector3 candidatePosition)
+    private bool IsFarEnoughFromExistingWoods(Vector3 candidatePosition)
     {
         if (generatedPositions.Count == 0)
         {
@@ -484,7 +465,7 @@ public class StoneGenerator : MonoBehaviour
         return true;
     }
 
-    private bool IsAreaFreeFromObstacles(GameObject stonePrefab, Vector3 stoneRootPosition)
+    private bool IsAreaFreeFromObstacles(GameObject woodPrefab, Vector3 woodRootPosition)
     {
         ContactFilter2D filter = new ContactFilter2D
         {
@@ -494,7 +475,7 @@ public class StoneGenerator : MonoBehaviour
 
         overlapResults.Clear();
         Physics2D.SyncTransforms();
-        GetPlacementOverlaps(stonePrefab, stoneRootPosition, filter, overlapResults);
+        GetPlacementOverlaps(woodPrefab, woodRootPosition, filter, overlapResults);
 
         for (int i = 0; i < overlapResults.Count; i++)
         {
@@ -514,82 +495,82 @@ public class StoneGenerator : MonoBehaviour
 
         for (int i = 0; i < spawnParent.childCount; i++)
         {
-            generatedPositions.Add(GetStonePivotWorldPosition(spawnParent.GetChild(i)));
+            generatedPositions.Add(GetWoodPivotWorldPosition(spawnParent.GetChild(i)));
         }
     }
 
-    private Vector3 GetStoneRootPositionFromPivot(GameObject stonePrefab, Vector3 pivotPosition)
+    private Vector3 GetWoodRootPositionFromPivot(GameObject woodPrefab, Vector3 pivotPosition)
     {
-        Vector3 pivotOffset = GetStonePivotLocalOffset(stonePrefab);
+        Vector3 pivotOffset = GetWoodPivotLocalOffset(woodPrefab);
         return new Vector3(
             pivotPosition.x - pivotOffset.x,
             pivotPosition.y - pivotOffset.y,
-            stonePrefab.transform.position.z
+            woodPrefab.transform.position.z
         );
     }
 
-    private Vector3 GetStonePivotWorldPosition(Transform stoneTransform)
+    private Vector3 GetWoodPivotWorldPosition(Transform woodTransform)
     {
-        if (stoneTransform == null)
+        if (woodTransform == null)
         {
             return Vector3.zero;
         }
 
-        Collider2D childCollider = GetChildCollider(stoneTransform.gameObject);
+        Collider2D childCollider = GetChildCollider(woodTransform.gameObject);
         if (childCollider == null)
         {
-            return stoneTransform.position;
+            return woodTransform.position;
         }
 
         return childCollider.transform.TransformPoint(childCollider.offset);
     }
 
-    private Vector3 GetStonePivotLocalOffset(GameObject stonePrefab)
+    private Vector3 GetWoodPivotLocalOffset(GameObject woodPrefab)
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetWoodPrefabChildCollider(woodPrefab);
         if (childCollider == null)
         {
             return Vector3.zero;
         }
 
-        return stonePrefab.transform.InverseTransformPoint(
+        return woodPrefab.transform.InverseTransformPoint(
             childCollider.transform.TransformPoint(childCollider.offset)
         );
     }
 
-    private Collider2D GetStonePrefabChildCollider(GameObject stonePrefab)
+    private Collider2D GetWoodPrefabChildCollider(GameObject woodPrefab)
     {
-        if (stonePrefab == null)
+        if (woodPrefab == null)
         {
             return null;
         }
 
-        if (cachedStoneChildColliders.TryGetValue(stonePrefab, out Collider2D cachedCollider) && cachedCollider != null)
+        if (cachedWoodChildColliders.TryGetValue(woodPrefab, out Collider2D cachedCollider) && cachedCollider != null)
         {
             return cachedCollider;
         }
 
-        Collider2D foundCollider = GetChildCollider(stonePrefab);
-        cachedStoneChildColliders[stonePrefab] = foundCollider;
+        Collider2D foundCollider = GetChildCollider(woodPrefab);
+        cachedWoodChildColliders[woodPrefab] = foundCollider;
         return foundCollider;
     }
 
     private int GetPlacementOverlaps(
-        GameObject stonePrefab,
-        Vector3 stoneRootPosition,
+        GameObject woodPrefab,
+        Vector3 woodRootPosition,
         ContactFilter2D filter,
         List<Collider2D> results
     )
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetWoodPrefabChildCollider(woodPrefab);
         if (childCollider == null)
         {
-            return Physics2D.OverlapBox((Vector2)stoneRootPosition, Vector2.one * 0.1f, 0f, filter, results);
+            return Physics2D.OverlapBox((Vector2)woodRootPosition, Vector2.one * 0.1f, 0f, filter, results);
         }
 
         if (childCollider is CircleCollider2D circleCollider)
         {
-            Vector2 center = GetStoneChildColliderWorldCenter(stonePrefab, circleCollider, stoneRootPosition);
+            Vector2 center = GetWoodChildColliderWorldCenter(woodPrefab, circleCollider, woodRootPosition);
             Vector3 scale = circleCollider.transform.lossyScale;
             float radius = circleCollider.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y));
             return Physics2D.OverlapCircle(center, radius, filter, results);
@@ -597,13 +578,13 @@ public class StoneGenerator : MonoBehaviour
 
         if (childCollider is BoxCollider2D boxCollider)
         {
-            Vector2 center = GetStoneChildColliderWorldCenter(stonePrefab, boxCollider, stoneRootPosition);
+            Vector2 center = GetWoodChildColliderWorldCenter(woodPrefab, boxCollider, woodRootPosition);
             Vector2 size = GetScaledColliderSize(boxCollider.size, boxCollider.transform);
             float angle = boxCollider.transform.eulerAngles.z;
             return Physics2D.OverlapBox(center, size, angle, filter, results);
         }
 
-        if (TryGetStoneColliderBounds(stonePrefab, stoneRootPosition, out Bounds colliderBounds))
+        if (TryGetWoodColliderBounds(woodPrefab, woodRootPosition, out Bounds colliderBounds))
         {
             return Physics2D.OverlapBox(
                 (Vector2)colliderBounds.center,
@@ -617,13 +598,13 @@ public class StoneGenerator : MonoBehaviour
         return 0;
     }
 
-    private Vector2 GetStoneChildColliderWorldCenter(
-        GameObject stonePrefab,
+    private Vector2 GetWoodChildColliderWorldCenter(
+        GameObject woodPrefab,
         Collider2D childCollider,
-        Vector3 stoneRootPosition
+        Vector3 woodRootPosition
     )
     {
-        Vector3 rootOffset = stoneRootPosition - stonePrefab.transform.position;
+        Vector3 rootOffset = woodRootPosition - woodPrefab.transform.position;
         Vector3 worldCenter = childCollider.transform.TransformPoint(childCollider.offset) + rootOffset;
         return new Vector2(worldCenter.x, worldCenter.y);
     }
@@ -637,9 +618,9 @@ public class StoneGenerator : MonoBehaviour
         );
     }
 
-    private bool TryGetStoneColliderBounds(GameObject stonePrefab, Vector3 stoneRootPosition, out Bounds colliderBounds)
+    private bool TryGetWoodColliderBounds(GameObject woodPrefab, Vector3 woodRootPosition, out Bounds colliderBounds)
     {
-        Collider2D childCollider = GetStonePrefabChildCollider(stonePrefab);
+        Collider2D childCollider = GetWoodPrefabChildCollider(woodPrefab);
         if (childCollider == null)
         {
             colliderBounds = default;
@@ -647,7 +628,7 @@ public class StoneGenerator : MonoBehaviour
         }
 
         colliderBounds = childCollider.bounds;
-        colliderBounds.center += stoneRootPosition - stonePrefab.transform.position;
+        colliderBounds.center += woodRootPosition - woodPrefab.transform.position;
         return colliderBounds.size.sqrMagnitude > 0f;
     }
 
@@ -671,38 +652,16 @@ public class StoneGenerator : MonoBehaviour
         return target.GetComponent<Collider2D>();
     }
 
-    private void SyncStonePrefabSettings()
+    private void ClampWoodPrefabSettings()
     {
-        if (stonePrefabSettings == null)
+        if (woodPrefabSettings == null)
         {
-            stonePrefabSettings = new List<StonePrefabSpawnSettings>();
+            woodPrefabSettings = new List<WoodPrefabSpawnSettings>();
         }
 
-        if (stonePrefabSettings.Count == 0 && legacyStonePrefabs != null && legacyStonePrefabs.Count > 0)
+        for (int settingIndex = 0; settingIndex < woodPrefabSettings.Count; settingIndex++)
         {
-            HashSet<GameObject> addedPrefabs = new HashSet<GameObject>();
-
-            for (int prefabIndex = 0; prefabIndex < legacyStonePrefabs.Count; prefabIndex++)
-            {
-                GameObject legacyPrefab = legacyStonePrefabs[prefabIndex];
-                if (legacyPrefab == null || !addedPrefabs.Add(legacyPrefab))
-                {
-                    continue;
-                }
-
-                stonePrefabSettings.Add(new StonePrefabSpawnSettings(
-                    legacyPrefab,
-                    legacyTileSpawnChancePercent,
-                    legacyAdditionalAreaSpawnChancePercent
-                ));
-            }
-
-            legacyStonePrefabs.Clear();
-        }
-
-        for (int settingIndex = 0; settingIndex < stonePrefabSettings.Count; settingIndex++)
-        {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[settingIndex];
+            WoodPrefabSpawnSettings settings = woodPrefabSettings[settingIndex];
             if (settings != null)
             {
                 settings.ClampValues();
@@ -719,36 +678,36 @@ public class StoneGenerator : MonoBehaviour
         }
     }
 
-    private Transform GetOrCreateGeneratedStonesParent()
+    private Transform GetOrCreateGeneratedWoodsParent()
     {
-        if (generatedStonesParent != null)
+        if (generatedWoodsParent != null)
         {
-            return generatedStonesParent;
+            return generatedWoodsParent;
         }
 
-        Transform existingChild = transform.Find("Generated Stones");
+        Transform existingChild = transform.Find("Generated Woods");
         if (existingChild != null)
         {
-            generatedStonesParent = existingChild;
-            return generatedStonesParent;
+            generatedWoodsParent = existingChild;
+            return generatedWoodsParent;
         }
 
-        GameObject generatedParentObject = new GameObject("Generated Stones");
+        GameObject generatedParentObject = new GameObject("Generated Woods");
         generatedParentObject.transform.SetParent(transform, false);
-        generatedStonesParent = generatedParentObject.transform;
-        return generatedStonesParent;
+        generatedWoodsParent = generatedParentObject.transform;
+        return generatedWoodsParent;
     }
 
-    private bool HasValidStonePrefab()
+    private bool HasValidWoodPrefab()
     {
-        if (stonePrefabSettings == null || stonePrefabSettings.Count == 0)
+        if (woodPrefabSettings == null || woodPrefabSettings.Count == 0)
         {
             return false;
         }
 
-        for (int i = 0; i < stonePrefabSettings.Count; i++)
+        for (int i = 0; i < woodPrefabSettings.Count; i++)
         {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[i];
+            WoodPrefabSpawnSettings settings = woodPrefabSettings[i];
             if (settings != null && settings.Prefab != null)
             {
                 return true;
@@ -758,12 +717,12 @@ public class StoneGenerator : MonoBehaviour
         return false;
     }
 
-    private bool TryGetRandomStonePrefab(
-        List<StonePrefabSpawnSettings> spawnablePrefabs,
-        out GameObject stonePrefab
+    private bool TryGetRandomWoodPrefab(
+        List<WoodPrefabSpawnSettings> spawnablePrefabs,
+        out GameObject woodPrefab
     )
     {
-        stonePrefab = null;
+        woodPrefab = null;
         if (spawnablePrefabs == null || spawnablePrefabs.Count == 0)
         {
             return false;
@@ -772,10 +731,10 @@ public class StoneGenerator : MonoBehaviour
         int startIndex = Random.Range(0, spawnablePrefabs.Count);
         for (int offset = 0; offset < spawnablePrefabs.Count; offset++)
         {
-            StonePrefabSpawnSettings settings = spawnablePrefabs[(startIndex + offset) % spawnablePrefabs.Count];
+            WoodPrefabSpawnSettings settings = spawnablePrefabs[(startIndex + offset) % spawnablePrefabs.Count];
             if (settings != null && settings.Prefab != null)
             {
-                stonePrefab = settings.Prefab;
+                woodPrefab = settings.Prefab;
                 return true;
             }
         }
@@ -785,14 +744,14 @@ public class StoneGenerator : MonoBehaviour
 
     private bool TryGetSpawnablePrefabsForTile(
         SpawnCell spawnCell,
-        List<StonePrefabSpawnSettings> spawnablePrefabs
+        List<WoodPrefabSpawnSettings> spawnablePrefabs
     )
     {
         spawnablePrefabs.Clear();
 
-        for (int settingIndex = 0; settingIndex < stonePrefabSettings.Count; settingIndex++)
+        for (int settingIndex = 0; settingIndex < woodPrefabSettings.Count; settingIndex++)
         {
-            StonePrefabSpawnSettings settings = stonePrefabSettings[settingIndex];
+            WoodPrefabSpawnSettings settings = woodPrefabSettings[settingIndex];
             if (settings == null || settings.Prefab == null)
             {
                 continue;
