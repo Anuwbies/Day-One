@@ -1,8 +1,11 @@
-using UnityEngine;
+using System;
 using System.Collections;
+using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public event Action OnDeath;
+
     [Header("Current Stats")]
     public float Health = 100f;
     public float Hunger = 100f;
@@ -36,6 +39,9 @@ public class PlayerStats : MonoBehaviour
     private float lastEnergyUseTime = 0f;
     private Color defaultSpriteColor = Color.white;
     private Coroutine damageFlashRoutine;
+    private bool isDead;
+
+    public bool IsDead => isDead;
 
     private void Awake()
     {
@@ -113,7 +119,7 @@ public class PlayerStats : MonoBehaviour
 
     private void ApplyDamage(float amount, bool logDamage)
     {
-        if (amount <= 0f)
+        if (amount <= 0f || isDead)
         {
             return;
         }
@@ -126,10 +132,11 @@ public class PlayerStats : MonoBehaviour
             Debug.Log($"Player took {amount} damage. Current Health: {Health}");
         }
 
-        if (Health <= 0)
+        if (Health <= 0f)
         {
-            // Optional: Handle Player Death here
+            isDead = true;
             Debug.Log("Player has died!");
+            OnDeath?.Invoke();
         }
     }
 

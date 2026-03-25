@@ -215,6 +215,7 @@ MonoBehaviour:
     offset: {x: 0.01, y: 0.08}
     size: {x: 0.55, y: 0.35}
     cornerRadius: 0.5
+  showTriggerAreaGizmos: 0
 --- !u!114 &4686881734038489449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +390,7 @@ MonoBehaviour:
   fadeAlpha: 0.5
   fadeSpeed: 10
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!1001 &6672024940260751320
 PrefabInstance:
   m_ObjectHideFlags: 0
