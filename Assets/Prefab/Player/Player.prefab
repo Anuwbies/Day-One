@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ab816cccb9fb54291977e00601842a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupBodyCollider: {fileID: 8840720255086559041}
   pickupInterval: 0.15
   showPickupHintsPermanently: 1
   maxHintsToShow: 10

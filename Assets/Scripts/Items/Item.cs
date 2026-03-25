@@ -14,6 +14,9 @@ public class Item : MonoBehaviour
 
     public void ToggleHint(bool show)
     {
-        if (hintCanvas != null) hintCanvas.SetActive(show);
+        if (hintCanvas != null && hintCanvas.activeSelf != show)
+        {
+            hintCanvas.SetActive(show);
+        }
     }
 }

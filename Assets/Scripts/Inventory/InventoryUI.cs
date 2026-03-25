@@ -172,6 +172,22 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    public static void MarkAnyClickConsumedThisFrame()
+    {
+        foreach (InventoryUI ui in Instances)
+        {
+            if (ui != null)
+            {
+                ui.ConsumeClickThisFrame = true;
+            }
+        }
+    }
+
+    public void MarkClickConsumedThisFrame()
+    {
+        ConsumeClickThisFrame = true;
+    }
+
     private bool IsAnotherInventoryOpen()
     {
         foreach (InventoryUI ui in Instances)

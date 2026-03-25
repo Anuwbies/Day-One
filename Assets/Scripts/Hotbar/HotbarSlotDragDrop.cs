@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class HotbarSlotDragDrop : MonoBehaviour,
-    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerDownHandler
 {
     public HotbarSlot hotbarSlot;
 
@@ -63,12 +63,24 @@ public class HotbarSlotDragDrop : MonoBehaviour,
     }
 
     // =========================
+    // POINTER DOWN
+    // =========================
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        MarkClickConsumed();
+    }
+
+    // =========================
     // BEGIN DRAG
     // =========================
     public void OnBeginDrag(PointerEventData eventData)
     {
         ResetState();
         ResolveInventoryUI();
+        MarkClickConsumed();
 
         if (hotbarSlot.currentSlot == null ||
             hotbarSlot.currentSlot.item == null)
@@ -213,6 +225,19 @@ public class HotbarSlotDragDrop : MonoBehaviour,
 
         if (inventoryUI == null)
             inventoryUI = Object.FindAnyObjectByType<InventoryUI>();
+    }
+
+    private void MarkClickConsumed()
+    {
+        ResolveInventoryUI();
+
+        if (inventoryUI != null)
+        {
+            inventoryUI.MarkClickConsumedThisFrame();
+            return;
+        }
+
+        InventoryUI.MarkAnyClickConsumedThisFrame();
     }
 
     // =========================
