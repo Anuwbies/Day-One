@@ -22,6 +22,8 @@ public class CameraFollow : MonoBehaviour
     public float idleDelay = 1.0f;
     private float idleTimer = 0f;
 
+    public static Vector3 shakeOffset;
+
     private PlayerMovement playerMovement;
 
     void Start()
@@ -42,7 +44,10 @@ public class CameraFollow : MonoBehaviour
             transform.position,
             desiredPosition,
             smoothSpeed * Time.deltaTime
-        );
+        ) + shakeOffset;
+
+        // Reset shake offset for the next frame
+        shakeOffset = Vector3.zero;
 
         // Determine target zoom
         float speed = playerMovement.movement.sqrMagnitude;

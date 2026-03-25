@@ -102,9 +102,9 @@ RectTransform:
   - {fileID: 7444323849288899217}
   m_Father: {fileID: 4015777338357069085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 8.5, y: -5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 15, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4334783849693721949
@@ -422,6 +422,7 @@ MonoBehaviour:
   sortYOffset: -0.24
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 0
   fadeAlpha: 0.4
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9753fc6a1c7a96428817db20565ccf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 1
   Hunger: 100
   Thirst: 100
   Energy: 100
@@ -520,9 +521,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 3424390607189394427}
-  tombstonePrefab: {fileID: 0}
+  tombstonePrefab: {fileID: 9001765255158208854, guid: 7f58a4e3cc1fc2d489cbeab67bb18c46, type: 3}
   tombstoneSprite: {fileID: -4213407472075508319, guid: 1dea2fbb8ecc1a3499e4048e19a0dbe1, type: 3}
-  tombstoneOffset: {x: 0, y: 0, z: 0}
+  tombstoneOffset: {x: 0, y: -0.28, z: 0}
+  tombstoneFallHeight: 3.5
+  tombstoneFallDuration: 0.35
+  canvasEnableDelay: 1
+  canvasPanelScaleDuration: 0.5
+  baseDisableDelay: 0.5
+  showImpactGizmo: 1
+  impactGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  tombstoneGizmoColor: {r: 1, g: 0.04714232, b: 0, a: 1}
+  tombstoneGizmoRadius: 0.05
 --- !u!1 &3071748677018561993
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +640,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.15, y: 0.25}
-  m_SizeDelta: {x: 17, y: 11}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.00000006519258, y: -0.0000016056001}
 --- !u!222 &6918982086132190880
 CanvasRenderer:

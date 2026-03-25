@@ -10,6 +10,11 @@ public class AfterDeath : MonoBehaviour
     [SerializeField] private float tombstoneFallDuration = 0.35f;
     [SerializeField] private float canvasEnableDelay = 1f;
     [SerializeField] private float canvasPanelScaleDuration = 0.2f;
+    [SerializeField] private float baseDisableDelay = 0.5f;
+
+    [Header("Gizmos")]
+    [SerializeField] private bool showImpactGizmo = true;
+    [SerializeField] private Color impactGizmoColor = Color.red;
     [SerializeField] private Color tombstoneGizmoColor = new Color(0.7f, 0.9f, 1f, 1f);
     [SerializeField] private float tombstoneGizmoRadius = 0.2f;
 
@@ -48,7 +53,66 @@ public class AfterDeath : MonoBehaviour
 
         hasHandledDeath = true;
         SpawnTombstone();
+        DisablePlayerImmediately();
+        StartCoroutine(DisablePlayerAfterDelay());
+    }
+
+    private System.Collections.IEnumerator DisablePlayerAfterDelay()
+    {
+        yield return new WaitForSeconds(baseDisableDelay);
         gameObject.SetActive(false);
+    }
+
+    private void DisablePlayerImmediately()
+    {
+        DisablePlayerChildren();
+        DisablePlayerRootComponents();
+    }
+
+    private void DisablePlayerChildren()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    private void DisablePlayerRootComponents()
+    {
+        MonoBehaviour[] rootBehaviours = GetComponents<MonoBehaviour>();
+        for (int i = 0; i < rootBehaviours.Length; i++)
+        {
+            MonoBehaviour behaviour = rootBehaviours[i];
+            if (behaviour == null || behaviour == this)
+            {
+                continue;
+            }
+
+            behaviour.enabled = false;
+        }
+
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i] != null)
+            {
+                colliders[i].enabled = false;
+            }
+        }
+
+        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+        if (rigidbody2D != null)
+        {
+            rigidbody2D.linearVelocity = Vector2.zero;
+            rigidbody2D.angularVelocity = 0f;
+            rigidbody2D.simulated = false;
+        }
     }
 
     private void SpawnTombstone()
@@ -59,6 +123,7 @@ public class AfterDeath : MonoBehaviour
         if (tombstonePrefab != null)
         {
             tombstone = Instantiate(tombstonePrefab, landingPosition, transform.rotation);
+            ConfigureSpawnedTombstone(tombstone);
             StartTombstoneFall(tombstone, landingPosition);
             return;
         }
@@ -76,15 +141,45 @@ public class AfterDeath : MonoBehaviour
         SpriteRenderer tombstoneRenderer = tombstone.AddComponent<SpriteRenderer>();
         tombstoneRenderer.sprite = tombstoneSprite;
 
+        YSorter tombstoneSorter = tombstone.AddComponent<YSorter>();
+        tombstoneSorter.enableTransparency = false;
+        tombstoneSorter.alwaysInFrontOfPlayer = true;
+
         SpriteRenderer playerSpriteRenderer = GetComponent<SpriteRenderer>();
         if (playerSpriteRenderer != null)
         {
             tombstoneRenderer.sortingLayerID = playerSpriteRenderer.sortingLayerID;
-            tombstoneRenderer.sortingOrder = playerSpriteRenderer.sortingOrder;
+            tombstoneRenderer.sortingOrder = playerSpriteRenderer.sortingOrder + 1;
             tombstoneRenderer.color = playerSpriteRenderer.color;
         }
 
         StartTombstoneFall(tombstone, landingPosition);
+    }
+
+    private void ConfigureSpawnedTombstone(GameObject tombstone)
+    {
+        if (tombstone == null)
+        {
+            return;
+        }
+
+        SpriteRenderer playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        if (playerSpriteRenderer != null)
+        {
+            SpriteRenderer tombstoneRenderer = tombstone.GetComponent<SpriteRenderer>();
+            if (tombstoneRenderer != null)
+            {
+                tombstoneRenderer.sortingLayerID = playerSpriteRenderer.sortingLayerID;
+                tombstoneRenderer.sortingOrder = playerSpriteRenderer.sortingOrder + 1;
+            }
+        }
+
+        YSorter tombstoneSorter = tombstone.GetComponent<YSorter>();
+        if (tombstoneSorter != null)
+        {
+            tombstoneSorter.alwaysBehindPlayer = false;
+            tombstoneSorter.alwaysInFrontOfPlayer = true;
+        }
     }
 
     private Vector3 GetTombstoneSpawnPosition()
@@ -112,6 +207,25 @@ public class AfterDeath : MonoBehaviour
             canvasEnableDelay,
             canvasPanelScaleDuration
         );
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!showImpactGizmo || Application.isPlaying && hasHandledDeath)
+        {
+            return;
+        }
+
+        Vector3 landingPosition = GetTombstoneSpawnPosition();
+        Gizmos.color = impactGizmoColor;
+        
+        // Draw a distinct "Crush Mark" / Landing Spot
+        Gizmos.DrawWireSphere(landingPosition, tombstoneGizmoRadius * 1.5f);
+        
+        // Draw an X to mark the spot
+        float crossSize = tombstoneGizmoRadius * 1.2f;
+        Gizmos.DrawLine(landingPosition + new Vector3(-crossSize, 0, -crossSize), landingPosition + new Vector3(crossSize, 0, crossSize));
+        Gizmos.DrawLine(landingPosition + new Vector3(crossSize, 0, -crossSize), landingPosition + new Vector3(-crossSize, 0, crossSize));
     }
 
     private void OnDrawGizmosSelected()

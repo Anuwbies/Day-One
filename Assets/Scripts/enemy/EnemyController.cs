@@ -125,12 +125,27 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (playerCollider != null && !IsLivePlayerCollider(playerCollider))
+        {
+            ClearPlayerTarget();
+            ClearAggroState();
+        }
+
         if (playerCollider == null)
         {
             TryAssignPlayerCollider();
         }
 
-        if (playerCollider == null || enemyHealth.IsDead) return;
+        if (enemyHealth.IsDead)
+        {
+            return;
+        }
+
+        if (playerCollider == null)
+        {
+            Patrol();
+            return;
+        }
 
         // Use centers of colliders for interaction logic
         Vector3 playerPos = playerCollider.bounds.center;
@@ -159,32 +174,7 @@ public class EnemyController : MonoBehaviour
             // Check if player is OUTSIDE the disengage ellipse
             if (!IsInEllipticalRange(playerPos, myPos, disengageRange))
             {
-                // If far enough away, stop chasing (or stop fleeing)
-                IsAggroed = false;
-                isReturningToPatrol = true;
-                
-                // Reset wall memory for fresh start when returning
-                lastWallID = 0;
-                lastWallSide = 0f;
-                
-                // Clear any movement locks from the chase
-                lockedSlideDirection = Vector2.zero;
-                lockedFleeDirection = Vector2.zero;
-
-                // HANDLE PATROL RESET
-                if (resetPatrolAfterAggro)
-                {
-                    // Update startPosition to current position so it patrols around where it stopped
-                    startPosition = ownCollider != null ? ownCollider.bounds.center : transform.position;
-                    patrolTarget = startPosition;
-                    nextMoveTime = Time.time + waitTime;
-                }
-                else
-                {
-                    // Return to original start position
-                    patrolTarget = startPosition;
-                    // We don't set nextMoveTime here so it starts moving immediately
-                }
+                ClearAggroState();
             }
             else
             {
@@ -535,10 +525,12 @@ public class EnemyController : MonoBehaviour
 
     private void TryAssignPlayerCollider()
     {
-        if (playerCollider != null)
+        if (IsLivePlayerCollider(playerCollider))
         {
             return;
         }
+
+        ClearPlayerTarget();
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj == null)
@@ -552,6 +544,12 @@ public class EnemyController : MonoBehaviour
     private Collider2D FindPreferredPlayerCollider(GameObject playerObj)
     {
         if (playerObj == null)
+        {
+            return null;
+        }
+
+        PlayerStats stats = ResolvePlayerStats(playerObj.transform);
+        if (stats != null && stats.IsDead)
         {
             return null;
         }
@@ -606,6 +604,68 @@ public class EnemyController : MonoBehaviour
     private bool IsValidPlayerBodyCollider(Collider2D candidate)
     {
         return candidate != null && candidate.enabled && !candidate.isTrigger;
+    }
+
+    public void ClearAggroState()
+    {
+        IsAggroed = false;
+        isReturningToPatrol = true;
+        lastWallID = 0;
+        lastWallSide = 0f;
+        currentWallID = 0;
+        slideSide = 0f;
+        clearPathTimer = 0f;
+        lockedSlideDirection = Vector2.zero;
+        lockedFleeDirection = Vector2.zero;
+        fleeLockTimer = 0f;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        if (resetPatrolAfterAggro)
+        {
+            startPosition = ownCollider != null ? ownCollider.bounds.center : transform.position;
+            patrolTarget = startPosition;
+            nextMoveTime = Time.time + waitTime;
+        }
+        else
+        {
+            patrolTarget = startPosition;
+        }
+    }
+
+    private void ClearPlayerTarget()
+    {
+        playerCollider = null;
+    }
+
+    private static PlayerStats ResolvePlayerStats(Component source)
+    {
+        if (source == null)
+        {
+            return null;
+        }
+
+        PlayerStats stats = source.GetComponent<PlayerStats>();
+        if (stats == null)
+        {
+            stats = source.GetComponentInParent<PlayerStats>();
+        }
+
+        return stats;
+    }
+
+    private bool IsLivePlayerCollider(Collider2D candidate)
+    {
+        if (candidate == null || !candidate.enabled || !candidate.gameObject.activeInHierarchy)
+        {
+            return false;
+        }
+
+        PlayerStats stats = ResolvePlayerStats(candidate);
+        return stats != null && !stats.IsDead;
     }
 
     private void OnDrawGizmos()

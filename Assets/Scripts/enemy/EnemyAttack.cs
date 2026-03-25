@@ -73,12 +73,18 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
+        if (playerCollider != null && !IsLivePlayerCollider(playerCollider))
+        {
+            ClearPlayerTarget();
+            CancelAttackSequence();
+        }
+
         if (playerCollider == null)
         {
             TryAssignPlayerCollider();
         }
 
-        if (playerCollider == null) return;
+        if (!IsLivePlayerCollider(playerCollider)) return;
 
         if (configuredPlayerCollider != playerCollider)
         {
@@ -197,6 +203,12 @@ public class EnemyAttack : MonoBehaviour
 
     private void EnableHitbox()
     {
+        if (!IsLivePlayerCollider(playerCollider))
+        {
+            CancelAttackSequence();
+            return;
+        }
+
         if (attackCollider != null)
         {
             attackCollider.enabled = true;
@@ -225,7 +237,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void TryAssignPlayerCollider()
     {
-        if (playerCollider != null)
+        if (IsLivePlayerCollider(playerCollider))
         {
             if (configuredPlayerCollider != playerCollider)
             {
@@ -235,7 +247,9 @@ public class EnemyAttack : MonoBehaviour
             return;
         }
 
-        if (enemyController != null && enemyController.playerCollider != null)
+        ClearPlayerTarget();
+
+        if (enemyController != null && IsLivePlayerCollider(enemyController.playerCollider))
         {
             playerCollider = enemyController.playerCollider;
             ConfigurePlayerFilter(playerCollider);
@@ -258,6 +272,12 @@ public class EnemyAttack : MonoBehaviour
     private Collider2D FindPreferredPlayerCollider(GameObject playerObj)
     {
         if (playerObj == null)
+        {
+            return null;
+        }
+
+        PlayerStats stats = ResolvePlayerStats(playerObj.transform);
+        if (stats != null && stats.IsDead)
         {
             return null;
         }
@@ -338,7 +358,7 @@ public class EnemyAttack : MonoBehaviour
         PlayerStats stats = collision.GetComponent<PlayerStats>();
         if (stats == null) stats = collision.GetComponentInParent<PlayerStats>();
 
-        if (stats != null)
+        if (stats != null && !stats.IsDead)
         {
             if (hitTargets.Contains(stats.gameObject))
                 return;
@@ -350,6 +370,60 @@ public class EnemyAttack : MonoBehaviour
 
             // Debug.Log($"{name} hit {collision.name} for {damage} damage!");
         }
+    }
+
+    private void CancelAttackSequence()
+    {
+        CancelInvoke(nameof(EnableHitbox));
+        CancelInvoke(nameof(DisableHitbox));
+        CancelInvoke(nameof(EnableMovement));
+
+        if (attackCollider != null)
+        {
+            attackCollider.enabled = false;
+        }
+
+        if (enemyController != null)
+        {
+            enemyController.enabled = true;
+            enemyController.ClearAggroState();
+        }
+
+        hitTargets.Clear();
+        isAttacking = false;
+    }
+
+    private void ClearPlayerTarget()
+    {
+        playerCollider = null;
+        ConfigurePlayerFilter(null);
+    }
+
+    private static PlayerStats ResolvePlayerStats(Component source)
+    {
+        if (source == null)
+        {
+            return null;
+        }
+
+        PlayerStats stats = source.GetComponent<PlayerStats>();
+        if (stats == null)
+        {
+            stats = source.GetComponentInParent<PlayerStats>();
+        }
+
+        return stats;
+    }
+
+    private bool IsLivePlayerCollider(Collider2D candidate)
+    {
+        if (candidate == null || !candidate.enabled || !candidate.gameObject.activeInHierarchy)
+        {
+            return false;
+        }
+
+        PlayerStats stats = ResolvePlayerStats(candidate);
+        return stats != null && !stats.IsDead;
     }
 
     private void OnDrawGizmosSelected()

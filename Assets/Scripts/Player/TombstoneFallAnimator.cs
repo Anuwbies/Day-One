@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class TombstoneFallAnimator : MonoBehaviour
 {
-    [SerializeField] private AnimationCurve fallCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+    [SerializeField] private AnimationCurve fallCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+    [SerializeField] private float fallAccelerationPower = 3f;
+    [SerializeField] private float impactSettleDistance = 0.08f;
+    [SerializeField] private float impactSettleDuration = 0.08f;
+    [SerializeField] private float impactSquashFactor = 0.15f;
+    [SerializeField] private float cameraShakeIntensity = 0.1f;
+    [SerializeField] private float cameraShakeDuration = 0.15f;
 
     private Vector3 startPosition;
     private Vector3 landingPosition;
+    private Vector3 originalScale;
+    private Vector3 cameraShakeOffset;
     private float fallDuration = 0.35f;
     private float elapsedTime;
     private float canvasEnableDelay;
     private float canvasEnableElapsedTime;
     private float panelScaleDuration = 0.2f;
     private float panelScaleElapsedTime;
+    private float impactSettleElapsedTime;
     private bool isFalling;
     private bool isWaitingToEnableCanvas;
     private bool isScalingPanels;
+    private bool isSettlingAfterImpact;
     private Canvas[] tombstoneCanvases = System.Array.Empty<Canvas>();
     private RectTransform[] tombstonePanels = Array.Empty<RectTransform>();
     private Vector3[] tombstonePanelOriginalScales = Array.Empty<Vector3>();
@@ -33,7 +43,10 @@ public class TombstoneFallAnimator : MonoBehaviour
         startPosition = targetPosition + Vector3.up * Mathf.Max(0f, height);
         fallDuration = Mathf.Max(0.01f, duration);
         elapsedTime = 0f;
-        canvasEnableDelay = Mathf.Max(fallDuration, delayBeforeCanvasEnable);
+        impactSettleElapsedTime = 0f;
+        isSettlingAfterImpact = false;
+        originalScale = transform.localScale;
+        canvasEnableDelay = Mathf.Max(fallDuration + Mathf.Max(0f, impactSettleDuration), delayBeforeCanvasEnable);
         canvasEnableElapsedTime = 0f;
         panelScaleDuration = Mathf.Max(0f, panelScaleInDuration);
         panelScaleElapsedTime = 0f;
@@ -48,10 +61,11 @@ public class TombstoneFallAnimator : MonoBehaviour
     {
         if (!isFalling)
         {
+            UpdateImpactSettle();
             UpdateCanvasEnableDelay();
             UpdatePanelScaleAnimation();
 
-            if (!isWaitingToEnableCanvas && !isScalingPanels)
+            if (!isWaitingToEnableCanvas && !isScalingPanels && !isSettlingAfterImpact)
             {
                 enabled = false;
             }
@@ -61,7 +75,7 @@ public class TombstoneFallAnimator : MonoBehaviour
 
         elapsedTime += Time.deltaTime;
         float normalizedTime = Mathf.Clamp01(elapsedTime / fallDuration);
-        float curveTime = fallCurve.Evaluate(normalizedTime);
+        float curveTime = EvaluateFallProgress(normalizedTime);
 
         transform.position = Vector3.LerpUnclamped(startPosition, landingPosition, curveTime);
 
@@ -69,9 +83,17 @@ public class TombstoneFallAnimator : MonoBehaviour
         {
             transform.position = landingPosition;
             isFalling = false;
+            BeginImpactSettle();
         }
 
         UpdateCanvasEnableDelay();
+    }
+
+    private float EvaluateFallProgress(float normalizedTime)
+    {
+        float accelerationPower = Mathf.Max(1f, fallAccelerationPower);
+        float acceleratedTime = Mathf.Pow(normalizedTime, accelerationPower);
+        return fallCurve.Evaluate(acceleratedTime);
     }
 
     private void PrepareTombstoneCanvases()
@@ -125,6 +147,59 @@ public class TombstoneFallAnimator : MonoBehaviour
 
         isWaitingToEnableCanvas = false;
         StartPanelScaleAnimation();
+    }
+
+    private void BeginImpactSettle()
+    {
+        if (impactSettleDistance <= 0f || impactSettleDuration <= 0f)
+        {
+            transform.position = landingPosition;
+            isSettlingAfterImpact = false;
+            return;
+        }
+
+        impactSettleElapsedTime = 0f;
+        isSettlingAfterImpact = true;
+    }
+
+    private void UpdateImpactSettle()
+    {
+        if (!isSettlingAfterImpact)
+        {
+            return;
+        }
+
+        impactSettleElapsedTime += Time.deltaTime;
+        float normalizedTime = Mathf.Clamp01(impactSettleElapsedTime / impactSettleDuration);
+        
+        // Heavy Settle (Dip)
+        float dipAmount = Mathf.Sin(normalizedTime * Mathf.PI) * impactSettleDistance;
+        transform.position = landingPosition + Vector3.down * dipAmount;
+
+        // Squash and Stretch
+        float squashY = Mathf.Sin(normalizedTime * Mathf.PI) * impactSquashFactor;
+        transform.localScale = new Vector3(
+            originalScale.x * (1f + squashY * 0.5f), 
+            originalScale.y * (1f - squashY), 
+            originalScale.z
+        );
+
+        // Screen Shake
+        if (impactSettleElapsedTime <= cameraShakeDuration)
+        {
+            float shakeProgress = 1f - Mathf.Clamp01(impactSettleElapsedTime / cameraShakeDuration);
+            Vector3 randomShake = UnityEngine.Random.insideUnitSphere * cameraShakeIntensity * shakeProgress;
+            randomShake.z = 0f;
+            
+            CameraFollow.shakeOffset += randomShake;
+        }
+
+        if (normalizedTime >= 1f)
+        {
+            transform.position = landingPosition;
+            transform.localScale = originalScale;
+            isSettlingAfterImpact = false;
+        }
     }
 
     private void CacheCanvasPanels()

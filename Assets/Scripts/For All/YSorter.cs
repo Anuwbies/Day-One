@@ -16,6 +16,8 @@ public class YSorter : MonoBehaviour
     public int offset = 0;
     [Tooltip("If enabled, this renderer will always stay behind the player.")]
     public bool alwaysBehindPlayer = false;
+    [Tooltip("If enabled, this renderer will always stay in front of the player.")]
+    public bool alwaysInFrontOfPlayer = false;
     [Tooltip("If enabled, this renderer will always stay behind the nearest parent sort reference in the hierarchy.")]
     public bool alwaysBehindParent = false;
 
@@ -72,18 +74,22 @@ public class YSorter : MonoBehaviour
         {
             int sortingOrder = Mathf.RoundToInt(-(pivotY * 100)) + offset;
 
-            if (alwaysBehindPlayer && playerTransform != null)
-            {
-                int playerSortingOrder = playerSR != null
-                    ? playerSR.sortingOrder
-                    : Mathf.RoundToInt(-(playerTransform.position.y * 100));
-
-                sortingOrder = Mathf.Min(sortingOrder, playerSortingOrder - 1);
-            }
-
             if (alwaysBehindParent && TryGetParentSortingOrder(out int parentSortingOrder))
             {
                 sortingOrder = Mathf.Min(sortingOrder, parentSortingOrder - 1);
+            }
+
+            if (TryGetPlayerSortingOrder(out int playerSortingOrder))
+            {
+                if (alwaysBehindPlayer)
+                {
+                    sortingOrder = Mathf.Min(sortingOrder, playerSortingOrder - 1);
+                }
+
+                if (alwaysInFrontOfPlayer)
+                {
+                    sortingOrder = Mathf.Max(sortingOrder, playerSortingOrder + 1);
+                }
             }
 
             sr.sortingOrder = sortingOrder;
@@ -235,6 +241,21 @@ public class YSorter : MonoBehaviour
 
         sortingOrder = 0;
         return false;
+    }
+
+    private bool TryGetPlayerSortingOrder(out int sortingOrder)
+    {
+        if (playerTransform == null)
+        {
+            sortingOrder = 0;
+            return false;
+        }
+
+        sortingOrder = playerSR != null
+            ? playerSR.sortingOrder
+            : Mathf.RoundToInt(-(playerTransform.position.y * 100));
+
+        return true;
     }
 
     private int GetCurrentSortingOrder()
