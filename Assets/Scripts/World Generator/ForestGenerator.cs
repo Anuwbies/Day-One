@@ -28,6 +28,9 @@ public class ForestGenerator : MonoBehaviour
     [Header("Obstacle Settings")]
     [SerializeField] private LayerMask obstacleLayer = -1;
 
+    [Header("Empty Space Settings")]
+    [SerializeField] private List<EmptySpaceGenerator> emptySpaceGenerators;
+
     [SerializeField] private bool generateOnStart = true;
     [SerializeField] private bool clearBeforeGenerate = true;
 
@@ -130,6 +133,11 @@ public class ForestGenerator : MonoBehaviour
                 continue;
             }
 
+            if (IsInEmptySpace(spawnPosition))
+            {
+                continue;
+            }
+
             if (!IsFarEnoughFromExistingTrees(pivotPosition))
             {
                 continue;
@@ -145,6 +153,24 @@ public class ForestGenerator : MonoBehaviour
             generatedPositions.Add(GetTreePivotWorldPosition(treeInstance.transform));
             return;
         }
+    }
+
+    private bool IsInEmptySpace(Vector3 position)
+    {
+        if (emptySpaceGenerators == null || emptySpaceGenerators.Count == 0)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < emptySpaceGenerators.Count; i++)
+        {
+            if (emptySpaceGenerators[i] != null && emptySpaceGenerators[i].ContainsWorldPoint(position))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private Vector3 GetRandomPivotPositionInCell(Vector3Int cellPosition)
