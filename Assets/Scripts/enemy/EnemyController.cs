@@ -302,8 +302,17 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        float scaleFactor = 1f + Mathf.Sin(Time.time * idleAnimationSpeed) * idleAnimationAmplitude;
-        idleAnimationTarget.localScale = idleAnimationBaseScale * Mathf.Max(scaleFactor, 0.01f);
+        float idlePhase = Time.time * idleAnimationSpeed;
+        float breathe = (Mathf.Sin(idlePhase - (Mathf.PI * 0.5f)) + 1f) * 0.5f;
+        breathe = Mathf.SmoothStep(0f, 1f, breathe);
+
+        float xScaleFactor = 1f - (idleAnimationAmplitude * 0.35f * breathe);
+        float yScaleFactor = 1f + (idleAnimationAmplitude * 0.85f * breathe);
+
+        idleAnimationTarget.localScale = new Vector3(
+            idleAnimationBaseScale.x * Mathf.Max(xScaleFactor, 0.01f),
+            idleAnimationBaseScale.y * Mathf.Max(yScaleFactor, 0.01f),
+            idleAnimationBaseScale.z);
         ApplyIdleAnimationChildScaleCompensation();
     }
 
