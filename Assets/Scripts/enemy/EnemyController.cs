@@ -15,6 +15,10 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Passive: Flees when hit.\nAggressive: Attacks when in range.\nRetaliatory: Attacks when hit.\nFleeOnSight: Flees when the player enters range.")]
     public AIBehavior behavior = AIBehavior.Aggressive;
 
+    [Header("Testing / Debug")]
+    [Tooltip("If true, the enemy will stay in idle and skip all AI logic.")]
+    public bool debugLockIdle = false;
+
     [Header("Speed Settings")]
     [Tooltip("Speed at which the enemy patrols.")]
     public float patrolSpeed = 2f;
@@ -37,6 +41,14 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Should the enemy flip sprite on X axis to face the target? (Side-scroller/RPG style)")]
     public bool enableFlip = true;
 
+    [Header("Idle Animation Settings")]
+    [Tooltip("Should the enemy have a breathing idle animation?")]
+    public bool enableIdleAnimation = true;
+    [Tooltip("Speed of the breathing animation.")]
+    public float idleAnimationSpeed = 2f;
+    [Tooltip("How much the scale changes during breathing.")]
+    public float idleAnimationAmplitude = 0.05f;
+
     [Header("Ranges")]
     [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
@@ -56,6 +68,10 @@ public class EnemyController : MonoBehaviour
     private EnemyHealth enemyHealth;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb; // Reference to Rigidbody
+    private Transform idleAnimationTarget;
+    private Vector3 idleAnimationBaseScale = Vector3.one;
+    private Transform[] idleAnimationChildTargets;
+    private Vector3[] idleAnimationChildBaseScales;
     public bool IsAggroed { get; private set; } = false;
     private Vector2 startPosition;
 
@@ -72,12 +88,20 @@ public class EnemyController : MonoBehaviour
     private int lastWallID = 0; // Memory for the last wall encountered
     private float lastWallSide = 0f; // Side used for the last wall encountered
     private bool isReturningToPatrol = false;
+    private bool idleLockWasActive = false;
 
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
         rb = GetComponent<Rigidbody2D>();
+        idleAnimationTarget = transform;
+        idleAnimationBaseScale = idleAnimationTarget.localScale;
+        CacheIdleAnimationChildren();
 
         // Setup obstacle filter based on physics settings
         obstacleFilter = new ContactFilter2D();
@@ -117,14 +141,34 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
+        ResetIdleAnimation();
+
         if (enemyHealth != null)
         {
             enemyHealth.OnDamageTaken -= HandleDamageTaken;
         }
     }
 
+    private void OnDisable()
+    {
+        ResetIdleAnimation();
+    }
+
     private void Update()
     {
+        if (enemyHealth.IsDead)
+        {
+            return;
+        }
+
+        if (debugLockIdle)
+        {
+            ApplyIdleLock();
+            return;
+        }
+
+        idleLockWasActive = false;
+
         if (playerCollider != null && !IsLivePlayerCollider(playerCollider))
         {
             ClearPlayerTarget();
@@ -134,11 +178,6 @@ public class EnemyController : MonoBehaviour
         if (playerCollider == null)
         {
             TryAssignPlayerCollider();
-        }
-
-        if (enemyHealth.IsDead)
-        {
-            return;
         }
 
         if (playerCollider == null)
@@ -196,6 +235,11 @@ public class EnemyController : MonoBehaviour
 
     private void HandleDamageTaken()
     {
+        if (debugLockIdle)
+        {
+            return;
+        }
+
         // Trigger aggression/action state for Retaliatory (Chase) and Passive (Flee)
         if (behavior == AIBehavior.Retaliatory ||
             behavior == AIBehavior.Passive ||
@@ -203,6 +247,143 @@ public class EnemyController : MonoBehaviour
         {
             IsAggroed = true;
         }
+    }
+
+    private void LateUpdate()
+    {
+        UpdateIdleAnimation();
+    }
+
+    private void ApplyIdleLock()
+    {
+        Vector2 currentPos = ownCollider != null ? ownCollider.bounds.center : transform.position;
+
+        if (!idleLockWasActive)
+        {
+            IsAggroed = false;
+            nextMoveTime = Time.time + waitTime;
+            idleLockWasActive = true;
+        }
+
+        patrolTarget = currentPos;
+        isReturningToPatrol = false;
+        lastWallID = 0;
+        lastWallSide = 0f;
+        currentWallID = 0;
+        slideSide = 0f;
+        clearPathTimer = 0f;
+        lockedSlideDirection = Vector2.zero;
+        lockedFleeDirection = Vector2.zero;
+        fleeLockTimer = 0f;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void UpdateIdleAnimation()
+    {
+        if (idleAnimationTarget == null)
+        {
+            return;
+        }
+
+        if (!enableIdleAnimation || (enemyHealth != null && enemyHealth.IsDead))
+        {
+            ResetIdleAnimation();
+            return;
+        }
+
+        bool isIdle = rb == null || rb.linearVelocity.sqrMagnitude <= 0.0001f;
+        if (!isIdle)
+        {
+            ResetIdleAnimation();
+            return;
+        }
+
+        float scaleFactor = 1f + Mathf.Sin(Time.time * idleAnimationSpeed) * idleAnimationAmplitude;
+        idleAnimationTarget.localScale = idleAnimationBaseScale * Mathf.Max(scaleFactor, 0.01f);
+        ApplyIdleAnimationChildScaleCompensation();
+    }
+
+    private void ResetIdleAnimation()
+    {
+        if (idleAnimationTarget != null)
+        {
+            idleAnimationTarget.localScale = idleAnimationBaseScale;
+        }
+
+        RestoreIdleAnimationChildScales();
+    }
+
+    private void CacheIdleAnimationChildren()
+    {
+        int childCount = transform.childCount;
+        idleAnimationChildTargets = new Transform[childCount];
+        idleAnimationChildBaseScales = new Vector3[childCount];
+
+        for (int i = 0; i < childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            idleAnimationChildTargets[i] = child;
+            idleAnimationChildBaseScales[i] = child.localScale;
+        }
+    }
+
+    private void ApplyIdleAnimationChildScaleCompensation()
+    {
+        if (idleAnimationChildTargets == null || idleAnimationTarget == null)
+        {
+            return;
+        }
+
+        Vector3 parentScaleRatio = new Vector3(
+            SafeDivide(idleAnimationTarget.localScale.x, idleAnimationBaseScale.x),
+            SafeDivide(idleAnimationTarget.localScale.y, idleAnimationBaseScale.y),
+            SafeDivide(idleAnimationTarget.localScale.z, idleAnimationBaseScale.z));
+
+        for (int i = 0; i < idleAnimationChildTargets.Length; i++)
+        {
+            Transform child = idleAnimationChildTargets[i];
+            if (child == null)
+            {
+                continue;
+            }
+
+            Vector3 baseScale = idleAnimationChildBaseScales[i];
+            child.localScale = new Vector3(
+                SafeDivide(baseScale.x, parentScaleRatio.x),
+                SafeDivide(baseScale.y, parentScaleRatio.y),
+                SafeDivide(baseScale.z, parentScaleRatio.z));
+        }
+    }
+
+    private void RestoreIdleAnimationChildScales()
+    {
+        if (idleAnimationChildTargets == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < idleAnimationChildTargets.Length; i++)
+        {
+            Transform child = idleAnimationChildTargets[i];
+            if (child != null)
+            {
+                child.localScale = idleAnimationChildBaseScales[i];
+            }
+        }
+    }
+
+    private static float SafeDivide(float numerator, float denominator)
+    {
+        if (Mathf.Abs(denominator) < 0.0001f)
+        {
+            return 1f;
+        }
+
+        return numerator / denominator;
     }
 
     private void Patrol()
