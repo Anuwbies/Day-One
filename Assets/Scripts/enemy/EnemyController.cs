@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))] // Ensure RB exists for physics settings
 public class EnemyController : MonoBehaviour
@@ -18,6 +19,8 @@ public class EnemyController : MonoBehaviour
     [Header("Testing / Debug")]
     [Tooltip("If true, the enemy will stay in idle and skip all AI logic.")]
     public bool debugLockIdle = false;
+    [Tooltip("If true, the enemy will stay in patrol/walk mode and skip aggro logic.")]
+    public bool debugLockWalkPatrol = false;
 
     [Header("Speed Settings")]
     [Tooltip("Speed at which the enemy patrols.")]
@@ -49,6 +52,16 @@ public class EnemyController : MonoBehaviour
     [Tooltip("How much the scale changes during breathing.")]
     public float idleAnimationAmplitude = 0.05f;
 
+    [Header("Walk / Patrol Animation Settings")]
+    [Tooltip("Should the enemy have a walk / patrol animation while moving?")]
+    public bool enableWalkPatrolAnimation = true;
+    [Tooltip("Speed of the walk / patrol animation.")]
+    public float walkPatrolAnimationSpeed = 8f;
+    [Tooltip("How much the walk / patrol animation changes scale.")]
+    public float walkPatrolAnimationAmplitude = 0.04f;
+    [Tooltip("How much the walk / patrol animation tilts left and right in degrees.")]
+    public float walkPatrolRotationAmplitude = 6f;
+
     [Header("Ranges")]
     [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
@@ -64,6 +77,11 @@ public class EnemyController : MonoBehaviour
     public Collider2D playerCollider;
     [Tooltip("Assign the Enemy's Collider here (optional, will auto-detect).")]
     public Collider2D ownCollider;
+    [Tooltip("Optional child transform used for the enemy shadow sprite.")]
+    public Transform shadowChild;
+    [FormerlySerializedAs("flipShadowWithFacing")]
+    [Tooltip("If true, the assigned shadow child will mirror its local X position when facing left or right.")]
+    public bool mirrorShadowPositionWithFacing = false;
 
     private EnemyHealth enemyHealth;
     private SpriteRenderer spriteRenderer;
@@ -72,6 +90,8 @@ public class EnemyController : MonoBehaviour
     private Vector3 idleAnimationBaseScale = Vector3.one;
     private Transform[] idleAnimationChildTargets;
     private Vector3[] idleAnimationChildBaseScales;
+    private Quaternion[] idleAnimationChildBaseRotations;
+    private float lastAnimationRotationOffset = 0f;
     public bool IsAggroed { get; private set; } = false;
     private Vector2 startPosition;
 
@@ -89,6 +109,10 @@ public class EnemyController : MonoBehaviour
     private float lastWallSide = 0f; // Side used for the last wall encountered
     private bool isReturningToPatrol = false;
     private bool idleLockWasActive = false;
+    private bool walkPatrolLockWasActive = false;
+    private Transform cachedShadowChild;
+    private Vector3 shadowChildBaseLocalPosition;
+    private bool hasShadowChildBaseLocalPosition = false;
 
     private void Start()
     {
@@ -98,6 +122,7 @@ public class EnemyController : MonoBehaviour
         {
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+        CacheShadowChildLocalPosition();
         rb = GetComponent<Rigidbody2D>();
         idleAnimationTarget = transform;
         idleAnimationBaseScale = idleAnimationTarget.localScale;
@@ -141,7 +166,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
-        ResetIdleAnimation();
+        ResetMovementAnimation();
 
         if (enemyHealth != null)
         {
@@ -151,11 +176,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnDisable()
     {
-        ResetIdleAnimation();
+        ResetMovementAnimation();
     }
 
     private void Update()
     {
+        ResetAnimationRotationOffset();
+
         if (enemyHealth.IsDead)
         {
             return;
@@ -163,11 +190,21 @@ public class EnemyController : MonoBehaviour
 
         if (debugLockIdle)
         {
+            walkPatrolLockWasActive = false;
             ApplyIdleLock();
             return;
         }
 
         idleLockWasActive = false;
+
+        if (debugLockWalkPatrol)
+        {
+            ApplyWalkPatrolLock();
+            Patrol();
+            return;
+        }
+
+        walkPatrolLockWasActive = false;
 
         if (playerCollider != null && !IsLivePlayerCollider(playerCollider))
         {
@@ -235,7 +272,7 @@ public class EnemyController : MonoBehaviour
 
     private void HandleDamageTaken()
     {
-        if (debugLockIdle)
+        if (debugLockIdle || debugLockWalkPatrol)
         {
             return;
         }
@@ -251,7 +288,7 @@ public class EnemyController : MonoBehaviour
 
     private void LateUpdate()
     {
-        UpdateIdleAnimation();
+        UpdateMovementAnimation();
     }
 
     private void ApplyIdleLock()
@@ -282,26 +319,49 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void UpdateIdleAnimation()
+    private void ApplyWalkPatrolLock()
+    {
+        if (!walkPatrolLockWasActive)
+        {
+            ClearAggroState();
+            nextMoveTime = Time.time;
+            walkPatrolLockWasActive = true;
+        }
+
+        IsAggroed = false;
+    }
+
+    private void UpdateMovementAnimation()
     {
         if (idleAnimationTarget == null)
         {
             return;
         }
 
-        if (!enableIdleAnimation || (enemyHealth != null && enemyHealth.IsDead))
+        if (enemyHealth != null && enemyHealth.IsDead)
         {
-            ResetIdleAnimation();
+            ResetMovementAnimation();
             return;
         }
 
-        bool isIdle = rb == null || rb.linearVelocity.sqrMagnitude <= 0.0001f;
-        if (!isIdle)
+        bool isMoving = rb != null && rb.linearVelocity.sqrMagnitude > 0.0001f;
+        if (isMoving && enableWalkPatrolAnimation)
         {
-            ResetIdleAnimation();
+            ApplyWalkPatrolAnimation();
             return;
         }
 
+        if (!isMoving && enableIdleAnimation)
+        {
+            ApplyIdleAnimation();
+            return;
+        }
+
+        ResetMovementAnimation();
+    }
+
+    private void ApplyIdleAnimation()
+    {
         float idlePhase = Time.time * idleAnimationSpeed;
         float breathe = (Mathf.Sin(idlePhase - (Mathf.PI * 0.5f)) + 1f) * 0.5f;
         breathe = Mathf.SmoothStep(0f, 1f, breathe);
@@ -316,14 +376,75 @@ public class EnemyController : MonoBehaviour
         ApplyIdleAnimationChildScaleCompensation();
     }
 
-    private void ResetIdleAnimation()
+    private void ApplyWalkPatrolAnimation()
     {
+        float normalizedSpeed = GetMovementAnimationNormalizedSpeed();
+        float walkPhase = Time.time * walkPatrolAnimationSpeed * Mathf.Lerp(0.7f, 1.2f, normalizedSpeed);
+        float sway = Mathf.Sin(walkPhase);
+        float footPlant = (Mathf.Sin((walkPhase * 2f) - (Mathf.PI * 0.5f)) + 1f) * 0.5f;
+        footPlant = Mathf.SmoothStep(0f, 1f, footPlant);
+
+        float xScaleFactor = 1f + (walkPatrolAnimationAmplitude * 0.55f * footPlant);
+        float yScaleFactor = 1f - (walkPatrolAnimationAmplitude * 0.8f * footPlant);
+
+        idleAnimationTarget.localScale = new Vector3(
+            idleAnimationBaseScale.x * Mathf.Max(xScaleFactor, 0.01f),
+            idleAnimationBaseScale.y * Mathf.Max(yScaleFactor, 0.01f),
+            idleAnimationBaseScale.z);
+        ApplyIdleAnimationChildScaleCompensation();
+
+        ApplyAnimationRotationOffset(walkPatrolRotationAmplitude * sway * normalizedSpeed);
+    }
+
+    private float GetMovementAnimationNormalizedSpeed()
+    {
+        if (rb == null)
+        {
+            return 1f;
+        }
+
+        float referenceSpeed = Mathf.Max(Mathf.Max(patrolSpeed, chaseSpeed), Mathf.Max(fleeSpeed, 0.01f));
+        float normalizedSpeed = Mathf.Clamp01(rb.linearVelocity.magnitude / referenceSpeed);
+        return Mathf.Lerp(0.45f, 1f, normalizedSpeed);
+    }
+
+    private void ResetMovementAnimation()
+    {
+        ResetAnimationRotationOffset();
+
         if (idleAnimationTarget != null)
         {
             idleAnimationTarget.localScale = idleAnimationBaseScale;
         }
 
         RestoreIdleAnimationChildScales();
+        RestoreIdleAnimationChildRotations();
+    }
+
+    private void ResetAnimationRotationOffset()
+    {
+        if (Mathf.Abs(lastAnimationRotationOffset) < 0.001f)
+        {
+            return;
+        }
+
+        transform.rotation *= Quaternion.Euler(0f, 0f, -lastAnimationRotationOffset);
+        RestoreIdleAnimationChildRotations();
+        lastAnimationRotationOffset = 0f;
+    }
+
+    private void ApplyAnimationRotationOffset(float rotationOffset)
+    {
+        if (Mathf.Abs(rotationOffset) < 0.001f)
+        {
+            RestoreIdleAnimationChildRotations();
+            lastAnimationRotationOffset = 0f;
+            return;
+        }
+
+        transform.rotation *= Quaternion.Euler(0f, 0f, rotationOffset);
+        ApplyIdleAnimationChildRotationCompensation(rotationOffset);
+        lastAnimationRotationOffset = rotationOffset;
     }
 
     private void CacheIdleAnimationChildren()
@@ -331,12 +452,14 @@ public class EnemyController : MonoBehaviour
         int childCount = transform.childCount;
         idleAnimationChildTargets = new Transform[childCount];
         idleAnimationChildBaseScales = new Vector3[childCount];
+        idleAnimationChildBaseRotations = new Quaternion[childCount];
 
         for (int i = 0; i < childCount; i++)
         {
             Transform child = transform.GetChild(i);
             idleAnimationChildTargets[i] = child;
             idleAnimationChildBaseScales[i] = child.localScale;
+            idleAnimationChildBaseRotations[i] = child.localRotation;
         }
     }
 
@@ -381,6 +504,42 @@ public class EnemyController : MonoBehaviour
             if (child != null)
             {
                 child.localScale = idleAnimationChildBaseScales[i];
+            }
+        }
+    }
+
+    private void ApplyIdleAnimationChildRotationCompensation(float rotationOffset)
+    {
+        if (idleAnimationChildTargets == null || idleAnimationChildBaseRotations == null)
+        {
+            return;
+        }
+
+        Quaternion inverseRotationOffset = Quaternion.Euler(0f, 0f, -rotationOffset);
+
+        for (int i = 0; i < idleAnimationChildTargets.Length; i++)
+        {
+            Transform child = idleAnimationChildTargets[i];
+            if (child != null)
+            {
+                child.localRotation = inverseRotationOffset * idleAnimationChildBaseRotations[i];
+            }
+        }
+    }
+
+    private void RestoreIdleAnimationChildRotations()
+    {
+        if (idleAnimationChildTargets == null || idleAnimationChildBaseRotations == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < idleAnimationChildTargets.Length; i++)
+        {
+            Transform child = idleAnimationChildTargets[i];
+            if (child != null)
+            {
+                child.localRotation = idleAnimationChildBaseRotations[i];
             }
         }
     }
@@ -706,10 +865,40 @@ public class EnemyController : MonoBehaviour
 
         if (enableFlip && direction.x != 0 && spriteRenderer != null)
         {
-            if (direction.x > 0)
-                spriteRenderer.flipX = false;
-            else
-                spriteRenderer.flipX = true;
+            bool shouldFlip = direction.x < 0f;
+            spriteRenderer.flipX = shouldFlip;
+
+            CacheShadowChildLocalPosition();
+            if (shadowChild != null && hasShadowChildBaseLocalPosition)
+            {
+                Vector3 shadowLocalPosition = shadowChildBaseLocalPosition;
+
+                if (mirrorShadowPositionWithFacing)
+                {
+                    shadowLocalPosition.x = shouldFlip
+                        ? -shadowChildBaseLocalPosition.x
+                        : shadowChildBaseLocalPosition.x;
+                }
+
+                shadowChild.localPosition = shadowLocalPosition;
+            }
+        }
+    }
+
+    private void CacheShadowChildLocalPosition()
+    {
+        if (shadowChild == null)
+        {
+            cachedShadowChild = null;
+            hasShadowChildBaseLocalPosition = false;
+            return;
+        }
+
+        if (cachedShadowChild != shadowChild || !hasShadowChildBaseLocalPosition)
+        {
+            cachedShadowChild = shadowChild;
+            shadowChildBaseLocalPosition = shadowChild.localPosition;
+            hasShadowChildBaseLocalPosition = true;
         }
     }
 
