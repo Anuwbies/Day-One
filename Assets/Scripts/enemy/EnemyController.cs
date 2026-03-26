@@ -668,13 +668,9 @@ public class EnemyController : MonoBehaviour
         return stats != null && !stats.IsDead;
     }
 
-    private void OnDrawGizmos()
-    {
-        DrawDetectionRangeGizmo();
-    }
-
     private void OnDrawGizmosSelected()
     {
+        DrawDetectionRangeGizmo();
         Vector3 drawCenter = GetGizmoDrawCenter();
 
         DrawEllipse(drawCenter, disengageRange, Color.yellow);
