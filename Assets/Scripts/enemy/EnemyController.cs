@@ -35,6 +35,8 @@ public class EnemyController : MonoBehaviour
     [Header("Patrol Settings")]
     [Tooltip("Range (X, Y) from start position the enemy can wander.")]
     public Vector2 patrolRange = new Vector2(3f, 3f);
+    [Tooltip("Offset applied to the patrol center relative to the enemy's patrol start position.")]
+    public Vector2 patrolOffset = Vector2.zero;
     [Tooltip("How long to wait at a patrol point before moving to the next.")]
     public float waitTime = 2f;
     [Tooltip("If true, the enemy sets a new patrol center where it stops chasing/fleeing. If false, it returns to the original start position.")]
@@ -82,6 +84,8 @@ public class EnemyController : MonoBehaviour
     [Header("Ranges")]
     [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
+    [Tooltip("Offset applied to detection, disengage, and stopping ranges relative to the enemy.")]
+    public Vector2 rangeOffset = Vector2.zero;
 
     [Tooltip("Disengage range (X, Y) where enemy stops chasing (or stops fleeing).")]
     public Vector2 disengageRange = new Vector2(10f, 10f);
@@ -94,6 +98,8 @@ public class EnemyController : MonoBehaviour
     public Collider2D playerCollider;
     [Tooltip("Assign the Enemy's Collider here (optional, will auto-detect).")]
     public Collider2D ownCollider;
+    [Tooltip("Optional child transform that receives idle, walk, and attack visual animation. Defaults to this GameObject if left empty.")]
+    public Transform visualAnimationTarget;
     [Tooltip("Optional child transform used for the enemy shadow sprite.")]
     public Transform shadowChild;
     [FormerlySerializedAs("flipShadowWithFacing")]
@@ -106,6 +112,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb; // Reference to Rigidbody
     private Transform idleAnimationTarget;
     private Vector3 idleAnimationBaseScale = Vector3.one;
+    private Quaternion idleAnimationBaseLocalRotation = Quaternion.identity;
     private Transform[] idleAnimationChildTargets;
     private Vector3[] idleAnimationChildBaseScales;
     private Quaternion[] idleAnimationChildBaseRotations;
@@ -153,8 +160,9 @@ public class EnemyController : MonoBehaviour
         }
         CacheShadowChildLocalPosition();
         rb = GetComponent<Rigidbody2D>();
-        idleAnimationTarget = transform;
+        idleAnimationTarget = visualAnimationTarget != null ? visualAnimationTarget : transform;
         idleAnimationBaseScale = idleAnimationTarget.localScale;
+        idleAnimationBaseLocalRotation = idleAnimationTarget.localRotation;
         CacheIdleAnimationChildren();
 
         // Setup obstacle filter based on physics settings
@@ -182,7 +190,7 @@ public class EnemyController : MonoBehaviour
         else
             startPosition = transform.position;
 
-        patrolTarget = startPosition;
+        patrolTarget = GetPatrolCenter();
 
         // Subscribe to damage event
         if (enemyHealth != null)
@@ -279,7 +287,7 @@ public class EnemyController : MonoBehaviour
 
         // Use centers of colliders for interaction logic
         Vector3 playerPos = playerCollider.bounds.center;
-        Vector3 myPos = ownCollider != null ? ownCollider.bounds.center : transform.position;
+        Vector3 myPos = GetRangeCenter();
 
         // 1. Check triggers to START aggression
         if (!IsAggroed)
@@ -659,6 +667,11 @@ public class EnemyController : MonoBehaviour
         if (idleAnimationTarget != null)
         {
             idleAnimationTarget.localScale = idleAnimationBaseScale;
+
+            if (!IsVisualAnimationAppliedToRoot())
+            {
+                idleAnimationTarget.localRotation = idleAnimationBaseLocalRotation;
+            }
         }
 
         RestoreIdleAnimationChildScales();
@@ -672,8 +685,16 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        transform.rotation *= Quaternion.Euler(0f, 0f, -lastAnimationRotationOffset);
-        RestoreIdleAnimationChildRotations();
+        if (IsVisualAnimationAppliedToRoot())
+        {
+            transform.rotation *= Quaternion.Euler(0f, 0f, -lastAnimationRotationOffset);
+            RestoreIdleAnimationChildRotations();
+        }
+        else if (idleAnimationTarget != null)
+        {
+            idleAnimationTarget.localRotation = idleAnimationBaseLocalRotation;
+        }
+
         lastAnimationRotationOffset = 0f;
     }
 
@@ -686,8 +707,16 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        transform.rotation *= Quaternion.Euler(0f, 0f, rotationOffset);
-        ApplyIdleAnimationChildRotationCompensation(rotationOffset);
+        if (IsVisualAnimationAppliedToRoot())
+        {
+            transform.rotation *= Quaternion.Euler(0f, 0f, rotationOffset);
+            ApplyIdleAnimationChildRotationCompensation(rotationOffset);
+        }
+        else if (idleAnimationTarget != null)
+        {
+            idleAnimationTarget.localRotation = idleAnimationBaseLocalRotation * Quaternion.Euler(0f, 0f, rotationOffset);
+        }
+
         lastAnimationRotationOffset = rotationOffset;
     }
 
@@ -710,6 +739,11 @@ public class EnemyController : MonoBehaviour
 
     private float GetCurrentRawRotationZ()
     {
+        if (!IsVisualAnimationAppliedToRoot() && idleAnimationTarget != null)
+        {
+            return idleAnimationTarget.localEulerAngles.z;
+        }
+
         if (rb != null)
         {
             return rb.rotation;
@@ -721,6 +755,14 @@ public class EnemyController : MonoBehaviour
     private void SetRawRotationZ(float rawRotationZ)
     {
         float normalizedRotation = Mathf.Repeat(rawRotationZ, 360f);
+
+        if (!IsVisualAnimationAppliedToRoot() && idleAnimationTarget != null)
+        {
+            Vector3 targetEulerAngles = idleAnimationTarget.localEulerAngles;
+            targetEulerAngles.z = normalizedRotation;
+            idleAnimationTarget.localRotation = Quaternion.Euler(targetEulerAngles);
+            return;
+        }
 
         if (rb != null)
         {
@@ -735,14 +777,22 @@ public class EnemyController : MonoBehaviour
 
     private void CacheIdleAnimationChildren()
     {
-        int childCount = transform.childCount;
+        if (idleAnimationTarget == null)
+        {
+            idleAnimationChildTargets = System.Array.Empty<Transform>();
+            idleAnimationChildBaseScales = System.Array.Empty<Vector3>();
+            idleAnimationChildBaseRotations = System.Array.Empty<Quaternion>();
+            return;
+        }
+
+        int childCount = idleAnimationTarget.childCount;
         idleAnimationChildTargets = new Transform[childCount];
         idleAnimationChildBaseScales = new Vector3[childCount];
         idleAnimationChildBaseRotations = new Quaternion[childCount];
 
         for (int i = 0; i < childCount; i++)
         {
-            Transform child = transform.GetChild(i);
+            Transform child = idleAnimationTarget.GetChild(i);
             idleAnimationChildTargets[i] = child;
             idleAnimationChildBaseScales[i] = child.localScale;
             idleAnimationChildBaseRotations[i] = child.localRotation;
@@ -830,6 +880,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private bool IsVisualAnimationAppliedToRoot()
+    {
+        return idleAnimationTarget == null || idleAnimationTarget == transform;
+    }
+
     private static float SafeDivide(float numerator, float denominator)
     {
         if (Mathf.Abs(denominator) < 0.0001f)
@@ -875,9 +930,9 @@ public class EnemyController : MonoBehaviour
     {
         isReturningToPatrol = false;
         lockedSlideDirection = Vector2.zero;
-        Vector3 currentPos = ownCollider != null ? ownCollider.bounds.center : transform.position;
         bool targetFound = false;
         float checkRadius = ownCollider != null ? Mathf.Max(ownCollider.bounds.extents.x, ownCollider.bounds.extents.y) : 0.4f;
+        Vector2 patrolCenter = GetPatrolCenter();
 
         for (int i = 0; i < 15; i++)
         {
@@ -885,7 +940,7 @@ public class EnemyController : MonoBehaviour
             randomPoint.x *= patrolRange.x;
             randomPoint.y *= patrolRange.y;
 
-            Vector2 potentialTarget = startPosition + randomPoint;
+            Vector2 potentialTarget = patrolCenter + randomPoint;
 
             // Check if potentialTarget is inside an obstacle
             Collider2D[] results = new Collider2D[2];
@@ -915,7 +970,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            patrolTarget = currentPos;
+            patrolTarget = patrolCenter;
             nextMoveTime = Time.time + waitTime;
         }
     }
@@ -926,6 +981,7 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 playerCenter = playerCollider.bounds.center;
             Vector3 myCenter = ownCollider != null ? ownCollider.bounds.center : transform.position;
+            Vector3 rangeCenter = GetRangeCenter();
 
             // --- PASSIVE BEHAVIOR (FLEE) ---
             if (behavior == AIBehavior.Passive || behavior == AIBehavior.FleeOnSight)
@@ -989,7 +1045,7 @@ public class EnemyController : MonoBehaviour
             }
 
             // --- AGGRESSIVE / RETALIATORY BEHAVIOR (CHASE) ---
-            if (!IsInEllipticalRange(playerCenter, myCenter, stoppingDistance))
+            if (!IsInEllipticalRange(playerCenter, rangeCenter, stoppingDistance))
             {
                 bool blocked = MoveTo(playerCenter, true, chaseSpeed, true);
                 if (blocked)
@@ -1292,12 +1348,12 @@ public class EnemyController : MonoBehaviour
         if (resetPatrolAfterAggro)
         {
             startPosition = ownCollider != null ? ownCollider.bounds.center : transform.position;
-            patrolTarget = startPosition;
+            patrolTarget = GetPatrolCenter();
             nextMoveTime = Time.time + waitTime;
         }
         else
         {
-            patrolTarget = startPosition;
+            patrolTarget = GetPatrolCenter();
         }
     }
 
@@ -1336,13 +1392,13 @@ public class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         DrawDetectionRangeGizmo();
-        Vector3 drawCenter = GetGizmoDrawCenter();
+        Vector3 drawCenter = GetRangeGizmoDrawCenter();
 
         DrawEllipse(drawCenter, disengageRange, Color.yellow);
 
         DrawEllipse(drawCenter, stoppingDistance, Color.blue);
 
-        Vector3 patrolCenter = Application.isPlaying ? (Vector3)startPosition : drawCenter;
+        Vector3 patrolCenter = GetPatrolGizmoDrawCenter();
         DrawEllipse(patrolCenter, patrolRange, Color.green);
     }
 
@@ -1353,7 +1409,7 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        DrawEllipse(GetGizmoDrawCenter(), detectionRange, Color.red);
+        DrawEllipse(GetRangeGizmoDrawCenter(), detectionRange, Color.red);
     }
 
     private Vector3 GetGizmoDrawCenter()
@@ -1374,6 +1430,27 @@ public class EnemyController : MonoBehaviour
         }
 
         return drawCenter;
+    }
+
+    private Vector2 GetPatrolCenter()
+    {
+        return startPosition + patrolOffset;
+    }
+
+    private Vector2 GetRangeCenter()
+    {
+        return (Vector2)GetGizmoDrawCenter() + rangeOffset;
+    }
+
+    private Vector3 GetPatrolGizmoDrawCenter()
+    {
+        Vector3 baseCenter = Application.isPlaying ? (Vector3)startPosition : GetGizmoDrawCenter();
+        return baseCenter + (Vector3)patrolOffset;
+    }
+
+    private Vector3 GetRangeGizmoDrawCenter()
+    {
+        return GetGizmoDrawCenter() + (Vector3)rangeOffset;
     }
 
     private void DrawEllipse(Vector3 center, Vector2 range, Color color)

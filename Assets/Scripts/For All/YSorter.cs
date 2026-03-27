@@ -25,6 +25,12 @@ public class YSorter : MonoBehaviour
     public bool enableTransparency = true;
     public float fadeAlpha = 0.5f;
     public float fadeSpeed = 10f;
+
+    [Header("Renderer References")]
+    [Tooltip("Optional renderer to sort and fade. If left empty, this component will use a SpriteRenderer on this GameObject or its children.")]
+    [SerializeField] private SpriteRenderer targetRenderer;
+    [Tooltip("Optional player renderer override. If left empty, the player's SpriteRenderer will be auto-detected from the player object or its children.")]
+    [SerializeField] private SpriteRenderer playerRendererOverride;
     
     [Tooltip("Define multiple areas that trigger transparency when the player enters them.")]
     public TransparencyTrigger[] triggerAreas;
@@ -43,30 +49,18 @@ public class YSorter : MonoBehaviour
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        if (sr != null) originalAlpha = sr.color.a;
-        
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            playerTransform = player.transform;
-            playerSR = player.GetComponent<SpriteRenderer>();
-            if (player == gameObject) enableTransparency = false;
-        }
+        CacheTargetRenderer();
+        CachePlayerReferences();
     }
 
     void LateUpdate()
     {
+        CacheTargetRenderer();
+
         // Lazy find player if not already found
-        if (playerTransform == null)
+        if (playerTransform == null || (playerSR == null && playerRendererOverride == null))
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                playerTransform = player.transform;
-                playerSR = player.GetComponent<SpriteRenderer>();
-                if (player == gameObject) enableTransparency = false;
-            }
+            CachePlayerReferences();
         }
 
         float pivotY = transform.position.y + sortYOffset;
@@ -95,10 +89,64 @@ public class YSorter : MonoBehaviour
             sr.sortingOrder = sortingOrder;
         }
 
-        if (enableTransparency && playerTransform != null)
+        if (enableTransparency && playerTransform != null && sr != null)
         {
             UpdateTransparency(pivotY);
         }
+    }
+
+    private void CacheTargetRenderer()
+    {
+        SpriteRenderer resolvedRenderer = ResolveSpriteRenderer(targetRenderer, gameObject);
+        if (sr == resolvedRenderer)
+        {
+            return;
+        }
+
+        sr = resolvedRenderer;
+        if (sr != null)
+        {
+            originalAlpha = sr.color.a;
+        }
+    }
+
+    private void CachePlayerReferences()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            playerTransform = null;
+            playerSR = null;
+            return;
+        }
+
+        playerTransform = player.transform;
+        playerSR = ResolveSpriteRenderer(playerRendererOverride, player);
+        if (player == gameObject)
+        {
+            enableTransparency = false;
+        }
+    }
+
+    private static SpriteRenderer ResolveSpriteRenderer(SpriteRenderer preferredRenderer, GameObject sourceObject)
+    {
+        if (preferredRenderer != null)
+        {
+            return preferredRenderer;
+        }
+
+        if (sourceObject == null)
+        {
+            return null;
+        }
+
+        SpriteRenderer directRenderer = sourceObject.GetComponent<SpriteRenderer>();
+        if (directRenderer != null)
+        {
+            return directRenderer;
+        }
+
+        return sourceObject.GetComponentInChildren<SpriteRenderer>(true);
     }
 
     private void UpdateTransparency(float pivotY)
