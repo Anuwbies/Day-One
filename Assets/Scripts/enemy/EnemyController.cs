@@ -145,6 +145,7 @@ public class EnemyController : MonoBehaviour
     private float attackLockWindupDuration = 0f;
     private float attackLockSlashDuration = 0f;
     private float attackLockRecoveryDuration = 0f;
+    private float attackLockCooldownDuration = 0f;
     private Transform cachedShadowChild;
     private Vector3 shadowChildBaseLocalPosition;
     private bool hasShadowChildBaseLocalPosition = false;
@@ -399,15 +400,19 @@ public class EnemyController : MonoBehaviour
         if (!debugAttackLockWasActive)
         {
             ClearAggroState();
-            GetDebugAttackLockTimings(out float windupDuration, out float slashDuration, out float recoveryDuration);
-            StartAttackLock(GetCurrentFacingDirection(), windupDuration, slashDuration, recoveryDuration, true);
+            GetDebugAttackLockTimings(
+                out float windupDuration,
+                out float slashDuration,
+                out float recoveryDuration,
+                out float cooldownDuration);
+            StartAttackLock(GetCurrentFacingDirection(), windupDuration, slashDuration, recoveryDuration, cooldownDuration, true);
             debugAttackLockWasActive = true;
         }
 
         ApplyAttackLock();
     }
 
-    public void StartAttackLock(Vector2 direction, float windupDuration, float slashDuration, float recoveryDuration, bool loop = false)
+    public void StartAttackLock(Vector2 direction, float windupDuration, float slashDuration, float recoveryDuration, float cooldownDuration = 0f, bool loop = false)
     {
         ResetMovementAnimation();
 
@@ -418,6 +423,7 @@ public class EnemyController : MonoBehaviour
         attackLockWindupDuration = Mathf.Max(0f, windupDuration);
         attackLockSlashDuration = Mathf.Max(0f, slashDuration);
         attackLockRecoveryDuration = Mathf.Max(0f, recoveryDuration);
+        attackLockCooldownDuration = Mathf.Max(0f, cooldownDuration);
         attackLockLoops = loop;
 
         if (rb != null)
@@ -444,6 +450,7 @@ public class EnemyController : MonoBehaviour
         attackLockWindupDuration = 0f;
         attackLockSlashDuration = 0f;
         attackLockRecoveryDuration = 0f;
+        attackLockCooldownDuration = 0f;
         ResetMovementAnimation();
     }
 
@@ -512,8 +519,12 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        float totalDuration = attackLockWindupDuration + attackLockSlashDuration + attackLockRecoveryDuration;
-        if (totalDuration <= 0.0001f)
+        float attackDuration = attackLockWindupDuration + attackLockSlashDuration + attackLockRecoveryDuration;
+        float cycleDuration = attackLockLoops
+            ? attackDuration + attackLockCooldownDuration
+            : attackDuration;
+
+        if (attackDuration <= 0.0001f)
         {
             ApplyAttackPose(
                 1f + attackSlashAnimationAmplitude,
@@ -524,13 +535,19 @@ public class EnemyController : MonoBehaviour
         }
 
         float elapsed = Mathf.Max(Time.time - attackLockStartTime, 0f);
-        if (attackLockLoops)
+        if (attackLockLoops && cycleDuration > 0.0001f)
         {
-            elapsed = Mathf.Repeat(elapsed, totalDuration);
+            elapsed = Mathf.Repeat(elapsed, cycleDuration);
         }
         else
         {
-            elapsed = Mathf.Min(elapsed, totalDuration);
+            elapsed = Mathf.Min(elapsed, attackDuration);
+        }
+
+        if (attackLockLoops && elapsed >= attackDuration)
+        {
+            ApplyAttackPose(1f, 1f, 0f, 0f);
+            return;
         }
 
         float rotationSign = GetAttackAnimationRotationSign(attackLockDirection);
@@ -632,7 +649,7 @@ public class EnemyController : MonoBehaviour
         return Mathf.Lerp(0.45f, 1f, normalizedSpeed);
     }
 
-    private void GetDebugAttackLockTimings(out float windupDuration, out float slashDuration, out float recoveryDuration)
+    private void GetDebugAttackLockTimings(out float windupDuration, out float slashDuration, out float recoveryDuration, out float cooldownDuration)
     {
         if (enemyAttack == null)
         {
@@ -642,6 +659,7 @@ public class EnemyController : MonoBehaviour
         windupDuration = enemyAttack != null ? enemyAttack.attackCastDuration : 0.35f;
         slashDuration = enemyAttack != null ? enemyAttack.attackDuration : 0.2f;
         recoveryDuration = enemyAttack != null ? enemyAttack.movementDelayAfterAttack : 0.35f;
+        cooldownDuration = enemyAttack != null ? enemyAttack.attackRate : 0.35f;
 
         if (windupDuration + slashDuration + recoveryDuration <= 0.0001f)
         {
@@ -649,6 +667,8 @@ public class EnemyController : MonoBehaviour
             slashDuration = 0.2f;
             recoveryDuration = 0.35f;
         }
+
+        cooldownDuration = Mathf.Max(0f, cooldownDuration);
     }
 
     private float GetAttackAnimationRotationSign(Vector2 direction)

@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
     [Header("Attack Settings")]
     [Tooltip("Amount of damage to deal to the player.")]
     public float damage = 10f;
-    [Tooltip("Cooldown in seconds between attacks.")]
+    [Tooltip("Cooldown in seconds after an attack finishes before the enemy can attack again.")]
     public float attackRate = 1.0f;
     [Tooltip("Time before the hitbox activates (Telegraph/Cast time).")]
     public float attackCastDuration = 0.5f;
@@ -126,7 +126,6 @@ public class EnemyAttack : MonoBehaviour
             if (IsPlayerInRange() && Time.time >= nextAttackTime)
             {
                 PerformAttack();
-                nextAttackTime = Time.time + attackRate;
             }
         }
     }
@@ -204,7 +203,8 @@ public class EnemyAttack : MonoBehaviour
                 attackDirection,
                 attackCastDuration,
                 attackDuration,
-                movementDelayAfterAttack);
+                movementDelayAfterAttack,
+                attackRate);
         }
 
         // Wait for cast duration before enabling hitbox
@@ -242,6 +242,7 @@ public class EnemyAttack : MonoBehaviour
         if (enemyController != null)
             enemyController.EndAttackLock();
 
+        nextAttackTime = Time.time + attackRate;
         isAttacking = false; // Unlock direction
     }
 
