@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private PlayerStats stats;
     private bool isSprinting;
+    private readonly Dictionary<int, float> movementSpeedMultipliers = new Dictionary<int, float>();
 
     void Start()
     {
@@ -58,7 +60,39 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
+        float currentSpeed = (isSprinting ? sprintSpeed : moveSpeed) * GetMovementSpeedMultiplier();
         rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
+    }
+
+    public void SetMovementSpeedMultiplier(Object source, float multiplier)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        movementSpeedMultipliers[source.GetInstanceID()] = Mathf.Max(0f, multiplier);
+    }
+
+    public void ClearMovementSpeedMultiplier(Object source)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        movementSpeedMultipliers.Remove(source.GetInstanceID());
+    }
+
+    private float GetMovementSpeedMultiplier()
+    {
+        float lowestMultiplier = 1f;
+
+        foreach (float multiplier in movementSpeedMultipliers.Values)
+        {
+            lowestMultiplier = Mathf.Min(lowestMultiplier, multiplier);
+        }
+
+        return lowestMultiplier;
     }
 }

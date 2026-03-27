@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1177756245857702653}
   - component: {fileID: 5383013471127133624}
   - component: {fileID: 1620714112948132270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,8 @@ MonoBehaviour:
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1 &761895498806377406
@@ -469,7 +471,7 @@ GameObject:
   - component: {fileID: 9135347403057042088}
   - component: {fileID: 5503806379130018055}
   - component: {fileID: 3760573373386050390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tombstone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,6 +570,8 @@ MonoBehaviour:
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!61 &3760573373386050390

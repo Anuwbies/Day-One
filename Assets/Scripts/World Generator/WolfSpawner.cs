@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class ChickenSpawner : MonoBehaviour
+public class WolfSpawner : MonoBehaviour
 {
     private struct SpawnCell
     {
@@ -20,9 +20,9 @@ public class ChickenSpawner : MonoBehaviour
     }
 
     [Header("References")]
-    [SerializeField] private Tilemap chickenTilemap;
-    [SerializeField] private GameObject chickenPrefab;
-    [SerializeField] private Transform generatedChickensParent;
+    [SerializeField] private Tilemap wolfTilemap;
+    [SerializeField] private GameObject wolfPrefab;
+    [SerializeField] private Transform generatedWolvesParent;
 
     [Header("Spawn Area Settings")]
     [SerializeField] private bool spawnOnlyInEmptySpace = false;
@@ -31,10 +31,10 @@ public class ChickenSpawner : MonoBehaviour
 
     [Header("Generation Settings")]
     [Min(1)]
-    [SerializeField] private int maxChickenCount = 8;
+    [SerializeField] private int maxWolfCount = 8;
 
     [Min(1)]
-    [SerializeField] private int maxPlacementAttemptsPerChicken = 4;
+    [SerializeField] private int maxPlacementAttemptsPerWolf = 4;
 
     [Min(0f)]
     [SerializeField] private float minRandomDist = 0.5f;
@@ -66,20 +66,20 @@ public class ChickenSpawner : MonoBehaviour
 
     private readonly List<Vector3> generatedPositions = new List<Vector3>();
     private readonly List<Collider2D> overlapResults = new List<Collider2D>();
-    private Collider2D cachedChickenChildCollider;
-    private Coroutine refreshTrackedChickenCountCoroutine;
-    private Coroutine respawnChickenCoroutine;
-    private int lastTrackedChickenCount;
+    private Collider2D cachedWolfChildCollider;
+    private Coroutine refreshTrackedWolfCountCoroutine;
+    private Coroutine respawnWolfCoroutine;
+    private int lastTrackedWolfCount;
     private bool suppressRespawnTracking;
 
     private void Start()
     {
         if (generateOnStart)
         {
-            GenerateChickens();
+            GenerateWolves();
         }
 
-        RefreshTrackedChickenCountImmediate();
+        RefreshTrackedWolfCountImmediate();
     }
 
     private void Update()
@@ -89,7 +89,7 @@ public class ChickenSpawner : MonoBehaviour
             return;
         }
 
-        QueueRespawnsForDestroyedChickens();
+        QueueRespawnsForDestroyedWolves();
     }
 
     private void OnDisable()
@@ -100,8 +100,8 @@ public class ChickenSpawner : MonoBehaviour
         }
 
         StopAllCoroutines();
-        refreshTrackedChickenCountCoroutine = null;
-        respawnChickenCoroutine = null;
+        refreshTrackedWolfCountCoroutine = null;
+        respawnWolfCoroutine = null;
         suppressRespawnTracking = false;
     }
 
@@ -113,15 +113,15 @@ public class ChickenSpawner : MonoBehaviour
         }
 
         StopAllCoroutines();
-        refreshTrackedChickenCountCoroutine = null;
-        respawnChickenCoroutine = null;
+        refreshTrackedWolfCountCoroutine = null;
+        respawnWolfCoroutine = null;
     }
 
     private void OnValidate()
     {
-        cachedChickenChildCollider = null;
-        maxChickenCount = Mathf.Max(1, maxChickenCount);
-        maxPlacementAttemptsPerChicken = Mathf.Max(1, maxPlacementAttemptsPerChicken);
+        cachedWolfChildCollider = null;
+        maxWolfCount = Mathf.Max(1, maxWolfCount);
+        maxPlacementAttemptsPerWolf = Mathf.Max(1, maxPlacementAttemptsPerWolf);
         minRandomDist = Mathf.Max(0f, minRandomDist);
         maxRandomDist = Mathf.Max(minRandomDist, maxRandomDist);
         edgeTileMargin = Mathf.Max(0f, edgeTileMargin);
@@ -131,20 +131,20 @@ public class ChickenSpawner : MonoBehaviour
         maxRespawnCountAtATime = Mathf.Max(minRespawnCountAtATime, maxRespawnCountAtATime);
     }
 
-    [ContextMenu("Generate Chickens")]
-    public void GenerateChickens()
+    [ContextMenu("Generate Wolves")]
+    public void GenerateWolves()
     {
-        if (!spawnOnlyInEmptySpace && chickenTilemap == null)
+        if (!spawnOnlyInEmptySpace && wolfTilemap == null)
         {
-            Debug.LogWarning($"No chicken tilemap assigned for {name}.");
-            RefreshTrackedChickenCountImmediate();
+            Debug.LogWarning($"No wolf tilemap assigned for {name}.");
+            RefreshTrackedWolfCountImmediate();
             return;
         }
 
-        if (chickenPrefab == null)
+        if (wolfPrefab == null)
         {
-            Debug.LogWarning($"No chicken prefab assigned for {name}.");
-            RefreshTrackedChickenCountImmediate();
+            Debug.LogWarning($"No wolf prefab assigned for {name}.");
+            RefreshTrackedWolfCountImmediate();
             return;
         }
 
@@ -153,53 +153,53 @@ public class ChickenSpawner : MonoBehaviour
         List<SpawnCell> spawnCells = CollectSpawnCells();
         if (spawnCells.Count == 0)
         {
-            Debug.LogWarning($"No valid chicken spawn cells found for {name}.");
-            RefreshTrackedChickenCountImmediate();
+            Debug.LogWarning($"No valid wolf spawn cells found for {name}.");
+            RefreshTrackedWolfCountImmediate();
             return;
         }
 
         ShuffleSpawnCells(spawnCells);
 
-        Transform spawnParent = GetOrCreateGeneratedChickensParent();
+        Transform spawnParent = GetOrCreateGeneratedWolvesParent();
         if (clearBeforeGenerate)
         {
-            ClearGeneratedChickens();
+            ClearGeneratedWolves();
         }
         else
         {
             RebuildGeneratedPositions(spawnParent);
         }
 
-        int remainingChickenCount = Mathf.Max(0, maxChickenCount - generatedPositions.Count);
-        if (remainingChickenCount <= 0)
+        int remainingWolfCount = Mathf.Max(0, maxWolfCount - generatedPositions.Count);
+        if (remainingWolfCount <= 0)
         {
-            RefreshTrackedChickenCountImmediate();
+            RefreshTrackedWolfCountImmediate();
             return;
         }
 
-        for (int cellIndex = 0; cellIndex < spawnCells.Count && remainingChickenCount > 0; cellIndex++)
+        for (int cellIndex = 0; cellIndex < spawnCells.Count && remainingWolfCount > 0; cellIndex++)
         {
-            if (TrySpawnChickenOnCell(spawnCells[cellIndex], spawnParent))
+            if (TrySpawnWolfOnCell(spawnCells[cellIndex], spawnParent))
             {
-                remainingChickenCount--;
+                remainingWolfCount--;
             }
         }
 
-        RefreshTrackedChickenCountDeferred();
+        RefreshTrackedWolfCountDeferred();
     }
 
-    [ContextMenu("Clear Generated Chickens")]
-    public void ClearGeneratedChickens()
+    [ContextMenu("Clear Generated Wolves")]
+    public void ClearGeneratedWolves()
     {
         if (Application.isPlaying)
         {
             StopAllCoroutines();
-            refreshTrackedChickenCountCoroutine = null;
-            respawnChickenCoroutine = null;
+            refreshTrackedWolfCountCoroutine = null;
+            respawnWolfCoroutine = null;
             suppressRespawnTracking = false;
         }
 
-        Transform spawnParent = GetOrCreateGeneratedChickensParent();
+        Transform spawnParent = GetOrCreateGeneratedWolvesParent();
 
         for (int i = spawnParent.childCount - 1; i >= 0; i--)
         {
@@ -215,23 +215,23 @@ public class ChickenSpawner : MonoBehaviour
         }
 
         generatedPositions.Clear();
-        RefreshTrackedChickenCountDeferred();
+        RefreshTrackedWolfCountDeferred();
     }
 
-    private void QueueRespawnsForDestroyedChickens()
+    private void QueueRespawnsForDestroyedWolves()
     {
-        Transform spawnParent = GetOrCreateGeneratedChickensParent();
-        int currentChickenCount = GetCurrentChickenCount(spawnParent);
+        Transform spawnParent = GetOrCreateGeneratedWolvesParent();
+        int currentWolfCount = GetCurrentWolfCount(spawnParent);
 
-        if (currentChickenCount < lastTrackedChickenCount && respawnChickenCoroutine == null)
+        if (currentWolfCount < lastTrackedWolfCount && respawnWolfCoroutine == null)
         {
-            respawnChickenCoroutine = StartCoroutine(RespawnMissingChickensInBatches());
+            respawnWolfCoroutine = StartCoroutine(RespawnMissingWolvesInBatches());
         }
 
-        lastTrackedChickenCount = currentChickenCount;
+        lastTrackedWolfCount = currentWolfCount;
     }
 
-    private IEnumerator RespawnMissingChickensInBatches()
+    private IEnumerator RespawnMissingWolvesInBatches()
     {
         while (Application.isPlaying && isActiveAndEnabled)
         {
@@ -241,32 +241,32 @@ public class ChickenSpawner : MonoBehaviour
                 yield return new WaitForSeconds(respawnDelaySeconds);
             }
 
-            Transform spawnParent = GetOrCreateGeneratedChickensParent();
-            int currentChickenCount = GetCurrentChickenCount(spawnParent);
-            int missingChickenCount = Mathf.Max(0, maxChickenCount - currentChickenCount);
-            if (missingChickenCount <= 0)
+            Transform spawnParent = GetOrCreateGeneratedWolvesParent();
+            int currentWolfCount = GetCurrentWolfCount(spawnParent);
+            int missingWolfCount = Mathf.Max(0, maxWolfCount - currentWolfCount);
+            if (missingWolfCount <= 0)
             {
-                RefreshTrackedChickenCountImmediate();
-                respawnChickenCoroutine = null;
+                RefreshTrackedWolfCountImmediate();
+                respawnWolfCoroutine = null;
                 yield break;
             }
 
-            int respawnBatchCount = Mathf.Min(missingChickenCount, GetScaledRespawnBatchCount(currentChickenCount));
-            TryRespawnChickenBatch(spawnParent, respawnBatchCount);
-            RefreshTrackedChickenCountImmediate();
+            int respawnBatchCount = Mathf.Min(missingWolfCount, GetScaledRespawnBatchCount(currentWolfCount));
+            TryRespawnWolfBatch(spawnParent, respawnBatchCount);
+            RefreshTrackedWolfCountImmediate();
         }
 
-        respawnChickenCoroutine = null;
+        respawnWolfCoroutine = null;
     }
 
-    private int TryRespawnChickenBatch(Transform spawnParent, int respawnCount)
+    private int TryRespawnWolfBatch(Transform spawnParent, int respawnCount)
     {
-        if (respawnCount <= 0 || chickenPrefab == null)
+        if (respawnCount <= 0 || wolfPrefab == null)
         {
             return 0;
         }
 
-        if (!spawnOnlyInEmptySpace && chickenTilemap == null)
+        if (!spawnOnlyInEmptySpace && wolfTilemap == null)
         {
             return 0;
         }
@@ -282,23 +282,23 @@ public class ChickenSpawner : MonoBehaviour
         ShuffleSpawnCells(spawnCells);
         RebuildGeneratedPositions(spawnParent);
 
-        int remainingRespawnCount = Mathf.Min(respawnCount, Mathf.Max(0, maxChickenCount - generatedPositions.Count));
+        int remainingRespawnCount = Mathf.Min(respawnCount, Mathf.Max(0, maxWolfCount - generatedPositions.Count));
         if (remainingRespawnCount <= 0)
         {
             return 0;
         }
 
-        int spawnedChickenCount = 0;
+        int spawnedWolfCount = 0;
         for (int cellIndex = 0; cellIndex < spawnCells.Count && remainingRespawnCount > 0; cellIndex++)
         {
-            if (TrySpawnChickenOnCell(spawnCells[cellIndex], spawnParent))
+            if (TrySpawnWolfOnCell(spawnCells[cellIndex], spawnParent))
             {
-                spawnedChickenCount++;
+                spawnedWolfCount++;
                 remainingRespawnCount--;
             }
         }
 
-        return spawnedChickenCount;
+        return spawnedWolfCount;
     }
 
     private float GetRandomRespawnDelaySeconds()
@@ -306,16 +306,16 @@ public class ChickenSpawner : MonoBehaviour
         return Random.Range(minRespawnTimeMinutes, maxRespawnTimeMinutes) * 60f;
     }
 
-    private int GetScaledRespawnBatchCount(int currentChickenCount)
+    private int GetScaledRespawnBatchCount(int currentWolfCount)
     {
         if (maxRespawnCountAtATime <= minRespawnCountAtATime)
         {
             return minRespawnCountAtATime;
         }
 
-        float aliveRatio = maxChickenCount <= 0
+        float aliveRatio = maxWolfCount <= 0
             ? 1f
-            : Mathf.Clamp01((float)currentChickenCount / maxChickenCount);
+            : Mathf.Clamp01((float)currentWolfCount / maxWolfCount);
 
         float scaledBatchCount = Mathf.Lerp(maxRespawnCountAtATime, minRespawnCountAtATime, aliveRatio);
         int minBatchCount = Mathf.Clamp(Mathf.FloorToInt(scaledBatchCount), minRespawnCountAtATime, maxRespawnCountAtATime);
@@ -323,50 +323,50 @@ public class ChickenSpawner : MonoBehaviour
         return Random.Range(minBatchCount, maxBatchCount + 1);
     }
 
-    private void RefreshTrackedChickenCountImmediate()
+    private void RefreshTrackedWolfCountImmediate()
     {
-        lastTrackedChickenCount = GetCurrentChickenCount(GetOrCreateGeneratedChickensParent());
+        lastTrackedWolfCount = GetCurrentWolfCount(GetOrCreateGeneratedWolvesParent());
     }
 
-    private void RefreshTrackedChickenCountDeferred()
+    private void RefreshTrackedWolfCountDeferred()
     {
         if (!Application.isPlaying)
         {
-            RefreshTrackedChickenCountImmediate();
+            RefreshTrackedWolfCountImmediate();
             return;
         }
 
-        if (refreshTrackedChickenCountCoroutine != null)
+        if (refreshTrackedWolfCountCoroutine != null)
         {
-            StopCoroutine(refreshTrackedChickenCountCoroutine);
+            StopCoroutine(refreshTrackedWolfCountCoroutine);
         }
 
-        refreshTrackedChickenCountCoroutine = StartCoroutine(RefreshTrackedChickenCountNextFrame());
+        refreshTrackedWolfCountCoroutine = StartCoroutine(RefreshTrackedWolfCountNextFrame());
     }
 
-    private IEnumerator RefreshTrackedChickenCountNextFrame()
+    private IEnumerator RefreshTrackedWolfCountNextFrame()
     {
         suppressRespawnTracking = true;
         yield return null;
 
-        refreshTrackedChickenCountCoroutine = null;
-        lastTrackedChickenCount = GetCurrentChickenCount(GetOrCreateGeneratedChickensParent());
+        refreshTrackedWolfCountCoroutine = null;
+        lastTrackedWolfCount = GetCurrentWolfCount(GetOrCreateGeneratedWolvesParent());
         suppressRespawnTracking = false;
     }
 
-    private bool TrySpawnChickenOnCell(SpawnCell spawnCell, Transform spawnParent)
+    private bool TrySpawnWolfOnCell(SpawnCell spawnCell, Transform spawnParent)
     {
-        for (int attempt = 0; attempt < maxPlacementAttemptsPerChicken; attempt++)
+        for (int attempt = 0; attempt < maxPlacementAttemptsPerWolf; attempt++)
         {
             Vector3 pivotPosition = GetRandomPivotPositionInCell(spawnCell);
-            Vector3 spawnPosition = GetChickenRootPositionFromPivot(pivotPosition);
+            Vector3 spawnPosition = GetWolfRootPositionFromPivot(pivotPosition);
 
             if (!IsOnSelectedSpawnArea(spawnPosition, spawnCell))
             {
                 continue;
             }
 
-            if (!IsFarEnoughFromExistingChickens(pivotPosition))
+            if (!IsFarEnoughFromExistingWolves(pivotPosition))
             {
                 continue;
             }
@@ -376,9 +376,9 @@ public class ChickenSpawner : MonoBehaviour
                 continue;
             }
 
-            GameObject chickenInstance = Instantiate(chickenPrefab, spawnPosition, Quaternion.identity, spawnParent);
-            chickenInstance.name = chickenPrefab.name;
-            generatedPositions.Add(GetChickenPivotWorldPosition(chickenInstance.transform));
+            GameObject wolfInstance = Instantiate(wolfPrefab, spawnPosition, Quaternion.identity, spawnParent);
+            wolfInstance.name = wolfPrefab.name;
+            generatedPositions.Add(GetWolfPivotWorldPosition(wolfInstance.transform));
             return true;
         }
 
@@ -390,17 +390,17 @@ public class ChickenSpawner : MonoBehaviour
         List<SpawnCell> spawnCells = new List<SpawnCell>();
         Dictionary<string, int> cellIndices = new Dictionary<string, int>();
 
-        if (!spawnOnlyInEmptySpace && chickenTilemap != null)
+        if (!spawnOnlyInEmptySpace && wolfTilemap != null)
         {
-            BoundsInt bounds = chickenTilemap.cellBounds;
+            BoundsInt bounds = wolfTilemap.cellBounds;
             foreach (Vector3Int cellPosition in bounds.allPositionsWithin)
             {
-                if (!chickenTilemap.HasTile(cellPosition))
+                if (!wolfTilemap.HasTile(cellPosition))
                 {
                     continue;
                 }
 
-                AddSpawnCell(chickenTilemap, cellPosition, false, spawnCells, cellIndices);
+                AddSpawnCell(wolfTilemap, cellPosition, false, spawnCells, cellIndices);
             }
         }
 
@@ -464,7 +464,7 @@ public class ChickenSpawner : MonoBehaviour
         spawnCells.Add(new SpawnCell(spawnTilemap, cellPosition, isEmptySpaceCell));
     }
 
-    private bool IsOnSelectedSpawnArea(Vector3 chickenRootPosition, SpawnCell spawnCell)
+    private bool IsOnSelectedSpawnArea(Vector3 wolfRootPosition, SpawnCell spawnCell)
     {
         if (spawnCell.SpawnTilemap == null)
         {
@@ -473,15 +473,15 @@ public class ChickenSpawner : MonoBehaviour
 
         if (spawnCell.IsEmptySpaceCell)
         {
-            return IsInsideEmptySpace(chickenRootPosition, spawnCell.SpawnTilemap);
+            return IsInsideEmptySpace(wolfRootPosition, spawnCell.SpawnTilemap);
         }
 
-        if (!IsOnSelectedTilemap(chickenRootPosition, spawnCell.SpawnTilemap))
+        if (!IsOnSelectedTilemap(wolfRootPosition, spawnCell.SpawnTilemap))
         {
             return false;
         }
 
-        if (!includeEmptySpaceGenerators && IsOverlappingAnyEmptySpace(chickenRootPosition))
+        if (!includeEmptySpaceGenerators && IsOverlappingAnyEmptySpace(wolfRootPosition))
         {
             return false;
         }
@@ -489,31 +489,31 @@ public class ChickenSpawner : MonoBehaviour
         return true;
     }
 
-    private bool IsInsideEmptySpace(Vector3 chickenRootPosition, Tilemap sourceTilemap)
+    private bool IsInsideEmptySpace(Vector3 wolfRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetChickenColliderBounds(chickenRootPosition, out Bounds colliderBounds))
+        if (!TryGetWolfColliderBounds(wolfRootPosition, out Bounds colliderBounds))
         {
-            return IsInAnyEmptySpace(chickenRootPosition);
+            return IsInAnyEmptySpace(wolfRootPosition);
         }
 
         return AreBoundsCoveredByEmptySpaces(colliderBounds, sourceTilemap);
     }
 
-    private bool IsOnSelectedTilemap(Vector3 chickenRootPosition, Tilemap sourceTilemap)
+    private bool IsOnSelectedTilemap(Vector3 wolfRootPosition, Tilemap sourceTilemap)
     {
         if (sourceTilemap == null)
         {
             return false;
         }
 
-        if (!TryGetChickenColliderBounds(chickenRootPosition, out Bounds colliderBounds))
+        if (!TryGetWolfColliderBounds(wolfRootPosition, out Bounds colliderBounds))
         {
-            Vector3Int cellPosition = sourceTilemap.WorldToCell(chickenRootPosition);
+            Vector3Int cellPosition = sourceTilemap.WorldToCell(wolfRootPosition);
             return sourceTilemap.HasTile(cellPosition);
         }
 
@@ -538,16 +538,16 @@ public class ChickenSpawner : MonoBehaviour
         return false;
     }
 
-    private bool IsOverlappingAnyEmptySpace(Vector3 chickenRootPosition)
+    private bool IsOverlappingAnyEmptySpace(Vector3 wolfRootPosition)
     {
         if (emptySpaceGenerators == null || emptySpaceGenerators.Count == 0)
         {
             return false;
         }
 
-        if (!TryGetChickenColliderBounds(chickenRootPosition, out Bounds colliderBounds))
+        if (!TryGetWolfColliderBounds(wolfRootPosition, out Bounds colliderBounds))
         {
-            return IsInAnyEmptySpace(chickenRootPosition);
+            return IsInAnyEmptySpace(wolfRootPosition);
         }
 
         for (int i = 0; i < emptySpaceGenerators.Count; i++)
@@ -706,7 +706,7 @@ public class ChickenSpawner : MonoBehaviour
         );
     }
 
-    private bool IsFarEnoughFromExistingChickens(Vector3 candidatePosition)
+    private bool IsFarEnoughFromExistingWolves(Vector3 candidatePosition)
     {
         if (generatedPositions.Count == 0)
         {
@@ -728,7 +728,7 @@ public class ChickenSpawner : MonoBehaviour
         return true;
     }
 
-    private bool IsAreaFreeFromObstacles(Vector3 chickenRootPosition)
+    private bool IsAreaFreeFromObstacles(Vector3 wolfRootPosition)
     {
         ContactFilter2D filter = new ContactFilter2D
         {
@@ -738,7 +738,7 @@ public class ChickenSpawner : MonoBehaviour
 
         overlapResults.Clear();
         Physics2D.SyncTransforms();
-        GetPlacementOverlaps(chickenRootPosition, filter, overlapResults);
+        GetPlacementOverlaps(wolfRootPosition, filter, overlapResults);
 
         for (int i = 0; i < overlapResults.Count; i++)
         {
@@ -758,76 +758,76 @@ public class ChickenSpawner : MonoBehaviour
 
         for (int i = 0; i < spawnParent.childCount; i++)
         {
-            generatedPositions.Add(GetChickenPivotWorldPosition(spawnParent.GetChild(i)));
+            generatedPositions.Add(GetWolfPivotWorldPosition(spawnParent.GetChild(i)));
         }
     }
 
-    private int GetCurrentChickenCount(Transform spawnParent)
+    private int GetCurrentWolfCount(Transform spawnParent)
     {
         return spawnParent != null ? spawnParent.childCount : 0;
     }
 
-    private Vector3 GetChickenRootPositionFromPivot(Vector3 pivotPosition)
+    private Vector3 GetWolfRootPositionFromPivot(Vector3 pivotPosition)
     {
-        Vector3 pivotOffset = GetChickenPivotLocalOffset();
+        Vector3 pivotOffset = GetWolfPivotLocalOffset();
         return new Vector3(
             pivotPosition.x - pivotOffset.x,
             pivotPosition.y - pivotOffset.y,
-            chickenPrefab.transform.position.z
+            wolfPrefab.transform.position.z
         );
     }
 
-    private Vector3 GetChickenPivotWorldPosition(Transform chickenTransform)
+    private Vector3 GetWolfPivotWorldPosition(Transform wolfTransform)
     {
-        if (chickenTransform == null)
+        if (wolfTransform == null)
         {
             return Vector3.zero;
         }
 
-        Collider2D childCollider = GetChildCollider(chickenTransform.gameObject);
+        Collider2D childCollider = GetChildCollider(wolfTransform.gameObject);
         if (childCollider == null)
         {
-            return chickenTransform.position;
+            return wolfTransform.position;
         }
 
         return childCollider.transform.TransformPoint(childCollider.offset);
     }
 
-    private Vector3 GetChickenPivotLocalOffset()
+    private Vector3 GetWolfPivotLocalOffset()
     {
-        Collider2D childCollider = GetChickenPrefabChildCollider();
+        Collider2D childCollider = GetWolfPrefabChildCollider();
         if (childCollider == null)
         {
             return Vector3.zero;
         }
 
-        return chickenPrefab.transform.InverseTransformPoint(
+        return wolfPrefab.transform.InverseTransformPoint(
             childCollider.transform.TransformPoint(childCollider.offset)
         );
     }
 
-    private Collider2D GetChickenPrefabChildCollider()
+    private Collider2D GetWolfPrefabChildCollider()
     {
-        if (cachedChickenChildCollider != null)
+        if (cachedWolfChildCollider != null)
         {
-            return cachedChickenChildCollider;
+            return cachedWolfChildCollider;
         }
 
-        cachedChickenChildCollider = GetChildCollider(chickenPrefab);
-        return cachedChickenChildCollider;
+        cachedWolfChildCollider = GetChildCollider(wolfPrefab);
+        return cachedWolfChildCollider;
     }
 
-    private int GetPlacementOverlaps(Vector3 chickenRootPosition, ContactFilter2D filter, List<Collider2D> results)
+    private int GetPlacementOverlaps(Vector3 wolfRootPosition, ContactFilter2D filter, List<Collider2D> results)
     {
-        Collider2D childCollider = GetChickenPrefabChildCollider();
+        Collider2D childCollider = GetWolfPrefabChildCollider();
         if (childCollider == null)
         {
-            return Physics2D.OverlapBox((Vector2)chickenRootPosition, Vector2.one * 0.1f, 0f, filter, results);
+            return Physics2D.OverlapBox((Vector2)wolfRootPosition, Vector2.one * 0.1f, 0f, filter, results);
         }
 
         if (childCollider is CircleCollider2D circleCollider)
         {
-            Vector2 center = GetChickenChildColliderWorldCenter(circleCollider, chickenRootPosition);
+            Vector2 center = GetWolfChildColliderWorldCenter(circleCollider, wolfRootPosition);
             Vector3 scale = circleCollider.transform.lossyScale;
             float radius = circleCollider.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y));
             return Physics2D.OverlapCircle(center, radius, filter, results);
@@ -835,13 +835,13 @@ public class ChickenSpawner : MonoBehaviour
 
         if (childCollider is BoxCollider2D boxCollider)
         {
-            Vector2 center = GetChickenChildColliderWorldCenter(boxCollider, chickenRootPosition);
+            Vector2 center = GetWolfChildColliderWorldCenter(boxCollider, wolfRootPosition);
             Vector2 size = GetScaledColliderSize(boxCollider.size, boxCollider.transform);
             float angle = boxCollider.transform.eulerAngles.z;
             return Physics2D.OverlapBox(center, size, angle, filter, results);
         }
 
-        if (TryGetChickenColliderBounds(chickenRootPosition, out Bounds colliderBounds))
+        if (TryGetWolfColliderBounds(wolfRootPosition, out Bounds colliderBounds))
         {
             return Physics2D.OverlapBox(
                 (Vector2)colliderBounds.center,
@@ -855,9 +855,9 @@ public class ChickenSpawner : MonoBehaviour
         return 0;
     }
 
-    private Vector2 GetChickenChildColliderWorldCenter(Collider2D childCollider, Vector3 chickenRootPosition)
+    private Vector2 GetWolfChildColliderWorldCenter(Collider2D childCollider, Vector3 wolfRootPosition)
     {
-        Vector3 rootOffset = chickenRootPosition - chickenPrefab.transform.position;
+        Vector3 rootOffset = wolfRootPosition - wolfPrefab.transform.position;
         Vector3 worldCenter = childCollider.transform.TransformPoint(childCollider.offset) + rootOffset;
         return new Vector2(worldCenter.x, worldCenter.y);
     }
@@ -871,9 +871,9 @@ public class ChickenSpawner : MonoBehaviour
         );
     }
 
-    private bool TryGetChickenColliderBounds(Vector3 chickenRootPosition, out Bounds colliderBounds)
+    private bool TryGetWolfColliderBounds(Vector3 wolfRootPosition, out Bounds colliderBounds)
     {
-        Collider2D childCollider = GetChickenPrefabChildCollider();
+        Collider2D childCollider = GetWolfPrefabChildCollider();
         if (childCollider == null)
         {
             colliderBounds = default;
@@ -881,7 +881,7 @@ public class ChickenSpawner : MonoBehaviour
         }
 
         colliderBounds = childCollider.bounds;
-        colliderBounds.center += chickenRootPosition - chickenPrefab.transform.position;
+        colliderBounds.center += wolfRootPosition - wolfPrefab.transform.position;
         return colliderBounds.size.sqrMagnitude > 0f;
     }
 
@@ -925,23 +925,24 @@ public class ChickenSpawner : MonoBehaviour
         }
     }
 
-    private Transform GetOrCreateGeneratedChickensParent()
+    private Transform GetOrCreateGeneratedWolvesParent()
     {
-        if (generatedChickensParent != null)
+        if (generatedWolvesParent != null)
         {
-            return generatedChickensParent;
+            return generatedWolvesParent;
         }
 
-        Transform existingChild = transform.Find("Generated Chickens");
+        Transform existingChild = transform.Find("Generated Wolves");
         if (existingChild != null)
         {
-            generatedChickensParent = existingChild;
-            return generatedChickensParent;
+            generatedWolvesParent = existingChild;
+            return generatedWolvesParent;
         }
 
-        GameObject generatedParentObject = new GameObject("Generated Chickens");
+        GameObject generatedParentObject = new GameObject("Generated Wolves");
         generatedParentObject.transform.SetParent(transform, false);
-        generatedChickensParent = generatedParentObject.transform;
-        return generatedChickensParent;
+        generatedWolvesParent = generatedParentObject.transform;
+        return generatedWolvesParent;
     }
 }
+

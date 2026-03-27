@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behavior: 0
-  debugLockIdle: 1
+  debugLockIdle: 0
   debugLockAttack: 0
   debugLockWalkPatrol: 0
   patrolSpeed: 0.5

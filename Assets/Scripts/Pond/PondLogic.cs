@@ -14,12 +14,16 @@ public class PondLogic : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float damageChancePercent = 25f;
     [SerializeField] private float damageAmount = 5f;
 
+    [Header("Movement Settings")]
+    [SerializeField, Range(0f, 1f)] private float movementSpeedMultiplier = 0.6f;
+
     [Header("Trigger Settings")]
     [SerializeField] private string targetTag = "Player";
     [SerializeField] private Collider2D targetPlayerCollider;
 
     private readonly HashSet<Collider2D> playerCollidersInRange = new HashSet<Collider2D>();
     private PlayerStats playerStats;
+    private PlayerMovement playerMovement;
     private bool isDrinkButtonBound;
 
     private void Awake()
@@ -36,8 +40,10 @@ public class PondLogic : MonoBehaviour
 
     private void OnDisable()
     {
+        RemoveMovementSlowdown();
         playerCollidersInRange.Clear();
         playerStats = null;
+        playerMovement = null;
         UnbindDrinkButton();
 
         if (interactionCanvas != null)
@@ -59,6 +65,8 @@ public class PondLogic : MonoBehaviour
         }
 
         playerStats = ResolvePlayerStats(other);
+        playerMovement = ResolvePlayerMovement(other);
+        ApplyMovementSlowdown();
         BindDrinkButton();
 
         if (interactionCanvas != null)
@@ -85,6 +93,8 @@ public class PondLogic : MonoBehaviour
         }
 
         playerStats = null;
+        RemoveMovementSlowdown();
+        playerMovement = null;
         UnbindDrinkButton();
 
         if (interactionCanvas != null)
@@ -181,6 +191,61 @@ public class PondLogic : MonoBehaviour
         }
 
         return targetPlayerCollider.GetComponentInParent<PlayerStats>();
+    }
+
+    private PlayerMovement ResolvePlayerMovement(Collider2D sourceCollider)
+    {
+        if (sourceCollider == null)
+        {
+            return null;
+        }
+
+        if (sourceCollider.attachedRigidbody != null)
+        {
+            PlayerMovement rigidbodyMovement = sourceCollider.attachedRigidbody.GetComponent<PlayerMovement>();
+            if (rigidbodyMovement != null)
+            {
+                return rigidbodyMovement;
+            }
+        }
+
+        PlayerMovement parentMovement = sourceCollider.GetComponentInParent<PlayerMovement>();
+        if (parentMovement != null)
+        {
+            return parentMovement;
+        }
+
+        if (targetPlayerCollider == null)
+        {
+            return null;
+        }
+
+        if (targetPlayerCollider.attachedRigidbody != null)
+        {
+            return targetPlayerCollider.attachedRigidbody.GetComponent<PlayerMovement>();
+        }
+
+        return targetPlayerCollider.GetComponentInParent<PlayerMovement>();
+    }
+
+    private void ApplyMovementSlowdown()
+    {
+        if (playerMovement == null)
+        {
+            return;
+        }
+
+        playerMovement.SetMovementSpeedMultiplier(this, movementSpeedMultiplier);
+    }
+
+    private void RemoveMovementSlowdown()
+    {
+        if (playerMovement == null)
+        {
+            return;
+        }
+
+        playerMovement.ClearMovementSpeedMultiplier(this);
     }
 
     private bool IsTargetCollider(Collider2D candidate)

@@ -474,10 +474,13 @@ MonoBehaviour:
   sortYOffset: -0.06
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1 &8218721906308030599
@@ -685,9 +688,12 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 0
   fadeAlpha: 0.3
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1

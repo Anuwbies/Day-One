@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behavior: 3
-  debugLockIdle: 1
+  debugLockIdle: 0
   debugLockAttack: 0
   debugLockWalkPatrol: 0
   patrolSpeed: 0.3
@@ -488,7 +488,7 @@ MonoBehaviour:
   patrolRange: {x: 5, y: 2.5}
   patrolOffset: {x: 0, y: 0.03}
   waitTime: 6
-  resetPatrolAfterAggro: 0
+  resetPatrolAfterAggro: 1
   enableRotation: 0
   enableFlip: 1
   enableIdleAnimation: 1
