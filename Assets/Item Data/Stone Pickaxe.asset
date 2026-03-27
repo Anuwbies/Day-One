@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e715134fa428784b80e102643f9f54b, type: 3}
+  m_Name: Stone Pickaxe
+  m_EditorClassIdentifier: 
+  itemName: Stone Pickaxe
+  icon: {fileID: -7681277289931712976, guid: 619ce78cd048e394f85a1edd522f5bb8, type: 3}
+  worldPrefab: {fileID: 8413507189628841579, guid: f9b555fde7a49bf438d9aa50c123b81d, type: 3}
+  snapToGrid: 0
+  gridWidth: 1
+  gridHeight: 1
+  stackable: 0
+  maxStack: 1
+  canPlace: 0
+  canEat: 0
+  canDestroy: 1
+  canDrop: 1
+  canSplit: 1
+  healthRestore: 0
+  hungerRestore: 0
+  thirstRestore: 0
+  energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 0
+  damageToRock: 10

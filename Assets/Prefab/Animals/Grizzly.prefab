@@ -772,8 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTarget: 0
-  maxHealth: 500
-  currentHealth: 500
+  maxHealth: 300
+  currentHealth: 300
   canRegenerate: 0
   regenDelay: 10
   regenRate: 0.1

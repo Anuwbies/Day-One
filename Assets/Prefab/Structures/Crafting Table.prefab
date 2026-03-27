@@ -367,10 +367,13 @@ MonoBehaviour:
   sortYOffset: -0.08
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas:
   - name: Wood
     offset: {x: 0, y: 0.14}
@@ -411,8 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTarget: 1
-  maxHealth: 50
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 100
   canRegenerate: 1
   regenDelay: 3
   regenRate: 10
@@ -741,10 +744,13 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1 &5212801069289294550

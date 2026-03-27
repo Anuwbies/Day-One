@@ -589,15 +589,19 @@ MonoBehaviour:
   sortYOffset: -0.11
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas:
   - name: Fire
     offset: {x: -0.03, y: 0.15}
     size: {x: 0.63, y: 0.65}
     cornerRadius: 0
+  showTriggerAreaGizmos: 1
 --- !u!114 &7633748412729327823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,8 +636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTarget: 1
-  maxHealth: 50
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 100
   canRegenerate: 1
   regenDelay: 3
   regenRate: 10
@@ -654,10 +658,7 @@ MonoBehaviour:
   afterLootSprite: {fileID: 0}
   changeSpriteOnLoot: 0
   hitbox: {fileID: 0}
-  lootTable:
-  - prefab: {fileID: 0}
-    minAmount: 1
-    maxAmount: 2
+  lootTable: []
   xOffset: 0
   yOffset: -0.11
   dropRadius: {x: 0.36, y: 0.23}
@@ -706,6 +707,7 @@ MonoBehaviour:
   radiusLerpSpeed: 0.2
   intensityFadeSpeed: 2
   fadeOutThreshold: 10
+  permanentlyLit: 0
   isPaused: 0
 --- !u!1 &4845781163157258623
 GameObject:
@@ -1204,11 +1206,15 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
+  showTriggerAreaGizmos: 1
 --- !u!1001 &8155034765293122811
 PrefabInstance:
   m_ObjectHideFlags: 0

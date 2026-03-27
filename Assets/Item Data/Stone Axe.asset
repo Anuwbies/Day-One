@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e715134fa428784b80e102643f9f54b, type: 3}
+  m_Name: Stone Axe
+  m_EditorClassIdentifier: 
+  itemName: Stone Axe
+  icon: {fileID: -7493329593067422431, guid: a02c463ded6d7ae40b219949c9612d5b, type: 3}
+  worldPrefab: {fileID: 7237352613092548827, guid: bd1d85fa9bd5c3747af4a79bb6b8c0f3, type: 3}
+  snapToGrid: 0
+  gridWidth: 1
+  gridHeight: 1
+  stackable: 0
+  maxStack: 1
+  canPlace: 0
+  canEat: 0
+  canDestroy: 1
+  canDrop: 1
+  canSplit: 1
+  healthRestore: 0
+  hungerRestore: 0
+  thirstRestore: 0
+  energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 10
+  damageToRock: 0
