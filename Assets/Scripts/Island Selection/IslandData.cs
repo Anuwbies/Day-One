@@ -23,6 +23,9 @@ public class IslandData : ScriptableObject
     [Header("Description")]
     [TextArea(3, 10)]
     public string description;
+
+    [Header("Rewards")]
+    public int diamondPrize = 0;
     
     [Header("Starting Gear")]
     public List<StartingItem> startingItems = new List<StartingItem>();

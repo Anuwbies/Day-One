@@ -457,9 +457,9 @@ MonoBehaviour:
   changeSpriteOnLoot: 0
   hitbox: {fileID: 0}
   lootTable:
-  - prefab: {fileID: 4719200396125063612, guid: 0b6df176ff8122846bc3421a8caa58ee, type: 3}
+  - prefab: {fileID: 5546016461706263705, guid: 8767fba0611ed3b4da3e78f125733b46, type: 3}
     minAmount: 1
-    maxAmount: 3
+    maxAmount: 2
   xOffset: 0
   yOffset: 0.03
   dropRadius: {x: 0.2, y: 0.1}

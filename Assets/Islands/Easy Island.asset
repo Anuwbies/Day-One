@@ -20,6 +20,7 @@ MonoBehaviour:
   image: {fileID: -542413695912478464, guid: 0f2763fbfd586fb4594195d15b54b255, type: 3}
   isEndlessMode: 0
   description: This Island is Easy.
+  diamondPrize: 100
   startingItems:
   - item: {fileID: 11400000, guid: 8eb5126b53508e843b13a52c30169241, type: 2}
     amount: 1

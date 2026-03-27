@@ -48,6 +48,9 @@ public class IslandObjectiveProgressTracker : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private List<ObjectiveProgressState> objectiveProgress = new List<ObjectiveProgressState>();
 
+    [Header("Debug")]
+    [SerializeField] private bool debugCompleteAll;
+
     private IslandData currentIsland;
     private bool hasInitialized;
     private bool needsTaskListSync;
@@ -116,6 +119,12 @@ public class IslandObjectiveProgressTracker : MonoBehaviour
 
     private void Update()
     {
+        if (debugCompleteAll)
+        {
+            debugCompleteAll = false;
+            DebugCompleteAllObjectives();
+        }
+
         bool referencesChanged = TryResolveSceneReferences(false);
 
         if (GetSourceIsland() != currentIsland)
@@ -170,6 +179,19 @@ public class IslandObjectiveProgressTracker : MonoBehaviour
     public void ResetProgress()
     {
         RebuildAndRefresh(true);
+    }
+
+    [ContextMenu("DEBUG: Complete All Objectives")]
+    public void DebugCompleteAllObjectives()
+    {
+        for (int i = 0; i < objectiveProgress.Count; i++)
+        {
+            ObjectiveProgressState state = objectiveProgress[i];
+            state.currentAmount = state.requiredAmount;
+            state.isCompleted = true;
+        }
+        NotifyProgressChanged();
+        Debug.Log("DEBUG: All objectives marked as completed.");
     }
 
     public int GetObjectiveProgress(int objectiveIndex)

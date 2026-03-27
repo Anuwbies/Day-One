@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e715134fa428784b80e102643f9f54b, type: 3}
+  m_Name: Plant Fiber
+  m_EditorClassIdentifier: 
+  itemName: Plant FIber
+  icon: {fileID: -6657291953588159650, guid: a90f1e45fe58735428ee0744bda65ab0, type: 3}
+  toolType: 0
+  worldPrefab: {fileID: 8922887800092772604, guid: 2bcaaab3fae2aca4db9da798d57a3327, type: 3}
+  snapToGrid: 0
+  gridWidth: 1
+  gridHeight: 1
+  stackable: 1
+  maxStack: 16
+  canPlace: 0
+  canEat: 0
+  canDestroy: 1
+  canDrop: 1
+  canSplit: 1
+  healthRestore: 0
+  hungerRestore: 0
+  thirstRestore: 0
+  energyRestore: 0
+  damageToEnemy: 0
+  damageToTree: 0
+  damageToRock: 0

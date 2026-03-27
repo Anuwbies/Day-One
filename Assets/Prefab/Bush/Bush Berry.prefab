@@ -465,10 +465,13 @@ MonoBehaviour:
   sortYOffset: -0.05
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!114 &1238868125817249006
@@ -527,7 +530,10 @@ MonoBehaviour:
   afterLootSprite: {fileID: 0}
   changeSpriteOnLoot: 0
   hitbox: {fileID: 7014976733796258774}
-  lootTable: []
+  lootTable:
+  - prefab: {fileID: 8922887800092772604, guid: 2bcaaab3fae2aca4db9da798d57a3327, type: 3}
+    minAmount: 0
+    maxAmount: 1
   xOffset: 0
   yOffset: -0.065
   dropRadius: {x: 0.4, y: 0.25}
@@ -846,10 +852,13 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1 &7435915796427680554
@@ -1024,10 +1033,13 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1 &8279914490022865486

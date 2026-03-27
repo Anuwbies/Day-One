@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 public class SelectedIslandTaskListUI : MonoBehaviour
@@ -26,6 +27,7 @@ public class SelectedIslandTaskListUI : MonoBehaviour
     [Header("Behaviour")]
     public bool rebuildOnEnable = true;
     public bool toggleContentOnPanelClick = true;
+    public string mainMenuSceneName = "Main Menu";
 
     private readonly List<GameObject> spawnedTaskItems = new List<GameObject>();
     private readonly List<bool> completionStates = new List<bool>();
@@ -67,6 +69,15 @@ public class SelectedIslandTaskListUI : MonoBehaviour
     {
         UnsubscribeFromSelectionUI();
         RemovePanelClickHandler();
+        
+        // Clean up button listeners
+        for (int i = 0; i < trackedButtons.Count; i++)
+        {
+            if (trackedButtons[i] != null)
+            {
+                trackedButtons[i].onClick.RemoveListener(HandleCompletionButtonClick);
+            }
+        }
     }
 
     [ContextMenu("Refresh Tasks")]
@@ -110,6 +121,34 @@ public class SelectedIslandTaskListUI : MonoBehaviour
     private void HandleIslandSelected(IslandData island)
     {
         SetIsland(island);
+    }
+
+    private void HandleCompletionButtonClick()
+    {
+        if (!AreAllTasksCompleted())
+        {
+            return;
+        }
+
+        // Award the prize defined in IslandData
+        if (currentIsland != null && currentIsland.diamondPrize > 0)
+        {
+            if (DiamondCurrency.Instance != null)
+            {
+                Debug.Log($"Island Objective Complete! Awarding {currentIsland.diamondPrize} diamonds.");
+                DiamondCurrency.Instance.AddDiamonds(currentIsland.diamondPrize);
+            }
+            else
+            {
+                Debug.LogWarning("SelectedIslandTaskListUI: DiamondCurrency instance not found. Prize not awarded.");
+            }
+        }
+
+        // Return to main menu
+        if (!string.IsNullOrEmpty(mainMenuSceneName))
+        {
+            SceneManager.LoadScene(mainMenuSceneName);
+        }
     }
 
     private IslandData GetSourceIsland()
@@ -411,6 +450,15 @@ public class SelectedIslandTaskListUI : MonoBehaviour
 
     private void UpdateTrackedButtons()
     {
+        // Remove listeners from currently tracked buttons before clearing the list
+        for (int i = 0; i < trackedButtons.Count; i++)
+        {
+            if (trackedButtons[i] != null)
+            {
+                trackedButtons[i].onClick.RemoveListener(HandleCompletionButtonClick);
+            }
+        }
+        
         trackedButtons.Clear();
 
         for (int i = 0; i < footerItems.Count; i++)
@@ -448,6 +496,8 @@ public class SelectedIslandTaskListUI : MonoBehaviour
                 continue;
             }
 
+            button.onClick.RemoveListener(HandleCompletionButtonClick);
+            button.onClick.AddListener(HandleCompletionButtonClick);
             trackedButtons.Add(button);
         }
     }
