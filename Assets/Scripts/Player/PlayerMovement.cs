@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float attackSlashRotationAmplitude = 18f;
     [SerializeField, Range(0.05f, 1f)] private float attackSlashPhaseRatio = 0.45f;
 
+    [Header("Tool Animation Settings")]
+    [SerializeField] private float toolAttackRotationAmplitude = 45f;
+    [SerializeField] private ToolManager toolManager;
+
     private Rigidbody2D rb;
     public Vector2 movement;
     private PlayerStats stats;
@@ -45,11 +49,14 @@ public class PlayerMovement : MonoBehaviour
     private float attackAnimationWindupDuration;
     private float attackAnimationSlashDuration;
     private float attackAnimationRecoveryDuration;
+    private Quaternion toolBaseLocalRotation = Quaternion.identity;
+    private Transform lastActiveTool;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<PlayerStats>();
+        if (toolManager == null) toolManager = GetComponent<ToolManager>();
         ResolveAnimationReferences();
         CacheWalkAnimationState();
     }
@@ -178,6 +185,16 @@ public class PlayerMovement : MonoBehaviour
         attackAnimationWindupDuration = Mathf.Max(0f, windupDuration);
         attackAnimationSlashDuration = Mathf.Max(0f, slashDuration);
         attackAnimationRecoveryDuration = Mathf.Max(0f, recoveryDuration);
+
+        // Cache tool rotation
+        if (toolManager != null)
+        {
+            lastActiveTool = toolManager.GetActiveToolTransform();
+            if (lastActiveTool != null)
+            {
+                toolBaseLocalRotation = lastActiveTool.localRotation;
+            }
+        }
     }
 
     public void StartAttackAnimation(Vector2 direction, float totalDuration)
@@ -273,7 +290,8 @@ public class PlayerMovement : MonoBehaviour
                 1f + attackSlashAnimationAmplitude,
                 1f - (attackSlashAnimationAmplitude * 0.72f),
                 GetAttackAnimationRotationSign(attackAnimationDirection) * attackSlashRotationAmplitude,
-                attackSlashPositionYOffset);
+                attackSlashPositionYOffset,
+                1f);
             return false;
         }
 
@@ -296,7 +314,8 @@ public class PlayerMovement : MonoBehaviour
                 Mathf.Lerp(1f, windupX, phaseProgress),
                 Mathf.Lerp(1f, windupY, phaseProgress),
                 Mathf.Lerp(0f, -attackWindupRotationAmplitude * rotationSign, phaseProgress),
-                Mathf.Lerp(0f, attackWindupPositionYOffset, phaseProgress));
+                Mathf.Lerp(0f, attackWindupPositionYOffset, phaseProgress),
+                -phaseProgress * 0.5f);
             return true;
         }
 
@@ -312,7 +331,8 @@ public class PlayerMovement : MonoBehaviour
                 Mathf.Lerp(slashStartX, slashX, phaseProgress),
                 Mathf.Lerp(slashStartY, slashY, phaseProgress),
                 Mathf.Lerp(slashStartRotation, attackSlashRotationAmplitude, phaseProgress) * rotationSign,
-                Mathf.Lerp(slashStartYOffset, attackSlashPositionYOffset, phaseProgress));
+                Mathf.Lerp(slashStartYOffset, attackSlashPositionYOffset, phaseProgress),
+                Mathf.Lerp(-0.5f, 1f, phaseProgress));
             return true;
         }
 
@@ -324,11 +344,12 @@ public class PlayerMovement : MonoBehaviour
             Mathf.Lerp(slashX, 1f, recoveryProgress),
             Mathf.Lerp(slashY, 1f, recoveryProgress),
             Mathf.Lerp(attackSlashRotationAmplitude * rotationSign, 0f, recoveryProgress),
-            Mathf.Lerp(attackSlashPositionYOffset, 0f, recoveryProgress));
+            Mathf.Lerp(attackSlashPositionYOffset, 0f, recoveryProgress),
+            Mathf.Lerp(1f, 0f, recoveryProgress));
         return true;
     }
 
-    private void ApplyAttackPose(float xScaleFactor, float yScaleFactor, float rotationOffset, float positionYOffset)
+    private void ApplyAttackPose(float xScaleFactor, float yScaleFactor, float rotationOffset, float positionYOffset, float toolProgress)
     {
         walkAnimationTarget.localScale = new Vector3(
             walkAnimationBaseScale.x * Mathf.Max(xScaleFactor, 0.01f),
@@ -337,6 +358,17 @@ public class PlayerMovement : MonoBehaviour
         ApplyWalkAnimationChildScaleCompensation();
         ApplyAnimationPositionYOffset(positionYOffset);
         ApplyAnimationRotationOffset(rotationOffset);
+
+        // Animate Tool
+        if (toolManager != null)
+        {
+            Transform activeTool = toolManager.GetActiveToolTransform();
+            if (activeTool != null)
+            {
+                float toolRot = toolProgress * toolAttackRotationAmplitude * GetAttackAnimationRotationSign(attackAnimationDirection);
+                activeTool.localRotation = toolBaseLocalRotation * Quaternion.Euler(0, 0, toolRot);
+            }
+        }
     }
 
     private float GetMovementAnimationNormalizedSpeed()
@@ -425,6 +457,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 walkAnimationTarget.localRotation = walkAnimationBaseLocalRotation;
             }
+        }
+
+        if (lastActiveTool != null)
+        {
+            lastActiveTool.localRotation = toolBaseLocalRotation;
         }
 
         RestoreWalkAnimationChildScales();

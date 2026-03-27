@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stone Pickaxe
   icon: {fileID: -7681277289931712976, guid: 619ce78cd048e394f85a1edd522f5bb8, type: 3}
+  toolType: 2
   worldPrefab: {fileID: 8413507189628841579, guid: f9b555fde7a49bf438d9aa50c123b81d, type: 3}
   snapToGrid: 0
   gridWidth: 1

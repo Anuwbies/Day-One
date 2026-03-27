@@ -36,6 +36,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float damageFlashDuration = 0.12f;
 
     private ItemData currentItem;
+    private ToolManager toolManager;
     private float lastEnergyUseTime = 0f;
     private Color defaultSpriteColor = Color.white;
     private Coroutine damageFlashRoutine;
@@ -45,6 +46,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
+        toolManager = GetComponent<ToolManager>();
         if (playerSpriteRenderer == null)
         {
             playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -78,6 +80,11 @@ public class PlayerStats : MonoBehaviour
     public void SetCurrentItem(ItemData item)
     {
         currentItem = item;
+        
+        if (toolManager != null)
+        {
+            toolManager.SetTool(item != null ? item.toolType : ToolType.None);
+        }
     }
 
     // =========================

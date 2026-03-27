@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stone Sword
   icon: {fileID: 6530318571770997949, guid: 2c947a57d0226ef429edef02f892bd2c, type: 3}
+  toolType: 3
   worldPrefab: {fileID: 7569546941485195008, guid: 4440091769879f44cb410bb5037afb54, type: 3}
   snapToGrid: 0
   gridWidth: 1

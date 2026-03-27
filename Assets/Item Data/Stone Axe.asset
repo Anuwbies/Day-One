@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stone Axe
   icon: {fileID: -7493329593067422431, guid: a02c463ded6d7ae40b219949c9612d5b, type: 3}
+  toolType: 1
   worldPrefab: {fileID: 7237352613092548827, guid: bd1d85fa9bd5c3747af4a79bb6b8c0f3, type: 3}
   snapToGrid: 0
   gridWidth: 1

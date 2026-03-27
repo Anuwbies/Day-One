@@ -1,11 +1,20 @@
 using UnityEngine;
 
+public enum ToolType
+{
+    None,
+    StoneAxe,
+    Pickaxe,
+    Sword
+}
+
 [CreateAssetMenu(menuName = "Survival/Item Data")]
 public class ItemData : ScriptableObject
 {
     [Header("Basic Info")]
     public string itemName;
     public Sprite icon;
+    public ToolType toolType = ToolType.None;
 
     [Header("World")]
     public GameObject worldPrefab;
