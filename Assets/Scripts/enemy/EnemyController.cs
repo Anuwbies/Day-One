@@ -73,6 +73,10 @@ public class EnemyController : MonoBehaviour
     public float attackWindupAnimationAmplitude = 0.08f;
     [Tooltip("How much the enemy stretches and snaps forward during the slash.")]
     public float attackSlashAnimationAmplitude = 0.12f;
+    [Tooltip("Local Y offset applied to the visual animation target during the windup.")]
+    public float attackWindupPositionYOffset = 0f;
+    [Tooltip("Local Y offset applied to the visual animation target during the slash.")]
+    public float attackSlashPositionYOffset = 0f;
     [Tooltip("How much the enemy tilts backward during the windup.")]
     public float attackWindupRotationAmplitude = 10f;
     [Tooltip("How much the enemy tilts forward during the slash.")]
@@ -109,6 +113,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb; // Reference to Rigidbody
     private Transform idleAnimationTarget;
     private Vector3 idleAnimationBaseScale = Vector3.one;
+    private Vector3 idleAnimationBaseLocalPosition = Vector3.zero;
     private Quaternion idleAnimationBaseLocalRotation = Quaternion.identity;
     private Transform[] idleAnimationChildTargets;
     private Vector3[] idleAnimationChildBaseScales;
@@ -157,6 +162,7 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         idleAnimationTarget = visualAnimationTarget != null ? visualAnimationTarget : transform;
         idleAnimationBaseScale = idleAnimationTarget.localScale;
+        idleAnimationBaseLocalPosition = idleAnimationTarget.localPosition;
         idleAnimationBaseLocalRotation = idleAnimationTarget.localRotation;
         CacheIdleAnimationChildren();
 
@@ -512,7 +518,8 @@ public class EnemyController : MonoBehaviour
             ApplyAttackPose(
                 1f + attackSlashAnimationAmplitude,
                 1f - (attackSlashAnimationAmplitude * 0.72f),
-                GetAttackAnimationRotationSign(attackLockDirection) * attackSlashRotationAmplitude);
+                GetAttackAnimationRotationSign(attackLockDirection) * attackSlashRotationAmplitude,
+                attackSlashPositionYOffset);
             return;
         }
 
@@ -538,7 +545,8 @@ public class EnemyController : MonoBehaviour
             ApplyAttackPose(
                 Mathf.Lerp(1f, windupX, phaseProgress),
                 Mathf.Lerp(1f, windupY, phaseProgress),
-                Mathf.Lerp(0f, -attackWindupRotationAmplitude * rotationSign, phaseProgress));
+                Mathf.Lerp(0f, -attackWindupRotationAmplitude * rotationSign, phaseProgress),
+                Mathf.Lerp(0f, attackWindupPositionYOffset, phaseProgress));
             return;
         }
 
@@ -549,7 +557,8 @@ public class EnemyController : MonoBehaviour
             ApplyAttackPose(
                 Mathf.Lerp(windupX, slashX, phaseProgress),
                 Mathf.Lerp(windupY, slashY, phaseProgress),
-                Mathf.Lerp(-attackWindupRotationAmplitude, attackSlashRotationAmplitude, phaseProgress) * rotationSign);
+                Mathf.Lerp(-attackWindupRotationAmplitude, attackSlashRotationAmplitude, phaseProgress) * rotationSign,
+                Mathf.Lerp(attackWindupPositionYOffset, attackSlashPositionYOffset, phaseProgress));
             return;
         }
 
@@ -560,16 +569,18 @@ public class EnemyController : MonoBehaviour
         ApplyAttackPose(
             Mathf.Lerp(slashX, 1f, recoveryProgress),
             Mathf.Lerp(slashY, 1f, recoveryProgress),
-            Mathf.Lerp(attackSlashRotationAmplitude * rotationSign, 0f, recoveryProgress));
+            Mathf.Lerp(attackSlashRotationAmplitude * rotationSign, 0f, recoveryProgress),
+            Mathf.Lerp(attackSlashPositionYOffset, 0f, recoveryProgress));
     }
 
-    private void ApplyAttackPose(float xScaleFactor, float yScaleFactor, float rotationOffset)
+    private void ApplyAttackPose(float xScaleFactor, float yScaleFactor, float rotationOffset, float positionYOffset)
     {
         idleAnimationTarget.localScale = new Vector3(
             idleAnimationBaseScale.x * Mathf.Max(xScaleFactor, 0.01f),
             idleAnimationBaseScale.y * Mathf.Max(yScaleFactor, 0.01f),
             idleAnimationBaseScale.z);
         ApplyIdleAnimationChildScaleCompensation();
+        ApplyAnimationPositionYOffset(positionYOffset);
         ApplyAnimationRotationOffset(rotationOffset);
     }
 
@@ -686,6 +697,7 @@ public class EnemyController : MonoBehaviour
         if (idleAnimationTarget != null)
         {
             idleAnimationTarget.localScale = idleAnimationBaseScale;
+            idleAnimationTarget.localPosition = idleAnimationBaseLocalPosition;
 
             if (!IsVisualAnimationAppliedToRoot())
             {
@@ -737,6 +749,22 @@ public class EnemyController : MonoBehaviour
         }
 
         lastAnimationRotationOffset = rotationOffset;
+    }
+
+    private void ApplyAnimationPositionYOffset(float yOffset)
+    {
+        if (idleAnimationTarget == null)
+        {
+            return;
+        }
+
+        if (IsVisualAnimationAppliedToRoot())
+        {
+            idleAnimationTarget.localPosition = idleAnimationBaseLocalPosition;
+            return;
+        }
+
+        idleAnimationTarget.localPosition = idleAnimationBaseLocalPosition + new Vector3(0f, yOffset, 0f);
     }
 
     private void CacheIdleAnimationChildren()
