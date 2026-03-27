@@ -19,6 +19,8 @@ public class EnemyController : MonoBehaviour
     [Header("Testing / Debug")]
     [Tooltip("If true, the enemy will stay in idle and skip all AI logic.")]
     public bool debugLockIdle = false;
+    [Tooltip("If true, the enemy will stay in attack mode and skip all AI logic.")]
+    public bool debugLockAttack = false;
     [Tooltip("If true, the enemy will stay in patrol/walk mode and skip aggro logic.")]
     public bool debugLockWalkPatrol = false;
 
@@ -62,6 +64,21 @@ public class EnemyController : MonoBehaviour
     [Tooltip("How much the walk / patrol animation tilts left and right in degrees.")]
     public float walkPatrolRotationAmplitude = 6f;
 
+    [Header("Attack Animation Settings")]
+    [Tooltip("Should the enemy have a slash animation while attacking?")]
+    public bool enableAttackAnimation = true;
+    [Tooltip("Playback speed multiplier for the windup portion of the attack animation.")]
+    public float attackWindupPlaybackSpeed = 1.1f;
+    [Tooltip("Playback speed multiplier for the slash portion of the attack animation.")]
+    public float attackSlashPlaybackSpeed = 2.25f;
+    [FormerlySerializedAs("attackAnimationPlaybackSpeed")]
+    [Tooltip("Playback speed multiplier for the recovery portion of the attack animation.")]
+    public float attackRecoveryPlaybackSpeed = 1.75f;
+    [Tooltip("How far down the enemy winds up before the slash, in degrees.")]
+    public float attackWindupAngle = 8f;
+    [Tooltip("How far up the enemy slashes, in degrees.")]
+    public float attackSlashAngle = 24f;
+
     [Header("Ranges")]
     [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
@@ -84,6 +101,7 @@ public class EnemyController : MonoBehaviour
     public bool mirrorShadowPositionWithFacing = false;
 
     private EnemyHealth enemyHealth;
+    private EnemyAttack enemyAttack;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb; // Reference to Rigidbody
     private Transform idleAnimationTarget;
@@ -109,7 +127,17 @@ public class EnemyController : MonoBehaviour
     private float lastWallSide = 0f; // Side used for the last wall encountered
     private bool isReturningToPatrol = false;
     private bool idleLockWasActive = false;
+    private bool debugAttackLockWasActive = false;
     private bool walkPatrolLockWasActive = false;
+    private bool isAttackLocked = false;
+    private bool attackAnimationLoop = false;
+    private float attackAnimationStartTime = 0f;
+    private float attackWindupDuration = 0.2f;
+    private float attackSlashDuration = 0.12f;
+    private float attackRecoveryDuration = 0.25f;
+    private float attackAnimationBaseRotationZ = 0f;
+    private bool hasAttackAnimationRawRotation = false;
+    private Vector2 attackAnimationDirection = Vector2.right;
     private Transform cachedShadowChild;
     private Vector3 shadowChildBaseLocalPosition;
     private bool hasShadowChildBaseLocalPosition = false;
@@ -117,6 +145,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
+        enemyAttack = GetComponent<EnemyAttack>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
@@ -190,12 +219,37 @@ public class EnemyController : MonoBehaviour
 
         if (debugLockIdle)
         {
+            if (debugAttackLockWasActive || attackAnimationLoop)
+            {
+                EndAttackLock();
+            }
+
+            debugAttackLockWasActive = false;
             walkPatrolLockWasActive = false;
             ApplyIdleLock();
             return;
         }
 
         idleLockWasActive = false;
+
+        if (debugLockAttack)
+        {
+            walkPatrolLockWasActive = false;
+            ApplyDebugAttackLock();
+            return;
+        }
+
+        if (debugAttackLockWasActive)
+        {
+            EndAttackLock();
+            debugAttackLockWasActive = false;
+        }
+
+        if (isAttackLocked)
+        {
+            ApplyAttackLock();
+            return;
+        }
 
         if (debugLockWalkPatrol)
         {
@@ -272,7 +326,7 @@ public class EnemyController : MonoBehaviour
 
     private void HandleDamageTaken()
     {
-        if (debugLockIdle || debugLockWalkPatrol)
+        if (debugLockIdle || debugLockAttack || debugLockWalkPatrol)
         {
             return;
         }
@@ -331,6 +385,74 @@ public class EnemyController : MonoBehaviour
         IsAggroed = false;
     }
 
+    private void ApplyDebugAttackLock()
+    {
+        if (!debugAttackLockWasActive)
+        {
+            ClearAggroState();
+            StartAttackLock(
+                GetCurrentFacingDirection(),
+                GetConfiguredAttackCastDuration(),
+                GetConfiguredAttackSlashDuration(),
+                GetConfiguredAttackRecoveryDuration(),
+                true);
+            debugAttackLockWasActive = true;
+        }
+
+        ApplyAttackLock();
+    }
+
+    public void StartAttackLock(Vector2 direction, float windupDuration, float slashDuration, float recoveryDuration, bool loop = false)
+    {
+        isAttackLocked = true;
+        attackAnimationLoop = loop;
+        attackAnimationDirection = direction.sqrMagnitude > 0.001f ? direction.normalized : GetCurrentFacingDirection();
+        attackAnimationStartTime = Time.time;
+        attackWindupDuration = Mathf.Max(windupDuration, 0.01f);
+        attackSlashDuration = Mathf.Max(slashDuration, 0.01f);
+        attackRecoveryDuration = Mathf.Max(recoveryDuration, 0.01f);
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        lockedSlideDirection = Vector2.zero;
+        lockedFleeDirection = Vector2.zero;
+        fleeLockTimer = 0f;
+        slideSide = 0f;
+        clearPathTimer = 0f;
+        currentWallID = 0;
+        lastWallID = 0;
+        lastWallSide = 0f;
+
+        ApplyFacing(attackAnimationDirection);
+        attackAnimationBaseRotationZ = GetCurrentRawRotationZ();
+        hasAttackAnimationRawRotation = false;
+    }
+
+    public void EndAttackLock()
+    {
+        isAttackLocked = false;
+        attackAnimationLoop = false;
+        ResetAttackAnimationRawRotation();
+    }
+
+    private void ApplyAttackLock()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        lockedSlideDirection = Vector2.zero;
+        lockedFleeDirection = Vector2.zero;
+        fleeLockTimer = 0f;
+        slideSide = 0f;
+        clearPathTimer = 0f;
+        currentWallID = 0;
+    }
+
     private void UpdateMovementAnimation()
     {
         if (idleAnimationTarget == null)
@@ -341,6 +463,20 @@ public class EnemyController : MonoBehaviour
         if (enemyHealth != null && enemyHealth.IsDead)
         {
             ResetMovementAnimation();
+            return;
+        }
+
+        if (isAttackLocked)
+        {
+            if (enableAttackAnimation)
+            {
+                ApplyAttackAnimation();
+            }
+            else
+            {
+                ResetMovementAnimation();
+            }
+
             return;
         }
 
@@ -396,6 +532,59 @@ public class EnemyController : MonoBehaviour
         ApplyAnimationRotationOffset(walkPatrolRotationAmplitude * sway * normalizedSpeed);
     }
 
+    private void ApplyAttackAnimation()
+    {
+        float windupPhaseDuration = attackWindupDuration / Mathf.Max(attackWindupPlaybackSpeed, 0.01f);
+        float slashPhaseDuration = attackSlashDuration / Mathf.Max(attackSlashPlaybackSpeed, 0.01f);
+        float recoveryPhaseDuration = attackRecoveryDuration / Mathf.Max(attackRecoveryPlaybackSpeed, 0.01f);
+        float totalDuration = windupPhaseDuration + slashPhaseDuration + recoveryPhaseDuration;
+
+        if (totalDuration <= 0f)
+        {
+            ResetMovementAnimation();
+            return;
+        }
+
+        float elapsed = Time.time - attackAnimationStartTime;
+        if (attackAnimationLoop)
+        {
+            elapsed = Mathf.Repeat(elapsed, totalDuration);
+        }
+        else if (elapsed >= totalDuration)
+        {
+            SetAttackAnimationRawRotation(attackAnimationBaseRotationZ);
+            return;
+        }
+
+        float attackRotationSign = GetAttackRotationSign();
+        float windupRotation = attackWindupAngle * attackRotationSign;
+        float slashRotation = (attackWindupAngle + attackSlashAngle) * attackRotationSign;
+        float rotationOffset;
+
+        if (elapsed <= windupPhaseDuration)
+        {
+            float windupProgress = Mathf.Clamp01(elapsed / windupPhaseDuration);
+            rotationOffset = Mathf.Lerp(0f, windupRotation, windupProgress);
+        }
+        else if (elapsed <= windupPhaseDuration + slashPhaseDuration)
+        {
+            float slashElapsed = elapsed - windupPhaseDuration;
+            float slashProgress = Mathf.Clamp01(slashElapsed / slashPhaseDuration);
+            // Slash should snap forward hard instead of easing in softly.
+            slashProgress = 1f - Mathf.Pow(1f - slashProgress, 5f);
+            rotationOffset = Mathf.Lerp(windupRotation, slashRotation, slashProgress);
+        }
+        else
+        {
+            float recoveryElapsed = elapsed - windupPhaseDuration - slashPhaseDuration;
+            float recoveryProgress = Mathf.Clamp01(recoveryElapsed / recoveryPhaseDuration);
+            recoveryProgress = Mathf.SmoothStep(0f, 1f, recoveryProgress);
+            rotationOffset = Mathf.Lerp(slashRotation, 0f, recoveryProgress);
+        }
+
+        SetAttackAnimationRawRotation(attackAnimationBaseRotationZ + rotationOffset);
+    }
+
     private float GetMovementAnimationNormalizedSpeed()
     {
         if (rb == null)
@@ -408,9 +597,64 @@ public class EnemyController : MonoBehaviour
         return Mathf.Lerp(0.45f, 1f, normalizedSpeed);
     }
 
+    private float GetAttackRotationSign()
+    {
+        if (attackAnimationDirection.x > 0.01f)
+        {
+            return 1f;
+        }
+
+        if (attackAnimationDirection.x < -0.01f)
+        {
+            return -1f;
+        }
+
+        if (spriteRenderer != null && spriteRenderer.flipX)
+        {
+            return -1f;
+        }
+
+        return 1f;
+    }
+
+    private Vector2 GetCurrentFacingDirection()
+    {
+        if (enableRotation)
+        {
+            Vector2 rotatedRight = transform.right;
+            if (rotatedRight.sqrMagnitude > 0.001f)
+            {
+                return rotatedRight.normalized;
+            }
+        }
+
+        if (spriteRenderer != null && spriteRenderer.flipX)
+        {
+            return Vector2.left;
+        }
+
+        return Vector2.right;
+    }
+
+    private float GetConfiguredAttackCastDuration()
+    {
+        return enemyAttack != null ? enemyAttack.attackCastDuration : 0.2f;
+    }
+
+    private float GetConfiguredAttackSlashDuration()
+    {
+        return enemyAttack != null ? enemyAttack.attackDuration : 0.12f;
+    }
+
+    private float GetConfiguredAttackRecoveryDuration()
+    {
+        return enemyAttack != null ? enemyAttack.movementDelayAfterAttack : 0.25f;
+    }
+
     private void ResetMovementAnimation()
     {
         ResetAnimationRotationOffset();
+        ResetAttackAnimationRawRotation();
 
         if (idleAnimationTarget != null)
         {
@@ -445,6 +689,48 @@ public class EnemyController : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0f, 0f, rotationOffset);
         ApplyIdleAnimationChildRotationCompensation(rotationOffset);
         lastAnimationRotationOffset = rotationOffset;
+    }
+
+    private void SetAttackAnimationRawRotation(float rawRotationZ)
+    {
+        SetRawRotationZ(rawRotationZ);
+        hasAttackAnimationRawRotation = true;
+    }
+
+    private void ResetAttackAnimationRawRotation()
+    {
+        if (!hasAttackAnimationRawRotation)
+        {
+            return;
+        }
+
+        SetRawRotationZ(attackAnimationBaseRotationZ);
+        hasAttackAnimationRawRotation = false;
+    }
+
+    private float GetCurrentRawRotationZ()
+    {
+        if (rb != null)
+        {
+            return rb.rotation;
+        }
+
+        return transform.eulerAngles.z;
+    }
+
+    private void SetRawRotationZ(float rawRotationZ)
+    {
+        float normalizedRotation = Mathf.Repeat(rawRotationZ, 360f);
+
+        if (rb != null)
+        {
+            rb.SetRotation(normalizedRotation);
+            return;
+        }
+
+        Vector3 eulerAngles = transform.eulerAngles;
+        eulerAngles.z = normalizedRotation;
+        transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
     private void CacheIdleAnimationChildren()

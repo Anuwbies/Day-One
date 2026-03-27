@@ -193,9 +193,19 @@ public class EnemyAttack : MonoBehaviour
         hitTargets.Clear();
         isAttacking = true; // Lock direction
 
-        // Stop movement while attacking (start of cast)
         if (enemyController != null)
-            enemyController.enabled = false;
+        {
+            Vector3 myCenter = (ownCollider != null) ? ownCollider.bounds.center : transform.position;
+            Vector2 attackDirection = playerCollider != null
+                ? (Vector2)(playerCollider.bounds.center - myCenter)
+                : Vector2.right;
+
+            enemyController.StartAttackLock(
+                attackDirection,
+                attackCastDuration,
+                attackDuration,
+                movementDelayAfterAttack);
+        }
 
         // Wait for cast duration before enabling hitbox
         Invoke(nameof(EnableHitbox), attackCastDuration);
@@ -230,7 +240,7 @@ public class EnemyAttack : MonoBehaviour
     private void EnableMovement()
     {
         if (enemyController != null)
-            enemyController.enabled = true;
+            enemyController.EndAttackLock();
 
         isAttacking = false; // Unlock direction
     }
@@ -385,7 +395,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (enemyController != null)
         {
-            enemyController.enabled = true;
+            enemyController.EndAttackLock();
             enemyController.ClearAggroState();
         }
 
