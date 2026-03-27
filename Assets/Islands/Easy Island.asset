@@ -16,29 +16,29 @@ MonoBehaviour:
   sceneName: 1st Island
   tags:
   - Easy
-  - First
+  - Starter
   image: {fileID: -542413695912478464, guid: 0f2763fbfd586fb4594195d15b54b255, type: 3}
   isEndlessMode: 0
   description: This Island is Easy.
   startingItems:
-  - item: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
+  - item: {fileID: 11400000, guid: 8eb5126b53508e843b13a52c30169241, type: 2}
     amount: 1
   objectives:
-  - objectiveTitle: Craft x5 Campfires
+  - objectiveTitle: Craft 5 Wooden Chest
     type: 1
     isMainObjective: 1
     targetAmount: 5
-    targetItem: {fileID: 11400000, guid: cbc924ac49b56ea47b2ffdaac3793994, type: 2}
+    targetItem: {fileID: 11400000, guid: 4153e8f5dfecb914cae9e1e58e33ae4e, type: 2}
     enemyPrefab: {fileID: 0}
-  - objectiveTitle: Possess x4 logs
-    type: 2
-    isMainObjective: 1
-    targetAmount: 4
-    targetItem: {fileID: 11400000, guid: 03d93ebc635b5c84cbf8748a60ec238b, type: 2}
-    enemyPrefab: {fileID: 0}
-  - objectiveTitle: Slay x1 Enemy
+  - objectiveTitle: Slay 5 Chickens
     type: 3
     isMainObjective: 1
-    targetAmount: 1
+    targetAmount: 5
     targetItem: {fileID: 0}
-    enemyPrefab: {fileID: 7543888126313665003, guid: 9753bea577e604c44b9e72a008a44b5d, type: 3}
+    enemyPrefab: {fileID: 4305202357081989725, guid: 78e53e336b1e98249a5f6d98cc10c2bc, type: 3}
+  - objectiveTitle: Survive Until Day 10
+    type: 0
+    isMainObjective: 1
+    targetAmount: 10
+    targetItem: {fileID: 0}
+    enemyPrefab: {fileID: 0}

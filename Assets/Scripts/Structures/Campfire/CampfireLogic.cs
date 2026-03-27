@@ -59,6 +59,7 @@ public class CampfireLogic : MonoBehaviour
     [SerializeField] private float radiusLerpSpeed = 3f;
     [SerializeField] private float intensityFadeSpeed = 2f;
     [SerializeField] private float fadeOutThreshold = 10f;
+    [SerializeField] private bool permanentlyLit = false;
 
     private int currentLogs = 0;
     private float burnTime = 0f;
@@ -94,6 +95,11 @@ public class CampfireLogic : MonoBehaviour
 
     public void ConsumeTime(float seconds)
     {
+        if (permanentlyLit)
+        {
+            return;
+        }
+
         if (burnTime > 0)
         {
             burnTime -= seconds;
@@ -159,17 +165,19 @@ public class CampfireLogic : MonoBehaviour
 
     private void ApplyRadiusByLevel()
     {
-        if (burnTime <= 0)
+        int effectiveLogCount = GetEffectiveLogCount();
+
+        if (!IsCampfireLit())
         {
             targetInner = 0;
             targetOuter = 0;
         }
-        else if (currentLogs >= highThreshold)
+        else if (effectiveLogCount >= highThreshold)
         {
             targetInner = highInner;
             targetOuter = highOuter;
         }
-        else if (currentLogs >= mediumThreshold)
+        else if (effectiveLogCount >= mediumThreshold)
         {
             targetInner = medInner;
             targetOuter = medOuter;
@@ -196,7 +204,7 @@ public class CampfireLogic : MonoBehaviour
         // If burnTime is 0, target is 0.
         // If burnTime is between 0 and fadeOutThreshold, it scales linearly (e.g. 5s left = 0.5 intensity).
         // If burnTime is above fadeOutThreshold, it stays at 1.0.
-        float targetMult = Mathf.Clamp01(burnTime / fadeOutThreshold);
+        float targetMult = permanentlyLit ? 1f : Mathf.Clamp01(burnTime / fadeOutThreshold);
         
         // Use MoveTowards for smooth transition (primarily for ignition/fade-in)
         intensityMultiplier = Mathf.MoveTowards(intensityMultiplier, targetMult, Time.deltaTime * intensityFadeSpeed);
@@ -253,7 +261,7 @@ public class CampfireLogic : MonoBehaviour
 
     private void Update()
     {
-        if (burnTime > 0 && !isPaused)
+        if (!permanentlyLit && burnTime > 0 && !isPaused)
         {
             burnTime -= Time.deltaTime;
             if (burnTime < 0) burnTime = 0;
@@ -295,6 +303,12 @@ public class CampfireLogic : MonoBehaviour
 
     public void AddLog()
     {
+        if (permanentlyLit)
+        {
+            Debug.Log($"[Campfire] '{name}' is permanently lit. No log can be added.");
+            return;
+        }
+
         Debug.Log(
             $"[Campfire] AddLog invoked on '{name}'. burnTime={burnTime}, currentLogs={currentLogs}, " +
             $"playerInventory={(playerInventory != null ? playerInventory.name : "null")}, " +
@@ -360,10 +374,10 @@ public class CampfireLogic : MonoBehaviour
     {
         if (campfireSR != null)
         {
-            campfireSR.sprite = (burnTime > 0) ? litSprite : unlitSprite;
+            campfireSR.sprite = IsCampfireLit() ? litSprite : unlitSprite;
         }
 
-        if (burnTime > 0)
+        if (IsCampfireLit())
         {
             ApplyRadiusByLevel();
         }
@@ -384,15 +398,22 @@ public class CampfireLogic : MonoBehaviour
 
         if (timeText != null)
         {
-            int minutes = Mathf.FloorToInt(burnTime / 60);
-            int seconds = Mathf.FloorToInt(burnTime % 60);
-            string logDisplay = currentLogs >= maxLogs ? "Max" : string.Format("{0}/{1}", currentLogs, maxLogs);
-            timeText.text = string.Format("{0}:{1:00}\n{2}", minutes, seconds, logDisplay);
+            if (permanentlyLit)
+            {
+                timeText.text = "Permanent\nLit";
+            }
+            else
+            {
+                int minutes = Mathf.FloorToInt(burnTime / 60);
+                int seconds = Mathf.FloorToInt(burnTime % 60);
+                string logDisplay = currentLogs >= maxLogs ? "Max" : string.Format("{0}/{1}", currentLogs, maxLogs);
+                timeText.text = string.Format("{0}:{1:00}\n{2}", minutes, seconds, logDisplay);
+            }
         }
 
         if (addLogButton != null)
         {
-            bool hasSpace = burnTime < (maxLogs * timePerLog);
+            bool hasSpace = !permanentlyLit && burnTime < (maxLogs * timePerLog);
             bool isInRange = playerCollidersInRange.Count > 0;
             addLogButton.interactable = hasSpace && isInRange && HasLogAvailableForCampfire();
         }
@@ -593,8 +614,23 @@ public class CampfireLogic : MonoBehaviour
 
         if (logButtonPanel != null && logButtonPanel != timePanel)
         {
-            logButtonPanel.SetActive(isInRange && HasLogAvailableForCampfire());
+            logButtonPanel.SetActive(!permanentlyLit && isInRange && HasLogAvailableForCampfire());
         }
+    }
+
+    private bool IsCampfireLit()
+    {
+        return permanentlyLit || burnTime > 0f;
+    }
+
+    private int GetEffectiveLogCount()
+    {
+        if (!permanentlyLit)
+        {
+            return currentLogs;
+        }
+
+        return Mathf.Max(currentLogs, 1);
     }
 
     private bool HasLogAvailableForCampfire()

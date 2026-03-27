@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -149,6 +150,7 @@ public class EnemyController : MonoBehaviour
     private Transform cachedShadowChild;
     private Vector3 shadowChildBaseLocalPosition;
     private bool hasShadowChildBaseLocalPosition = false;
+    private readonly Dictionary<int, float> movementSpeedMultipliers = new Dictionary<int, float>();
 
     private void Start()
     {
@@ -644,7 +646,9 @@ public class EnemyController : MonoBehaviour
             return 1f;
         }
 
-        float referenceSpeed = Mathf.Max(Mathf.Max(patrolSpeed, chaseSpeed), Mathf.Max(fleeSpeed, 0.01f));
+        float referenceSpeed = Mathf.Max(
+            Mathf.Max(GetEffectiveMovementSpeed(patrolSpeed), GetEffectiveMovementSpeed(chaseSpeed)),
+            Mathf.Max(GetEffectiveMovementSpeed(fleeSpeed), 0.01f));
         float normalizedSpeed = Mathf.Clamp01(rb.linearVelocity.magnitude / referenceSpeed);
         return Mathf.Lerp(0.45f, 1f, normalizedSpeed);
     }
@@ -713,6 +717,43 @@ public class EnemyController : MonoBehaviour
     public Vector2 GetFacingDirection()
     {
         return GetCurrentFacingDirection();
+    }
+
+    public void SetMovementSpeedMultiplier(Object source, float multiplier)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        movementSpeedMultipliers[source.GetInstanceID()] = Mathf.Max(0f, multiplier);
+    }
+
+    public void ClearMovementSpeedMultiplier(Object source)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        movementSpeedMultipliers.Remove(source.GetInstanceID());
+    }
+
+    private float GetEffectiveMovementSpeed(float baseSpeed)
+    {
+        return baseSpeed * GetMovementSpeedMultiplier();
+    }
+
+    private float GetMovementSpeedMultiplier()
+    {
+        float lowestMultiplier = 1f;
+
+        foreach (float multiplier in movementSpeedMultipliers.Values)
+        {
+            lowestMultiplier = Mathf.Min(lowestMultiplier, multiplier);
+        }
+
+        return lowestMultiplier;
     }
 
     private void ResetMovementAnimation()
@@ -935,7 +976,7 @@ public class EnemyController : MonoBehaviour
         else
         {
             // Move and check if blocked
-            if (MoveTo(patrolTarget, true, patrolSpeed, isReturningToPatrol))
+            if (MoveTo(patrolTarget, true, GetEffectiveMovementSpeed(patrolSpeed), isReturningToPatrol))
             {
                 // If blocked by a wall, pick a new target immediately
                 PickNewPatrolTarget();
@@ -1010,7 +1051,7 @@ public class EnemyController : MonoBehaviour
                     if (rb.Cast(lockedFleeDirection, obstacleFilter, fleeHits, 0.4f) == 0 || fleeHits[0].collider == playerCollider)
                     {
                         ApplyFacing(lockedFleeDirection);
-                        rb.linearVelocity = lockedFleeDirection * fleeSpeed;
+                        rb.linearVelocity = lockedFleeDirection * GetEffectiveMovementSpeed(fleeSpeed);
                         return;
                     }
                 }
@@ -1057,14 +1098,14 @@ public class EnemyController : MonoBehaviour
                 }
 
                 ApplyFacing(fleeDirection);
-                rb.linearVelocity = fleeDirection * fleeSpeed;
+                rb.linearVelocity = fleeDirection * GetEffectiveMovementSpeed(fleeSpeed);
                 return;
             }
 
             // --- AGGRESSIVE / RETALIATORY BEHAVIOR (CHASE) ---
             if (!IsInEllipticalRange(playerCenter, rangeCenter, stoppingDistance))
             {
-                bool blocked = MoveTo(playerCenter, true, chaseSpeed, true);
+                bool blocked = MoveTo(playerCenter, true, GetEffectiveMovementSpeed(chaseSpeed), true);
                 if (blocked)
                 {
                     // If we can't reach the player because of a wall, stop moving and wait

@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float sprintSpeed = 8f;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     private Rigidbody2D rb;
     public Vector2 movement;
-    private Animator anim;
-    private SpriteRenderer sr;
     private PlayerStats stats;
     private bool isSprinting;
     private readonly Dictionary<int, float> movementSpeedMultipliers = new Dictionary<int, float>();
@@ -17,8 +17,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
         stats = GetComponent<PlayerStats>();
     }
 
@@ -28,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         if (Time.timeScale == 0)
         {
             movement = Vector2.zero;
-            if (anim != null) anim.SetBool("isRunning", false);
             return;
         }
 
@@ -49,13 +51,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Flip sprite left/right
-        if (movement.x > 0)
-            sr.flipX = false;
-        else if (movement.x < 0)
-            sr.flipX = true;
-
-        // Animation trigger using bool
-        anim.SetBool("isRunning", isMoving);
+        if (spriteRenderer != null)
+        {
+            if (movement.x > 0)
+                spriteRenderer.flipX = false;
+            else if (movement.x < 0)
+                spriteRenderer.flipX = true;
+        }
     }
 
     void FixedUpdate()

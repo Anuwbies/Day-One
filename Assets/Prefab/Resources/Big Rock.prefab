@@ -206,10 +206,13 @@ MonoBehaviour:
   sortYOffset: -0.16
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas:
   - name: Rock
     offset: {x: 0.01, y: 0.08}
@@ -229,8 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTarget: 2
-  maxHealth: 50
-  currentHealth: 50
+  maxHealth: 300
+  currentHealth: 300
   canRegenerate: 0
   regenDelay: 5
   regenRate: 5
@@ -385,10 +388,13 @@ MonoBehaviour:
   sortYOffset: 0
   offset: 0
   alwaysBehindPlayer: 1
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 1
   enableTransparency: 0
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas: []
   showTriggerAreaGizmos: 1
 --- !u!1001 &6672024940260751320

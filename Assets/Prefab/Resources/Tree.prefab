@@ -205,10 +205,13 @@ MonoBehaviour:
   sortYOffset: -0.91
   offset: 0
   alwaysBehindPlayer: 0
+  alwaysInFrontOfPlayer: 0
   alwaysBehindParent: 0
   enableTransparency: 1
   fadeAlpha: 0.5
   fadeSpeed: 10
+  targetRenderer: {fileID: 0}
+  playerRendererOverride: {fileID: 0}
   triggerAreas:
   - name: Leaf
     offset: {x: -0.03, y: 0.16}
@@ -232,8 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTarget: 1
-  maxHealth: 50
-  currentHealth: 50
+  maxHealth: 200
+  currentHealth: 200
   canRegenerate: 0
   regenDelay: 5
   regenRate: 5
@@ -286,7 +289,7 @@ MonoBehaviour:
   yOffset: -0.875
   dropRadius: {x: 0.5, y: 0.25}
   deadZoneRadius: {x: 0.25, y: 0.125}
-  destroyOnLoot: 0
+  destroyOnLoot: 1
   destroyDelay: 0
 --- !u!1001 &5611454350552812344
 PrefabInstance:

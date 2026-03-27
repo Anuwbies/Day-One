@@ -22,6 +22,7 @@ public class PondLogic : MonoBehaviour
     [SerializeField] private Collider2D targetPlayerCollider;
 
     private readonly HashSet<Collider2D> playerCollidersInRange = new HashSet<Collider2D>();
+    private readonly Dictionary<EnemyController, int> enemyColliderCountsInRange = new Dictionary<EnemyController, int>();
     private PlayerStats playerStats;
     private PlayerMovement playerMovement;
     private bool isDrinkButtonBound;
@@ -41,7 +42,9 @@ public class PondLogic : MonoBehaviour
     private void OnDisable()
     {
         RemoveMovementSlowdown();
+        RemoveEnemyMovementSlowdowns();
         playerCollidersInRange.Clear();
+        enemyColliderCountsInRange.Clear();
         playerStats = null;
         playerMovement = null;
         UnbindDrinkButton();
@@ -54,53 +57,53 @@ public class PondLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!IsTargetCollider(other))
+        if (IsTargetCollider(other))
         {
-            return;
+            if (!playerCollidersInRange.Add(other))
+            {
+                return;
+            }
+
+            playerStats = ResolvePlayerStats(other);
+            playerMovement = ResolvePlayerMovement(other);
+            ApplyMovementSlowdown();
+            BindDrinkButton();
+
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.SetActive(true);
+            }
         }
 
-        if (!playerCollidersInRange.Add(other))
-        {
-            return;
-        }
-
-        playerStats = ResolvePlayerStats(other);
-        playerMovement = ResolvePlayerMovement(other);
-        ApplyMovementSlowdown();
-        BindDrinkButton();
-
-        if (interactionCanvas != null)
-        {
-            interactionCanvas.SetActive(true);
-        }
+        HandleEnemyEnter(other);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!IsTargetCollider(other))
+        if (IsTargetCollider(other))
         {
-            return;
+            if (!playerCollidersInRange.Remove(other))
+            {
+                return;
+            }
+
+            if (playerCollidersInRange.Count != 0)
+            {
+                return;
+            }
+
+            playerStats = null;
+            RemoveMovementSlowdown();
+            playerMovement = null;
+            UnbindDrinkButton();
+
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.SetActive(false);
+            }
         }
 
-        if (!playerCollidersInRange.Remove(other))
-        {
-            return;
-        }
-
-        if (playerCollidersInRange.Count != 0)
-        {
-            return;
-        }
-
-        playerStats = null;
-        RemoveMovementSlowdown();
-        playerMovement = null;
-        UnbindDrinkButton();
-
-        if (interactionCanvas != null)
-        {
-            interactionCanvas.SetActive(false);
-        }
+        HandleEnemyExit(other);
     }
 
     public void DrinkFromPond()
@@ -246,6 +249,72 @@ public class PondLogic : MonoBehaviour
         }
 
         playerMovement.ClearMovementSpeedMultiplier(this);
+    }
+
+    private void HandleEnemyEnter(Collider2D other)
+    {
+        EnemyController enemyController = ResolveEnemyController(other);
+        if (enemyController == null)
+        {
+            return;
+        }
+
+        if (enemyColliderCountsInRange.TryGetValue(enemyController, out int colliderCount))
+        {
+            enemyColliderCountsInRange[enemyController] = colliderCount + 1;
+            return;
+        }
+
+        enemyColliderCountsInRange.Add(enemyController, 1);
+        enemyController.SetMovementSpeedMultiplier(this, movementSpeedMultiplier);
+    }
+
+    private void HandleEnemyExit(Collider2D other)
+    {
+        EnemyController enemyController = ResolveEnemyController(other);
+        if (enemyController == null || !enemyColliderCountsInRange.TryGetValue(enemyController, out int colliderCount))
+        {
+            return;
+        }
+
+        if (colliderCount > 1)
+        {
+            enemyColliderCountsInRange[enemyController] = colliderCount - 1;
+            return;
+        }
+
+        enemyColliderCountsInRange.Remove(enemyController);
+        enemyController.ClearMovementSpeedMultiplier(this);
+    }
+
+    private EnemyController ResolveEnemyController(Collider2D sourceCollider)
+    {
+        if (sourceCollider == null || sourceCollider.isTrigger)
+        {
+            return null;
+        }
+
+        if (sourceCollider.attachedRigidbody != null)
+        {
+            EnemyController rigidbodyEnemy = sourceCollider.attachedRigidbody.GetComponent<EnemyController>();
+            if (rigidbodyEnemy != null)
+            {
+                return rigidbodyEnemy;
+            }
+        }
+
+        return sourceCollider.GetComponentInParent<EnemyController>();
+    }
+
+    private void RemoveEnemyMovementSlowdowns()
+    {
+        foreach (KeyValuePair<EnemyController, int> entry in enemyColliderCountsInRange)
+        {
+            if (entry.Key != null)
+            {
+                entry.Key.ClearMovementSpeedMultiplier(this);
+            }
+        }
     }
 
     private bool IsTargetCollider(Collider2D candidate)
