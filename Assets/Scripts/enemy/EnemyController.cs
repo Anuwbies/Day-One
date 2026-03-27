@@ -66,21 +66,6 @@ public class EnemyController : MonoBehaviour
     [Tooltip("How much the walk / patrol animation tilts left and right in degrees.")]
     public float walkPatrolRotationAmplitude = 6f;
 
-    [Header("Attack Animation Settings")]
-    [Tooltip("Should the enemy have a slash animation while attacking?")]
-    public bool enableAttackAnimation = true;
-    [Tooltip("Playback speed multiplier for the windup portion of the attack animation.")]
-    public float attackWindupPlaybackSpeed = 1.1f;
-    [Tooltip("Playback speed multiplier for the slash portion of the attack animation.")]
-    public float attackSlashPlaybackSpeed = 2.25f;
-    [FormerlySerializedAs("attackAnimationPlaybackSpeed")]
-    [Tooltip("Playback speed multiplier for the recovery portion of the attack animation.")]
-    public float attackRecoveryPlaybackSpeed = 1.75f;
-    [Tooltip("How far down the enemy winds up before the slash, in degrees.")]
-    public float attackWindupAngle = 8f;
-    [Tooltip("How far up the enemy slashes, in degrees.")]
-    public float attackSlashAngle = 24f;
-
     [Header("Ranges")]
     [Tooltip("Detection range (X, Y) for Aggressive and FleeOnSight behavior.")]
     public Vector2 detectionRange = new Vector2(5f, 5f);
@@ -98,7 +83,7 @@ public class EnemyController : MonoBehaviour
     public Collider2D playerCollider;
     [Tooltip("Assign the Enemy's Collider here (optional, will auto-detect).")]
     public Collider2D ownCollider;
-    [Tooltip("Optional child transform that receives idle, walk, and attack visual animation. Defaults to this GameObject if left empty.")]
+    [Tooltip("Optional child transform that receives idle and walk visual animation. Defaults to this GameObject if left empty.")]
     public Transform visualAnimationTarget;
     [Tooltip("Optional child transform used for the enemy shadow sprite.")]
     public Transform shadowChild;
@@ -107,7 +92,6 @@ public class EnemyController : MonoBehaviour
     public bool mirrorShadowPositionWithFacing = false;
 
     private EnemyHealth enemyHealth;
-    private EnemyAttack enemyAttack;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb; // Reference to Rigidbody
     private Transform idleAnimationTarget;
@@ -137,14 +121,6 @@ public class EnemyController : MonoBehaviour
     private bool debugAttackLockWasActive = false;
     private bool walkPatrolLockWasActive = false;
     private bool isAttackLocked = false;
-    private bool attackAnimationLoop = false;
-    private float attackAnimationStartTime = 0f;
-    private float attackWindupDuration = 0.2f;
-    private float attackSlashDuration = 0.12f;
-    private float attackRecoveryDuration = 0.25f;
-    private float attackAnimationBaseRotationZ = 0f;
-    private bool hasAttackAnimationRawRotation = false;
-    private Vector2 attackAnimationDirection = Vector2.right;
     private Transform cachedShadowChild;
     private Vector3 shadowChildBaseLocalPosition;
     private bool hasShadowChildBaseLocalPosition = false;
@@ -152,7 +128,6 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
-        enemyAttack = GetComponent<EnemyAttack>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
@@ -227,7 +202,7 @@ public class EnemyController : MonoBehaviour
 
         if (debugLockIdle)
         {
-            if (debugAttackLockWasActive || attackAnimationLoop)
+            if (debugAttackLockWasActive || isAttackLocked)
             {
                 EndAttackLock();
             }
@@ -398,12 +373,7 @@ public class EnemyController : MonoBehaviour
         if (!debugAttackLockWasActive)
         {
             ClearAggroState();
-            StartAttackLock(
-                GetCurrentFacingDirection(),
-                GetConfiguredAttackCastDuration(),
-                GetConfiguredAttackSlashDuration(),
-                GetConfiguredAttackRecoveryDuration(),
-                true);
+            StartAttackLock(GetCurrentFacingDirection(), 0f, 0f, 0f, true);
             debugAttackLockWasActive = true;
         }
 
@@ -412,13 +382,10 @@ public class EnemyController : MonoBehaviour
 
     public void StartAttackLock(Vector2 direction, float windupDuration, float slashDuration, float recoveryDuration, bool loop = false)
     {
+        ResetMovementAnimation();
+
         isAttackLocked = true;
-        attackAnimationLoop = loop;
-        attackAnimationDirection = direction.sqrMagnitude > 0.001f ? direction.normalized : GetCurrentFacingDirection();
-        attackAnimationStartTime = Time.time;
-        attackWindupDuration = Mathf.Max(windupDuration, 0.01f);
-        attackSlashDuration = Mathf.Max(slashDuration, 0.01f);
-        attackRecoveryDuration = Mathf.Max(recoveryDuration, 0.01f);
+        Vector2 facingDirection = direction.sqrMagnitude > 0.001f ? direction.normalized : GetCurrentFacingDirection();
 
         if (rb != null)
         {
@@ -434,16 +401,13 @@ public class EnemyController : MonoBehaviour
         lastWallID = 0;
         lastWallSide = 0f;
 
-        ApplyFacing(attackAnimationDirection);
-        attackAnimationBaseRotationZ = GetCurrentRawRotationZ();
-        hasAttackAnimationRawRotation = false;
+        ApplyFacing(facingDirection);
     }
 
     public void EndAttackLock()
     {
         isAttackLocked = false;
-        attackAnimationLoop = false;
-        ResetAttackAnimationRawRotation();
+        ResetMovementAnimation();
     }
 
     private void ApplyAttackLock()
@@ -476,15 +440,7 @@ public class EnemyController : MonoBehaviour
 
         if (isAttackLocked)
         {
-            if (enableAttackAnimation)
-            {
-                ApplyAttackAnimation();
-            }
-            else
-            {
-                ResetMovementAnimation();
-            }
-
+            ResetMovementAnimation();
             return;
         }
 
@@ -540,59 +496,6 @@ public class EnemyController : MonoBehaviour
         ApplyAnimationRotationOffset(walkPatrolRotationAmplitude * sway * normalizedSpeed);
     }
 
-    private void ApplyAttackAnimation()
-    {
-        float windupPhaseDuration = attackWindupDuration / Mathf.Max(attackWindupPlaybackSpeed, 0.01f);
-        float slashPhaseDuration = attackSlashDuration / Mathf.Max(attackSlashPlaybackSpeed, 0.01f);
-        float recoveryPhaseDuration = attackRecoveryDuration / Mathf.Max(attackRecoveryPlaybackSpeed, 0.01f);
-        float totalDuration = windupPhaseDuration + slashPhaseDuration + recoveryPhaseDuration;
-
-        if (totalDuration <= 0f)
-        {
-            ResetMovementAnimation();
-            return;
-        }
-
-        float elapsed = Time.time - attackAnimationStartTime;
-        if (attackAnimationLoop)
-        {
-            elapsed = Mathf.Repeat(elapsed, totalDuration);
-        }
-        else if (elapsed >= totalDuration)
-        {
-            SetAttackAnimationRawRotation(attackAnimationBaseRotationZ);
-            return;
-        }
-
-        float attackRotationSign = GetAttackRotationSign();
-        float windupRotation = attackWindupAngle * attackRotationSign;
-        float slashRotation = (attackWindupAngle + attackSlashAngle) * attackRotationSign;
-        float rotationOffset;
-
-        if (elapsed <= windupPhaseDuration)
-        {
-            float windupProgress = Mathf.Clamp01(elapsed / windupPhaseDuration);
-            rotationOffset = Mathf.Lerp(0f, windupRotation, windupProgress);
-        }
-        else if (elapsed <= windupPhaseDuration + slashPhaseDuration)
-        {
-            float slashElapsed = elapsed - windupPhaseDuration;
-            float slashProgress = Mathf.Clamp01(slashElapsed / slashPhaseDuration);
-            // Slash should snap forward hard instead of easing in softly.
-            slashProgress = 1f - Mathf.Pow(1f - slashProgress, 5f);
-            rotationOffset = Mathf.Lerp(windupRotation, slashRotation, slashProgress);
-        }
-        else
-        {
-            float recoveryElapsed = elapsed - windupPhaseDuration - slashPhaseDuration;
-            float recoveryProgress = Mathf.Clamp01(recoveryElapsed / recoveryPhaseDuration);
-            recoveryProgress = Mathf.SmoothStep(0f, 1f, recoveryProgress);
-            rotationOffset = Mathf.Lerp(slashRotation, 0f, recoveryProgress);
-        }
-
-        SetAttackAnimationRawRotation(attackAnimationBaseRotationZ + rotationOffset);
-    }
-
     private float GetMovementAnimationNormalizedSpeed()
     {
         if (rb == null)
@@ -603,26 +506,6 @@ public class EnemyController : MonoBehaviour
         float referenceSpeed = Mathf.Max(Mathf.Max(patrolSpeed, chaseSpeed), Mathf.Max(fleeSpeed, 0.01f));
         float normalizedSpeed = Mathf.Clamp01(rb.linearVelocity.magnitude / referenceSpeed);
         return Mathf.Lerp(0.45f, 1f, normalizedSpeed);
-    }
-
-    private float GetAttackRotationSign()
-    {
-        if (attackAnimationDirection.x > 0.01f)
-        {
-            return 1f;
-        }
-
-        if (attackAnimationDirection.x < -0.01f)
-        {
-            return -1f;
-        }
-
-        if (spriteRenderer != null && spriteRenderer.flipX)
-        {
-            return -1f;
-        }
-
-        return 1f;
     }
 
     private Vector2 GetCurrentFacingDirection()
@@ -644,25 +527,9 @@ public class EnemyController : MonoBehaviour
         return Vector2.right;
     }
 
-    private float GetConfiguredAttackCastDuration()
-    {
-        return enemyAttack != null ? enemyAttack.attackCastDuration : 0.2f;
-    }
-
-    private float GetConfiguredAttackSlashDuration()
-    {
-        return enemyAttack != null ? enemyAttack.attackDuration : 0.12f;
-    }
-
-    private float GetConfiguredAttackRecoveryDuration()
-    {
-        return enemyAttack != null ? enemyAttack.movementDelayAfterAttack : 0.25f;
-    }
-
     private void ResetMovementAnimation()
     {
         ResetAnimationRotationOffset();
-        ResetAttackAnimationRawRotation();
 
         if (idleAnimationTarget != null)
         {
@@ -718,61 +585,6 @@ public class EnemyController : MonoBehaviour
         }
 
         lastAnimationRotationOffset = rotationOffset;
-    }
-
-    private void SetAttackAnimationRawRotation(float rawRotationZ)
-    {
-        SetRawRotationZ(rawRotationZ);
-        hasAttackAnimationRawRotation = true;
-    }
-
-    private void ResetAttackAnimationRawRotation()
-    {
-        if (!hasAttackAnimationRawRotation)
-        {
-            return;
-        }
-
-        SetRawRotationZ(attackAnimationBaseRotationZ);
-        hasAttackAnimationRawRotation = false;
-    }
-
-    private float GetCurrentRawRotationZ()
-    {
-        if (!IsVisualAnimationAppliedToRoot() && idleAnimationTarget != null)
-        {
-            return idleAnimationTarget.localEulerAngles.z;
-        }
-
-        if (rb != null)
-        {
-            return rb.rotation;
-        }
-
-        return transform.eulerAngles.z;
-    }
-
-    private void SetRawRotationZ(float rawRotationZ)
-    {
-        float normalizedRotation = Mathf.Repeat(rawRotationZ, 360f);
-
-        if (!IsVisualAnimationAppliedToRoot() && idleAnimationTarget != null)
-        {
-            Vector3 targetEulerAngles = idleAnimationTarget.localEulerAngles;
-            targetEulerAngles.z = normalizedRotation;
-            idleAnimationTarget.localRotation = Quaternion.Euler(targetEulerAngles);
-            return;
-        }
-
-        if (rb != null)
-        {
-            rb.SetRotation(normalizedRotation);
-            return;
-        }
-
-        Vector3 eulerAngles = transform.eulerAngles;
-        eulerAngles.z = normalizedRotation;
-        transform.rotation = Quaternion.Euler(eulerAngles);
     }
 
     private void CacheIdleAnimationChildren()
