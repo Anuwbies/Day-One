@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     [Header("8-Directional Offsets")]
     [Tooltip("Moves all 8 attack directions as a single group.")]
     public Vector2 groupOffset;
-    [Tooltip("Offsets for the attack collider at each angle (relative to Group Offset):\n0: Right (0�)\n1: Top-Right (45�)\n2: Top (90�)\n3: Top-Left (135�)\n4: Left (180�)\n5: Bottom-Left (225�)\n6: Bottom (270�)\n7: Bottom-Right (315�)")]
+    [Tooltip("Offsets for the attack collider at each anchor angle (relative to Group Offset). These are blended between anchors so the collider can aim at the exact player angle.\n0: Right (0�)\n1: Top-Right (45�)\n2: Top (90�)\n3: Top-Left (135�)\n4: Left (180�)\n5: Bottom-Left (225�)\n6: Bottom (270�)\n7: Bottom-Right (315�)")]
     public Vector2[] directionalOffsets = new Vector2[8];
 
     [Header("References")]
@@ -175,25 +175,19 @@ public class EnemyAttack : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360f;
 
-        int index = Mathf.RoundToInt(angle / 45f) % 8;
-        float snappedAngle = index * 45f;
+        // Apply the exact aim angle instead of snapping to 45-degree sectors.
+        attackCollider.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        // Apply rotation (World Rotation handles the visual rotation correctly)
-        attackCollider.transform.rotation = Quaternion.Euler(0f, 0f, snappedAngle);
+        Vector2 totalOffset = groupOffset + GetInterpolatedDirectionalOffset(angle);
 
-        if (directionalOffsets != null && directionalOffsets.Length > index)
+        // FIX: If the enemy parent is flipped (Scale X is negative), 
+        // we must invert the X offset so the weapon appears on the correct side in World Space.
+        if (transform.lossyScale.x < 0)
         {
-            Vector2 totalOffset = groupOffset + directionalOffsets[index];
-
-            // FIX: If the enemy parent is flipped (Scale X is negative), 
-            // we must invert the X offset so the weapon appears on the correct side in World Space.
-            if (transform.lossyScale.x < 0)
-            {
-                totalOffset.x = -totalOffset.x;
-            }
-
-            attackCollider.transform.localPosition = (Vector3)totalOffset;
+            totalOffset.x = -totalOffset.x;
         }
+
+        attackCollider.transform.localPosition = (Vector3)totalOffset;
     }
 
     private bool IsPlayerInRange()
@@ -489,6 +483,28 @@ public class EnemyAttack : MonoBehaviour
             Vector3 offsetWorldPos = transform.TransformPoint(totalLocalOffset);
             Gizmos.DrawSphere(offsetWorldPos, 0.02f);
         }
+    }
+
+    private Vector2 GetInterpolatedDirectionalOffset(float angle)
+    {
+        if (directionalOffsets == null || directionalOffsets.Length == 0)
+        {
+            return Vector2.zero;
+        }
+
+        if (directionalOffsets.Length == 1)
+        {
+            return directionalOffsets[0];
+        }
+
+        float wrappedAngle = Mathf.Repeat(angle, 360f);
+        float stepAngle = 360f / directionalOffsets.Length;
+        float segment = wrappedAngle / stepAngle;
+        int lowerIndex = Mathf.FloorToInt(segment) % directionalOffsets.Length;
+        int upperIndex = (lowerIndex + 1) % directionalOffsets.Length;
+        float blend = segment - Mathf.Floor(segment);
+
+        return Vector2.Lerp(directionalOffsets[lowerIndex], directionalOffsets[upperIndex], blend);
     }
 
     private Vector2 GetAttackDirection()
