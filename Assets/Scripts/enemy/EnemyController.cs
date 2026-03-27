@@ -400,16 +400,16 @@ public class EnemyController : MonoBehaviour
         if (!debugAttackLockWasActive)
         {
             ClearAggroState();
-            GetDebugAttackLockTimings(
-                out float windupDuration,
-                out float slashDuration,
-                out float recoveryDuration,
-                out float cooldownDuration);
-            StartAttackLock(GetCurrentFacingDirection(), windupDuration, slashDuration, recoveryDuration, cooldownDuration, true);
             debugAttackLockWasActive = true;
         }
 
-        ApplyAttackLock();
+        if (isAttackLocked)
+        {
+            ApplyAttackLock();
+            return;
+        }
+
+        ApplyIdleLock();
     }
 
     public void StartAttackLock(Vector2 direction, float windupDuration, float slashDuration, float recoveryDuration, float cooldownDuration = 0f, bool loop = false)
@@ -708,6 +708,11 @@ public class EnemyController : MonoBehaviour
         }
 
         return Vector2.right;
+    }
+
+    public Vector2 GetFacingDirection()
+    {
+        return GetCurrentFacingDirection();
     }
 
     private void ResetMovementAnimation()

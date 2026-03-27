@@ -47,6 +47,7 @@ public class EnemyAttack : MonoBehaviour
 
     // Track targets hit during the current swing to prevent multi-hits
     private HashSet<GameObject> hitTargets = new HashSet<GameObject>();
+    private Vector2 lastAttackDirection = Vector2.right;
 
     private void Start()
     {
@@ -73,10 +74,16 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
+        bool debugAttackMode = IsDebugAttackMode();
+
         if (playerCollider != null && !IsLivePlayerCollider(playerCollider))
         {
             ClearPlayerTarget();
-            CancelAttackSequence();
+
+            if (!debugAttackMode)
+            {
+                CancelAttackSequence();
+            }
         }
 
         if (playerCollider == null)
@@ -84,15 +91,17 @@ public class EnemyAttack : MonoBehaviour
             TryAssignPlayerCollider();
         }
 
-        if (!IsLivePlayerCollider(playerCollider)) return;
+        bool hasLivePlayerTarget = IsLivePlayerCollider(playerCollider);
+        if (!hasLivePlayerTarget && !debugAttackMode)
+            return;
 
-        if (configuredPlayerCollider != playerCollider)
+        if (hasLivePlayerTarget && configuredPlayerCollider != playerCollider)
         {
             ConfigurePlayerFilter(playerCollider);
         }
 
         // 1. Check Behavior and Aggro State
-        if (enemyController != null)
+        if (!debugAttackMode && enemyController != null)
         {
             // Don't attack if this behavior only flees from the player
             if (enemyController.behavior == EnemyController.AIBehavior.Passive ||
@@ -117,11 +126,23 @@ public class EnemyAttack : MonoBehaviour
         // Stop updating direction or starting new attacks if already mid-attack
         if (isAttacking) return;
 
+        if (debugAttackMode)
+        {
+            UpdateColliderTransform(GetAttackDirection());
+
+            if (Time.time >= nextAttackTime)
+            {
+                PerformAttack();
+            }
+
+            return;
+        }
+
         // 3. Attack Logic
         if (!isMoving && Time.time >= stopTime + attackDelayAfterStop)
         {
             // Position the collider toward the player before checking range
-            UpdateColliderTransform(playerCollider.bounds.center);
+            UpdateColliderTransform(GetAttackDirection());
 
             if (IsPlayerInRange() && Time.time >= nextAttackTime)
             {
@@ -132,10 +153,24 @@ public class EnemyAttack : MonoBehaviour
 
     private void UpdateColliderTransform(Vector3 targetPos)
     {
+        Vector3 myCenter = (ownCollider != null) ? ownCollider.bounds.center : transform.position;
+        UpdateColliderTransform((Vector2)(targetPos - myCenter));
+    }
+
+    private void UpdateColliderTransform(Vector2 direction)
+    {
         if (attackCollider == null) return;
 
-        Vector3 myCenter = (ownCollider != null) ? ownCollider.bounds.center : transform.position;
-        Vector2 direction = (targetPos - myCenter).normalized;
+        if (direction.sqrMagnitude <= 0.001f)
+        {
+            direction = lastAttackDirection.sqrMagnitude > 0.001f ? lastAttackDirection : Vector2.right;
+        }
+        else
+        {
+            direction = direction.normalized;
+        }
+
+        lastAttackDirection = direction;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360f;
@@ -191,14 +226,11 @@ public class EnemyAttack : MonoBehaviour
     {
         hitTargets.Clear();
         isAttacking = true; // Lock direction
+        Vector2 attackDirection = GetAttackDirection();
+        UpdateColliderTransform(attackDirection);
 
         if (enemyController != null)
         {
-            Vector3 myCenter = (ownCollider != null) ? ownCollider.bounds.center : transform.position;
-            Vector2 attackDirection = playerCollider != null
-                ? (Vector2)(playerCollider.bounds.center - myCenter)
-                : Vector2.right;
-
             enemyController.StartAttackLock(
                 attackDirection,
                 attackCastDuration,
@@ -213,11 +245,13 @@ public class EnemyAttack : MonoBehaviour
 
     private void EnableHitbox()
     {
-        if (!IsLivePlayerCollider(playerCollider))
+        if (!IsLivePlayerCollider(playerCollider) && !IsDebugAttackMode())
         {
             CancelAttackSequence();
             return;
         }
+
+        UpdateColliderTransform(lastAttackDirection);
 
         if (attackCollider != null)
         {
@@ -455,5 +489,34 @@ public class EnemyAttack : MonoBehaviour
             Vector3 offsetWorldPos = transform.TransformPoint(totalLocalOffset);
             Gizmos.DrawSphere(offsetWorldPos, 0.02f);
         }
+    }
+
+    private Vector2 GetAttackDirection()
+    {
+        if (IsLivePlayerCollider(playerCollider))
+        {
+            Vector3 myCenter = (ownCollider != null) ? ownCollider.bounds.center : transform.position;
+            Vector2 playerDirection = (Vector2)(playerCollider.bounds.center - myCenter);
+            if (playerDirection.sqrMagnitude > 0.001f)
+            {
+                return playerDirection.normalized;
+            }
+        }
+
+        if (enemyController != null)
+        {
+            Vector2 facingDirection = enemyController.GetFacingDirection();
+            if (facingDirection.sqrMagnitude > 0.001f)
+            {
+                return facingDirection.normalized;
+            }
+        }
+
+        return lastAttackDirection.sqrMagnitude > 0.001f ? lastAttackDirection : Vector2.right;
+    }
+
+    private bool IsDebugAttackMode()
+    {
+        return enemyController != null && enemyController.debugLockAttack;
     }
 }
